@@ -1,11 +1,12 @@
-import React, { Component } from 'react';
+import React, { Component, createRef } from 'react';
 import { connect } from 'react-redux';
 import flv from 'flv.js';
 import { fetchStream } from '../../actions';
 class StreamShow extends Component {
     constructor(props) {
         super(props);
-        this.videoRef = React.createRef();
+        this.videoRef = createRef();
+        this.inputRef = createRef();
     }
     componentDidMount(){
         console.log(this.videoRef);
@@ -29,6 +30,9 @@ class StreamShow extends Component {
         this.player.load();
     
     }
+    handleSubmit = () => {
+        console.log(`hello how are you ${this.inputRef.current.value} !`);
+    }
     render(){
         if(!this.props.stream) {
             return (
@@ -41,6 +45,9 @@ class StreamShow extends Component {
             <video ref={this.videoRef} style={{ width: '100%' }} controls />
             <h1>{ title }</h1>
             <h2>{ description }</h2> 
+
+            <input type="text" style={{padding: '10px', borderRadius: '3px'}} ref={this.inputRef}/>
+            <button onClick={this.handleSubmit} >Enter</button>
         </div>
     );
     }
