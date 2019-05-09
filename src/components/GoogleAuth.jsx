@@ -14,7 +14,6 @@ class GoogleAuth extends Component {
             this.onAuthChange(this.auth.isSignedIn.get());
             this.auth.isSignedIn.listen(this.onAuthChange); 
         });
-        // 1025575281278-q9him3ie1e89uj49dnlnicct7uvndgh5.apps.googleusercontent.com
     });
     };
     onAuthChange = (isSignedIn) => {
@@ -30,14 +29,14 @@ class GoogleAuth extends Component {
             return null
         } else if (  this.props.isSignedIn === true ) {
             return ( 
-                    <button onClick={() => this.auth.signOut() } className="ui button red google">
+                    <button onClick={ () => this.auth.signOut() } className="ui button red google">
                         <i className="google icon" />Logout
                     </button>
                       
                 );
         } else {
             return (
-                        <button onClick={() => this.auth.signIn()} className="ui button red google">
+                        <button onClick={ () => this.auth.signIn() } className="ui button red google">
                             <i className="google icon" />Sign In with Google
                         </button>   
                     );
