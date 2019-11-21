@@ -2,19 +2,20 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import SteramForm from './StreamForm';
 import { createStream } from '../../actions';
-class StreamCreate extends Component {
- 
-    onSubmit = ( formValues ) => {
-        this.props.createStream( formValues );
+const StreamCreate = props => {
+
+    const onSubmit = formValues => {
+        props.createStream(formValues);
     }
-    render (){
-      
-        return (
-            <div>
-                 <h3>Create Form </h3>
-                <SteramForm onSubmit={ this.onSubmit } />
-            </div>
-        );
-    }
+
+    return (
+        <div>
+            <h3>Create Form </h3>
+            <SteramForm onSubmit={onSubmit} />
+        </div>
+    );
 }
-export default connect(null,{ createStream })(StreamCreate);
+const mapDispatchToProps = dispatch => ({
+    createStream: (data) => dispatch(createStream(data))
+})
+export default connect(null, mapDispatchToProps)(StreamCreate);
