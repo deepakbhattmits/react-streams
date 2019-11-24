@@ -22,6 +22,8 @@
 @import "../../../node_modules/bootstrap/scss/transitions";
 @import "../../../node_modules/bootstrap/scss/utilities";
 @import "../../../node_modules/react-datepicker/dist/react-datepicker.css";
+@import "../../../node_modules/react-grid-layout/css/styles.css";
+@import "../../..//node_modules/react-resizable/css/styles.css";
 
 @import "./settings";
 
@@ -38,14 +40,27 @@ html {
     display: flex;
     justify-content: center;
     align-items: center;
+    .react-datepicker__input-container {
+        display: flex;
+        justify-content: flex-end;
+    }
     input[type=text] {
         border: 1px solid #000;
         border-right: none;
         height: 30px;
         padding: 0.5rem;
+        width: calc(100% - 75px);
+    }
+    .react-datepicker-popper {
+        .react-datepicker {
+             .react-datepicker__triangle {
+               left:100px;
+            }
+        }
     }
     .icon {
-        border: 1px solid transparent;
+        border: 1px solid #000;
+        border-left: none;
         height: 30px;
         width: 30px;
         background: #ccc;
@@ -61,5 +76,11 @@ html {
         outline: none;
     }
 }
-
+.react-grid-item {
+    background: cyan;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
 
