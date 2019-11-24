@@ -12,6 +12,7 @@
 @import "../../../node_modules/bootstrap/scss/mixins";
 
 // Optional
+@import "../../../node_modules/bootstrap/scss/buttons";
 @import "../../../node_modules/bootstrap/scss/reboot";
 @import "../../../node_modules/bootstrap/scss/type";
 @import "../../../node_modules/bootstrap/scss/images";
@@ -20,6 +21,45 @@
 @import "../../../node_modules/bootstrap/scss/navbar";
 @import "../../../node_modules/bootstrap/scss/transitions";
 @import "../../../node_modules/bootstrap/scss/utilities";
+@import "../../../node_modules/react-datepicker/dist/react-datepicker.css";
 
+@import "./settings";
+
+.icon {
+        fill: var(--color-white)
+    }
+
+    /* Usage */
+html {
+    background: var(--color-scheme-background);
+    color: var(--color-scheme-text-color);
+}
+.datepicker {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    input[type=text] {
+        border: 1px solid #000;
+        border-right: none;
+        height: 30px;
+        padding: 0.5rem;
+    }
+    .icon {
+        border: 1px solid transparent;
+        height: 30px;
+        width: 30px;
+        background: #ccc;
+    }
+    .react-datepicker__navigation--previous {
+        background: var(--color-scheme-text-color);
+        border-right-color: var(--color-scheme-text-color);
+        outline: none;
+    }
+      .react-datepicker__navigation--next {
+        background: var(--color-scheme-text-color);
+        border-left-color:  var(--color-scheme-text-color);
+        outline: none;
+    }
+}
 
 
