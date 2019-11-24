@@ -7,7 +7,6 @@ import StreamEdit from './streams/StreamEdit';
 import StreamDelete from './streams/StreamDelete';
 import Header from './Header';
 import createBrowserHistory from '../history';
-import "../assets/scss/main.scss";
 const App = () => {
     return (
         <div className="ui container">
