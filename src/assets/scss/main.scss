@@ -66,13 +66,9 @@ html {
         background: #ccc;
     }
     .react-datepicker__navigation--previous {
-        background: var(--color-scheme-text-color);
-        border-right-color: var(--color-scheme-text-color);
         outline: none;
     }
       .react-datepicker__navigation--next {
-        background: var(--color-scheme-text-color);
-        border-left-color:  var(--color-scheme-text-color);
         outline: none;
     }
 }
