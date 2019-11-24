@@ -7,22 +7,23 @@ import StreamEdit from './streams/StreamEdit';
 import StreamDelete from './streams/StreamDelete';
 import Header from './Header';
 import createBrowserHistory from '../history';
+import "../assets/scss/main.scss";
 const App = () => {
-        return (
-            <div className="ui container">
-                <Router history={ createBrowserHistory }>
-                    <div>
+    return (
+        <div className="ui container">
+            <Router history={createBrowserHistory}>
+                <div>
                     <Header />
-                        <Switch>
-                            <Route path="/" exact component={StreamList}></Route>
-                            <Route path="/streams/new" exact component={StreamCreate}></Route>
-                            <Route path="/streams/edit/:id" exact component={StreamEdit}></Route>
-                            <Route path="/streams/delete/:id" exact component={StreamDelete}></Route>
-                            <Route path="/streams/show/:id" exact component={StreamShow}></Route>
-                        </Switch>
-                    </div>
-                </Router>
-            </div>
-        );
+                    <Switch>
+                        <Route path="/" exact component={StreamList}></Route>
+                        <Route path="/streams/new" exact component={StreamCreate}></Route>
+                        <Route path="/streams/edit/:id" exact component={StreamEdit}></Route>
+                        <Route path="/streams/delete/:id" exact component={StreamDelete}></Route>
+                        <Route path="/streams/show/:id" exact component={StreamShow}></Route>
+                    </Switch>
+                </div>
+            </Router>
+        </div>
+    );
 }
 export default App;
