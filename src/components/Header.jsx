@@ -1,13 +1,17 @@
-import React from 'react';
+import React, { useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import GoogleAuth from './GoogleAuth';
-// import DatePicker from 'react-date-picker';
+import DatePicker from "react-datepicker";
 import { ReactComponent as CalenderSVG } from '../assets/images/icon-calendar.svg'
 const Header = () => {
-    // const [date, setDate] = useState(new Date());
-    // const onChange = date => {
-    //     setDate(date)
-    // };
+    const [selectedDate, setSelectedDate] = useState(new Date());
+    const datePicker = useRef();
+    const onChange = value => {
+        setSelectedDate(value)
+    }
+    const onChangeSVG = () => {
+        datePicker.current.handleFocus();
+    }
     return (
         <div className="ui secondary menu pointing">
             <Link to='/' className="item">
@@ -16,26 +20,21 @@ const Header = () => {
             <div className="right menu">
                 <Link to='' className="item">All Stream</Link>
                 <GoogleAuth />
-                {/* <input
-                    className='ui input'
-                    type='test'
-                    value={date.toISOString().split(/[0-9]{1}[A-Z]{1}/)}
-                /> */}
                 <div className='datepicker'>
+                    <DatePicker
+                        ref={datePicker}
+                        onChange={onChange}
+                        selected={selectedDate} // display the current date  
+                        // placeholderText="DD-MM-YYYY" // displayed only when selected is not there 
+                        dateFormat="dd-MM-yyyy" // if you want to make some changes with format then use this attribute by default value displayed like MM/DD/YYYY
+
+                    />
                     <CalenderSVG
                         className='icon icon--calender'
+                        onClick={onChangeSVG}
                     />
-                    {/* <DatePicker
-                        onChange={onChange}
-                        value={date}
-                    /> */}
                 </div>
-
-
-
-
             </div>
-
         </div>
     );
 };
