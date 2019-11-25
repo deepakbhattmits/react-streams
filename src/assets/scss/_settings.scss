@@ -1,22 +1,25 @@
+$color-pink: pink;
+$color-red: red;
+
 /* Defaults */
 :root {
-    --color-scheme-background: pink;
-    --color-scheme-text-color: red;
+    --color-scheme-background: $color-pink;
+    --color-scheme-text-color: $color-red;
 }
 
 /* Light mode */
 @media (prefers-color-scheme: light) {
     :root {
-        --color-scheme-background: white;
-        --color-scheme-text-color: black;
+        --color-scheme-background: #{$color-pink};
+        --color-scheme-text-color:  #{$color-red};
     }
 }
 
 /* Dark mode */
 @media (prefers-color-scheme: dark) {
     :root {
-        --color-scheme-background: black;
-        --color-scheme-text-color: cyan;
+        --color-scheme-background:  #{$color-pink};
+        --color-scheme-text-color:  #{$color-red};
     }
 
 }
