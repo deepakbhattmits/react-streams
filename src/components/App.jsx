@@ -12,7 +12,7 @@ import DatePicker from "react-datepicker";
 import createBrowserHistory from '../history';
 const App = () => {
     const layout = [
-        { i: 'a', x: 0, y: 0, w: 4, h: 4, minW: 2, maxW: 4, minH: 3, maxH: 4 },
+        { i: 'a', x: 0, y: 0, w: 4, h: 4, minW: 2, maxW: 4, minH: 3, maxH: 4, isDraggable: false },
         { i: 'b', x: 1, y: 0, w: 3, h: 2, minW: 2, maxW: 4 },
         { i: 'c', x: 4, y: 0, w: 1, h: 2 }
     ];
