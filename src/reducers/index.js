@@ -4,7 +4,7 @@ import authReducer from './authReducer';
 import streamReducer from './streamReducer';
 
 export default combineReducers({
-    auth : authReducer,
+    auth: authReducer,
     form: formReducer,
     streams: streamReducer
 })
