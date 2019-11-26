@@ -56,7 +56,9 @@ class StreamList extends Component {
 
         return (
             <div >
-                <h2>Streams</h2>
+                <div className='heading'>
+                    <h2>Streams</h2>
+                </div>
                 <div className="ui celled list">
                     {this.renderList()}
 

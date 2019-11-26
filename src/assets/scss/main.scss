@@ -1,33 +1,26 @@
-// Option B: Include parts of Bootstrap
-// Required
-@import "../../../node_modules/bootstrap/scss/functions";
-@import "../../../node_modules/bootstrap/scss/variables";
-@import "../../../node_modules/bootstrap/scss/mixins";
-// Optional
-@import "../../../node_modules/bootstrap/scss/buttons";
-@import "../../../node_modules/bootstrap/scss/reboot";
-@import "../../../node_modules/bootstrap/scss/type";
-@import "../../../node_modules/bootstrap/scss/images";
-@import "../../../node_modules/bootstrap/scss/code";
-@import "../../../node_modules/bootstrap/scss/grid";
-@import "../../../node_modules/bootstrap/scss/navbar";
-@import "../../../node_modules/bootstrap/scss/transitions";
-@import "../../../node_modules/bootstrap/scss/utilities";
-@import "../../../node_modules/react-datepicker/dist/react-datepicker.css";
-@import "../../../node_modules/react-grid-layout/css/styles.css";
-@import "../../..//node_modules/react-resizable/css/styles.css";
 
 @import "./settings";
+@import './some';
 
-.icon {
-        fill: var(--color-white)
-    }
+// Option B: Include parts of Bootstrap
+// Required
+// @import "../../../node_modules/bootstrap/scss/functions";
+// @import "../../../node_modules/bootstrap/scss/variables";
+// @import "../../../node_modules/bootstrap/scss/mixins";
+// Optional
+// @import "../../../node_modules/bootstrap/scss/reboot";
+// @import "../../../node_modules/bootstrap/scss/grid";
+// @import "../../../node_modules/bootstrap/scss/type";
+// @import "../../../node_modules/bootstrap/scss/images";
+// @import "../../../node_modules/bootstrap/scss/code";
+// @import "../../../node_modules/bootstrap/scss/buttons";
+// @import "../../../node_modules/bootstrap/scss/navbar";
+// @import "../../../node_modules/bootstrap/scss/transitions";
+// @import "../../../node_modules/bootstrap/scss/utilities";
+// @import "../../../node_modules/react-datepicker/dist/react-datepicker.css";
+// @import "../../../node_modules/react-grid-layout/css/styles.css";
+// @import "../../..//node_modules/react-resizable/css/styles.css";
 
-    /* Usage */
-html {
-    background: var(--color-scheme-background);
-    color: var(--color-scheme-text-color);
-}
 .datepicker {
     display: flex;
     justify-content: center;
@@ -65,7 +58,7 @@ html {
     }
 }
 .react-grid-item {
-    background: cyan;
+    background: var(--color-scheme-background);
     padding: 10px;
     display: flex;
     justify-content: space-between;

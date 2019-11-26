@@ -1,25 +1,28 @@
-$color-pink: pink;
-$color-red: red;
+$primary-color: #dedede;
+$secondary-color: #818cab;
+$font-color: #000;
+$bg-color: #161625;
+$heading-color: #818cab;
 
 /* Defaults */
 :root {
-    --color-scheme-background: $color-pink;
-    --color-scheme-text-color: $color-red;
+    --color-scheme-background: #{$primary-color};
+    --color-scheme-text-color: #{$font-color};
 }
 
 /* Light mode */
-@media (prefers-color-scheme: light) {
-    :root {
-        --color-scheme-background: #{$color-pink};
-        --color-scheme-text-color:  #{$color-red};
-    }
-}
+// @media (prefers-color-scheme: light) {
+//     :root {
+//         --color-scheme-background: #{$primary-color};
+//         --color-scheme-text-color:  #{$font-color};
+//     }
+// }
 
 /* Dark mode */
 @media (prefers-color-scheme: dark) {
     :root {
-        --color-scheme-background:  #{$color-pink};
-        --color-scheme-text-color:  #{$color-red};
+        --color-scheme-background: #{invert($primary-color)};
+        --color-scheme-text-color:  #{invert($font-color)};
     }
 
 }
