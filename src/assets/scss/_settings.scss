@@ -1,12 +1,12 @@
-$primary-color: #dedede;
-$secondary-color: #818cab;
-$font-color: #blac;
+// $primary-color: #dedede;
+// $secondary-color: #818cab;
+$font-color: black;
 $bg-color: #161625;
 $heading-color: #818cab;
 
 /* Defaults */
 :root {
-    --color-scheme-background: #{$primary-color};
+    --color-scheme-background: #{$bg-color};
     --color-scheme-text-color: #{$font-color};
 }
 
@@ -21,8 +21,7 @@ $heading-color: #818cab;
 /* Dark mode */
 @media (prefers-color-scheme: dark) {
     :root {
-        --color-scheme-background: #{invert($primary-color)};
-        --color-scheme-text-color:  #{invert($font-color)};
+        --color-scheme-background: #{invert($bg-color)};
+        --color-scheme-text-color: #{invert($font-color)};
     }
-
 }
