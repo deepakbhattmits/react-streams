@@ -8,8 +8,13 @@ import StreamDelete from './streams/StreamDelete';
 import Header from './Header';
 import GridLayout from 'react-grid-layout';
 import { ReactComponent as CalenderSVG } from '../assets/images/icon-calendar.svg'
+import { ReactComponent as LeftSVG } from '../assets/images/icon-left-chevron.svg'
+import { ReactComponent as RightSVG } from '../assets/images/icon-right-chevron.svg'
 import DatePicker from "react-datepicker";
 import createBrowserHistory from '../history';
+
+
+import { CarouselProvider, Slider, Slide, ButtonBack, ButtonNext } from 'pure-react-carousel';
 const App = () => {
     const layout = [
         { i: 'a', x: 0, y: 0, w: 4, h: 4, minW: 2, maxW: 4, minH: 3, maxH: 4, isDraggable: false },
@@ -36,6 +41,23 @@ const App = () => {
                         <Route path="/streams/delete/:id" exact component={StreamDelete}></Route>
                         <Route path="/streams/show/:id" exact component={StreamShow}></Route>
                     </Switch>
+                </div>
+                <div className='caousel'>
+                    <CarouselProvider
+                        naturalSlideWidth={100}
+                        naturalSlideHeight={10}
+                        totalSlides={3}
+                        visibleSlides={2}
+                    >
+                        <ButtonBack><LeftSVG /></ButtonBack>
+                        <Slider>
+                            <Slide index={0}>I am the first Slide.</Slide>
+                            <Slide index={1}>I am the second Slide.</Slide>
+                            <Slide index={2}>I am the third Slide.</Slide>
+                        </Slider>
+                        <ButtonNext><RightSVG /></ButtonNext>
+                    </CarouselProvider>
+
                 </div>
                 <div className="grid">
                     <GridLayout className="layout" layout={layout} cols={12} rowHeight={30} width={1200}>
