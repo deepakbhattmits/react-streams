@@ -9,6 +9,7 @@ $heading-color: #818cab;
     --color-scheme-background: #{$bg-color};
     --color-scheme-text-color: #{$font-color};
     --color-scheme-black: #{$color-black};
+     --color-scheme-white: #{$color-white};
 }
 
 /* Light mode */
@@ -24,6 +25,7 @@ $heading-color: #818cab;
     :root {
         --color-scheme-background: #{invert($bg-color)};
         --color-scheme-text-color: #{invert($font-color)};
-        --color-scheme-black: #{$color-white};
+        --color-scheme-black: #{$color-black};
+     --color-scheme-white: #{$color-white};
     }
 }
