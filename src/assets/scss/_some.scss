@@ -4,3 +4,40 @@
     color: var(--color-scheme-text-color);
     width: 100%;
 }
+.carousel {
+    position: relative;
+    display: flex;
+    align-items: center;
+    button {
+        &.carousel__back-button{
+            left: 0;
+        }
+        &.carousel__next-button{
+            right: 0;
+        }
+        &:disabled {
+            opacity: 0.5;
+        }
+        position: absolute;
+        background: transparent;
+        border: none;
+        outline: none;
+        svg {
+            width: 25px;
+            height: 25px;
+            path {
+                fill: var(--color-scheme-black);
+            }
+        }
+    }
+    .carousel__slider {
+        width: 90%;
+        margin: auto;
+    }
+       .carousel__slide {
+        border: 1px solid #cccc;
+        color: #000;
+        text-align: center;
+        border-radius: .5rem;
+    }
+}
