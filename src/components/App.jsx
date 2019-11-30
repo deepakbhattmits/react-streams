@@ -51,9 +51,21 @@ const App = () => {
                     >
                         <ButtonBack><LeftSVG /></ButtonBack>
                         <Slider>
-                            <Slide index={0}>I am the first Slide.</Slide>
-                            <Slide index={1}>I am the second Slide.</Slide>
-                            <Slide index={2}>I am the third Slide.</Slide>
+                            <Slide index={0}>
+                                <div className='slide'>
+                                    I am the first Slide.
+                                </div>
+                            </Slide>
+                            <Slide index={1}>
+                                <div className='slide'>
+                                    I am the second Slide.
+                                </div>
+                            </Slide>
+                            <Slide index={2}>
+                                <div className='slide'>
+                                    I am the third Slide.
+                                </div>
+                            </Slide>
                         </Slider>
                         <ButtonNext><RightSVG /></ButtonNext>
                     </CarouselProvider>
