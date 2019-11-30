@@ -1,5 +1,5 @@
-// $primary-color: #dedede;
-// $secondary-color: #818cab;
+$color-black: #000;
+$color-white: #fff;
 $font-color: pink;
 $bg-color: cyan;
 $heading-color: #818cab;
@@ -8,6 +8,7 @@ $heading-color: #818cab;
 :root {
     --color-scheme-background: #{$bg-color};
     --color-scheme-text-color: #{$font-color};
+    --color-scheme-black: #{$color-black};
 }
 
 /* Light mode */
@@ -23,5 +24,6 @@ $heading-color: #818cab;
     :root {
         --color-scheme-background: #{invert($bg-color)};
         --color-scheme-text-color: #{invert($font-color)};
+        --color-scheme-black: #{$color-white};
     }
 }
