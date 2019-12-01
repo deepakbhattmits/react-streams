@@ -1,17 +1,20 @@
 import React, { useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import GoogleAuth from './GoogleAuth';
-import DatePicker from "react-datepicker";
+
+
 import { ReactComponent as CalenderSVG } from '../assets/images/icon-calendar.svg'
+import DatePicker from "react-datepicker"
 const Header = () => {
-    const [selectedDate, setSelectedDate] = useState(new Date());
     const datePicker = useRef();
+    const [selectedDate, setSelectedDate] = useState(new Date());
     const onChange = value => {
         setSelectedDate(value)
     }
     const onChangeSVG = () => {
         datePicker.current.handleFocus();
     }
+
     return (
         <div className="ui secondary menu pointing">
             <Link to='/' className="item">
