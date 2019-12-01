@@ -29,14 +29,14 @@
                     background: var(--color-scheme-black);
                     border-radius: 50%;
                     padding: 0.1rem;
-                path {
-                    &:first-child{
-                        fill: var(--color-scheme-black);
+                    path {
+                        &:first-child{
+                            fill: var(--color-scheme-black);
+                        }
+                        fill: var(--color-scheme-white);
                     }
-                    fill: var(--color-scheme-white);
                 }
             }
-        }
         .carousel__slider {
             width: 90%;
             margin: auto;
