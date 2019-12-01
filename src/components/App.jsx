@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React from 'react';
 import { Router, Route, Switch } from 'react-router-dom';
 import StreamCreate from './streams/StreamCreate';
 import StreamList from './streams/StreamList';
@@ -6,29 +6,15 @@ import StreamShow from './streams/StreamShow';
 import StreamEdit from './streams/StreamEdit';
 import StreamDelete from './streams/StreamDelete';
 import Header from './Header';
-import GridLayout from 'react-grid-layout';
-import { ReactComponent as CalenderSVG } from '../assets/images/icon-calendar.svg'
-import { ReactComponent as LeftSVG } from '../assets/images/icon-left-chevron.svg'
-import { ReactComponent as RightSVG } from '../assets/images/icon-right-chevron.svg'
-import DatePicker from "react-datepicker";
 import createBrowserHistory from '../history';
-
-
-import { CarouselProvider, Slider, Slide, ButtonBack, ButtonNext } from 'pure-react-carousel';
+import SliderComponent from './streams/SliderComponent';
+import GridLayoutComponent from './streams/GridLayoutComponent';
 const App = () => {
     const layout = [
         { i: 'a', x: 0, y: 0, w: 4, h: 4, minW: 2, maxW: 4, minH: 3, maxH: 4, isDraggable: false },
-        { i: 'b', x: 1, y: 1, w: 3, h: 2, minW: 2, maxW: 4, static: true, isDraggable: true },
+        { i: 'b', x: 1, y: 1, w: 3, h: 2, minW: 2, maxW: 4, static: false, isDraggable: true },
         { i: 'c', x: 4, y: 1, w: 1, h: 2, static: true, isDraggable: false }
     ];
-    const [selectedDate, setSelectedDate] = useState(new Date());
-    const datePicker = useRef();
-    const onChange = value => {
-        setSelectedDate(value)
-    }
-    const onChangeSVG = () => {
-        datePicker.current.handleFocus();
-    }
     return (
         <div className="ui container">
             <Router history={createBrowserHistory}>
@@ -43,57 +29,10 @@ const App = () => {
                     </Switch>
                 </div>
                 <div className='caousel'>
-                    <CarouselProvider
-                        naturalSlideWidth={100}
-                        naturalSlideHeight={10}
-                        totalSlides={3}
-                        visibleSlides={2}
-                    >
-                        <ButtonBack><LeftSVG /></ButtonBack>
-                        <Slider>
-                            <Slide index={0}>
-                                <div className='slide'>
-                                    I am the first Slide.
-                                </div>
-                            </Slide>
-                            <Slide index={1}>
-                                <div className='slide'>
-                                    I am the second Slide.
-                                </div>
-                            </Slide>
-                            <Slide index={2}>
-                                <div className='slide'>
-                                    I am the third Slide.
-                                </div>
-                            </Slide>
-                        </Slider>
-                        <ButtonNext><RightSVG /></ButtonNext>
-                    </CarouselProvider>
-
+                    <SliderComponent />
                 </div>
                 <div className="grid">
-                    <GridLayout className="layout" layout={layout} cols={12} rowHeight={30} width={1200}>
-                        <div key="a">a
-                            <div className='datepicker'>
-                                <DatePicker
-                                    ref={datePicker}
-                                    onChange={onChange}
-                                    selected={selectedDate} // display the current date  
-                                    // placeholderText="DD-MM-YYYY" // displayed only when selected is not there 
-                                    dateFormat="dd-MM-yyyy" // if you want to make some changes with format then use this attribute by default value displayed like MM/DD/YYYY
-
-                                />
-                                <CalenderSVG
-                                    className='icon icon--calender'
-                                    onClick={onChangeSVG}
-                                />
-                            </div>
-
-
-                        </div>
-                        <div key="b">b</div>
-                        <div key="c">c</div>
-                    </GridLayout>
+                    <GridLayoutComponent layout={layout} />
                 </div>
             </Router>
         </div>
