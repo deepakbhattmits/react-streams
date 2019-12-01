@@ -1,25 +1,21 @@
-import React, { useState, useRef } from 'react';
-import { Link } from 'react-router-dom';
-import GoogleAuth from './GoogleAuth';
+import React, { useState, useRef } from 'react'
+import { Link } from 'react-router-dom'
+import GoogleAuth from './GoogleAuth'
 
 
 import { ReactComponent as CalenderSVG } from '../assets/images/icon-calendar.svg'
 import DatePicker from "react-datepicker"
+// import { Dropdown, Button } from 'react-bootstrap'
 const Header = () => {
     const datePicker = useRef();
     const [selectedDate, setSelectedDate] = useState(new Date());
-    // const [readOnly, setReadOnly] = useState(true);
     const onChange = value => {
         setSelectedDate(value)
-        // setReadOnly(true)
     }
     const onChangeSVG = () => {
-        // console.log('test : ', datePicker)
+        // console.log('test : ', datePicker.current)
         datePicker.current.handleFocus();
-        datePicker.current.setOpen(true)
-        // setReadOnly(false);
     }
-    // openDatepicker = () => this._calendar.setOpen(true);
     return (
         <div className="ui secondary menu pointing">
             <Link to='/' className="item">
@@ -27,11 +23,13 @@ const Header = () => {
             </Link>
             <div className="right menu">
                 <Link to='' className="item">All Stream</Link>
+                <div className='dropdown'>
+
+                </div>
                 <GoogleAuth />
                 <div className='datepicker'>
                     <DatePicker
                         ref={datePicker}
-                        // readOnly={readOnly}
                         onChange={onChange}
                         selected={selectedDate} // display the current date  
                         // placeholderText="DD-MM-YYYY" // displayed only when selected is not there 
