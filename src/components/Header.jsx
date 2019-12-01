@@ -30,15 +30,12 @@ const Header = () => {
             </Link>
             <div className="right menu">
                 <Link to='' className="item">All Stream</Link>
-                <div className='dropdown'>
-
-                </div>
                 <GoogleAuth />
                 <div className='dropdown'>
                     <Dropdown>
-                        <Button variant="success" className='button-label' >{value}</Button>
+                        <Button variant="outline-success" className='button --label' >{value}</Button>
 
-                        <Dropdown.Toggle className='button-arrow' split variant="success" />
+                        <Dropdown.Toggle className='button --arrow' split variant="outline-success" />
 
                         <Dropdown.Menu >
                             {
