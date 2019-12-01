@@ -12,8 +12,8 @@ import GridLayoutComponent from './streams/GridLayoutComponent';
 const App = () => {
     const layout = [
         { i: 'a', x: 0, y: 0, w: 4, h: 4, minW: 2, maxW: 4, minH: 3, maxH: 4, static: false, isDraggable: true },
-        { i: 'b', x: 1, y: 1, w: 3, h: 2, minW: 2, maxW: 4, static: false, isDraggable: true },
-        { i: 'c', x: 4, y: 1, w: 1, h: 2, static: false, isDraggable: true }
+        { i: 'b', x: 1, y: 1, w: 3, h: 6, minW: 2, maxW: 4, minH: 3, maxH: 4, static: false, isDraggable: true },
+        { i: 'c', x: 4, y: 1, w: 1, h: 9, minW: 2, maxW: 4, minH: 3, maxH: 4, static: false, isDraggable: true }
     ];
     return (
         <div className="ui container">
