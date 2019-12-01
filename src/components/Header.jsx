@@ -3,18 +3,25 @@ import { Link } from 'react-router-dom'
 import GoogleAuth from './GoogleAuth'
 
 
+
 import { ReactComponent as CalenderSVG } from '../assets/images/icon-calendar.svg'
 import DatePicker from "react-datepicker"
-// import { Dropdown, Button } from 'react-bootstrap'
+import { Dropdown, Button } from 'react-bootstrap'
 const Header = () => {
     const datePicker = useRef();
     const [selectedDate, setSelectedDate] = useState(new Date());
+    const [value, setValue] = useState('--Select--');
     const onChange = value => {
         setSelectedDate(value)
     }
     const onChangeSVG = () => {
         // console.log('test : ', datePicker.current)
         datePicker.current.handleFocus();
+    }
+    const handleDropdown = e => {
+        const { innerText } = e.target;
+        console.log(innerText)
+        setValue(innerText)
     }
     return (
         <div className="ui secondary menu pointing">
@@ -27,6 +34,27 @@ const Header = () => {
 
                 </div>
                 <GoogleAuth />
+                <div className='dropdown'>
+                    <Dropdown>
+                        <Button variant="success" className='button-label' >{value}</Button>
+
+                        <Dropdown.Toggle className='button-arrow' split variant="success" />
+
+                        <Dropdown.Menu >
+                            {
+
+                                ['a', 'b', 'c', 'd', 'e', 'f'].map((el, i) => {
+                                    return (
+                                        <Dropdown.Item key={i} onClick={handleDropdown}>{el}</Dropdown.Item>
+                                    )
+                                })
+                            }
+                            {/* <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
+                            <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
+                            <Dropdown.Item href="#/action-3">Something else</Dropdown.Item> */}
+                        </Dropdown.Menu>
+                    </Dropdown>
+                </div>
                 <div className='datepicker'>
                     <DatePicker
                         ref={datePicker}
