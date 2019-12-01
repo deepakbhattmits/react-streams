@@ -67,3 +67,24 @@
             }
         }
     }
+
+.show > .btn-outline-success.dropdown-toggle:focus,
+.btn-outline-success:not(:disabled):not(.disabled):active:focus,
+.btn-outline-success:not(:disabled):not(.disabled).active:focus,
+.btn.btn-outline-success:active,
+.btn.btn-outline-success:focus,
+.btn.btn-outline-success.focus {
+    box-shadow: none;
+    
+}
+.dropdown {
+    .button {
+        border-radius: 0;
+        &.--label{
+            width: 100px;
+        }
+        &.--arrow{
+            width: 30px;
+        }
+    }
+}
