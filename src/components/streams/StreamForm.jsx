@@ -43,8 +43,6 @@ class StreamForm extends Component {
                     </div>
                 </div>
                 <button className="ui primary button">Submit</button>
-
-
             </form>
         );
     }
