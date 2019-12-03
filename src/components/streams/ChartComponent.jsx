@@ -1,9 +1,12 @@
 import React, { useRef, useEffect, useState } from 'react';
 import { Line } from 'react-chartjs-2';
+import { hi } from 'date-fns/locale';
 
 const ChartComponent = () => {
     const chart = useRef();
     const [legend, setLegend] = useState([])
+    const [text, setText] = useState('');
+    const [hidden, setHidden] = useState(false);
     const chartData = {
         labels: ['M', 'T', 'W', 'T', 'F', 'S', 'S'],
         datasets: [{
@@ -47,7 +50,11 @@ const ChartComponent = () => {
         const datasetIndex = legendItems.filter(el =>
             el.text === id
         );
-        console.log(datasetIndex[0].datasetIndex, 'DATA :', legendItems, 'NEW : ', chartInstance)
+        const data = datasetIndex[0].text;
+        const hidden = chartInstance.getDatasetMeta(datasetIndex[0].datasetIndex).hidden === null ? true : !chartInstance.getDatasetMeta(datasetIndex[0].datasetIndex).hidden;
+        console.log('new Test ', hidden)
+        setHidden(hidden)
+        setText(data)
         chartInstance.getDatasetMeta(datasetIndex[0].datasetIndex).hidden =
             chartInstance.getDatasetMeta(datasetIndex[0].datasetIndex).hidden === null ? true : !chartInstance.getDatasetMeta(datasetIndex[0].datasetIndex).hidden
         chartInstance.update(); // re-draw chart to hide dataset
@@ -60,9 +67,9 @@ const ChartComponent = () => {
             <div className="custom-legends">
                 {legend.length &&
                     legend.map(item => {
-                        console.log(item)
                         return (
-                            <div id={item.text} className='legend-wrapper' key={item.text} onClick={handleClick}>
+                            <div id={item.text} className='legend-wrapper' key={item.text}
+                                onClick={handleClick}>
                                 <div
                                     id={item.text}
                                     className='legend'
@@ -72,11 +79,16 @@ const ChartComponent = () => {
                                         borderColor: item.strokeStyle,
                                         backgroundColor: item.fillStyle
                                     }}
+
                                 />
-                                {item.text}
+                                {console.log(item)}
+                                <span id={item.text} className={`text --${text === item.text && !hidden ? 'selected' : 'unselected'}`} >
+                                    {item.text}
+                                </span>
                             </div>
                         );
-                    })}
+                    })
+                }
             </div>
         </>
     );
