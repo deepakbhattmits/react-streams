@@ -30,7 +30,9 @@ const Header = () => {
             </Link>
             <div className="right menu">
                 <Link to='' className="item">All Stream</Link>
+
                 <GoogleAuth />
+
                 <div className='dropdown'>
                     <Dropdown>
                         <Button variant="outline-success" className='button --label' >{value}</Button>
