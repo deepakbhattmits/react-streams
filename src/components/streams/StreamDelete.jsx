@@ -43,4 +43,4 @@ const mapStateToProps = (state, ownProps) => {
         stream: state.streams[ownProps.match.params.id]
     }
 };
-export default connect(mapStateToProps, { fetchStream, deleteStream })(StreamDelete); 
+export default connect(mapStateToProps, { fetchStream, deleteStream })(StreamDelete);   
