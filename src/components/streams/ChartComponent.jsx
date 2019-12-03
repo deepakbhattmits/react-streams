@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import { Line } from 'react-chartjs-2';
 
 const ChartComponent = () => {
+    const chart = useRef();
+    const [legend, setLegend] = useState([])
     const chartData = {
         labels: ['M', 'T', 'W', 'T', 'F', 'S', 'S'],
         datasets: [{
@@ -9,27 +11,17 @@ const ChartComponent = () => {
             data: [12, 19, 3, 17, 6, 3, 7],
             backgroundColor: "rgba(153,255,51,0.6)",
             borderColor: [
-                'rgba(255, 99, 132, .5)',
-                'rgba(54, 162, 235, .6)',
-                'rgba(255, 206, 86, .7)',
-                'rgba(75, 192, 192, .8)',
-                'rgba(153, 102, 255, .5)',
-                'rgba(255, 159, 64, .4)'
+                'rgba(153,255,51,1)'
             ],
-            borderWidth: 10
+            borderWidth: 5
         }, {
             label: 'oranges',
             data: [2, 29, 5, 5, 2, 3, 10],
             backgroundColor: "rgba(255,153,0,0.6)",
             borderColor: [
-                'rgba(255, 99, 132, 1)',
-                'rgba(54, 162, 235, .9)',
-                'rgba(255, 206, 86, .8)',
-                'rgba(75, 192, 192, .7)',
-                'rgba(153, 102, 255, .6)',
-                'rgba(255, 159, 64, .5)'
+                'rgba(255,153,0,1)'
             ],
-            borderWidth: 10
+            borderWidth: 5
         }]
     }
     const options = {
@@ -42,9 +34,35 @@ const ChartComponent = () => {
             }
         }
     }
+    useEffect(() => {
+        const component = chart;
+        const legendItems = component.current.chartInstance.legend.legendItems;
+        setLegend(legendItems);
+    }, [])
     return (
         <>
-            <Line data={chartData} options={options} width={600} height={250} />
+            <Line ref={chart} data={chartData} options={options} width={600} height={250} />
+
+            <div className="custom-legends">
+                {legend.length &&
+                    legend.map(item => {
+                        console.log(item)
+                        return (
+                            <div className='legend-wrapper' key={item.text}>
+                                <div
+                                    className='legend'
+                                    style={{
+                                        borderWidth: "0.25rem",
+                                        borderStyle: "solid",
+                                        borderColor: item.strokeStyle,
+                                        backgroundColor: item.fillStyle
+                                    }}
+                                />
+                                {item.text}
+                            </div>
+                        );
+                    })}
+            </div>
         </>
     );
 }
