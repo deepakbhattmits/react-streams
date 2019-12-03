@@ -88,3 +88,18 @@
         }
     }
 }
+.custom-legends {
+    display: flex;
+    justify-content: flex-end;
+    .legend-wrapper {
+         display: flex;
+         margin:0.5rem;
+         
+    .legend {
+         margin-right: .5rem;
+         border-radius: 50%;
+         width: 20px;
+         height: 20px;
+    }
+}
+}
