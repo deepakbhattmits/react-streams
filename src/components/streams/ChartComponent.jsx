@@ -39,6 +39,20 @@ const ChartComponent = () => {
         const legendItems = component.current.chartInstance.legend.legendItems;
         setLegend(legendItems);
     }, [])
+    const handleClick = e => {
+        const { id } = e.target;
+        const component = chart;
+        const legendItems = component.current.chartInstance.legend.legendItems;
+        const chartInstance = component.current.chartInstance;
+        const datasetIndex = legendItems.filter(el =>
+            el.text === id
+        );
+        console.log(datasetIndex[0].datasetIndex, 'DATA :', legendItems, 'NEW : ', chartInstance)
+        chartInstance.getDatasetMeta(datasetIndex[0].datasetIndex).hidden =
+            chartInstance.getDatasetMeta(datasetIndex[0].datasetIndex).hidden === null ? true : !chartInstance.getDatasetMeta(datasetIndex[0].datasetIndex).hidden
+        chartInstance.update(); // re-draw chart to hide dataset
+
+    }
     return (
         <>
             <Line ref={chart} data={chartData} options={options} width={600} height={250} />
@@ -48,8 +62,9 @@ const ChartComponent = () => {
                     legend.map(item => {
                         console.log(item)
                         return (
-                            <div className='legend-wrapper' key={item.text}>
+                            <div id={item.text} className='legend-wrapper' key={item.text} onClick={handleClick}>
                                 <div
+                                    id={item.text}
                                     className='legend'
                                     style={{
                                         borderWidth: "0.25rem",
