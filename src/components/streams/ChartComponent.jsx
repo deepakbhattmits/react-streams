@@ -1,12 +1,9 @@
-import React, { useRef, useEffect, useState } from 'react';
-import { Line } from 'react-chartjs-2';
-import { hi } from 'date-fns/locale';
+import React, { useRef, useEffect, useState } from 'react'
+import { Line } from 'react-chartjs-2'
 
 const ChartComponent = () => {
     const chart = useRef();
     const [legend, setLegend] = useState([])
-    const [text, setText] = useState('');
-    const [hidden, setHidden] = useState(false);
     const chartData = {
         labels: ['M', 'T', 'W', 'T', 'F', 'S', 'S'],
         datasets: [{
@@ -45,19 +42,17 @@ const ChartComponent = () => {
     const handleClick = e => {
         const { id } = e.target;
         const component = chart;
-        const legendItems = component.current.chartInstance.legend.legendItems;
+        let legendItems = component.current.chartInstance.legend.legendItems;
         const chartInstance = component.current.chartInstance;
         const datasetIndex = legendItems.filter(el =>
             el.text === id
         );
-        const data = datasetIndex[0].text;
-        const hidden = chartInstance.getDatasetMeta(datasetIndex[0].datasetIndex).hidden === null ? true : !chartInstance.getDatasetMeta(datasetIndex[0].datasetIndex).hidden;
-        console.log('Test ', hidden)
-        setHidden(hidden)
-        setText(data)
         chartInstance.getDatasetMeta(datasetIndex[0].datasetIndex).hidden =
             chartInstance.getDatasetMeta(datasetIndex[0].datasetIndex).hidden === null ? true : !chartInstance.getDatasetMeta(datasetIndex[0].datasetIndex).hidden
         chartInstance.update(); // re-draw chart to hide dataset
+
+        legendItems = component.current.chartInstance.legend.legendItems;
+        setLegend(legendItems);
 
     }
     return (
@@ -81,8 +76,7 @@ const ChartComponent = () => {
                                     }}
 
                                 />
-                                {console.log(item)}
-                                <span id={item.text} className={`text --${text === item.text && !hidden ? 'selected' : 'unselected'}`} >
+                                <span id={item.text} className={`text --${item.hidden ? 'selected' : 'unselected'}`} >
                                     {item.text}
                                 </span>
                             </div>
