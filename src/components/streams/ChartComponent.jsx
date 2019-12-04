@@ -52,7 +52,7 @@ const ChartComponent = () => {
         );
         const data = datasetIndex[0].text;
         const hidden = chartInstance.getDatasetMeta(datasetIndex[0].datasetIndex).hidden === null ? true : !chartInstance.getDatasetMeta(datasetIndex[0].datasetIndex).hidden;
-        console.log('new Test ', hidden)
+        console.log('Test ', hidden)
         setHidden(hidden)
         setText(data)
         chartInstance.getDatasetMeta(datasetIndex[0].datasetIndex).hidden =
