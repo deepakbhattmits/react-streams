@@ -30,7 +30,6 @@ const App = () => {
                     </Switch>
                 </div>
                 <div className='chart'>
-
                     <ChartCompoent />
                 </div>
                 <div className='caousel'>
