@@ -49,6 +49,7 @@ class StreamForm extends Component {
 }
 const validate = (formValues) => {
     const errors = {};
+
     if (!formValues.title) {
         errors.title = 'Must Enter Title';
         //ran if formavalues did not have value
