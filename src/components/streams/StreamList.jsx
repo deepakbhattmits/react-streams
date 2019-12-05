@@ -6,6 +6,7 @@ import { fetchStreams } from '../../actions';
 class StreamList extends Component {
     componentDidMount() {
         this.props.fetchStreams();
+
     }
     renderButton(list) {
         if (list.userId === this.props.currentUserId) {
