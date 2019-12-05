@@ -48,7 +48,7 @@ class StreamShow extends Component {
                 <h1>{title}</h1>
                 <h2>{description}</h2>
 
-                <input type="text" style={{ padding: '10px', borderRadius: '3px' }} ref={this.inputRef} />
+                <input className='ui input' type="text" style={{ padding: '10px', borderRadius: '3px' }} ref={this.inputRef} />
                 <button onClick={this.handleSubmit} >Enter</button>
             </div>
         );
