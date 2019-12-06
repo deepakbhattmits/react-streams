@@ -35,9 +35,9 @@ const Header = () => {
 
                 <div className='dropdown'>
                     <Dropdown>
-                        <Button variant="outline-success" className='button --label' >{value}</Button>
+                        <Button variant="outline-secondary" className='button --label' >{value}</Button>
 
-                        <Dropdown.Toggle className='button --arrow' split variant="outline-success" />
+                        <Dropdown.Toggle className='button --arrow' split variant="outline-secondary" />
 
                         <Dropdown.Menu >
                             {
