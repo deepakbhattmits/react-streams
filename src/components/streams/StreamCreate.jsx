@@ -5,6 +5,7 @@ import { createStream } from '../../actions';
 const StreamCreate = props => {
 
     const onSubmit = formValues => {
+
         props.createStream(formValues);
     }
 
