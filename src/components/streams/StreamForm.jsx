@@ -28,10 +28,8 @@ class StreamForm extends Component {
     onSubmit = (formValues) => {
 
         this.props.onSubmit(formValues);
-        //  console.log(formValues);
     }
     render() {
-        // console.log(this.props);
         return (
             <form onSubmit={this.props.handleSubmit(this.onSubmit)} className="ui form error">
                 <div className="two fields">
