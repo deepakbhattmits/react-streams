@@ -1,9 +1,4 @@
     /* Use */
-.heading .custom {
-    background: var(--color-scheme-background);
-    color: var(--color-scheme-text-color);
-    width: 100%;
-}
 .carousel {
     position: relative;
     display: flex;
@@ -68,16 +63,63 @@
         }
     }
 
-.show > .btn-outline-success.dropdown-toggle:focus,
-.btn-outline-success:not(:disabled):not(.disabled):active:focus,
-.btn-outline-success:not(:disabled):not(.disabled).active:focus,
-.btn.btn-outline-success:active,
-.btn.btn-outline-success:focus,
-.btn.btn-outline-success.focus {
-    box-shadow: none;
-    
-}
-.dropdown {
+    .dropdown {
+    .show {
+        >.btn-outline-secondary.dropdown-toggle {
+            &:focus {
+                box-shadow: none;
+                 background: transparent;
+                        color: #000;
+            }
+        }
+    }
+    .btn-outline-secondary {
+        &:not(:disabled) {
+            &:not(.disabled) {
+                &:active {
+                    &:focus {
+                        box-shadow: none;
+                        background: transparent;
+                        color: #000;
+                    }
+                }
+            }
+            &:not(.disabled).active {
+                &:focus {
+                    box-shadow: none;
+                     background: transparent;
+                        color: #000;
+                }
+            }
+        }
+    }
+    .btn.btn-outline-secondary {
+        &:active {
+            box-shadow: none;
+             background: transparent;
+            color: #000;
+        }
+        &:focus-visible {
+            box-shadow: none;
+             background: transparent;
+            color: #000;
+        }
+        &:focus {
+            box-shadow: none;
+             background: transparent;
+                        color: #000;
+        }
+          &:hover {
+            box-shadow: none;
+             background: transparent;
+                        color: #000;
+        }
+    }
+    .btn.btn-outline-secondary.focus {
+        box-shadow: none;
+         background: transparent;
+                        color: #000;
+    }
     .button {
         border-radius: 0;
         &.--label{
@@ -108,4 +150,5 @@
              text-decoration: line-through;
         }
     }
+    
 }
