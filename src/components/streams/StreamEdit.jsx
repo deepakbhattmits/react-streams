@@ -25,7 +25,11 @@ class StreamEdit extends Component {
         );
     }
 }
+const mapDispatchToProps = disatch => ({
+    fetchStream: (data) => disatch(fetchStream(data)),
+    editStream: (data) => disatch(editStream(data))
+})
 const mapStateToProps = (state, ownProps) => {
     return { stream: state.streams[ownProps.match.params.id] };
 };
-export default connect(mapStateToProps, { fetchStream, editStream })(StreamEdit);
+export default connect(mapStateToProps, mapDispatchToProps)(StreamEdit);
