@@ -1,20 +1,17 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { fetchStreams } from '../../actions';
 
-class StreamList extends Component {
-    componentDidMount() {
-        this.props.fetchStreams();
-
-    }
-    renderButton(list) {
-        if (list.userId === this.props.currentUserId) {
+const StreamList = props => {
+    const [scroll, setScroll] = useState(false);
+    const renderButton = list => {
+        if (list.userId === props.currentUserId) {
             return (
                 <div className="right floated content">
                     <Link to={`/streams/edit/${list.id}`} className="btn btn-primary">
                         Edit
-                        </Link>
+                    </Link>
                     <Link to={`/streams/delete/${list.id}`} className="btn btn-danger">
                         Delete
                         </Link>
@@ -22,8 +19,8 @@ class StreamList extends Component {
             );
         }
     }
-    renderCreateButton() {
-        if (this.props.isSignedIn) {
+    const renderCreateButton = () => {
+        if (props.isSignedIn) {
             return (
                 <div style={{ textAlign: 'right' }}>
                     <Link className="btn btn-primary" to='/streams/new'>Create Stream</Link>
@@ -31,11 +28,11 @@ class StreamList extends Component {
             );
         }
     }
-    renderList() {
-        return this.props.streams.map(list => {
+    const renderList = () => {
+        return props.streams.map(list => {
             return (
                 <div className="item" key={list.id}>
-                    {this.renderButton(list)}
+                    {renderButton(list)}
 
                     <i className="large middle aligned icon camera" />
 
@@ -52,23 +49,43 @@ class StreamList extends Component {
             );
         });
     }
-    render() {
-        // console.log(this.props.streams);
-
-        return (
-            <div >
-                <div className='heading'>
-                    <label className='custom'>Streams</label>
-                </div>
-                <div className="ui celled list">
-                    {this.renderList()}
-
-                </div>
-                {this.renderCreateButton()}
-            </div>
-        );
+    const trackScrolling = () => {
+        setScroll(false)
     }
+    const handleScroll = (e) => {
+        const bottom = e.target.scrollTop;
+        if (bottom > 0) {
+            setScroll(true)
+        } else {
+            setScroll(false)
+        }
+    }
+    useEffect(() => {
+        if (!props.streams.length) {
+            props.fetchStreams();
+        }
+        document.addEventListener('scroll', trackScrolling);
+        return () => {
+            document.removeEventListener('scroll', trackScrolling);
+        }
+    }, [props])
+
+    return (
+        <div id='divScroll' className='listPage' onScroll={handleScroll} >
+            <div className={`heading  ${scroll ? 'scrolled' : ''}`}>
+                <label className='custom'>Streams</label>
+            </div>
+            <div className="ui celled list">
+                {renderList()}
+
+            </div>
+            {renderCreateButton()}
+        </div >
+    );
 }
+const mapDispatchToProps = (dispatch) => ({
+    fetchStreams: () => dispatch(fetchStreams()),
+})
 const mapStateToProps = (state) => {
     return {
         streams: Object.values(state.streams),
@@ -76,4 +93,4 @@ const mapStateToProps = (state) => {
         isSignedIn: state.auth.isSignedIn
     };
 }
-export default connect(mapStateToProps, { fetchStreams })(StreamList);
+export default connect(mapStateToProps, mapDispatchToProps)(StreamList);
