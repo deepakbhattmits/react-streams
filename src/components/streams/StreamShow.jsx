@@ -45,11 +45,15 @@ class StreamShow extends Component {
         return (
             <div>
                 <video ref={this.videoRef} style={{ width: '100%' }} controls />
+
                 <h1>{title}</h1>
+
                 <h2>{description}</h2>
 
                 <input className='ui input' type="text" style={{ padding: '10px', borderRadius: '3px' }} ref={this.inputRef} />
+
                 <button onClick={this.handleSubmit} >Enter</button>
+
             </div>
         );
     }
