@@ -6,7 +6,8 @@ import { fetchStream, deleteStream } from '../../actions';
 import createBrowserHistory from '../../history';
 class StreamDelete extends Component {
     componentDidMount() {
-        console.log(this.props);
+
+
         this.props.fetchStream(this.props.match.params.id);
     }
     renderActions() {
