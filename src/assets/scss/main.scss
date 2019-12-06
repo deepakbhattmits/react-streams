@@ -73,3 +73,19 @@
     justify-content: space-between;
     align-items: flex-start;
 }
+
+.listPage {
+    height: 200px;
+    overflow-y: scroll;
+    position: relative;
+    .heading {
+        padding: 2rem;
+        background: var(--color-scheme-background);
+        color: var(--color-scheme-text-color);
+        width: 100%;
+        &.scrolled {
+            position: fixed;   
+            width: calc(100% - 222px);
+        }
+    }
+}
