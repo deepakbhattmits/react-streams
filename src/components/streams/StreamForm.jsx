@@ -13,8 +13,6 @@ class StreamForm extends Component {
     }
 
     renderInput = ({ input, label, meta }) => {
-        // console.log( meta )
-        //const className = `field ${meta.error && meta.touched ? 'error' : '' }`; // string interpolation
         return (
             <div className={`field ${meta.error && meta.touched ? 'error' : ''}`} >
                 <label>{label}</label>
