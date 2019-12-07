@@ -1,64 +1,60 @@
-import React, { Component, createRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { connect } from 'react-redux';
 
 import flv from 'flv.js';
 
 import { fetchStream } from '../../actions';
-class StreamShow extends Component {
-    constructor(props) {
-        super(props);
-        this.videoRef = createRef();
-        this.inputRef = createRef();
-    }
-    componentDidMount() {
-        console.log(this.videoRef);
-        const { id } = this.props.match.params;
-        this.props.fetchStream(id);
-        this.buildPlayer();
-    }
-    componentDidUpdate() {
-        this.buildPlayer();
-    }
-    buildPlayer() {
-        const { id } = this.props.match.params;
-        if (this.player || !this.props.stream) {
-            return;
-        }
-        this.player = flv.createPlayer({
+const StreamShow = props => {
+    const videoRef = useRef(null);
+    const inputRef = useRef(null);
+    const { id } = props.match.params;
+    useEffect((id) => {
+        console.log(videoRef);
+        props.fetchStream(id);
+        buildPlayer();
+    }, [id])
+    // componentDidUpdate() {
+    //     buildPlayer();
+    // }
+    const buildPlayer = () => {
+        const player = flv.createPlayer({
             type: 'flv',
             url: `http://localhost:8000/live/${id}.flv`
         });
-        this.player.attachMediaElement(this.videoRef.current);
-        this.player.load();
-
-    }
-    handleSubmit = () => {
-        console.log(`hello how are you ${this.inputRef.current.value} !`);
-    }
-    render() {
-        if (!this.props.stream) {
-            return (
-                <div>Loading...</div>
-            );
+        if (player || !props.stream) {
+            return;
         }
-        const { title, description } = this.props.stream;
+        player.attachMediaElement(videoRef.current);
+        player.load();
+    }
+    const handleSubmit = () => {
+        console.log(`hello how are you ${inputRef.current.value} !`);
+    }
+    if (!props.stream) {
         return (
-            <div>
-                <video ref={this.videoRef} style={{ width: '100%' }} controls />
-
-                <h1>{title}</h1>
-
-                <h2>{description}</h2>
-
-                <input className='ui input' type="text" style={{ padding: '10px', borderRadius: '3px' }} ref={this.inputRef} />
-
-                <button onClick={this.handleSubmit} >Enter</button>
-
-            </div>
+            <div>Loading...</div>
         );
     }
-};
+    const { title, description } = props.stream;
+    return (
+        <div>
+            <video ref={videoRef} style={{ width: '100%' }} controls />
+
+            <h1>{title}</h1>
+
+            <h2>{description}</h2>
+
+            <input className='ui input' type="text" style={{ padding: '10px', borderRadius: '3px' }} ref={inputRef} />
+
+            <button onClick={handleSubmit} >Enter</button>
+
+        </div>
+    );
+}
+const mapDispatchToProps = dispatch => ({
+    fetchStream: (data) => dispatch(fetchStream(data))
+})
 const mapStateToProps = (state, ownProps) => {
     return { stream: state.streams[ownProps.match.params.id] };
 }
-export default connect(mapStateToProps, { fetchStream })(StreamShow);
+export default connect(mapStateToProps, mapDispatchToProps)(StreamShow);
