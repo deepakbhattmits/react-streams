@@ -46,7 +46,7 @@ const StreamList = props => {
     }
     const handleScroll = (e) => {
         const bottom = e.target.scrollTop;
-        console.log(bottom)
+        // console.log(bottom)
         if (bottom > 0) {
             setScroll(true)
         } else {
