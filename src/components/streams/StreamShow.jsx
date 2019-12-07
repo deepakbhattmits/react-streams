@@ -8,11 +8,6 @@ const StreamShow = props => {
     const videoRef = useRef(null);
     const inputRef = useRef(null);
     const { id } = props.match.params;
-    useEffect((id) => {
-        console.log(videoRef);
-        props.fetchStream(id);
-        buildPlayer();
-    }, [id])
     // componentDidUpdate() {
     //     buildPlayer();
     // }
@@ -30,12 +25,16 @@ const StreamShow = props => {
     const handleSubmit = () => {
         console.log(`hello how are you ${inputRef.current.value} !`);
     }
+    useEffect(() => {
+        props.fetchStream(id);
+        buildPlayer();
+    }, [])
+    const { title, description } = props.stream;
     if (!props.stream) {
         return (
             <div>Loading...</div>
         );
     }
-    const { title, description } = props.stream;
     return (
         <div>
             <video ref={videoRef} style={{ width: '100%' }} controls />
