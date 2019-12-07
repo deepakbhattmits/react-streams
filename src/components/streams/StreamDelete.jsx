@@ -6,7 +6,9 @@ import { fetchStream, deleteStream } from '../../actions';
 import createBrowserHistory from '../../history';
 const StreamDelete = props => {
     useEffect(() => {
-        props.fetchStream(props.match.params.id);
+        if (!props.match.params.id.length) {
+            props.fetchStream(props.match.params.id);
+        }
     }, [])
     const renderActions = () => {
         const { id } = props.match.params;
