@@ -19,15 +19,7 @@ const StreamList = props => {
             );
         }
     }
-    const renderCreateButton = () => {
-        if (props.isSignedIn) {
-            return (
-                <div style={{ textAlign: 'right' }}>
-                    <Link className="btn btn-primary" to='/streams/new'>Create Stream</Link>
-                </div>
-            );
-        }
-    }
+
     const renderList = () => {
         return props.streams.map(list => {
             return (
@@ -54,6 +46,7 @@ const StreamList = props => {
     }
     const handleScroll = (e) => {
         const bottom = e.target.scrollTop;
+        console.log(bottom)
         if (bottom > 0) {
             setScroll(true)
         } else {
@@ -79,7 +72,7 @@ const StreamList = props => {
                 {renderList()}
 
             </div>
-            {renderCreateButton()}
+
         </div >
     );
 }
