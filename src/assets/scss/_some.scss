@@ -1,4 +1,16 @@
     /* Use */
+
+    .ui {
+        &.secondary {
+            &.fixed {
+                background: var(--color-scheme-background);
+                color:var(--color-scheme-text-color);
+            }
+        }
+    }
+     path {
+            fill: var(--color-scheme-black);
+        }
 .carousel {
     position: relative;
     display: flex;
@@ -8,7 +20,12 @@
             position: absolute;
             background: transparent;
             border: none;
-            outline: none;
+            &:active {
+                outline: none
+            }
+             &:focus {
+                outline: none
+            }
                 &.carousel__back-button{
                     left: 0;
                 }
@@ -17,6 +34,15 @@
                 }
                 &:disabled {
                     opacity: 0.5;
+                     svg {
+                        background: var(--color-scheme-white);
+                        path {
+                            &:first-child{
+                                fill: var(--color-scheme-black);
+                            }
+                            fill: var(--color-scheme-black);
+                        }
+                    }
                 }
                 svg {
                     width: 25px;
