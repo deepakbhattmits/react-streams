@@ -14,22 +14,22 @@ const Header = props => {
         setSelectedDate(value)
     }
     const onChangeSVG = () => {
-        // console.log('test : ', datePicker.current)
+        //  console.log('test : ', datePicker.current)
         datePicker.current.handleFocus();
     }
     const handleDropdown = e => {
         const { innerText } = e.target;
-        console.log(innerText)
+        // console.log(innerText)
         setValue(innerText)
     }
     const trackScrolling = e => {
         let windowPageYOffset = window.pageYOffset;
-        console.log('HEADER : ', windowPageYOffset)
+        // console.log('HEADER : ', windowPageYOffset)
         // const elem = document.getElementById('scroll');
         // let coords = elem.getBoundingClientRect();
         // let windowHeight = document.documentElement.clientHeight;
         // let topVisible = coords.top > 0 && coords.top < windowHeight;
-        // console.log(topVisible, windowHeight, coords)
+        // // console.log(topVisible, windowHeight, coords)
         if (windowPageYOffset > 2) {
             setDisplay(true)
         } else {
