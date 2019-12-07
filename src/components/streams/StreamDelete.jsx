@@ -5,41 +5,51 @@ import { Link } from 'react-router-dom';
 import { fetchStream, deleteStream } from '../../actions';
 import createBrowserHistory from '../../history';
 const StreamDelete = props => {
-    useEffect(() => {
-        if (!props.match.params.id.length) {
-            props.fetchStream(props.match.params.id);
-        }
-    }, [])
-    const renderActions = () => {
-        const { id } = props.match.params;
-        return (
-            <>
-                <button onClick={() => { props.deleteStream(id) }}
-                    className="ui button negative">
-                    Delete !
-                </button>
-                <Link to='/' className="ui button">Cancel</Link>
-            </>
-        );
-    };
-    const renderContent = () => {
-        if (!props.stream) {
-            return 'Loading ...';
-        }
-        return `Are you sure you want to delete this stream ? ${props.stream.title} `;
+  const { id } = props.match.params;
+  const { fetchStream } = props;
+  useEffect(() => {
+    if (!id.length) {
+      fetchStream(id);
     }
+  }, [id, fetchStream]);
+  const renderActions = () => {
+    const { id } = props.match.params;
     return (
-        <Modal
-            title="Delete Stream"
-            content={renderContent()}
-            actions={renderActions()}
-            onDismiss={() => createBrowserHistory.push('/')}
-        />
+      <>
+        <button
+          onClick={() => {
+            props.deleteStream(id);
+          }}
+          className="ui button negative"
+        >
+          Delete !
+        </button>
+        <Link to="/" className="ui button">
+          Cancel
+        </Link>
+      </>
     );
-}
-const mapStateToProps = (state, ownProps) => {
-    return {
-        stream: state.streams[ownProps.match.params.id]
+  };
+  const renderContent = () => {
+    if (!props.stream) {
+      return 'Loading ...';
     }
+    return `Are you sure you want to delete this stream ? ${props.stream.title} `;
+  };
+  return (
+    <Modal
+      title="Delete Stream"
+      content={renderContent()}
+      actions={renderActions()}
+      onDismiss={() => createBrowserHistory.push('/')}
+    />
+  );
 };
-export default connect(mapStateToProps, { fetchStream, deleteStream })(StreamDelete);   
+const mapStateToProps = (state, ownProps) => {
+  return {
+    stream: state.streams[ownProps.match.params.id]
+  };
+};
+export default connect(mapStateToProps, { fetchStream, deleteStream })(
+  StreamDelete
+);
