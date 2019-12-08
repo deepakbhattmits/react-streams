@@ -20,12 +20,12 @@ const StreamDelete = props => {
           onClick={() => {
             props.deleteStream(id);
           }}
-          className="ui button negative"
+          className='ui button negative'
         >
           Delete !
         </button>
-        <Link to="/" className="ui button">
-          Cancel
+        <Link to='/' className='ui button'>
+          ancel
         </Link>
       </>
     );
@@ -38,7 +38,7 @@ const StreamDelete = props => {
   };
   return (
     <Modal
-      title="Delete Stream"
+      title='Delete Stream'
       content={renderContent()}
       actions={renderActions()}
       onDismiss={() => createBrowserHistory.push('/')}
