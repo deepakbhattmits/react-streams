@@ -165,13 +165,17 @@ path {
 
     .legend {
       margin-right: 0.5rem;
-      border-radius: 50%;
+      // border-radius: 50%;
       width: 20px;
       height: 20px;
+      transition: 1s;
+      &:hover {
+        transform: scale(1.2);
+      }
     }
   }
   .text {
-    text-transform: capitalize;
+    text-transform: uppercase;
     position: relative;
     display: flex;
     align-items: center;

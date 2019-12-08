@@ -4,42 +4,58 @@ const CustomHorizontalBar = () => {
   const chart = useRef();
   const [legend, setLegend] = useState([]);
   var data = {
-    labels: ['Data1'],
+    labels: ['09:00 am - 11:00 am'],
     datasets: [
       {
-        label: 'Apples',
-        backgroundColor: '#F29220',
+        label: '09:00 am',
+        backgroundColor: [
+          'rgba(255,153,0,1)',
+          'rgba(254,152,0,.9)',
+          'rgba(253,151,0,.8)',
+          'rgba(252,150,0,.7)'
+        ],
         borderColor: '#F29220',
         borderWidth: 1,
         data: [3]
       },
       {
-        label: 'Bananas',
-        backgroundColor: '#4365B0',
-        borderColor: '#4365B0',
+        label: '09:30 am',
+        backgroundColor: [
+          'rgba(153,255,51,1)',
+          'rgba(152,254,50,0.9)',
+          'rgba(151,253,49,0.8)'
+        ],
+        borderColor: 'rgba(153,255,51,1)',
         borderWidth: 1,
         data: [7]
       },
       {
-        label: 'Cookies',
+        label: '10:00 am',
         backgroundColor: '#D00',
         borderColor: '#D00',
         borderWidth: 1,
         data: [4]
       },
       {
-        label: 'Cakes',
+        label: '10:30 am',
         backgroundColor: 'purple',
         borderColor: 'purple',
         borderWidth: 1,
         data: [5]
       },
       {
-        label: 'Cld Drinks',
-        backgroundColor: 'yellow',
-        borderColor: 'yellow',
+        label: '11:00 am',
+        backgroundColor: 'green',
+        borderColor: 'green',
         borderWidth: 1,
         data: [8]
+      },
+      {
+        label: '11:30 am',
+        backgroundColor: 'brown',
+        borderColor: 'brown',
+        borderWidth: 1,
+        data: [6.3]
       }
     ]
   };
@@ -68,7 +84,12 @@ const CustomHorizontalBar = () => {
   const options1 = {
     maintainAspectRatio: true,
     responsive: true,
+    title: {
+      display: false,
+      text: 'Skills I am proficient with '
+    },
     legend: {
+      display: false,
       position: 'right',
       labels: {
         boxWidth: 10
@@ -85,7 +106,7 @@ const CustomHorizontalBar = () => {
       //   bodyFontColor: 'white',
       //   yPadding: 5,
       //   xPadding: 15,
-      //   cornerRadius: 4,
+      // cornerRadius: 4,
       //   bodyFontStyle: 'bold',
       callbacks: {
         // title: () => {
@@ -103,7 +124,7 @@ const CustomHorizontalBar = () => {
             drawOnChartArea: true,
             display: true
           },
-          barPercentage: 0.5,
+          barPercentage: 0.3,
           stacked: true
         }
       ],
@@ -113,7 +134,7 @@ const CustomHorizontalBar = () => {
             drawOnChartArea: false,
             display: false
           },
-          barPercentage: 0.5,
+          barPercentage: 0.3,
           stacked: true
         }
       ]
@@ -142,7 +163,7 @@ const CustomHorizontalBar = () => {
                   id={item.text}
                   className='legend'
                   style={{
-                    borderWidth: '0.25rem',
+                    // borderWidth: '0.25rem',
                     borderStyle: 'solid',
                     borderColor: item.strokeStyle,
                     backgroundColor: item.fillStyle
