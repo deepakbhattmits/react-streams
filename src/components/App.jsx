@@ -9,37 +9,53 @@ import Header from './Header';
 import createBrowserHistory from '../history';
 import SliderComponent from './streams/SliderComponent';
 import GridLayoutComponent from './streams/GridLayoutComponent';
-import ChartCompoent from '../components/streams/ChartComponent'
+import ChartCompoent from '../components/streams/ChartComponent';
+import CustomHorizontalBar from '../components/streams/CustomHorizontalBar';
 const App = () => {
-    const layout = [
-        { i: 'a', x: 0, y: 0, w: 5, h: 5 },
-        { i: 'b', x: 1, y: 1, w: 5, h: 5 },
-        { i: 'c', x: 4, y: 1, w: 5, h: 5 }
-    ];
-    return (
-        <div className="ui container">
-            <Router history={createBrowserHistory}>
-                <div>
-                    <Header />
-                    <Switch>
-                        <Route path="/" exact component={StreamList}></Route>
-                        <Route path="/streams/new" exact component={StreamCreate}></Route>
-                        <Route path="/streams/edit/:id" exact component={StreamEdit}></Route>
-                        <Route path="/streams/delete/:id" exact component={StreamDelete}></Route>
-                        <Route path="/streams/show/:id" exact component={StreamShow}></Route>
-                    </Switch>
-                </div>
-                <div className='chart'>
-                    <ChartCompoent />
-                </div>
-                <div className='caousel'>
-                    <SliderComponent />
-                </div>
-                <div className="grid">
-                    <GridLayoutComponent layout={layout} />
-                </div>
-            </Router>
+  const layout = [
+    { i: 'a', x: 0, y: 0, w: 5, h: 5 },
+    { i: 'b', x: 1, y: 1, w: 5, h: 5 },
+    { i: 'c', x: 4, y: 1, w: 5, h: 5 }
+  ];
+  return (
+    <div className='ui container'>
+      <Router history={createBrowserHistory}>
+        <div>
+          <Header />
+          <Switch>
+            <Route path='/' exact component={StreamList}></Route>
+            <Route path='/streams/new' exact component={StreamCreate}></Route>
+            <Route
+              path='/streams/edit/:id'
+              exact
+              component={StreamEdit}
+            ></Route>
+            <Route
+              path='/streams/delete/:id'
+              exact
+              component={StreamDelete}
+            ></Route>
+            <Route
+              path='/streams/show/:id'
+              exact
+              component={StreamShow}
+            ></Route>
+          </Switch>
         </div>
-    );
-}
+        <div className='bar-chart'>
+          <CustomHorizontalBar />
+        </div>
+        <div className='chart'>
+          <ChartCompoent />
+        </div>
+        <div className='caousel'>
+          <SliderComponent />
+        </div>
+        <div className='grid'>
+          <GridLayoutComponent layout={layout} />
+        </div>
+      </Router>
+    </div>
+  );
+};
 export default App;
