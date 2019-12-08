@@ -8,11 +8,11 @@ const StreamList = props => {
   const renderButton = list => {
     if (list.userId === props.currentUserId) {
       return (
-        <div className="right floated content">
-          <Link to={`/streams/edit/${list.id}`} className="btn btn-primary">
+        <div className='right floated content'>
+          <Link to={`/streams/edit/${list.id}`} className='btn btn-primary'>
             Edit
           </Link>
-          <Link to={`/streams/delete/${list.id}`} className="btn btn-danger">
+          <Link to={`/streams/delete/${list.id}`} className='btn btn-danger'>
             Delete
           </Link>
         </div>
@@ -23,15 +23,15 @@ const StreamList = props => {
   const renderList = () => {
     return props.streams.map(list => {
       return (
-        <div className="item" key={list.id}>
+        <div className='item' key={list.id}>
           {renderButton(list)}
 
-          <i className="large middle aligned icon camera" />
+          <i className='large middle aligned icon camera' />
 
-          <div className="content">
+          <div className='content'>
             <Link to={`/streams/show/${list.id}`}>
               {list.title}
-              <div className="description">{list.description}</div>
+              <div className='description'>{list.description}</div>
             </Link>
           </div>
         </div>
@@ -39,7 +39,16 @@ const StreamList = props => {
     });
   };
   const trackScrolling = () => {
+    const elem = document.getElementById('divScroll');
+    let coords = elem.getBoundingClientRect();
+    // let windowHeight = document.documentElement.clientHeight;
+    // let topVisible = coords.top > 0 && coords.top < windowHeight;
+    // console.log(topVisible, windowHeight, coords);
+    // console.log('visible : ', coords);
     setScroll(false);
+    if (coords.top >= 54) {
+      setScroll(true);
+    }
   };
   const handleScroll = e => {
     const bottom = e.target.scrollTop;
@@ -61,11 +70,11 @@ const StreamList = props => {
   }, [props]);
 
   return (
-    <div id="divScroll" className="listPage" onScroll={handleScroll}>
+    <div id='divScroll' className='listPage' onScroll={handleScroll}>
       <div className={`heading  ${scroll ? 'scrolled' : ''}`}>
-        <label className="custom">Streams</label>
+        <label className='custom'>Streams</label>
       </div>
-      <div className="ui celled list">{renderList()}</div>
+      <div className='ui celled list'>{renderList()}</div>
     </div>
   );
 };
