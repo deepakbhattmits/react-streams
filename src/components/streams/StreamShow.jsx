@@ -40,8 +40,8 @@ const StreamShow = props => {
       <h2>{description}</h2>
 
       <input
-        className="ui input"
-        type="text"
+        className='ui input'
+        type='text'
         style={{ padding: '10px', borderRadius: '3px' }}
         ref={inputRef}
       />
