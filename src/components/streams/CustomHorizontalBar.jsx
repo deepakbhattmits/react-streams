@@ -4,10 +4,10 @@ const CustomHorizontalBar = () => {
   const chart = useRef();
   const [legend, setLegend] = useState([]);
   var data = {
-    labels: ['09:00 am - 11:00 am'],
+    labels: ['09:00 am - 12:00 pm'],
     datasets: [
       {
-        label: '09:00 am',
+        label: '09:00 am-09:30 am',
         backgroundColor: [
           'rgba(255,153,0,1)',
           'rgba(254,152,0,.9)',
@@ -19,7 +19,7 @@ const CustomHorizontalBar = () => {
         data: [3]
       },
       {
-        label: '09:30 am',
+        label: '09:30 am - 10:00 am',
         backgroundColor: [
           'rgba(153,255,51,1)',
           'rgba(152,254,50,0.9)',
@@ -30,28 +30,28 @@ const CustomHorizontalBar = () => {
         data: [7]
       },
       {
-        label: '10:00 am',
+        label: '10:00 am - 10:30 am',
         backgroundColor: '#D00',
         borderColor: '#D00',
         borderWidth: 1,
         data: [4]
       },
       {
-        label: '10:30 am',
+        label: '10:30 am - 11:00 am',
         backgroundColor: 'purple',
         borderColor: 'purple',
         borderWidth: 1,
         data: [5]
       },
       {
-        label: '11:00 am',
+        label: '11:00 am - 11:30 am',
         backgroundColor: 'green',
         borderColor: 'green',
         borderWidth: 1,
         data: [8]
       },
       {
-        label: '11:30 am',
+        label: '11:30 am - 12:00 pm ',
         backgroundColor: 'brown',
         borderColor: 'brown',
         borderWidth: 1,
@@ -106,7 +106,7 @@ const CustomHorizontalBar = () => {
       //   bodyFontColor: 'white',
       //   yPadding: 5,
       //   xPadding: 15,
-      // cornerRadius: 4,
+      // cornerRadius: 10,
       //   bodyFontStyle: 'bold',
       callbacks: {
         // title: () => {
