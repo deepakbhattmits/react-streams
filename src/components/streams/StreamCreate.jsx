@@ -9,7 +9,7 @@ const StreamCreate = props => {
 
   return (
     <div>
-      <h3>Create Form </h3>
+      <h3>Create Stream </h3>
       <SteramForm onSubmit={onSubmit} />
     </div>
   );
