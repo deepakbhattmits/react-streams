@@ -1,91 +1,111 @@
-
-@import "./settings";
+@import './settings';
 @import './some';
 
 // Option B: Include parts of Bootstrap
 // Required
-@import "../../../node_modules/bootstrap/scss/functions";
-@import "../../../node_modules/bootstrap/scss/variables";
-@import "../../../node_modules/bootstrap/scss/mixins";
+@import '../../../node_modules/bootstrap/scss/functions';
+@import '../../../node_modules/bootstrap/scss/variables';
+@import '../../../node_modules/bootstrap/scss/mixins';
 // Optional
-@import "../../../node_modules/bootstrap/scss/reboot";
+@import '../../../node_modules/bootstrap/scss/reboot';
 // @import "../../../node_modules/bootstrap/scss/grid";
 // @import "../../../node_modules/bootstrap/scss/type";
 // @import "../../../node_modules/bootstrap/scss/images";
-@import "../../../node_modules/bootstrap/scss/list-group";
-@import "../../../node_modules/bootstrap/scss/buttons";
+@import '../../../node_modules/bootstrap/scss/list-group';
+@import '../../../node_modules/bootstrap/scss/buttons';
 
-@import "../../../node_modules/bootstrap/scss/button-group";
+@import '../../../node_modules/bootstrap/scss/button-group';
 
-@import "../../../node_modules/bootstrap/scss/dropdown";
+@import '../../../node_modules/bootstrap/scss/dropdown';
 // @import "../../../node_modules/bootstrap/scss/navbar";
-@import "../../../node_modules/bootstrap/scss/transitions";
+@import '../../../node_modules/bootstrap/scss/transitions';
 // @import "../../../node_modules/bootstrap/scss/utilities";
 
+@import '../../../node_modules/react-grid-layout/css/styles.css';
+@import '../../..//node_modules/react-resizable/css/styles.css';
 
-@import "../../../node_modules/react-grid-layout/css/styles.css";
-@import "../../..//node_modules/react-resizable/css/styles.css";
-
-
-@import "../../../node_modules/react-datepicker/dist/react-datepicker.css";
+@import '../../../node_modules/react-datepicker/dist/react-datepicker.css';
 @import '../../../node_modules/pure-react-carousel/dist/react-carousel.es.css';
 
+.icon {
+  border: 1px solid #000;
+  border-left: none;
+  height: 30px;
+  width: 30px;
+  background: #ccc;
+}
 .datepicker {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .react-datepicker__input-container {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    .react-datepicker__input-container {
-        display: flex;
-        justify-content: flex-end;
+    justify-content: flex-end;
+  }
+  input[type='text'] {
+    border: 1px solid #000;
+    border-right: none;
+    height: 30px;
+    padding: 0.5rem;
+    width: calc(100% - 75px);
+  }
+  .react-datepicker-popper {
+    .react-datepicker {
+      .react-datepicker__triangle {
+        left: 100px;
+      }
     }
-    input[type=text] {
-        border: 1px solid #000;
-        border-right: none;
-        height: 30px;
-        padding: 0.5rem;
-        width: calc(100% - 75px);
-    }
-    .react-datepicker-popper {
-        .react-datepicker {
-             .react-datepicker__triangle {
-               left:100px;
-            }
-        }
-    }
-    .icon {
-        border: 1px solid #000;
-        border-left: none;
-        height: 30px;
-        width: 30px;
-        background: #ccc;
-    }
-    .react-datepicker__navigation--previous {
-        outline: none;
-    }
-      .react-datepicker__navigation--next {
-        outline: none;
-    }
+  }
+
+  .react-datepicker__navigation--previous {
+    outline: none;
+  }
+  .react-datepicker__navigation--next {
+    outline: none;
+  }
 }
 .react-grid-item {
-    background: var(--color-scheme-background);
-    padding: 10px;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
+  background: var(--color-scheme-background);
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
 }
 
 .listPage {
-    height: 200px;
-    overflow-y: scroll;
-    position: relative;
-    .heading {
-        padding: 2rem;
-        background: var(--color-scheme-background);
-        color: var(--color-scheme-text-color);
-        width: 100%;
-        &.scrolled {
-            position: fixed;   
-            width: calc(100% - 222px);
-        }
+  height: 200px;
+  overflow-y: scroll;
+  position: relative;
+  .heading {
+    padding: 2rem;
+    background: var(--color-scheme-background);
+    color: var(--color-scheme-text-color);
+    width: 100%;
+    &.scrolled {
+      position: fixed;
+      width: calc(100% - 222px);
     }
+  }
+}
+.new {
+  display: flex;
+  width: 100%;
+  .first {
+    width: calc(100% + 100%);
+    position: relative;
+    left: -9999px;
+    transition: 0.5s;
+    &.active {
+      left: 0;
+    }
+  }
+  .second {
+    position: relative;
+    right: -9999px;
+    width: calc(100% + 100%);
+    transition: 0.5s;
+    &.active {
+      right: 0;
+    }
+  }
 }

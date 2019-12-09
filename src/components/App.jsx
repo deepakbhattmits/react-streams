@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Router, Route, Switch } from 'react-router-dom';
 import StreamCreate from './streams/StreamCreate';
 import StreamList from './streams/StreamList';
@@ -11,12 +11,22 @@ import SliderComponent from './streams/SliderComponent';
 import GridLayoutComponent from './streams/GridLayoutComponent';
 import ChartCompoent from '../components/streams/ChartComponent';
 import CustomHorizontalBar from '../components/streams/CustomHorizontalBar';
+
+import { ReactComponent as CalenderSVG } from '../assets/images/icon-calendar.svg';
+
+import { ReactComponent as LeftSVG } from '../assets/images/icon-left-chevron.svg';
+
+import { ReactComponent as RightSVG } from '../assets/images/icon-right-chevron.svg';
 const App = () => {
+  const [gear, setGear] = useState(false);
   const layout = [
     { i: 'a', x: 0, y: 0, w: 5, h: 6 },
     { i: 'b', x: 1, y: 1, w: 5, h: 6 },
     { i: 'c', x: 4, y: 1, w: 5, h: 6 }
   ];
+  const handleClick = () => {
+    setGear(!gear);
+  };
   return (
     <div className='ui container'>
       <Router history={createBrowserHistory}>
@@ -41,6 +51,23 @@ const App = () => {
               component={StreamShow}
             ></Route>
           </Switch>
+        </div>
+        <div className='slide-animation'>
+          <div className='ui horizontal list'>
+            <div className='item'>
+              <CalenderSVG className='icon' />
+            </div>
+            <div className='item'>
+              <LeftSVG className='icon' onClick={handleClick} />
+            </div>
+            <div className='item'>
+              <RightSVG className='icon' />
+            </div>
+          </div>
+          <div className='new'>
+            <div className={`first ${!gear ? 'active' : ''}`}>FIRST</div>
+            <div className={`second ${gear ? 'active' : ''}`}>SECOND</div>
+          </div>
         </div>
         <div className='bar-chart'>
           <CustomHorizontalBar />
