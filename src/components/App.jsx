@@ -13,9 +13,9 @@ import ChartCompoent from '../components/streams/ChartComponent';
 import CustomHorizontalBar from '../components/streams/CustomHorizontalBar';
 const App = () => {
   const layout = [
-    { i: 'a', x: 0, y: 0, w: 5, h: 5 },
-    { i: 'b', x: 1, y: 1, w: 5, h: 5 },
-    { i: 'c', x: 4, y: 1, w: 5, h: 5 }
+    { i: 'a', x: 0, y: 0, w: 5, h: 6 },
+    { i: 'b', x: 1, y: 1, w: 5, h: 6 },
+    { i: 'c', x: 4, y: 1, w: 5, h: 6 }
   ];
   return (
     <div className='ui container'>
