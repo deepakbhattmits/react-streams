@@ -86,7 +86,7 @@ const CustomHorizontalBar = () => {
     responsive: true,
     title: {
       display: false,
-      text: 'Skills I am proficient with '
+      text: 'Skills I am proficient with'
     },
     legend: {
       display: false,
