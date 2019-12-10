@@ -1,47 +1,57 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Form, Button, Col } from 'react-bootstrap';
 const FormComponent = () => {
-  const [data, setData] = useState({
-    data: {}
-  });
-  const [formValid, setFormValid] = useState(true);
+  const [data, setData] = useState({ data: {} });
+  const [errors, setErrors] = useState({});
   const validation = () => {
-    let formValid = false;
+    let formValid = true;
+    let errors = {};
     console.log('validation ', data);
-    if (data.FirstName !== '') {
-      formValid = true;
+    if (!data['FirstName']) {
+      formValid = false;
+      errors['FirstName'] = 'Please Enter First Name';
     }
-    if (data.LastName !== '') {
-      formValid = true;
+    if (!data['LastName']) {
+      formValid = false;
+      errors['LastName'] = 'Please Enter Last Name';
     }
-    if (data.Phone !== '') {
-      formValid = true;
+    if (!data['Phone']) {
+      formValid = false;
+      errors['Phone'] = 'Please Enter Phone';
     }
-    if (data.Address !== '') {
-      formValid = true;
+    if (!data['Address']) {
+      formValid = false;
+      errors['Address'] = 'Please Enter Address';
     }
-    if (data.City !== '') {
-      formValid = true;
+    if (!data['City']) {
+      formValid = false;
+      errors['City'] = 'Please Enter City';
     }
-    if (data.Zip !== '') {
-      formValid = true;
+    if (!data['Zip']) {
+      formValid = false;
+      errors['Zip'] = 'Please Enter Zip';
     }
+    setErrors(errors);
     return formValid;
   };
   const handleChange = e => {
     const { name, value } = e.target;
     setData({ ...data, [name]: value });
     console.log(data, Object.keys(data).length);
-    if (Object.keys(data).length > 5) {
-      setFormValid(false);
-    }
   };
   const handleSubmit = e => {
     e.preventDefault();
     if (validation()) {
-      console.log('done : ', data);
+      console.log('done : ', data, errors.FirstName);
     }
   };
+  // useEffect(() => {
+  //   let length = data.length;
+  //   if (length) {
+  //     validation();
+  //   }
+  // }, [data]);
+
   return (
     <>
       <Form onSubmit={handleSubmit}>
@@ -68,7 +78,6 @@ const FormComponent = () => {
             />
           </Form.Group>
         </Form.Row>
-
         <Form.Group controlId='Address'>
           <Form.Label>Address</Form.Label>
           <Form.Control
@@ -79,7 +88,6 @@ const FormComponent = () => {
             placeholder='Address'
           />
         </Form.Group>
-
         <Form.Group controlId='Phone'>
           <Form.Label>Address 2</Form.Label>
           <Form.Control
@@ -90,7 +98,6 @@ const FormComponent = () => {
             placeholder='+91-9898989898'
           />
         </Form.Group>
-
         <Form.Row>
           <Form.Group as={Col} controlId='City'>
             <Form.Label>City</Form.Label>
@@ -122,9 +129,14 @@ const FormComponent = () => {
             />
           </Form.Group>
         </Form.Row>
-        <Button variant='primary' type='submit' disabled={formValid}>
+        <Button variant='primary' type='submit'>
           Submit
         </Button>
+        <ul className='error'>
+          {Object.values(errors).map((el, i) => {
+            return <li key={i}>{el}</li>;
+          })}
+        </ul>
       </Form>
     </>
   );
