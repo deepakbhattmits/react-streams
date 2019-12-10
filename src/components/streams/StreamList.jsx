@@ -44,7 +44,7 @@ const StreamList = props => {
     // let windowHeight = document.documentElement.clientHeight;
     // let topVisible = coords.top > 0 && coords.top < windowHeight;
     // console.log(topVisible, windowHeight, coords);
-    // console.log('visible : ', coords);
+    // console.log('element visible : ', coords);
     setScroll(false);
     if (coords.top >= 54) {
       setScroll(true);
