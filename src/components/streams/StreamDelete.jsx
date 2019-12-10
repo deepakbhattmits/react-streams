@@ -32,7 +32,7 @@ const StreamDelete = props => {
   };
   const renderContent = () => {
     if (!props.stream) {
-      return 'Loading ...';
+      return 'Loading .....';
     }
     return `Are you sure you want to delete this stream ? ${props.stream.title} `;
   };
