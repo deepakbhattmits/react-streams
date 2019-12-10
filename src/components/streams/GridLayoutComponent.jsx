@@ -8,7 +8,7 @@ const GridLayoutComponent = ({ layout }) => {
         className='layout'
         layout={layout}
         cols={12}
-        rowHeight={30}
+        rowHeight={35}
         width={1200}
       >
         <div key='a'>A</div>
