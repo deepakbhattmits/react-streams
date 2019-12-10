@@ -76,7 +76,7 @@ const ChartComponent = () => {
                   id={item.text}
                   className='legend'
                   style={{
-                    borderWidth: '0.25rem',
+                    borderWidth: '.25rem',
                     borderStyle: 'solid',
                     borderColor: item.strokeStyle,
                     backgroundColor: item.fillStyle
