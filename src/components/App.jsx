@@ -11,6 +11,7 @@ import SliderComponent from './streams/SliderComponent';
 import GridLayoutComponent from './streams/GridLayoutComponent';
 import ChartCompoent from '../components/streams/ChartComponent';
 import CustomHorizontalBar from '../components/streams/CustomHorizontalBar';
+import FormComponent from './streams/FormComponent';
 
 import { ReactComponent as CalenderSVG } from '../assets/images/icon-calendar.svg';
 
@@ -66,7 +67,9 @@ const App = () => {
           </div>
           <div className='new'>
             <div className={`first ${!gear ? 'active' : ''}`}>FIRST</div>
-            <div className={`second ${gear ? 'active' : ''}`}>SECOND</div>
+            <div className={`second ${gear ? 'active' : ''}`}>
+              <FormComponent />
+            </div>
           </div>
         </div>
         <div className='bar-chart'>
