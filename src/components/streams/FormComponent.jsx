@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Form, Button, Col } from 'react-bootstrap';
 const FormComponent = () => {
   const [data, setData] = useState({ data: {} });
