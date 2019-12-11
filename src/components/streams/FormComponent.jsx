@@ -56,7 +56,7 @@ const FormComponent = () => {
     <>
       <Form onSubmit={handleSubmit}>
         <Form.Row>
-          <Form.Group as={Col} controlId='FirstName'>
+          <Form.Group as={Col}>
             <Form.Label>Email</Form.Label>
             <Form.Control
               name='FirstName'
@@ -67,7 +67,7 @@ const FormComponent = () => {
             />
           </Form.Group>
 
-          <Form.Group as={Col} controlId='LastName'>
+          <Form.Group as={Col}>
             <Form.Label>Password</Form.Label>
             <Form.Control
               name='LastName'
@@ -78,7 +78,7 @@ const FormComponent = () => {
             />
           </Form.Group>
         </Form.Row>
-        <Form.Group controlId='Address'>
+        <Form.Group>
           <Form.Label>Address</Form.Label>
           <Form.Control
             name='Address'
@@ -88,7 +88,7 @@ const FormComponent = () => {
             placeholder='Address'
           />
         </Form.Group>
-        <Form.Group controlId='Phone'>
+        <Form.Group>
           <Form.Label>Address 2</Form.Label>
           <Form.Control
             name='Phone'
@@ -99,7 +99,7 @@ const FormComponent = () => {
           />
         </Form.Group>
         <Form.Row>
-          <Form.Group as={Col} controlId='City'>
+          <Form.Group as={Col}>
             <Form.Label>City</Form.Label>
             <Form.Control
               name='City'
@@ -118,7 +118,7 @@ const FormComponent = () => {
             </Form.Control>
           </Form.Group> */}
 
-          <Form.Group as={Col} controlId='Zip'>
+          <Form.Group as={Col}>
             <Form.Label>Zip</Form.Label>
             <Form.Control
               name='Zip'
