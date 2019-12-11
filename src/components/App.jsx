@@ -12,6 +12,7 @@ import GridLayoutComponent from './streams/GridLayoutComponent';
 import ChartCompoent from '../components/streams/ChartComponent';
 import CustomHorizontalBar from '../components/streams/CustomHorizontalBar';
 import FormComponent from './streams/FormComponent';
+import RegistrationForm from './streams/RegistrationForm';
 
 import { ReactComponent as CalenderSVG } from '../assets/images/icon-calendar.svg';
 
@@ -66,7 +67,9 @@ const App = () => {
             </div>
           </div>
           <div className='new'>
-            <div className={`first ${!gear ? 'active' : ''}`}>FIRST</div>
+            <div className={`first ${!gear ? 'active' : ''}`}>
+              <RegistrationForm />
+            </div>
             <div className={`second ${gear ? 'active' : ''}`}>
               <FormComponent />
             </div>
