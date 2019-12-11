@@ -5,7 +5,7 @@ const GridLayoutComponent = ({ layout }) => {
   return (
     <>
       <GridLayout
-        className='layout'
+        className='custom-layout layout'
         layout={layout}
         cols={12}
         rowHeight={35}
