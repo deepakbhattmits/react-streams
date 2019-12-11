@@ -1,6 +1,8 @@
 @import './settings';
 @import './some';
 
+@import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
+
 // Option B: Include parts of Bootstrap
 // Required
 @import '../../../node_modules/bootstrap/scss/functions';
