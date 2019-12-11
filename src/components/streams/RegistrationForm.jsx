@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+
+import { Form, Button, Col, Row } from 'react-bootstrap';
 // import { connect } from 'react-redux';
 
 class RegistrationForm extends Component {
@@ -7,9 +9,10 @@ class RegistrationForm extends Component {
     errorMessages: {}
   };
   handleChange = e => {
+    const { name, value } = e.target;
     let fields = this.state.fields;
     // console.log('change in ',e.target.name)
-    fields[e.target.name] = e.target.value;
+    fields[name] = value;
     this.setState({
       fields
     });
@@ -80,17 +83,101 @@ class RegistrationForm extends Component {
     return formIsValid;
   };
   render() {
-    const { isSignedIn } = this.props.auth;
-    console.log(`user is isSignedIn : ${isSignedIn}`);
+    // const { isSignedIn } = this.props.auth;
+    // console.log(`user is isSignedIn : ${isSignedIn}`);
     return (
       <div>
         <div id='register' className='register-form'>
-          {isSignedIn ? (
+          {/* {isSignedIn ? (
             <h3>Registration page with user</h3>
           ) : (
             <h3>Registration page without user</h3>
-          )}
-          <form
+          )} */}
+
+          <Form name='userRegistrationForm' onSubmit={this.submitForm}>
+            <Form.Group
+              as={Row}
+              // controlId='formPlaintextEmail'
+              className={`${
+                this.state.errorMessages.username ? 'has-error' : ''
+              }`}
+            >
+              <Form.Label column sm='4'>
+                username
+              </Form.Label>
+              <Col sm='8'>
+                <Form.Control
+                  className={`${
+                    this.state.errorMessages.username ? 'has-error' : ''
+                  }`}
+                  type='text'
+                  id='username'
+                  name='username'
+                  onChange={this.handleChange}
+                  value={this.state.fields.username || ''}
+                />
+              </Col>
+            </Form.Group>
+
+            <Form.Group
+              as={Row}
+              // controlId='formPlaintextPassword'
+            >
+              <Form.Label column sm='4'>
+                Email
+              </Form.Label>
+              <Col sm='8'>
+                <Form.Control
+                  type='text'
+                  id='emailid'
+                  name='emailid'
+                  onChange={this.handleChange}
+                  value={this.state.fields.emailid || ''}
+                />
+              </Col>
+            </Form.Group>
+            <Form.Group
+              as={Row}
+              //  controlId='formPlaintextPassword'
+            >
+              <Form.Label column sm='4'>
+                mobileno
+              </Form.Label>
+              <Col sm='8'>
+                <Form.Control
+                  type='text'
+                  id='mobileno'
+                  name='mobileno'
+                  onChange={this.handleChange}
+                  value={this.state.fields.mobileno || ''}
+                />
+              </Col>
+            </Form.Group>
+            <Form.Group
+              as={Row}
+              // controlId='formPlaintextPassword'
+            >
+              <Form.Label column sm='4'>
+                mobileno
+              </Form.Label>
+              <Col sm='8'>
+                <Form.Control
+                  type='password'
+                  id='password'
+                  name='password'
+                  onChange={this.handleChange}
+                  value={this.state.fields.password || ''}
+                />
+              </Col>
+            </Form.Group>
+            <Form.Group>
+              <Button type='submit' className='button' value='Register'>
+                Register
+              </Button>
+            </Form.Group>
+          </Form>
+
+          <Form
             method='post'
             name='userRegistrationForm'
             onSubmit={this.submitForm}
@@ -132,7 +219,7 @@ class RegistrationForm extends Component {
             />
             <div className='errorMsg'>{this.state.errorMessages.password}</div>
             <input type='submit' className='button' value='Register' />
-          </form>
+          </Form>
         </div>
       </div>
     );
