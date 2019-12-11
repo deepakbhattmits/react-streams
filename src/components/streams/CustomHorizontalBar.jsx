@@ -55,7 +55,7 @@ const CustomHorizontalBar = () => {
         backgroundColor: 'brown',
         borderColor: 'brown',
         borderWidth: 1,
-        data: [6.4]
+        data: [6.3]
       }
     ]
   };
