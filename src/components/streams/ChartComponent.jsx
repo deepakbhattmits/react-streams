@@ -7,7 +7,7 @@ const ChartComponent = () => {
     labels: ['M', 'T', 'W', 'T', 'F', 'S', 'S'],
     datasets: [
       {
-        label: 'apples',
+        label: 'apple',
         data: [11, 18, 2, 16, 5, 2, 6],
         backgroundColor: 'rgba(153,255,51,0.6)',
         borderColor: ['rgba(153,255,51,1)'],
