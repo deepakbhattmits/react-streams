@@ -13,7 +13,7 @@ const StreamEdit = props => {
     props.editStream(id, formValues);
   };
   if (!props.stream) {
-    return <div>Loading .... </div>;
+    return <div>Loading ...</div>;
   }
   return (
     <div>
