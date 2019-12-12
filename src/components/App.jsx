@@ -13,6 +13,7 @@ import ChartCompoent from '../components/streams/ChartComponent';
 import CustomHorizontalBar from '../components/streams/CustomHorizontalBar';
 import FormComponent from './streams/FormComponent';
 import RegistrationForm from './streams/RegistrationForm';
+import FilterDemo from './streams/FilterDemo';
 
 import { ReactComponent as CalenderSVG } from '../assets/images/icon-calendar.svg';
 
@@ -53,6 +54,9 @@ const App = () => {
               component={StreamShow}
             ></Route>
           </Switch>
+        </div>
+        <div className='Filter-List'>
+          <FilterDemo />
         </div>
         <div className='slide-animation'>
           <div className='ui horizontal list'>
