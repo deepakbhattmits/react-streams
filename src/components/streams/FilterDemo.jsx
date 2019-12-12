@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from 'react';
 const initialItems = [
   { text: 'Apples', group: 'fruits' },
-  { text: 'Broccoli', group: 'veg' },
-  { text: 'Chicken', group: 'non_veg' },
-  { text: 'Bacon', group: 'veg' },
-  { text: 'Eggs', group: 'non_veg' },
-  { text: 'Salmon', group: 'veg' },
   { text: 'Bananas', group: 'fruits' },
+  { text: 'Broccoli', group: 'veg' },
+  { text: 'Bacon', group: 'veg' },
+  { text: 'Salmon', group: 'veg' },
+  { text: 'Yogurt', group: 'veg' },
+  { text: 'Chicken', group: 'nonveg' },
+  { text: 'Eggs', group: 'nonveg' },
   { text: 'Beer', group: 'bev' },
-  { text: 'Wine', group: 'bev' },
-  { text: 'Yogurt', group: 'veg' }
+  { text: 'Wine', group: 'bev' }
 ];
 const FilteredList = () => {
   const [list, setList] = useState(initialItems);
@@ -17,14 +17,13 @@ const FilteredList = () => {
   const filterList = event => {
     var updatedList = list;
     if (event.target.value.toLowerCase() !== 'all') {
-      updatedList = updatedList.filter(function(item) {
-        return (
+      updatedList = updatedList.filter(
+        item =>
           item.group.toLowerCase().search(event.target.value.toLowerCase()) !==
           -1
-        );
-      });
+      );
+      setItems(updatedList);
     }
-    setItems(updatedList);
   };
   useEffect(() => {
     setItems(initialItems);
@@ -32,16 +31,16 @@ const FilteredList = () => {
   return (
     <div className='filter-list'>
       <input type='text' placeholder='Search' onChange={filterList} />
-      <button value='fruits' type='submit' onClick={filterList}>
+      <button value='fruits' type='button' onClick={filterList}>
         fruits
       </button>
-      <button value='veg' type='submit' onClick={filterList}>
+      <button value='veg' type='button' onClick={filterList}>
         veg
       </button>
-      <button value='non_veg' type='submit' onClick={filterList}>
+      <button value='nonveg' type='button' onClick={filterList}>
         nonveg
       </button>
-      <button value='all' type='submit' onClick={filterList}>
+      <button value='all' type='button' onClick={filterList}>
         all
       </button>
       <List items={items} />
