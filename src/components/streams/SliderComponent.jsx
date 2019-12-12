@@ -22,13 +22,13 @@ const SliderComponent = props => (
       </ButtonBack>
       <Slider>
         <Slide index={0}>
-          <div className='slide'>I am the first Slide.</div>
+          <div className='slide'>I am first Slide.</div>
         </Slide>
         <Slide index={1}>
-          <div className='slide'>I am the second Slide.</div>
+          <div className='slide'>I am second Slide.</div>
         </Slide>
         <Slide index={2}>
-          <div className='slide'>I am the third Slide.</div>
+          <div className='slide'>I am third Slide.</div>
         </Slide>
       </Slider>
       <ButtonNext>
