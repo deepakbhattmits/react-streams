@@ -45,8 +45,8 @@ const CustomHorizontalBar = () => {
       },
       {
         label: '11:00 am - 11:30 am',
-        backgroundColor: 'green',
-        borderColor: 'green',
+        backgroundColor: 'yellow',
+        borderColor: 'yellow',
         borderWidth: 1,
         data: [7.4]
       },
