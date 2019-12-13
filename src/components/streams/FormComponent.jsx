@@ -125,7 +125,7 @@ const FormComponent = () => {
               type='text'
               value={data.Zip ? data.Zip : ''}
               onChange={handleChange}
-              placeholder='eg. 123456'
+              placeholder='eg. 12345'
             />
           </Form.Group>
         </Form.Row>
