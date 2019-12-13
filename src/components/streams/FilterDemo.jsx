@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 const initialItems = [
   { text: 'Apples', group: 'fruits' },
+  { text: 'Papaya', group: 'fruits' },
   { text: 'Bananas', group: 'fruits' },
   { text: 'Broccoli', group: 'veg' },
   { text: 'Bacon', group: 'veg' },
