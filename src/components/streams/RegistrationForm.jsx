@@ -171,7 +171,7 @@ class RegistrationForm extends Component {
               </Col>
             </Form.Group>
             <Form.Group>
-              <Button type='submit' className='button' value='register'>
+              <Button type='submit' className='btn button' value='register'>
                 Register
               </Button>
             </Form.Group>
