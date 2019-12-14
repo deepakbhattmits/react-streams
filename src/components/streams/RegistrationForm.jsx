@@ -20,7 +20,7 @@ class RegistrationForm extends Component {
   submitForm = e => {
     e.preventDefault();
     if (this.validateForm()) {
-      // console.log('Form Submited',this.state.fields);
+      // console.log('handle submit',this.state.fields);
     }
   };
   validateForm = () => {
