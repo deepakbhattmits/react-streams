@@ -25,10 +25,10 @@ const SliderComponent = props => (
           <div className='slide'>I am 1 Slide.</div>
         </Slide>
         <Slide index={1}>
-          <div className='slide'>I am second Slide.</div>
+          <div className='slide'>I am 2 Slide.</div>
         </Slide>
         <Slide index={2}>
-          <div className='slide'>I am third Slide.</div>
+          <div className='slide'>I am th3ird Slide.</div>
         </Slide>
       </Slider>
       <ButtonNext>
