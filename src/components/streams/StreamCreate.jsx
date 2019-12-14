@@ -4,7 +4,7 @@ import SteramForm from './StreamForm';
 import { createStream } from '../../actions';
 const StreamCreate = props => {
   const onSubmit = formValues => {
-    // console.log('formValues : ',formValues)
+    // console.log('TEST formValues : ',formValues)
     props.createStream(formValues);
   };
 
