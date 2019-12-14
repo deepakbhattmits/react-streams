@@ -3,6 +3,7 @@ const initialItems = [
   { text: 'Apples', group: 'fruits' },
   { text: 'Papaya', group: 'fruits' },
   { text: 'Bananas', group: 'fruits' },
+  { text: 'Grapes', group: 'fruits' },
   { text: 'Broccoli', group: 'veg' },
   { text: 'Bacon', group: 'veg' },
   { text: 'Salmon', group: 'veg' },
