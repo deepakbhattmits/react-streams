@@ -23,9 +23,9 @@ import { ReactComponent as RightSVG } from '../assets/images/icon-right-chevron.
 const App = () => {
   const [gear, setGear] = useState(false);
   const layout = [
-    { i: 'a', x: 0, y: 0, w: 5, h: 6 },
-    { i: 'b', x: 1, y: 1, w: 5, h: 6 },
-    { i: 'c', x: 4, y: 1, w: 5, h: 6 }
+    { i: 'aa', x: 0, y: 0, w: 5, h: 6 },
+    { i: 'bb', x: 1, y: 1, w: 5, h: 6 },
+    { i: 'cc', x: 4, y: 1, w: 5, h: 6 }
   ];
   const handleClick = () => {
     setGear(!gear);
