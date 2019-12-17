@@ -1,3 +1,5 @@
+/** @format */
+
 import React from 'react';
 import {
   CarouselProvider,
@@ -22,13 +24,13 @@ const SliderComponent = props => (
       </ButtonBack>
       <Slider>
         <Slide index={0}>
-          <div className='slide'>I am 1 Slide.</div>
+          <div className='slide'>1 Slide.</div>
         </Slide>
         <Slide index={1}>
-          <div className='slide'>I am 2 Slide.</div>
+          <div className='slide'>2 Slide.</div>
         </Slide>
         <Slide index={2}>
-          <div className='slide'>I am th3ird Slide.</div>
+          <div className='slide'>3 Slide.</div>
         </Slide>
       </Slider>
       <ButtonNext>
