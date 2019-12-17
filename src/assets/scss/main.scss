@@ -113,3 +113,15 @@
     }
   }
 }
+.table {
+  thead {
+    th {
+      position: relative;
+      outline: none;
+      span {
+        position: absolute;
+        right: 1rem;
+      }
+    }
+  }
+}
