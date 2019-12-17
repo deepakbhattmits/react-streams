@@ -113,10 +113,17 @@
     }
   }
 }
+.react-bootstrap-table {
+  height: 500px;
+  overflow: auto;
+}
 .table {
   thead {
+    background: #fff;
     th {
-      position: relative;
+      position: sticky;
+      top: 0;
+      background: #fff;
       outline: none;
       span {
         position: absolute;
