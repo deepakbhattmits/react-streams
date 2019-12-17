@@ -1,3 +1,5 @@
+/** @format */
+
 import React, { useState, useEffect } from 'react';
 const initialItems = [
   { text: 'Apples', group: 'fruits' },
@@ -9,6 +11,7 @@ const initialItems = [
   { text: 'Salmon', group: 'veg' },
   { text: 'Yogurt', group: 'veg' },
   { text: 'Chicken', group: 'nonveg' },
+  { text: 'Meat', group: 'nonveg' },
   { text: 'Eggs', group: 'nonveg' },
   { text: 'Beer', group: 'bev' },
   { text: 'Wine', group: 'bev' }
