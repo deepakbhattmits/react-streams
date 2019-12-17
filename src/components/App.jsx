@@ -1,3 +1,5 @@
+/** @format */
+
 import React, { useState } from 'react';
 import { Router, Route, Switch } from 'react-router-dom';
 import StreamCreate from './streams/StreamCreate';
@@ -14,6 +16,7 @@ import CustomHorizontalBar from '../components/streams/CustomHorizontalBar';
 import FormComponent from './streams/FormComponent';
 import RegistrationForm from './streams/RegistrationForm';
 import FilterDemo from './streams/FilterDemo';
+import CustomTable from './streams/CustomTable';
 
 import { ReactComponent as CalenderSVG } from '../assets/images/icon-calendar.svg';
 
@@ -54,6 +57,9 @@ const App = () => {
               component={StreamShow}
             ></Route>
           </Switch>
+        </div>
+        <div className='bootstrap-table'>
+          <CustomTable />
         </div>
         <div className='Filter-List'>
           <FilterDemo />
