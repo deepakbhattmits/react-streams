@@ -1,10 +1,12 @@
+/** @format */
+
 import React from 'react';
 import { connect } from 'react-redux';
 import SteramForm from './StreamForm';
 import { createStream } from '../../actions';
 const StreamCreate = props => {
   const onSubmit = formValues => {
-    // console.log('TEST formValues : ',formValues)
+    // console.log('formValues : ',formValues)
     props.createStream(formValues);
   };
 
