@@ -1,3 +1,5 @@
+/** @format */
+
 import React, { useState } from 'react';
 import { Form, Button, Col } from 'react-bootstrap';
 const FormComponent = () => {
@@ -134,7 +136,11 @@ const FormComponent = () => {
         </Button>
         <ul className='error'>
           {Object.values(errors).map((el, i) => {
-            return <li key={i}>{el}</li>;
+            return (
+              <li key={i} className='list-item'>
+                {el}
+              </li>
+            );
           })}
         </ul>
       </Form>
