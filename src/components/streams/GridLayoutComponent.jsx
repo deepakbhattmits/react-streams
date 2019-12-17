@@ -1,3 +1,5 @@
+/** @format */
+
 import React from 'react';
 import GridLayout from 'react-grid-layout';
 
@@ -11,9 +13,9 @@ const GridLayoutComponent = ({ layout }) => {
         rowHeight={35}
         width={1200}
       >
-        <div key='a'>ABC</div>
-        <div key='b'>BCD</div>
-        <div key='c'>CDE</div>
+        <div key='a'>A</div>
+        <div key='b'>B</div>
+        <div key='c'>C</div>
       </GridLayout>
     </>
   );
