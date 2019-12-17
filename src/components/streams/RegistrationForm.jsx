@@ -1,3 +1,5 @@
+/** @format */
+
 import React, { Component } from 'react';
 
 import { Form, Button, Col, Row } from 'react-bootstrap';
@@ -20,7 +22,7 @@ class RegistrationForm extends Component {
   submitForm = e => {
     e.preventDefault();
     if (this.validateForm()) {
-      // console.log('handle submit',this.state.fields);
+      // console.log('submit',this.state.fields);
     }
   };
   validateForm = () => {
