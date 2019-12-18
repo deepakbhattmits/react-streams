@@ -24,7 +24,7 @@ const SliderComponent = props => (
       </ButtonBack>
       <Slider>
         <Slide index={0}>
-          <div className='slide'>1 Slide.</div>
+          <div className='slide'> First Slide.</div>
         </Slide>
         <Slide index={1}>
           <div className='slide'>2 Slide.</div>
