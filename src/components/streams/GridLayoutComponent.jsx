@@ -15,7 +15,7 @@ const GridLayoutComponent = ({ layout }) => {
       >
         <div key='a'>A</div>
         <div key='b'>B</div>
-        <div key='c'>C</div>
+        <div key='c'>Cc</div>
       </GridLayout>
     </>
   );
