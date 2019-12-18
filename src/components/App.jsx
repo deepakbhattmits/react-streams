@@ -17,6 +17,7 @@ import FormComponent from './streams/FormComponent';
 import RegistrationForm from './streams/RegistrationForm';
 import FilterDemo from './streams/FilterDemo';
 import CustomTable from './streams/CustomTable';
+import CheckFilter from './streams/CheckFilter';
 
 import { ReactComponent as CalenderSVG } from '../assets/images/icon-calendar.svg';
 
@@ -57,6 +58,9 @@ const App = () => {
               component={StreamShow}
             ></Route>
           </Switch>
+        </div>
+        <div className='filter-demo'>
+          <CheckFilter />
         </div>
         <div className='bootstrap-table'>
           <CustomTable />
