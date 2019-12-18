@@ -1,6 +1,8 @@
 /** @format */
 
 import React from 'react';
+import { ReactComponent as DownArrowSVG } from '../../assets/images/icon-down-arrow.svg';
+import { ReactComponent as UpArrowSVG } from '../../assets/images/icon-up-arrow.svg';
 import BootstrapTable from 'react-bootstrap-table-next';
 const CustomTable = () => {
   const getData = item => {
@@ -45,48 +47,23 @@ const CustomTable = () => {
       text: 'Product ID',
       sort: true,
       headerStyle: (colum, colIndex) => {
-        return { width: '80px', textAlign: 'center' };
+        return { width: '1rem', textAlign: 'left' };
       }
     },
     {
       dataField: 'name',
       text: 'Product Name',
       headerStyle: (colum, colIndex) => {
-        return { width: '80px', textAlign: 'left' };
+        return { width: '5rem', textAlign: 'center' };
       },
-      sort: true,
-      // here, we implement a custom sort which perform a reverse sorting
-      sortFunc: (a, b, order, dataField) => {
-        console.log('test custom 0', a, b, order, dataField);
-        if (order === 'asc') {
-          return b - a;
-        }
-        return a - b; // desc
-      },
-      sortCaret: (order, column) => {
-        console.log('test custom1');
-        if (!order) return <span>&nbsp;&nbsp;Desc/Asc</span>;
-        else if (order === 'asc')
-          return (
-            <span>
-              &nbsp;&nbsp;Desc/<font color='red'>Asc</font>
-            </span>
-          );
-        else if (order === 'desc')
-          return (
-            <span>
-              &nbsp;&nbsp;<font color='red'>Desc</font>/Asc
-            </span>
-          );
-        return null;
-      }
+      sort: true
     },
     {
       dataField: 'price',
       text: 'Product Price',
       sort: true,
       headerStyle: (colum, colIndex) => {
-        return { width: '80px', textAlign: 'center' };
+        return { width: '2rem', textAlign: 'left' };
       }
     }
   ];
@@ -95,17 +72,28 @@ const CustomTable = () => {
     // sortFunc: this.sortFunc,
     // No need to configure sortCaret per column
     sortCaret: (order, column) => {
-      if (!order) return <span>&nbsp;&nbsp;Desc/Asc</span>;
+      if (!order)
+        return (
+          <span className='caret'>
+            <DownArrowSVG className='icon up --arrow' />
+            <UpArrowSVG className='icon down --arrow' />
+          </span>
+        );
       else if (order === 'asc')
         return (
-          <span>
-            &nbsp;&nbsp;Desc/<font color='red'>Asc</font>
+          <span className='caret asc'>
+            <DownArrowSVG className='icon down --arrow' />
+            <UpArrowSVG className='icon up --arrow' />
+
+            {/* &nbsp;&nbsp;<font color='red'>Asc</font> */}
           </span>
         );
       else if (order === 'desc')
         return (
-          <span>
-            &nbsp;&nbsp;<font color='red'>Desc</font>/Asc
+          <span className='caret desc'>
+            <UpArrowSVG className='icon up --arrow' />
+            <DownArrowSVG className='icon down --arrow' />
+            {/* &nbsp;&nbsp;<font color='red'>Desc</font>/Asc */}
           </span>
         );
       return null;
