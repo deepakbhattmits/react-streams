@@ -37,6 +37,35 @@
   height: 30px;
   width: 30px;
   background: #ccc;
+  &.--arrow {
+    height: 15px;
+    width: 15px;
+    border: none;
+    background: transparent;
+  }
+}
+.caret {
+  opacity: 0.5;
+  &.asc {
+    svg {
+      &:first-child {
+        path {
+          fill: red;
+        }
+      }
+    }
+    opacity: 1;
+  }
+  &.desc {
+    svg {
+      &:last-child {
+        path {
+          fill: black;
+        }
+      }
+    }
+    opacity: 1;
+  }
 }
 .datepicker {
   display: flex;
