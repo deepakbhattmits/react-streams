@@ -112,7 +112,7 @@ const FormComponent = () => {
             />
           </Form.Group>
 
-          {/* <Form.Group as={Col} controlId='formGridState'>
+          {/* //new <Form.Group as={Col} controlId='formGridState'>
             <Form.Label>State</Form.Label>
             <Form.Control as='select'>
               <option>Choose...</option>
