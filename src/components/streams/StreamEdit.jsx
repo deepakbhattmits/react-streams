@@ -1,3 +1,5 @@
+/** @format */
+
 import React, { useEffect } from 'react';
 import _ from 'lodash';
 import { connect } from 'react-redux';
@@ -13,7 +15,7 @@ const StreamEdit = props => {
     props.editStream(id, formValues);
   };
   if (!props.stream) {
-    return <div>Loading ...</div>;
+    return <div>Loading ..</div>;
   }
   return (
     <div>
