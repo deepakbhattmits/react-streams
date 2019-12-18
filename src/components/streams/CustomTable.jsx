@@ -43,11 +43,17 @@ const CustomTable = () => {
     {
       dataField: 'id',
       text: 'Product ID',
-      sort: true
+      sort: true,
+      headerStyle: (colum, colIndex) => {
+        return { width: '80px', textAlign: 'center' };
+      }
     },
     {
       dataField: 'name',
       text: 'Product Name',
+      headerStyle: (colum, colIndex) => {
+        return { width: '80px', textAlign: 'left' };
+      },
       sort: true,
       // here, we implement a custom sort which perform a reverse sorting
       sortFunc: (a, b, order, dataField) => {
@@ -78,7 +84,10 @@ const CustomTable = () => {
     {
       dataField: 'price',
       text: 'Product Price',
-      sort: true
+      sort: true,
+      headerStyle: (colum, colIndex) => {
+        return { width: '80px', textAlign: 'center' };
+      }
     }
   ];
   const sortOption = {
