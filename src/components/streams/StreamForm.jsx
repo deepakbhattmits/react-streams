@@ -1,3 +1,5 @@
+/** @format */
+
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
 
@@ -47,7 +49,7 @@ const validate = formValues => {
 
   if (!formValues.title) {
     errors.title = 'Must Enter Title';
-    //ran if formavalues did not have value
+    //execute if formavalues did not have value
   }
   if (!formValues.description) {
     errors.description = 'Must Enter Description';
