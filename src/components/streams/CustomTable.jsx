@@ -5,10 +5,11 @@ import { ReactComponent as DownArrowSVG } from '../../assets/images/icon-down-ar
 import { ReactComponent as UpArrowSVG } from '../../assets/images/icon-up-arrow.svg';
 import BootstrapTable from 'react-bootstrap-table-next';
 const CustomTable = () => {
-  const getData = item => {
+  const getData = (id, item) => {
     return (
       <div
         key={item}
+        id={id}
         style={{
           display: 'flex',
           alignItems: 'center',
@@ -26,20 +27,35 @@ const CustomTable = () => {
   //       order: 'desc'
   //     }
   //   ];
+  const productsInitial = [
+    { id: 1, name: 'Item 1', price: 100 },
+    { id: 2, name: 'Item 2', price: 102 },
+    { id: 3, name: 'Item 3', price: 150 },
+    { id: 4, name: 'Item 4', price: 150 },
+    { id: 5, name: 'Item 5', price: 150 },
+    { id: 6, name: 'Item 6', price: 150 },
+    { id: 7, name: 'Item 7', price: 150 },
+    { id: 8, name: 'Item 8', price: 150 },
+    { id: 9, name: 'Item 9', price: 150 },
+    { id: 10, name: 'Item 10', price: 150 },
+    { id: 11, name: 'Item 11', price: 150 },
+    { id: 12, name: 'Item 12', price: 150 },
+    { id: 13, name: 'Item 13', price: 150 }
+  ];
   const products = [
-    { id: 1, name: getData('Item 1'), price: 100 },
-    { id: 2, name: getData('Item 2'), price: 102 },
-    { id: 3, name: getData('Item 3'), price: 150 },
-    { id: 4, name: getData('Item 4'), price: 150 },
-    { id: 5, name: getData('Item 5'), price: 150 },
-    { id: 6, name: getData('Item 6'), price: 150 },
-    { id: 7, name: getData('Item 7'), price: 150 },
-    { id: 8, name: getData('Item 8'), price: 150 },
-    { id: 9, name: getData('Item 9'), price: 150 },
-    { id: 10, name: getData('Item 10'), price: 150 },
-    { id: 11, name: getData('Item 11'), price: 150 },
-    { id: 12, name: getData('Item 12'), price: 150 },
-    { id: 13, name: getData('Item 13'), price: 150 }
+    { id: 1, name: getData(1, 'Item 1'), price: 100 },
+    { id: 2, name: getData(2, 'Item 2'), price: 102 },
+    { id: 3, name: getData(3, 'Item 3'), price: 150 },
+    { id: 4, name: getData(4, 'Item 4'), price: 150 },
+    { id: 5, name: getData(5, 'Item 5'), price: 150 },
+    { id: 6, name: getData(6, 'Item 6'), price: 150 },
+    { id: 7, name: getData(7, 'Item 7'), price: 150 },
+    { id: 8, name: getData(8, 'Item 8'), price: 150 },
+    { id: 9, name: getData(9, 'Item 9'), price: 150 },
+    { id: 10, name: getData(10, 'Item 10'), price: 150 },
+    { id: 11, name: getData(11, 'Item 11'), price: 150 },
+    { id: 12, name: getData(12, 'Item 12'), price: 150 },
+    { id: 13, name: getData(13, 'Item 13'), price: 150 }
   ];
   const columns = [
     {
@@ -50,7 +66,6 @@ const CustomTable = () => {
         return { width: '1rem', textAlign: 'left' };
       },
       sortFunc: (a, b, order, dataField, rowA, rowB) => {
-        console.log(a, b, order, dataField, rowA, rowB);
         if (order === 'asc') return a - b;
         else return b - a;
       }
@@ -63,20 +78,6 @@ const CustomTable = () => {
       },
       sort: true,
       sortFunc: (a, b, order, dataField, rowA, rowB) => {
-        console.log(
-          'accumulator ',
-          a,
-          'next ',
-          b,
-          'order',
-          order,
-          'dataField',
-          dataField,
-          'rowA',
-          rowA.id,
-          'rowB',
-          rowB.id
-        );
         if (order === 'asc') return rowA.id - rowB.id;
         else return rowB.id - rowA.id;
       }
@@ -122,6 +123,13 @@ const CustomTable = () => {
       return null;
     }
   };
+  const rowEvents = {
+    onClick: (e, row, rowIndex) => {
+      console.log('e :', e.target, ' row :', row, ' rowIndex :', rowIndex);
+      const element = productsInitial.filter(item => item.id === row.id);
+      console.log('selected : ', element[0]);
+    }
+  };
   return (
     <BootstrapTable
       bootstrap4
@@ -129,7 +137,7 @@ const CustomTable = () => {
       data={products}
       columns={columns}
       sort={sortOption}
-      //   defaultSorted={defaultSorted}
+      rowEvents={rowEvents}
     />
   );
 };
