@@ -8,6 +8,8 @@ import StreamForm from './StreamForm';
 const StreamEdit = props => {
   const { id } = props.match.params;
   const { fetchStream } = props;
+
+  // console.log(fetchStream)
   useEffect(() => {
     fetchStream(id);
   }, [id, fetchStream]);
