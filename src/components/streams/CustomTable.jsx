@@ -48,6 +48,11 @@ const CustomTable = () => {
       sort: true,
       headerStyle: (colum, colIndex) => {
         return { width: '1rem', textAlign: 'left' };
+      },
+      sortFunc: (a, b, order, dataField, rowA, rowB) => {
+        console.log(a, b, order, dataField, rowA, rowB);
+        if (order === 'asc') return a - b;
+        else return b - a;
       }
     },
     {
@@ -56,7 +61,25 @@ const CustomTable = () => {
       headerStyle: (colum, colIndex) => {
         return { width: '5rem', textAlign: 'center' };
       },
-      sort: true
+      sort: true,
+      sortFunc: (a, b, order, dataField, rowA, rowB) => {
+        console.log(
+          'accumulator ',
+          a,
+          'next ',
+          b,
+          'order',
+          order,
+          'dataField',
+          dataField,
+          'rowA',
+          rowA.id,
+          'rowB',
+          rowB.id
+        );
+        if (order === 'asc') return rowA.id - rowB.id;
+        else return rowB.id - rowA.id;
+      }
     },
     {
       dataField: 'price',
