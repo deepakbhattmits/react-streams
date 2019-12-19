@@ -22,7 +22,7 @@ class RegistrationForm extends Component {
   submitForm = e => {
     e.preventDefault();
     if (this.validateForm()) {
-      // console.log('Handle submit',this.state.fields);
+      // console.log('submit',this.state.fields);
     }
   };
   validateForm = () => {
