@@ -1,4 +1,8 @@
-/* Use */
+/**
+ * /* Use
+ *
+ * @format
+ */
 
 .ui {
   &.secondary {
@@ -193,4 +197,7 @@ path {
       }
     }
   }
+}
+.errorMsg {
+  color: var(--color-error);
 }
