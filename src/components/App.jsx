@@ -13,7 +13,7 @@ import SliderComponent from './streams/SliderComponent';
 import GridLayoutComponent from './streams/GridLayoutComponent';
 import ChartCompoent from '../components/streams/ChartComponent';
 import CustomHorizontalBar from '../components/streams/CustomHorizontalBar';
-import FormComponent from './streams/FormComponent';
+// import FormComponent from './streams/FormComponent';
 import RegistrationForm from './streams/RegistrationForm';
 import FilterDemo from './streams/FilterDemo';
 import CustomTable from './streams/CustomTable';
@@ -59,16 +59,11 @@ const App = () => {
             ></Route>
           </Switch>
         </div>
-        <div className='filter-demo'>
-          <CheckFilter />
-        </div>
-        <div className='bootstrap-table'>
-          <CustomTable />
-        </div>
-        <div className='Filter-List'>
-          <FilterDemo />
-        </div>
+        <div className='filter-demo'>{/* <CheckFilter /> */}</div>
+        <div className='bootstrap-table'>{/* <CustomTable /> */}</div>
+        <div className='Filter-List'>{/* <FilterDemo /> */}</div>
         <div className='slide-animation'>
+          <RegistrationForm />
           <div className='ui horizontal list'>
             <div className='item'>
               <CalenderSVG className='icon' />
@@ -82,24 +77,18 @@ const App = () => {
           </div>
           <div className='new'>
             <div className={`first ${!gear ? 'active' : ''}`}>
-              <RegistrationForm />
+              {/* <RegistrationForm /> */}
             </div>
             <div className={`second ${gear ? 'active' : ''}`}>
-              <FormComponent />
+              {/* <FormComponent /> */}
             </div>
           </div>
         </div>
-        <div className='bar-chart'>
-          <CustomHorizontalBar />
-        </div>
-        <div className='chart'>
-          <ChartCompoent />
-        </div>
-        <div className='caousel'>
-          <SliderComponent />
-        </div>
+        <div className='bar-chart'>{/* <CustomHorizontalBar /> */}</div>
+        <div className='chart'>{/* <ChartCompoent /> */}</div>
+        <div className='caousel'>{/* <SliderComponent /> */}</div>
         <div className='grid'>
-          <GridLayoutComponent layout={layout} />
+          {/* <GridLayoutComponent layout={layout} /> */}
         </div>
       </Router>
     </div>
