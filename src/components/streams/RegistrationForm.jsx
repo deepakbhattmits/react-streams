@@ -1,32 +1,30 @@
 /** @format */
 
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 
-import { Form, Button, Col, Row } from 'react-bootstrap';
-// import { connect } from 'react-redux';
-
-class RegistrationForm extends Component {
-  state = {
-    fields: {},
-    errorMessages: {}
-  };
-  handleChange = e => {
+const RegistrationForm = () => {
+  // state = {
+  //   fields: {},
+  //   errorMessages: {}
+  // };
+  const [fields, setFields] = useState({});
+  const [errorMessages, setErrorMessages] = useState({});
+  const handleChange = e => {
     const { name, value } = e.target;
-    let fields = this.state.fields;
-    // console.log('change in ',e.target.name)
+    let fields = {};
+    console.log('change in ', name, value);
     fields[name] = value;
-    this.setState({
-      fields
-    });
+    console.log('TEST : ', fields);
+    setFields(fields);
   };
-  submitForm = e => {
+  const submitForm = e => {
     e.preventDefault();
-    if (this.validateForm()) {
-      // console.log('submit',this.state.fields);
+    if (validateForm()) {
+      console.log('submit', fields);
     }
   };
-  validateForm = () => {
-    let fields = this.state.fields;
+  const validateForm = () => {
+    let fields = {};
     let errors = {};
     let formIsValid = true;
     if (!fields['username']) {
@@ -81,156 +79,55 @@ class RegistrationForm extends Component {
         errors['password'] = 'please use strong password';
       }
     }
-    this.setState({ errorMessages: errors });
+    setErrorMessages(errors);
     return formIsValid;
   };
-  render() {
-    // const { isSignedIn } = this.props.auth;
-    // console.log(`user is isSignedIn : ${isSignedIn}`);
-    return (
-      <div>
-        <div id='register' className='register-form'>
-          {/* {isSignedIn ? (
-            <h3>Registration page with user</h3>
-          ) : (
-            <h3>Registration page without user</h3>
-          )} */}
-
-          <Form name='userRegistrationForm' onSubmit={this.submitForm}>
-            <Form.Group
-              as={Row}
-              // controlId='formPlaintextEmail'
-              className={`${
-                this.state.errorMessages.username ? 'has-error' : ''
-              }`}
-            >
-              <Form.Label column sm='4'>
-                username
-              </Form.Label>
-              <Col sm='8'>
-                <Form.Control
-                  className={`${
-                    this.state.errorMessages.username ? 'has-error' : ''
-                  }`}
-                  type='text'
-                  id='username'
-                  name='username'
-                  onChange={this.handleChange}
-                  value={this.state.fields.username || ''}
-                />
-              </Col>
-            </Form.Group>
-
-            <Form.Group
-              as={Row}
-              // controlId='formPlaintextPassword'
-            >
-              <Form.Label column sm='4'>
-                Email
-              </Form.Label>
-              <Col sm='8'>
-                <Form.Control
-                  type='text'
-                  id='emailid'
-                  name='emailid'
-                  onChange={this.handleChange}
-                  value={this.state.fields.emailid || ''}
-                />
-              </Col>
-            </Form.Group>
-            <Form.Group
-              as={Row}
-              //  controlId='formPlaintextPassword'
-            >
-              <Form.Label column sm='4'>
-                mobileno
-              </Form.Label>
-              <Col sm='8'>
-                <Form.Control
-                  type='text'
-                  id='mobileno'
-                  name='mobileno'
-                  onChange={this.handleChange}
-                  value={this.state.fields.mobileno || ''}
-                />
-              </Col>
-            </Form.Group>
-            <Form.Group
-              as={Row}
-              // controlId='formPlaintextPassword'
-            >
-              <Form.Label column sm='4'>
-                mobileno
-              </Form.Label>
-              <Col sm='8'>
-                <Form.Control
-                  type='password'
-                  id='password'
-                  name='password'
-                  onChange={this.handleChange}
-                  value={this.state.fields.password || ''}
-                />
-              </Col>
-            </Form.Group>
-            <Form.Group>
-              <Button type='submit' className='btn button' value='register'>
-                Register
-              </Button>
-            </Form.Group>
-          </Form>
-
-          <Form
-            method='post'
-            name='userRegistrationForm'
-            onSubmit={this.submitForm}
-          >
-            <label htmlFor='username'>Name</label>
-            <input
-              type='text'
-              id='username'
-              name='username'
-              onChange={this.handleChange}
-              value={this.state.fields.username || ''}
-            />
-            <div className='errorMsg'>{this.state.errorMessages.username}</div>
-            <label htmlFor='emailid'>Email ID:</label>
-            <input
-              type='text'
-              id='emailid'
-              name='emailid'
-              onChange={this.handleChange}
-              value={this.state.fields.emailid || ''}
-            />
-            <div className='errorMsg'>{this.state.errorMessages.emailid}</div>
-            <label htmlFor='mobileno'>Mobile No:</label>
-            <input
-              type='text'
-              id='mobileno'
-              name='mobileno'
-              onChange={this.handleChange}
-              value={this.state.fields.mobileno || ''}
-            />
-            <div className='errorMsg'>{this.state.errorMessages.mobileno}</div>
-            <label htmlFor='password'>Password</label>
-            <input
-              type='password'
-              id='password'
-              name='password'
-              onChange={this.handleChange}
-              value={this.state.fields.password || ''}
-            />
-            <div className='errorMsg'>{this.state.errorMessages.password}</div>
-            <input type='submit' className='button' value='Register' />
-          </Form>
-        </div>
+  // const { isSignedIn } = props.auth;
+  // console.log(`user is isSignedIn : ${isSignedIn}`);
+  return (
+    <>
+      <div id='register' className='register-form'>
+        <form method='post' name='userRegistrationForm' onSubmit={submitForm}>
+          <label htmlFor='username'>Name</label>
+          <input
+            type='text'
+            id='username'
+            name='username'
+            onChange={handleChange}
+            value={fields.username || ''}
+          />
+          <div className='errorMsg'>{errorMessages.username}</div>
+          <label htmlFor='emailid'>Email ID:</label>
+          <input
+            type='text'
+            id='emailid'
+            name='emailid'
+            onChange={handleChange}
+            value={fields.emailid || ''}
+          />
+          <div className='errorMsg'>{errorMessages.emailid}</div>
+          <label htmlFor='mobileno'>Mobile No:</label>
+          <input
+            type='text'
+            id='mobileno'
+            name='mobileno'
+            onChange={handleChange}
+            value={fields.mobileno || ''}
+          />
+          <div className='errorMsg'>{errorMessages.mobileno}</div>
+          <label htmlFor='password'>Password</label>
+          <input
+            type='password'
+            id='password'
+            name='password'
+            onChange={handleChange}
+            value={fields.password || ''}
+          />
+          <div className='errorMsg'>{errorMessages.password}</div>
+          <input type='submit' className='button' value='Register' />
+        </form>
       </div>
-    );
-  }
-}
-// const mapStatetoProps = (state) => {
-//     return {
-//         auth: state.auth
-//     }
-// }
-// export default connect(mapStatetoProps, null)(RegistrationForm);
+    </>
+  );
+};
 export default RegistrationForm;
