@@ -1,10 +1,13 @@
 /** @format */
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { ReactComponent as DownArrowSVG } from '../../assets/images/icon-down-arrow.svg';
 import { ReactComponent as UpArrowSVG } from '../../assets/images/icon-up-arrow.svg';
 import BootstrapTable from 'react-bootstrap-table-next';
-const CustomTable = () => {
+import TableModal from '../TableModal';
+const CustomTable = props => {
+  const [data, setData] = useState([]);
+  const [active, setActive] = useState(false);
   const getData = (id, item) => {
     return (
       <div
@@ -21,12 +24,6 @@ const CustomTable = () => {
       </div>
     );
   };
-  //   const defaultSorted = [
-  //     {
-  //       dataField: 'name',
-  //       order: 'desc'
-  //     }
-  //   ];
   const productsInitial = [
     { id: 1, name: 'Item 1', price: 100 },
     { id: 2, name: 'Item 2', price: 102 },
@@ -99,15 +96,15 @@ const CustomTable = () => {
       if (!order)
         return (
           <span className='caret'>
-            <DownArrowSVG className='icon up --arrow' />
             <UpArrowSVG className='icon down --arrow' />
+            <DownArrowSVG className='icon up --arrow' />
           </span>
         );
       else if (order === 'asc')
         return (
           <span className='caret asc'>
-            <DownArrowSVG className='icon down --arrow' />
             <UpArrowSVG className='icon up --arrow' />
+            <DownArrowSVG className='icon down --arrow' />
 
             {/* &nbsp;&nbsp;<font color='red'>Asc</font> */}
           </span>
@@ -125,20 +122,35 @@ const CustomTable = () => {
   };
   const rowEvents = {
     onClick: (e, row, rowIndex) => {
+      let data = {};
       console.log('e :', e.target, ' row :', row, ' rowIndex :', rowIndex);
       const element = productsInitial.filter(item => item.id === row.id);
       console.log('selected : ', element[0]);
+      data['id'] = element[0].id;
+      data['name'] = element[0].name;
+      data['price'] = element[0].price;
+      setData(data);
+      setActive(true);
     }
   };
   return (
-    <BootstrapTable
-      bootstrap4
-      keyField='id'
-      data={products}
-      columns={columns}
-      sort={sortOption}
-      rowEvents={rowEvents}
-    />
+    <>
+      <BootstrapTable
+        bootstrap4
+        keyField='id'
+        data={products}
+        columns={columns}
+        sort={sortOption}
+        rowEvents={rowEvents}
+      />
+      <TableModal
+        title='selected data'
+        content={data}
+        active={active}
+        onDismiss={() => setActive(false)}
+      />
+    </>
   );
 };
+
 export default CustomTable;
