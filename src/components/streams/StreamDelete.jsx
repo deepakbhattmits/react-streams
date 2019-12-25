@@ -9,7 +9,7 @@ import createBrowserHistory from '../../history';
 const StreamDelete = props => {
   const { id } = props.match.params;
   const { fetchStream } = props;
-  // console.log(fetchStream)
+  // console.log('test : ',fetchStream)
   useEffect(() => {
     if (!id.length) {
       fetchStream(id);
