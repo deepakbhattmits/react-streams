@@ -1,3 +1,5 @@
+/** @format */
+
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
@@ -52,7 +54,7 @@ const StreamList = props => {
   };
   const handleScroll = e => {
     const bottom = e.target.scrollTop;
-    // console.log(bottom)
+    // console.log('bottom :',bottom)
     if (bottom > 0) {
       setScroll(true);
     } else {
