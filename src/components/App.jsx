@@ -60,7 +60,9 @@ const App = () => {
           </Switch>
         </div>
         <div className='filter-demo'>{/* <CheckFilter /> */}</div>
-        <div className='bootstrap-table'>{/* <CustomTable /> */}</div>
+        <div className='bootstrap-table'>
+          <CustomTable />
+        </div>
         <div className='Filter-List'>{/* <FilterDemo /> */}</div>
         <div className='slide-animation'>
           <RegistrationForm />
