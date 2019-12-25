@@ -12,7 +12,7 @@ import { ReactComponent as LeftSVG } from '../../assets/images/icon-left-chevron
 import { ReactComponent as RightSVG } from '../../assets/images/icon-right-chevron.svg';
 
 const SliderComponent = props => (
-  // console.log(props)
+  // console.log('test : ',props)
   <>
     <CarouselProvider
       naturalSlideWidth={100}
