@@ -1,3 +1,5 @@
+/** @format */
+
 import React, { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import GoogleAuth from './GoogleAuth';
@@ -7,11 +9,16 @@ import DatePicker from 'react-datepicker';
 import { Dropdown, Button } from 'react-bootstrap';
 const Header = props => {
   const datePicker = useRef();
+  const [search, setSearch] = useState('');
   const [selectedDate, setSelectedDate] = useState(new Date());
   const [value, setValue] = useState('--Select--');
   const [display, setDisplay] = useState(false);
   const onChange = value => {
     setSelectedDate(value);
+  };
+  const handleChange = e => {
+    const { name, value } = e.target;
+    setSearch(value);
   };
   const onChangeSVG = () => {
     //  console.log('test : ', datePicker.current)
@@ -104,6 +111,14 @@ const Header = props => {
             dateFormat='dd-MM-yyyy' // if you want to make some changes with format then use this attribute by default value displayed like MM/DD/YYYY
           />
           <CalenderSVG className='icon icon--calender' onClick={onChangeSVG} />
+        </div>
+        <div className='search-wrapper'>
+          <input
+            name='search'
+            onChange={handleChange}
+            value={search}
+            placeholder='Please Enter term'
+          />
         </div>
       </div>
     </div>
