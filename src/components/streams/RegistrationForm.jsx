@@ -12,7 +12,7 @@ const RegistrationForm = () => {
   const handleChange = e => {
     const { name, value } = e.target;
     let fields = {};
-    console.log('change in ', name, value);
+    // console.log('change in ', name, value);
     fields[name] = value;
     console.log('TEST : ', fields);
     setFields(fields);
