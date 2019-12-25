@@ -4,7 +4,7 @@ import React from 'react';
 import GridLayout from 'react-grid-layout';
 
 const GridLayoutComponent = ({ layout }) => {
-  // console.log(layout)
+  // console.log('test : ',layout)
   return (
     <>
       <GridLayout
