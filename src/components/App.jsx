@@ -1,99 +1,39 @@
 /** @format */
 
-import React, { useState } from 'react';
+import React from 'react';
 import { Router, Route, Switch } from 'react-router-dom';
+import createBrowserHistory from '../history';
+import Layout from '../layout/Layout';
+import GlobalState from '../context/GlobalState';
 import StreamCreate from './streams/StreamCreate';
 import StreamList from './streams/StreamList';
 import StreamShow from './streams/StreamShow';
 import StreamEdit from './streams/StreamEdit';
 import StreamDelete from './streams/StreamDelete';
-import Header from './Header';
-import createBrowserHistory from '../history';
-import SliderComponent from './streams/SliderComponent';
-import GridLayoutComponent from './streams/GridLayoutComponent';
-import ChartCompoent from '../components/streams/ChartComponent';
-import CustomHorizontalBar from '../components/streams/CustomHorizontalBar';
-// import FormComponent from './streams/FormComponent';
-import RegistrationForm from './streams/RegistrationForm';
-import FilterDemo from './streams/FilterDemo';
 import CustomTable from './streams/CustomTable';
-import CheckFilter from './streams/CheckFilter';
 
-import { ReactComponent as CalenderSVG } from '../assets/images/icon-calendar.svg';
-
-import { ReactComponent as LeftSVG } from '../assets/images/icon-left-chevron.svg';
-
-import { ReactComponent as RightSVG } from '../assets/images/icon-right-chevron.svg';
 const App = () => {
-  const [gear, setGear] = useState(false);
-  const layout = [
-    { i: 'aa', x: 0, y: 0, w: 5, h: 6 },
-    { i: 'bb', x: 1, y: 1, w: 5, h: 6 },
-    { i: 'cc', x: 4, y: 1, w: 5, h: 6 }
-  ];
-  const handleClick = () => {
-    setGear(!gear);
-  };
-  return (
-    <div className='ui container'>
-      <Router history={createBrowserHistory}>
-        <div>
-          <Header />
-          <Switch>
-            <Route path='/' exact component={StreamList}></Route>
-            <Route path='/streams/new' exact component={StreamCreate}></Route>
-            <Route
-              path='/streams/edit/:id'
-              exact
-              component={StreamEdit}
-            ></Route>
-            <Route
-              path='/streams/delete/:id'
-              exact
-              component={StreamDelete}
-            ></Route>
-            <Route
-              path='/streams/show/:id'
-              exact
-              component={StreamShow}
-            ></Route>
-          </Switch>
-        </div>
-        <div className='filter-demo'>{/* <CheckFilter /> */}</div>
-        <div className='bootstrap-table'>
-          <CustomTable />
-        </div>
-        <div className='Filter-List'>{/* <FilterDemo /> */}</div>
-        <div className='slide-animation'>
-          <RegistrationForm />
-          <div className='ui horizontal list'>
-            <div className='item'>
-              <CalenderSVG className='icon' />
-            </div>
-            <div className='item'>
-              <LeftSVG className='icon' onClick={handleClick} />
-            </div>
-            <div className='item'>
-              <RightSVG className='icon' />
-            </div>
-          </div>
-          <div className='new'>
-            <div className={`first ${!gear ? 'active' : ''}`}>
-              {/* <RegistrationForm /> */}
-            </div>
-            <div className={`second ${gear ? 'active' : ''}`}>
-              {/* <FormComponent /> */}
-            </div>
-          </div>
-        </div>
-        <div className='bar-chart'>{/* <CustomHorizontalBar /> */}</div>
-        <div className='chart'>{/* <ChartCompoent /> */}</div>
-        <div className='caousel'>{/* <SliderComponent /> */}</div>
-        <div className='grid'>
-          {/* <GridLayoutComponent layout={layout} /> */}
-        </div>
-      </Router>
-    </div>
-  );
+	return (
+		<GlobalState>
+			<div className='ui container'>
+				<Router history={createBrowserHistory}>
+					<Layout>
+						<Switch>
+							<Route path='/' component={StreamList} exact />
+							<Route path='/streams/table' component={CustomTable} exact />
+							<Route path='/streams/new' component={StreamCreate} exact />
+							<Route path='/streams/edit/:id' component={StreamEdit} exact />
+							<Route path='/streams/show/:id' component={StreamShow} exact />
+							<Route
+								path='/streams/delete/:id'
+								component={StreamDelete}
+								exact
+							/>
+						</Switch>
+					</Layout>
+				</Router>
+			</div>
+		</GlobalState>
+	);
 };
 export default App;
