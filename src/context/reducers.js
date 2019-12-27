@@ -3,7 +3,7 @@
 import { streamConstants } from '../constants/type';
 const seacrhProduct = (search, state) => {
 	let filteredProducts = [];
-	console.log('REDUCER', search, 'PRODUCTS : ', state.products);
+	// console.log('REDUCER', search, 'PRODUCTS : ', state.products);
 	if (search === '') {
 		return null;
 	}
@@ -15,7 +15,7 @@ const seacrhProduct = (search, state) => {
 export const streamReducer = (state, action) => {
 	switch (action.type) {
 		case streamConstants.SEARCH_QRY:
-			console.log('matched ', action.qry, state.products);
+			// console.log('matched ', action.qry, state.products);
 			return seacrhProduct(action.qry, state);
 		default:
 			return state;
