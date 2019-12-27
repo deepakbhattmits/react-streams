@@ -8,7 +8,7 @@ import BootstrapTable from 'react-bootstrap-table-next';
 import TableModal from '../TableModal';
 const CustomTable = props => {
 	const context = useContext(appContext);
-	console.log('TABLE : ', context);
+	console.log('TABLE : ', context.products);
 	const [data, setData] = useState([]);
 	const [active, setActive] = useState(false);
 	const getData = (id, item) => {
@@ -28,21 +28,13 @@ const CustomTable = props => {
 		);
 	};
 	const productsInitial = context.products;
-	const products = [
-		{ id: 1, name: getData(1, 'Item 1'), price: 100 },
-		{ id: 2, name: getData(2, 'Item 2'), price: 102 },
-		{ id: 3, name: getData(3, 'Item 3'), price: 150 },
-		{ id: 4, name: getData(4, 'Item 4'), price: 150 },
-		{ id: 5, name: getData(5, 'Item 5'), price: 150 },
-		{ id: 6, name: getData(6, 'Item 6'), price: 150 },
-		{ id: 7, name: getData(7, 'Item 7'), price: 150 },
-		{ id: 8, name: getData(8, 'Item 8'), price: 150 },
-		{ id: 9, name: getData(9, 'Item 9'), price: 150 },
-		{ id: 10, name: getData(10, 'Item 10'), price: 150 },
-		{ id: 11, name: getData(11, 'Item 11'), price: 150 },
-		{ id: 12, name: getData(12, 'Item 12'), price: 150 },
-		{ id: 13, name: getData(13, 'Item 13'), price: 150 }
-	];
+	const products = productsInitial.map(item => {
+		return {
+			id: item.id,
+			name: getData(item.id, item.name),
+			price: item.price
+		};
+	});
 
 	const columns = [
 		{
@@ -79,9 +71,6 @@ const CustomTable = props => {
 		}
 	];
 	const sortOption = {
-		// No need to configure sortFunc per column
-		// sortFunc: this.sortFunc,
-		// No need to configure sortCaret per column
 		sortCaret: (order, column) => {
 			if (!order)
 				return (
