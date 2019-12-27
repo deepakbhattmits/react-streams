@@ -8,7 +8,7 @@ import { streamReducer } from './reducers.js';
 // import 'react-toastify/dist/ReactToastify.css';
 const GlobalState = props => {
 	const products = [
-		{ id: 1, name: 'Item 1', price: 100 },
+		{ id: 1, name: 'Item 1 plus', price: 100 },
 		{ id: 2, name: 'Item 2', price: 102 },
 		{ id: 3, name: 'Item 3', price: 150 },
 		{ id: 4, name: 'Item 4', price: 150 },
@@ -23,8 +23,8 @@ const GlobalState = props => {
 		{ id: 13, name: 'Item 13', price: 150 }
 	];
 	const [state, dispatch] = useReducer(streamReducer, { products: products });
-	const seacrhProduct = qry => {
-		console.log('SEARCH : ', state, qry);
+	const seacrhProduct = (qry, products) => {
+		console.log('on SEARCH : ', products, qry);
 		setTimeout(() => {
 			dispatch({ type: streamConstants.SEARCH_QRY, qry: qry });
 		}, 700);
