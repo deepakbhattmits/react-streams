@@ -24,7 +24,7 @@ const GlobalState = props => {
 	];
 	const [state, dispatch] = useReducer(streamReducer, { products: products });
 	const seacrhProduct = (qry, products) => {
-		// console.log('on SEARCH : ', qry, products);
+		// console.log('globalState SEARCH : ', qry, products);
 		setTimeout(() => {
 			dispatch({ type: streamConstants.SEARCH_QRY, qry: qry });
 		}, 700);
