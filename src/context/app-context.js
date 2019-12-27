@@ -17,5 +17,5 @@ export default createContext({
 		{ id: 12, name: 'Item 12', price: 150 },
 		{ id: 13, name: 'Item 13', price: 150 }
 	],
-	seacrhProduct: product => {}
+	seacrhProduct: (value, product) => {}
 });
