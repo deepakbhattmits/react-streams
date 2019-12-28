@@ -97,7 +97,6 @@ const CustomTable = props => {
 			let data = {};
 			// console.log('e :', e.target, ' row :', row, ' rowIndex :', rowIndex);
 			const element = productsInitial.filter(item => item.id === row.id);
-			// console.log('selected : ', element[0]);
 			data['id'] = element[0].id;
 			data['name'] = element[0].name;
 			data['price'] = element[0].price;
