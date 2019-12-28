@@ -1,6 +1,6 @@
 /** @format */
 
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import appContext from '../../context/app-context';
 import { ReactComponent as DownArrowSVG } from '../../assets/images/icon-down-arrow.svg';
 import { ReactComponent as UpArrowSVG } from '../../assets/images/icon-up-arrow.svg';
@@ -10,6 +10,7 @@ const CustomTable = props => {
 	const context = useContext(appContext);
 	console.log('TABLE : ', context.products);
 	const [data, setData] = useState([]);
+	const [products, setProducts] = useState([]);
 	const [active, setActive] = useState(false);
 	const getData = (id, item) => {
 		return (
@@ -28,14 +29,6 @@ const CustomTable = props => {
 		);
 	};
 	const productsInitial = context.products;
-	const products = productsInitial.map(item => {
-		return {
-			id: item.id,
-			name: getData(item.id, item.name),
-			price: item.price
-		};
-	});
-
 	const columns = [
 		{
 			dataField: 'id',
@@ -112,6 +105,16 @@ const CustomTable = props => {
 			setActive(true);
 		}
 	};
+	useEffect(() => {
+		const products = productsInitial.map(item => {
+			return {
+				id: item.id,
+				name: getData(item.id, item.name),
+				price: item.price
+			};
+		});
+		setProducts(products);
+	}, [productsInitial]);
 	return (
 		<>
 			<BootstrapTable
