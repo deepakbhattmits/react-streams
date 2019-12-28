@@ -23,8 +23,8 @@ const GlobalState = props => {
 		{ id: 13, name: 'Mac Book', price: 150 }
 	];
 	const [state, dispatch] = useReducer(streamReducer, { products: products });
-	const seacrhProduct = (qry, products) => {
-		// console.log('globalState SEARCH : ', qry, products);
+	const seacrhProduct = (qry, state) => {
+		console.log('globalState SEARCH : ', qry, state);
 		setTimeout(() => {
 			dispatch({ type: streamConstants.SEARCH_QRY, qry: qry });
 		}, 700);
