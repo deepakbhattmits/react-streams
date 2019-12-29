@@ -17,12 +17,14 @@ const GlobalState = props => {
 		{ id: 7, name: 'iphone X', price: 150 },
 		{ id: 8, name: 'iphone pro', price: 150 },
 		{ id: 9, name: 'iphone pro', price: 150 },
-		{ id: 10, name: 'Mac Book', price: 150 },
+		{ id: 10, name: 'Mac Book pro', price: 150 },
 		{ id: 11, name: 'Mac Book', price: 150 },
 		{ id: 12, name: 'Mac Book', price: 150 },
 		{ id: 13, name: 'Mac Book', price: 150 }
 	];
-	const [state, dispatch] = useReducer(streamReducer, { products: products });
+	const [state, dispatch] = useReducer(streamReducer, {
+		products: products
+	});
 	const seacrhProduct = (qry, state) => {
 		console.log('globalState SEARCH : ', qry, state);
 		setTimeout(() => {
