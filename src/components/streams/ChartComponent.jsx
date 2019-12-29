@@ -1,6 +1,7 @@
 import React, { useRef, useEffect, useState } from 'react';
 import { Line } from 'react-chartjs-2';
 const ChartComponent = () => {
+  // console.log('test');
   const chart = useRef();
   const [legend, setLegend] = useState([]);
   const chartData = {
