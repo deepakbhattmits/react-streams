@@ -2,11 +2,17 @@
 
 import { streamConstants } from '../constants/type';
 const seacrhProduct = (search, state) => {
-	console.log('REDUCER', search, 'PRODUCTS : ', state.products);
-	const filteredProducts = state.products.filter(item => {
-		return item.name.toLowerCase().search(search.toLowerCase()) !== -1;
-	});
-	return { ...state, products: filteredProducts };
+	let newProducts = [];
+	if (search !== '') {
+		newProducts = state.products.filter(item => {
+			const lc = item.name.toLowerCase();
+			const filter = search.toLowerCase();
+			return lc.includes(filter);
+		});
+	} else {
+		newProducts = state.products;
+	}
+	return { ...state, filteredProducts: newProducts };
 };
 export const streamReducer = (state, action) => {
 	switch (action.type) {
