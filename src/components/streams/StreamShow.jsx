@@ -5,6 +5,7 @@ import flv from 'flv.js';
 
 import { fetchStream } from '../../actions';
 const StreamShow = props => {
+  // console.log('test');
   const videoRef = useRef(null);
   const inputRef = useRef(null);
   const { id } = props.match.params;
