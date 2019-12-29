@@ -5,19 +5,19 @@ import { connect } from 'react-redux';
 import SteramForm from './StreamForm';
 import { createStream } from '../../actions';
 const StreamCreate = props => {
-  const onSubmit = formValues => {
-    // console.log('TEST formValues : ',formValues)
-    props.createStream(formValues);
-  };
+	const onSubmit = formValues => {
+		// console.log('formValues : ',formValues)
+		props.createStream(formValues);
+	};
 
-  return (
-    <div>
-      <h3>Create Stream </h3>
-      <SteramForm onSubmit={onSubmit} />
-    </div>
-  );
+	return (
+		<div>
+			<h3>Create Stream </h3>
+			<SteramForm onSubmit={onSubmit} />
+		</div>
+	);
 };
 const mapDispatchToProps = dispatch => ({
-  createStream: data => dispatch(createStream(data))
+	createStream: data => dispatch(createStream(data))
 });
 export default connect(null, mapDispatchToProps)(StreamCreate);
