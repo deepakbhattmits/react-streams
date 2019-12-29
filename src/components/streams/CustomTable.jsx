@@ -8,7 +8,7 @@ import BootstrapTable from 'react-bootstrap-table-next';
 import TableModal from '../TableModal';
 const CustomTable = props => {
 	const context = useContext(appContext);
-	console.log('TABLE : ', context.products);
+	console.log('TABLE : ', context.filteredProducts);
 	const [data, setData] = useState([]);
 	const [products, setProducts] = useState([]);
 	const [active, setActive] = useState(false);
@@ -28,7 +28,6 @@ const CustomTable = props => {
 			</div>
 		);
 	};
-	const productsInitial = context.products;
 	const columns = [
 		{
 			dataField: 'id',
@@ -95,8 +94,7 @@ const CustomTable = props => {
 	const rowEvents = {
 		onClick: (e, row, rowIndex) => {
 			let data = {};
-			// console.log('e :', e.target, ' row :', row, ' rowIndex :', rowIndex);
-			const element = productsInitial.filter(item => item.id === row.id);
+			const element = context.products.filter(item => item.id === row.id);
 			data['id'] = element[0].id;
 			data['name'] = element[0].name;
 			data['price'] = element[0].price;
@@ -105,7 +103,7 @@ const CustomTable = props => {
 		}
 	};
 	useEffect(() => {
-		const products = productsInitial.map(item => {
+		const products = context.products.map(item => {
 			return {
 				id: item.id,
 				name: getData(item.id, item.name),
@@ -113,7 +111,7 @@ const CustomTable = props => {
 			};
 		});
 		setProducts(products);
-	}, [productsInitial]);
+	}, [context.products]);
 	return (
 		<>
 			<BootstrapTable
