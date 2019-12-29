@@ -94,7 +94,9 @@ const CustomTable = props => {
 	const rowEvents = {
 		onClick: (e, row, rowIndex) => {
 			let data = {};
-			const element = context.products.filter(item => item.id === row.id);
+			const element = context.filteredProducts.filter(
+				item => item.id === row.id
+			);
 			data['id'] = element[0].id;
 			data['name'] = element[0].name;
 			data['price'] = element[0].price;
@@ -103,7 +105,7 @@ const CustomTable = props => {
 		}
 	};
 	useEffect(() => {
-		const products = context.products.map(item => {
+		const products = context.filteredProducts.map(item => {
 			return {
 				id: item.id,
 				name: getData(item.id, item.name),
@@ -111,7 +113,7 @@ const CustomTable = props => {
 			};
 		});
 		setProducts(products);
-	}, [context.products]);
+	}, [context.filteredProducts]);
 	return (
 		<>
 			<BootstrapTable
