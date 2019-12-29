@@ -23,7 +23,7 @@ const CustomTable = props => {
 					justifyContent: 'space-between'
 				}}
 			>
-				<span>TEST</span>
+				<span>DEMO</span>
 				<span>{item}</span>
 			</div>
 		);
