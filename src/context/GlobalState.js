@@ -43,7 +43,7 @@ const GlobalState = props => {
 		filteredProducts: filteredProducts
 	});
 	const seacrhProduct = (qry, state) => {
-		console.log('globalState SEARCH : ', qry, state);
+		// console.log('globalState SEARCH : ', qry, state);
 		setTimeout(() => {
 			dispatch({ type: streamConstants.SEARCH_QRY, qry: qry });
 		}, 700);
