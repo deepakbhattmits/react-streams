@@ -8,7 +8,7 @@ import BootstrapTable from 'react-bootstrap-table-next';
 import TableModal from '../TableModal';
 const CustomTable = props => {
 	const context = useContext(appContext);
-	console.log('TABLE : ', context.filteredProducts);
+	// console.log('TABLE : ', context.filteredProducts);
 	const [data, setData] = useState([]);
 	const [products, setProducts] = useState([]);
 	const [active, setActive] = useState(false);
