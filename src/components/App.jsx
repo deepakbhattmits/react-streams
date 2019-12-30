@@ -13,6 +13,7 @@ import StreamDelete from './streams/StreamDelete';
 import CustomTable from './streams/CustomTable';
 
 const App = () => {
+	// console.log('test')
 	return (
 		<GlobalState>
 			<div className='ui container'>
