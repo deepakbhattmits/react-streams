@@ -21,8 +21,7 @@ const CustomTable = props => {
 					display: 'flex',
 					alignItems: 'center',
 					justifyContent: 'space-between'
-				}}
-			>
+				}}>
 				<span>DEMO</span>
 				<span>{item}</span>
 			</div>
@@ -49,8 +48,22 @@ const CustomTable = props => {
 			},
 			sort: true,
 			sortFunc: (a, b, order, dataField, rowA, rowB) => {
-				if (order === 'asc') return rowA.id - rowB.id;
-				else return rowB.id - rowA.id;
+				console.log(rowA.name.props.children[1].props.children);
+				if (
+					order === 'asc' &&
+					rowA.name.props.children[1].props.children >
+						rowB.name.props.children[1].props.children
+				) {
+					return -1;
+				} else if (
+					order === 'desc' &&
+					rowA.name.props.children[1].props.children <
+						rowB.name.props.children[1].props.children
+				) {
+					return 1;
+				} else {
+					return 0;
+				}
 			}
 		},
 		{
