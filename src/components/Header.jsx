@@ -66,8 +66,7 @@ const Header = props => {
 	return (
 		<div
 			id='scroll'
-			className={`ui secondary menu pointing ${display ? 'fixed' : ''}`}
-		>
+			className={`ui secondary menu pointing ${display ? 'fixed' : ''}`}>
 			<Link to='/' className='item'>
 				Streamer
 			</Link>
@@ -75,12 +74,14 @@ const Header = props => {
 				<Link to='' className='item'>
 					All Stream
 				</Link>
+				<Link to='/streams/slider' className='item'>
+					Slider
+				</Link>
 				<Link to='/streams/table' className='item'>
 					Table
 				</Link>
 				<GoogleAuth />
 				{renderCreateButton()}
-
 				<div className='dropdown'>
 					<Dropdown>
 						<Button variant='outline-secondary' className='button --label'>
