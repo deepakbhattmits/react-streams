@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import { Form, Button, Col } from 'react-bootstrap';
 const FormComponent = () => {
-	// console.log('test :');
+	// console.log('test : ');
 	const [data, setData] = useState({ data: {} });
 	const [errors, setErrors] = useState({});
 	const validation = () => {
