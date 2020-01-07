@@ -18,7 +18,7 @@ const SliderComponent = props => (
 			naturalSlideWidth={100}
 			naturalSlideHeight={10}
 			totalSlides={3}
-			visibleSlides={2}
+			visibleSlides={window.screen.width < 768 ?1:2}
 		>
 			<ButtonBack>
 				<LeftSVG />
