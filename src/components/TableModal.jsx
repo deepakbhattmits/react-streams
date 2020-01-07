@@ -4,22 +4,20 @@ import React from 'react';
 import { createPortal } from 'react-dom';
 
 const TableModal = props => {
-	// console.log('test :- ',props);
+	// console.log('test :',props);
 	return createPortal(
 		<div
 			onClick={props.onDismiss}
 			className={`ui dimmer modals transition page ${
 				props.active ? 'visible active' : 'hidden'
-			}`}
-		>
+			}`}>
 			<div
 				onClick={e => {
 					e.stopPropagation();
 				}}
 				className={`ui standard test modal transition scrolling ${
 					props.active ? 'visible active' : 'hidden'
-				}`}
-			>
+				}`}>
 				<div className='header'>{props.title.toUpperCase()}</div>
 				<div className='content'>
 					{!!props.content && (
