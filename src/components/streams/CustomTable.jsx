@@ -8,6 +8,7 @@ import BootstrapTable from 'react-bootstrap-table-next';
 import TableModal from '../TableModal';
 const CustomTable = props => {
 	const context = useContext(appContext);
+	const [classList, setClassList] = useState([]);
 	// console.log('TABLE : ', context.filteredProducts);
 	const [data, setData] = useState([]);
 	const [products, setProducts] = useState([]);
@@ -127,6 +128,12 @@ const CustomTable = props => {
 	};
 	const handleClick = e => {
 		const { textContent } = e.target;
+		var name = e.target.getAttribute('name'); //'HOME'
+
+		console.log('name : ', name);
+		if (!!classList && classList.filter(el => el === name)) {
+			setClassList([...classList, name]);
+		}
 		let products = [];
 		console.log('SELECTED :', textContent);
 		products =
@@ -150,20 +157,40 @@ const CustomTable = props => {
 	}, [context.filteredProducts]);
 	return (
 		<>
-			<ul className='list-inline'>
-				<li className='list-inline-item' onClick={handleClick}>
+			<div className='list-inline'>
+				<li
+					name='all'
+					className={`list-inline-item ${classList.filter(el =>
+						el === 'all' ? 'selected' : null
+					)}`}
+					onClick={handleClick}>
 					all
 				</li>
-				<li className='list-inline-item' onClick={handleClick}>
+				<li
+					name='developer'
+					className={`list-inline-item  ${classList.filter(el =>
+						el === 'developer' ? 'selected' : null
+					)}`}
+					onClick={handleClick}>
 					developer
 				</li>
-				<li className='list-inline-item' onClick={handleClick}>
+				<li
+					name='tester'
+					className={`list-inline-item ${classList.filter(el =>
+						el === 'tester' ? 'selected' : null
+					)}`}
+					onClick={handleClick}>
 					tester
 				</li>
-				<li className='list-inline-item' onClick={handleClick}>
+				<li
+					name='manager'
+					className={`list-inline-item ${classList.filter(el =>
+						el === 'manager' ? 'selected' : null
+					)}`}
+					onClick={handleClick}>
 					manager
 				</li>
-			</ul>
+			</div>
 			<BootstrapTable
 				bootstrap4
 				keyField='id'
