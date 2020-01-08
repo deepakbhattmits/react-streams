@@ -12,14 +12,13 @@ import { ReactComponent as LeftSVG } from '../../assets/images/icon-left-chevron
 import { ReactComponent as RightSVG } from '../../assets/images/icon-right-chevron.svg';
 
 const SliderComponent = props => (
-	// console.log('test : ',props)
+	// console.log('test :',props)
 	<>
 		<CarouselProvider
 			naturalSlideWidth={100}
 			naturalSlideHeight={10}
 			totalSlides={3}
-			visibleSlides={window.screen.width < 768 ?1:2}
-		>
+			visibleSlides={window.screen.width < 768 ? 1 : 2}>
 			<ButtonBack>
 				<LeftSVG />
 			</ButtonBack>
