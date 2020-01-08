@@ -14,6 +14,7 @@ const initialItems = [
 	{ text: 'Yogurt', group: 'veg' },
 	{ text: 'Fish', group: 'nonveg' },
 	{ text: 'Chicken', group: 'nonveg' },
+	{ text: 'prawn', group: 'nonveg' },
 	{ text: 'Meat', group: 'nonveg' },
 	{ text: 'Egg', group: 'nonveg' },
 	{ text: 'Beer', group: 'bev' },
