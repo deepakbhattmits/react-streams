@@ -38,7 +38,7 @@ const FilteredList = () => {
 		setItems(initialItems);
 	}, []);
 	return (
-		<div className='filter-list'>
+		<div className='filter-list custom'>
 			<input type='text' placeholder='Search' onChange={filterList} />
 			<button value='fruits' type='button' onClick={filterList}>
 				fruits
