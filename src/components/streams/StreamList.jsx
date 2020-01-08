@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import { fetchStreams } from '../../actions';
 
 const StreamList = props => {
-	// console.log('test:');
+	// console.log('test :');
 	const [scroll, setScroll] = useState(false);
 	const renderButton = list => {
 		if (list.userId === props.currentUserId) {
