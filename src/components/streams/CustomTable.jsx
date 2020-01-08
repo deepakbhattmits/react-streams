@@ -73,6 +73,14 @@ const CustomTable = props => {
 			headerStyle: (colum, colIndex) => {
 				return { width: '2rem', textAlign: 'left' };
 			}
+		},
+		{
+			dataField: 'group',
+			text: 'Group',
+			sort: true,
+			headerStyle: (colum, colIndex) => {
+				return { width: '2rem', textAlign: 'left' };
+			}
 		}
 	];
 	const sortOption = {
@@ -117,18 +125,45 @@ const CustomTable = props => {
 			setActive(true);
 		}
 	};
+	const handleClick = e => {
+		const { textContent } = e.target;
+		let products = [];
+		console.log('SELECTED :', textContent);
+		products =
+			textContent !== 'all'
+				? context.filteredProducts.filter(
+						el => el.group === textContent.toLowerCase()
+				  )
+				: context.filteredProducts;
+		setProducts(products);
+	};
 	useEffect(() => {
 		const products = context.filteredProducts.map(item => {
 			return {
 				id: item.id,
 				name: getData(item.id, item.name),
-				price: item.price
+				price: item.price,
+				group: item.group
 			};
 		});
 		setProducts(products);
 	}, [context.filteredProducts]);
 	return (
 		<>
+			<ul className='list-inline'>
+				<li className='list-inline-item' onClick={handleClick}>
+					all
+				</li>
+				<li className='list-inline-item' onClick={handleClick}>
+					developer
+				</li>
+				<li className='list-inline-item' onClick={handleClick}>
+					tester
+				</li>
+				<li className='list-inline-item' onClick={handleClick}>
+					manager
+				</li>
+			</ul>
 			<BootstrapTable
 				bootstrap4
 				keyField='id'
