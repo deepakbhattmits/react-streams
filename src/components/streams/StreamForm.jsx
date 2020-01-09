@@ -4,7 +4,7 @@ import React from 'react';
 import { Field, reduxForm } from 'redux-form';
 
 const StreamForm = props => {
-	// console.log('test :>',props)
+	// console.log('test :',props)
 	const renderError = ({ touched, error }) => {
 		if (touched && error) {
 			return (
