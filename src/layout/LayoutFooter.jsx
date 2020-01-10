@@ -1,10 +1,8 @@
+/** @format */
+
 import React from 'react';
 const LayoutFooter = props => {
-    // console.log(props)
-    return (
-        <>
-            Footer
-        </>
-    )
-}
+	console.log('test : ', props);
+	return <>Footer</>;
+};
 export default LayoutFooter;
