@@ -23,7 +23,7 @@ const GlobalState = props => {
 		{ id: 13, name: 'Mac Book', price: 150 }
 	];
 	const filteredProducts = [
-		{ id: 1, name: 'anurag pandey', price: 100, group: 'developer' },
+		{ id: 1, name: 'anurag singh', price: 100, group: 'developer' },
 		{ id: 2, name: 'amrita pandey', price: 102, group: 'developer' },
 		{ id: 3, name: 'deepak bhatt', price: 150, group: 'developer' },
 		{ id: 4, name: 'akhilesh singh', price: 150, group: 'developer' },
