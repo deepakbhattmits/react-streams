@@ -11,7 +11,7 @@ const ChartComponent = () => {
 		datasets: [
 			{
 				label: 'apple',
-				data: [11, 18, 2, 16, 5, 2, 2],
+				data: [11, 18, 3, 16, 5, 2, 2],
 				backgroundColor: 'rgba(153,255,51,0.6)',
 				borderColor: ['rgba(153,255,51,1)'],
 				borderWidth: 5
