@@ -72,7 +72,7 @@ const CustomTable = props => {
 			text: 'Product Price',
 			sort: true,
 			headerStyle: (colum, colIndex) => {
-				return { width: '2rem', textAlign: 'left' };
+				return { width: '2.1rem', textAlign: 'left' };
 			}
 		},
 		{
@@ -80,7 +80,7 @@ const CustomTable = props => {
 			text: 'Group',
 			sort: true,
 			headerStyle: (colum, colIndex) => {
-				return { width: '2rem', textAlign: 'left' };
+				return { width: '2.1rem', textAlign: 'left' };
 			}
 		}
 	];
