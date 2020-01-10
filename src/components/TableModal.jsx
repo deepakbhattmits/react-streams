@@ -4,7 +4,7 @@ import React from 'react';
 import { createPortal } from 'react-dom';
 
 const TableModal = props => {
-	// console.log('test :> ',props);
+	console.log('test :> ', props);
 	return createPortal(
 		<div
 			onClick={props.onDismiss}
