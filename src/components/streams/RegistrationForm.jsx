@@ -15,7 +15,7 @@ const RegistrationForm = () => {
 		let fields = {};
 		// console.log('change in ', name, value);
 		fields[name] = value;
-		console.log('TEST : ', fields);
+		// console.log('TEST : ', fields);
 		setFields(fields);
 	};
 	const submitForm = e => {
