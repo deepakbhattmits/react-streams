@@ -105,7 +105,7 @@ class CheckFilter extends Component {
 			return (
 				<label key={index}>
 					<input
-						className='filter'
+						className='filter-input'
 						onChange={this.onChange}
 						type='checkbox'
 						checked={this.state.filters[name]}
