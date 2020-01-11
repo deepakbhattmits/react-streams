@@ -21,7 +21,7 @@ const initialItems = [
 	{ text: 'Wine', group: 'bev' }
 ];
 const FilteredList = () => {
-	// console.log('TEST : ')
+	console.log('TEST : ')
 	const [list, setList] = useState(initialItems);
 	const [items, setItems] = useState([]);
 	const filterList = event => {
