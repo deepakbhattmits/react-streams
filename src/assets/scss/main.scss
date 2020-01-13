@@ -32,132 +32,171 @@
 @import '../../../node_modules/react-bootstrap-table-next/dist/react-bootstrap-table2.min.css';
 
 .icon {
-  border: 1px solid #000;
-  border-left: none;
-  height: 30px;
-  width: 30px;
-  background: #ccc;
-  &.--arrow {
-    height: 15px;
-    width: 15px;
-    border: none;
-    background: transparent;
-  }
+	border: 1px solid #000;
+	border-left: none;
+	height: 30px;
+	width: 30px;
+	background: #ccc;
+	&.--arrow {
+		height: 15px;
+		width: 15px;
+		border: none;
+		background: transparent;
+	}
 }
 .caret {
-  opacity: 0.5;
-  &.asc {
-    svg {
-      &:first-child {
-        path {
-          fill: red;
-        }
-      }
-    }
-    opacity: 1;
-  }
-  &.desc {
-    svg {
-      &:last-child {
-        path {
-          fill: red;
-        }
-      }
-    }
-    opacity: 1;
-  }
+	opacity: 0.5;
+	&.asc {
+		svg {
+			&:first-child {
+				path {
+					fill: red;
+				}
+			}
+		}
+		opacity: 1;
+	}
+	&.desc {
+		svg {
+			&:last-child {
+				path {
+					fill: red;
+				}
+			}
+		}
+		opacity: 1;
+	}
 }
 .datepicker {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  .react-datepicker__input-container {
-    display: flex;
-    justify-content: flex-end;
-  }
-  input[type='text'] {
-    border: 1px solid #000;
-    border-right: none;
-    height: 30px;
-    padding: 0.5rem;
-    width: calc(100% - 75px);
-  }
-  .react-datepicker-popper {
-    .react-datepicker {
-      .react-datepicker__triangle {
-        left: 100px;
-      }
-    }
-  }
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	.react-datepicker__input-container {
+		display: flex;
+		justify-content: flex-end;
+	}
+	input[type='text'] {
+		border: 1px solid #000;
+		border-right: none;
+		height: 30px;
+		padding: 0.5rem;
+		width: calc(100% - 75px);
+	}
+	.react-datepicker-popper {
+		.react-datepicker {
+			.react-datepicker__triangle {
+				left: 100px;
+			}
+		}
+	}
 
-  .react-datepicker__navigation--previous {
-    outline: none;
-  }
-  .react-datepicker__navigation--next {
-    outline: none;
-  }
+	.react-datepicker__navigation--previous {
+		outline: none;
+	}
+	.react-datepicker__navigation--next {
+		outline: none;
+	}
 }
 .react-grid-item {
-  background: var(--color-scheme-background);
-  padding: 10px;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
+	background: var(--color-scheme-background);
+	padding: 10px;
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-start;
 }
 
 .listPage {
-  height: 200px;
-  overflow-y: scroll;
-  position: relative;
-  .heading {
-    padding: 2rem;
-    background: var(--color-scheme-background);
-    color: var(--color-scheme-text-color);
-    width: 100%;
-    &.scrolled {
-      position: fixed;
-      width: calc(100% - 222px);
-    }
-  }
+	height: 200px;
+	overflow-y: scroll;
+	position: relative;
+
+	border-radius: 0.3em;
+	margin: 5em auto 0;
+	overflow-y: scroll;
+	border: 1px solid #c5eedc;
+	overflow-y: scroll;
+	background-size: 100%;
+	background-image: -webkit-gradient(
+			linear,
+			50% 0%,
+			50% 100%,
+			color-stop(0%, #ffffff),
+			color-stop(100%, rgba(255, 255, 255, 0))
+		),
+		-webkit-gradient(linear, 50% 100%, 50% 0%, color-stop(0%, #ffffff), color-stop(100%, rgba(255, 255, 255, 0))),
+		-webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #95e0c0), color-stop(100%, rgba(255, 255, 255, 0))),
+		-webkit-gradient(linear, 50% 100%, 50% 0%, color-stop(0%, #95e0c0), color-stop(100%, rgba(255, 255, 255, 0)));
+	background-image: -moz-linear-gradient(top, #ffffff, rgba(255, 255, 255, 0)),
+		-moz-linear-gradient(bottom, #ffffff, rgba(255, 255, 255, 0)),
+		-moz-linear-gradient(top, #95e0c0, rgba(255, 255, 255, 0)),
+		-moz-linear-gradient(bottom, #95e0c0, rgba(255, 255, 255, 0));
+	background-image: -webkit-linear-gradient(
+			top,
+			#ffffff,
+			rgba(255, 255, 255, 0)
+		),
+		-webkit-linear-gradient(bottom, #ffffff, rgba(255, 255, 255, 0)),
+		-webkit-linear-gradient(top, #95e0c0, rgba(255, 255, 255, 0)),
+		-webkit-linear-gradient(bottom, #95e0c0, rgba(255, 255, 255, 0));
+	background-image: linear-gradient(to bottom, #ffffff, rgba(255, 255, 255, 0)),
+		linear-gradient(to top, #ffffff, rgba(255, 255, 255, 0)),
+		linear-gradient(to bottom, #95e0c0, rgba(255, 255, 255, 0)),
+		linear-gradient(to top, #95e0c0, rgba(255, 255, 255, 0));
+	background-position: 0 0, 0 100%, 0 0, 0 100%;
+	background-repeat: no-repeat;
+	background-color: white;
+	background-size: 100% 5em, 100% 5em, 100% 1.5em, 100% 1.5em;
+	background-attachment: local, local, scroll, scroll;
+
+	.heading {
+		padding: 2rem;
+		background: var(--color-scheme-background);
+		color: var(--color-scheme-text-color);
+		width: 100%;
+		// &.scrolled {
+		// 	position: fixed;
+		// 	width: calc(100% - 222px);
+		// }
+	}
 }
 .new {
-  display: flex;
-  width: 100%;
-  .first {
-    width: calc(100% + 100%);
-    position: relative;
-    left: -9999px;
-    transition: 0.5s;
-    &.active {
-      left: 0;
-    }
-  }
-  .second {
-    position: relative;
-    right: -9999px;
-    width: calc(100% + 100%);
-    transition: 0.5s;
-    &.active {
-      right: 0;
-    }
-  }
+	display: flex;
+	width: 100%;
+	.first {
+		width: calc(100% + 100%);
+		position: relative;
+		left: -9999px;
+		transition: 0.5s;
+		&.active {
+			left: 0;
+		}
+	}
+	.second {
+		position: relative;
+		right: -9999px;
+		width: calc(100% + 100%);
+		transition: 0.5s;
+		&.active {
+			right: 0;
+		}
+	}
 }
 .react-bootstrap-table {
-  height: 500px;
-  overflow: auto;
+	height: 500px;
+	overflow: auto;
 }
 .table {
-  thead {
-    background: #fff;
-    th {
-      position: sticky;
-      top: 0;
-      background: #fff;
-      outline: none;
-      span {
-        position: absolute;
-        right: 1rem;
-      }
-    }
-  }
+	thead {
+		background: #fff;
+		th {
+			position: sticky;
+			top: 0;
+			background: #fff;
+			outline: none;
+			span {
+				position: absolute;
+				right: 1rem;
+			}
+		}
+	}
 }
