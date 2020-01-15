@@ -43,6 +43,20 @@
 		border: none;
 		background: transparent;
 	}
+	&--up {
+		border: none;
+		background: none;
+		position: sticky;
+		top: 0;
+		left: 50%;
+	}
+	&--down {
+		border: none;
+		background: none;
+		position: sticky;
+		bottom: 0;
+		left: 50%;
+	}
 }
 .caret {
 	opacity: 0.5;
