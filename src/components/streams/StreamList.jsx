@@ -9,7 +9,7 @@ import { fetchStreams } from '../../actions';
 
 const StreamList = props => {
 	// console.log('test : >', props);
-	const [scroll, setScroll] = useState(false);
+	const [scroll, setScroll] = useState(true);
 	const renderButton = list => {
 		if (list.userId === props.currentUserId) {
 			return (
@@ -63,11 +63,21 @@ const StreamList = props => {
 		}
 	};
 	const handleScroll = e => {
-		const bottom = e.target.scrollTop;
-		let windowHeight = e.target.clientHeight;
-		console.log('bottom :', bottom, windowHeight);
-		if (bottom > 0) {
+		console.log(
+			'scrollTop :',
+			e.target.scrollTop,
+			'offsetHeight : ',
+			e.target.offsetHeight,
+			'scrollHeight : ',
+			e.target.scrollHeight
+		);
+		if (e.target.scrollTop === 0) {
 			setScroll(true);
+		} else if (
+			e.target.offsetHeight + e.target.scrollTop ===
+			e.target.scrollHeight
+		) {
+			setScroll(false);
 		} else {
 			setScroll(false);
 		}
@@ -84,13 +94,17 @@ const StreamList = props => {
 
 	return (
 		<div id='divScroll' className='listPage' onScroll={handleScroll}>
-			{scroll ? <UpSVG className='icon icon--up' /> : null}
-			{/* <div className={`heading  ${ scroll ? 'scrolled' : '' }`}> */}
-			{/* <div className={`heading`}>
-				<label className='custom'>Streams</label>
-			</div> */}
+			<div className={`heading  ${!scroll ? 'scrolled' : ''}`}>
+				<div className={`heading`}>
+					<label className='custom'>Streams</label>
+				</div>
+			</div>
 			<div className='ui celled list'>{renderList()}</div>
-			{scroll ? <DownSVG className='icon icon--down' /> : null}
+			{scroll ? (
+				<DownSVG className='icon icon--down' />
+			) : (
+				<UpSVG className='icon icon--up' />
+			)}
 		</div>
 	);
 };
