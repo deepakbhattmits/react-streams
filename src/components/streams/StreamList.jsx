@@ -3,6 +3,8 @@
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { ReactComponent as UpSVG } from '../../assets/images/icon-up-arrow.svg';
+import { ReactComponent as DownSVG } from '../../assets/images/icon-down-arrow.svg';
 import { fetchStreams } from '../../actions';
 
 const StreamList = props => {
@@ -44,10 +46,17 @@ const StreamList = props => {
 	const trackScrolling = () => {
 		const elem = document.getElementById('divScroll');
 		let coords = elem.getBoundingClientRect();
-		// let windowHeight = document.documentElement.clientHeight;
-		// let topVisible = coords.top > 0 && coords.top < windowHeight;
-		// console.log(topVisible, windowHeight, coords);
-		// console.log('test element visible : ', coords);
+		let windowHeight = document.documentElement.clientHeight;
+		let topVisible = coords.top > 0 && coords.top < windowHeight;
+		console.log(
+			'TEST ',
+			topVisible,
+			windowHeight,
+			coords,
+			'scrolltop : ',
+			elem
+		);
+		console.log('test element visible : ', coords);
 		setScroll(false);
 		if (coords.top >= 54) {
 			setScroll(true);
@@ -55,7 +64,8 @@ const StreamList = props => {
 	};
 	const handleScroll = e => {
 		const bottom = e.target.scrollTop;
-		// console.log('bottom :',bottom)
+		let windowHeight = e.target.clientHeight;
+		console.log('bottom :', bottom, windowHeight);
 		if (bottom > 0) {
 			setScroll(true);
 		} else {
@@ -74,10 +84,13 @@ const StreamList = props => {
 
 	return (
 		<div id='divScroll' className='listPage' onScroll={handleScroll}>
-			<div className={`heading  ${scroll ? 'scrolled' : ''}`}>
+			{scroll ? <UpSVG className='icon icon--up' /> : null}
+			{/* <div className={`heading  ${ scroll ? 'scrolled' : '' }`}> */}
+			{/* <div className={`heading`}>
 				<label className='custom'>Streams</label>
-			</div>
+			</div> */}
 			<div className='ui celled list'>{renderList()}</div>
+			{scroll ? <DownSVG className='icon icon--down' /> : null}
 		</div>
 	);
 };
