@@ -12,8 +12,10 @@
 		}
 	}
 }
-path {
-	fill: var(--color-scheme-black);
+svg {
+	path {
+		fill: var(--color-scheme-black);
+	}
 }
 .carousel {
 	position: relative;
