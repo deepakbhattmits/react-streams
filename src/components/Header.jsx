@@ -2,7 +2,7 @@
 
 import React, { useState, useRef, useEffect, useContext } from 'react';
 import { Link } from 'react-router-dom';
-import GoogleAuth from './GoogleAuth';
+// import GoogleAuth from './GoogleAuth';
 import { connect } from 'react-redux';
 import appContext from '../context/app-context';
 import { ReactComponent as CalenderSVG } from '../assets/images/icon-calendar.svg';
@@ -80,7 +80,7 @@ const Header = props => {
 				<Link to='/streams/table' className='item'>
 					Table
 				</Link>
-				<GoogleAuth />
+				{/* <GoogleAuth /> */}
 				{renderCreateButton()}
 				<div className='dropdown'>
 					<Dropdown>
