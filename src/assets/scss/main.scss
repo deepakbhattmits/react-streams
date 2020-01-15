@@ -30,13 +30,16 @@
 @import '../../../node_modules/react-datepicker/dist/react-datepicker.css';
 @import '../../../node_modules/pure-react-carousel/dist/react-carousel.es.css';
 @import '../../../node_modules/react-bootstrap-table-next/dist/react-bootstrap-table2.min.css';
-@keyframes mymove {
-	0% {
-		transform: translateY(0);
+@mixin Animation {
+	@keyframes animate {
+		0% {
+			transform: translateY(0);
+		}
+		100% {
+			transform: translateY(-20px);
+		}
 	}
-	100% {
-		transform: translateY(-20px);
-	}
+	animation: animate 0.5s infinite alternate;
 }
 .icon {
 	border: 1px solid #000;
@@ -52,19 +55,19 @@
 	}
 	&--up {
 		border: none;
-		background: none;
+		background: transparent;
 		position: sticky;
 		bottom: 0;
 		left: 50%;
-		animation: mymove 0.5s infinite alternate;
+		@include Animation;
 	}
 	&--down {
 		border: none;
-		background: none;
+		background: transparent;
 		position: sticky;
 		bottom: 0;
 		left: 50%;
-		animation: mymove 0.5s infinite alternate;
+		@include Animation;
 	}
 }
 .caret {
