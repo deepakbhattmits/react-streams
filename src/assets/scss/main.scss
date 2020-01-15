@@ -30,7 +30,14 @@
 @import '../../../node_modules/react-datepicker/dist/react-datepicker.css';
 @import '../../../node_modules/pure-react-carousel/dist/react-carousel.es.css';
 @import '../../../node_modules/react-bootstrap-table-next/dist/react-bootstrap-table2.min.css';
-
+@keyframes mymove {
+	0% {
+		transform: translateY(0);
+	}
+	100% {
+		transform: translateY(-20px);
+	}
+}
 .icon {
 	border: 1px solid #000;
 	border-left: none;
@@ -47,8 +54,9 @@
 		border: none;
 		background: none;
 		position: sticky;
-		top: 0;
+		bottom: 0;
 		left: 50%;
+		animation: mymove 0.5s infinite alternate;
 	}
 	&--down {
 		border: none;
@@ -56,6 +64,7 @@
 		position: sticky;
 		bottom: 0;
 		left: 50%;
+		animation: mymove 0.5s infinite alternate;
 	}
 }
 .caret {
@@ -129,48 +138,48 @@
 	overflow-y: scroll;
 	border: 1px solid #c5eedc;
 	overflow-y: scroll;
-	background-size: 100%;
-	background-image: -webkit-gradient(
-			linear,
-			50% 0%,
-			50% 100%,
-			color-stop(0%, #ffffff),
-			color-stop(100%, rgba(255, 255, 255, 0))
-		),
-		-webkit-gradient(linear, 50% 100%, 50% 0%, color-stop(0%, #ffffff), color-stop(100%, rgba(255, 255, 255, 0))),
-		-webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #95e0c0), color-stop(100%, rgba(255, 255, 255, 0))),
-		-webkit-gradient(linear, 50% 100%, 50% 0%, color-stop(0%, #95e0c0), color-stop(100%, rgba(255, 255, 255, 0)));
-	background-image: -moz-linear-gradient(top, #ffffff, rgba(255, 255, 255, 0)),
-		-moz-linear-gradient(bottom, #ffffff, rgba(255, 255, 255, 0)),
-		-moz-linear-gradient(top, #95e0c0, rgba(255, 255, 255, 0)),
-		-moz-linear-gradient(bottom, #95e0c0, rgba(255, 255, 255, 0));
-	background-image: -webkit-linear-gradient(
-			top,
-			#ffffff,
-			rgba(255, 255, 255, 0)
-		),
-		-webkit-linear-gradient(bottom, #ffffff, rgba(255, 255, 255, 0)),
-		-webkit-linear-gradient(top, #95e0c0, rgba(255, 255, 255, 0)),
-		-webkit-linear-gradient(bottom, #95e0c0, rgba(255, 255, 255, 0));
-	background-image: linear-gradient(to bottom, #ffffff, rgba(255, 255, 255, 0)),
-		linear-gradient(to top, #ffffff, rgba(255, 255, 255, 0)),
-		linear-gradient(to bottom, #95e0c0, rgba(255, 255, 255, 0)),
-		linear-gradient(to top, #95e0c0, rgba(255, 255, 255, 0));
-	background-position: 0 0, 0 100%, 0 0, 0 100%;
-	background-repeat: no-repeat;
-	background-color: white;
-	background-size: 100% 5em, 100% 5em, 100% 1.5em, 100% 1.5em;
-	background-attachment: local, local, scroll, scroll;
+	// background-size: 100%;
+	// background-image: -webkit-gradient(
+	// 		linear,
+	// 		50% 0%,
+	// 		50% 100%,
+	// 		color-stop(0%, #ffffff),
+	// 		color-stop(100%, rgba(255, 255, 255, 0))
+	// 	),
+	// 	-webkit-gradient(linear, 50% 100%, 50% 0%, color-stop(0%, #ffffff), color-stop(100%, rgba(255, 255, 255, 0))),
+	// 	-webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #95e0c0), color-stop(100%, rgba(255, 255, 255, 0))),
+	// 	-webkit-gradient(linear, 50% 100%, 50% 0%, color-stop(0%, #95e0c0), color-stop(100%, rgba(255, 255, 255, 0)));
+	// background-image: -moz-linear-gradient(top, #ffffff, rgba(255, 255, 255, 0)),
+	// 	-moz-linear-gradient(bottom, #ffffff, rgba(255, 255, 255, 0)),
+	// 	-moz-linear-gradient(top, #95e0c0, rgba(255, 255, 255, 0)),
+	// 	-moz-linear-gradient(bottom, #95e0c0, rgba(255, 255, 255, 0));
+	// background-image: -webkit-linear-gradient(
+	// 		top,
+	// 		#ffffff,
+	// 		rgba(255, 255, 255, 0)
+	// 	),
+	// 	-webkit-linear-gradient(bottom, #ffffff, rgba(255, 255, 255, 0)),
+	// 	-webkit-linear-gradient(top, #95e0c0, rgba(255, 255, 255, 0)),
+	// 	-webkit-linear-gradient(bottom, #95e0c0, rgba(255, 255, 255, 0));
+	// background-image: linear-gradient(to bottom, #ffffff, rgba(255, 255, 255, 0)),
+	// 	linear-gradient(to top, #ffffff, rgba(255, 255, 255, 0)),
+	// 	linear-gradient(to bottom, #95e0c0, rgba(255, 255, 255, 0)),
+	// 	linear-gradient(to top, #95e0c0, rgba(255, 255, 255, 0));
+	// background-position: 0 0, 0 100%, 0 0, 0 100%;
+	// background-repeat: no-repeat;
+	// background-color: white;
+	// background-size: 100% 5em, 100% 5em, 100% 1.5em, 100% 1.5em;
+	// background-attachment: local, local, scroll, scroll;
 
 	.heading {
-		padding: 2rem;
+		padding: 0.5rem;
 		background: var(--color-scheme-background);
 		color: var(--color-scheme-text-color);
 		width: 100%;
-		// &.scrolled {
-		// 	position: fixed;
-		// 	width: calc(100% - 222px);
-		// }
+		&.scrolled {
+			position: fixed;
+			width: calc(100% - 281px);
+		}
 	}
 }
 .new {

@@ -9,11 +9,11 @@ $error-color: red;
 
 /* Defaults */
 :root {
-  --color-error: #{$error-color};
-  --color-scheme-background: #{$bg-color};
-  --color-scheme-text-color: #{$font-color};
-  --color-scheme-black: #{$color-black};
-  --color-scheme-white: #{$color-white};
+	--color-error: #{$error-color};
+	--color-scheme-background: #{$bg-color};
+	--color-scheme-text-color: #{$font-color};
+	--color-scheme-black: #{$color-black};
+	--color-scheme-white: #{$color-white};
 }
 
 /* Light mode */
@@ -26,11 +26,11 @@ $error-color: red;
 
 /* Dark mode */
 @media (prefers-color-scheme: dark) {
-  :root {
-    --color-error: #{invert($error-color)};
-    --color-scheme-background: #{invert($bg-color)};
-    --color-scheme-text-color: #{invert($font-color)};
-    --color-scheme-black: #{$color-black};
-    --color-scheme-white: #{$color-white};
-  }
+	:root {
+		--color-error: #{invert($error-color)};
+		--color-scheme-background: #{invert($bg-color)};
+		--color-scheme-text-color: #{invert($font-color)};
+		--color-scheme-black: #{invert($color-black)};
+		--color-scheme-white: #{invert($color-white)};
+	}
 }
