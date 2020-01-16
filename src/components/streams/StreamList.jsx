@@ -63,27 +63,26 @@ const StreamList = props => {
 		}
 	};
 	const handleScroll = e => {
+		const { scrollTop, offsetHeight, scrollHeight } = e.target;
 		console.log(
 			'scrollTop :',
-			e.target.scrollTop,
+			scrollTop,
 			'offsetHeight : ',
-			e.target.offsetHeight,
+			offsetHeight,
 			'scrollHeight : ',
-			e.target.scrollHeight
+			scrollHeight
 		);
-		if (e.target.scrollTop === 0) {
+		if (scrollTop === 0) {
 			setScroll(true);
 		} else if (
-			e.target.offsetHeight + e.target.scrollTop <=
-			e.target.scrollHeight
+			offsetHeight + scrollTop <= scrollHeight &&
+			offsetHeight + scrollTop !== scrollHeight
 		) {
 			setScroll(true);
 		} else if (
-			e.target.offsetHeight + e.target.scrollTop ===
-			e.target.scrollHeight
+			offsetHeight + scrollTop === scrollHeight &&
+			offsetHeight + scrollTop >= scrollHeight
 		) {
-			setScroll(false);
-		} else {
 			setScroll(false);
 		}
 	};
