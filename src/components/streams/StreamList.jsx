@@ -74,6 +74,11 @@ const StreamList = props => {
 		if (e.target.scrollTop === 0) {
 			setScroll(true);
 		} else if (
+			e.target.offsetHeight + e.target.scrollTop <=
+			e.target.scrollHeight
+		) {
+			setScroll(true);
+		} else if (
 			e.target.offsetHeight + e.target.scrollTop ===
 			e.target.scrollHeight
 		) {
@@ -99,12 +104,9 @@ const StreamList = props => {
 					<label className='custom'>Streams</label>
 				</div>
 			</div>
+			{scroll ? null : <UpSVG className='icon icon--up' />}
 			<div className='ui celled list'>{renderList()}</div>
-			{scroll ? (
-				<DownSVG className='icon icon--down' />
-			) : (
-				<UpSVG className='icon icon--up' />
-			)}
+			{scroll ? <DownSVG className='icon icon--down' /> : null}
 		</div>
 	);
 };
