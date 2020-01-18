@@ -30,16 +30,52 @@
 @import '../../../node_modules/react-datepicker/dist/react-datepicker.css';
 @import '../../../node_modules/pure-react-carousel/dist/react-carousel.es.css';
 @import '../../../node_modules/react-bootstrap-table-next/dist/react-bootstrap-table2.min.css';
-@mixin Animation {
-	@keyframes animate {
-		0% {
-			transform: translateY(0);
-		}
-		100% {
-			transform: translateY(-21px);
-		}
+// @mixin Animation {
+// 	@keyframes animate {
+// 		0% {
+// 			transform: translateY(0);
+// 		}
+// 		100% {
+// 			transform: translateY(-21px);
+// 		}
+// 	}
+// 	animation: animate 0.5s infinite alternate;
+// }
+#root {
+	display: grid;
+	grid-template-columns: auto 30%;
+	grid-template-rows: 60px auto 60px;
+	grid-template-areas:
+		'header header'
+		'main sidebar'
+		'footer footer';
+	height: inherit;
+	.header {
+		grid-area: header;
 	}
-	animation: animate 0.5s infinite alternate;
+	.main {
+		grid-area: main;
+	}
+	.sidebar {
+		grid-area: sidebar;
+		overflow-y: auto;
+		height: 100%;
+	}
+	.footer {
+		grid-area: footer;
+	}
+}
+.div {
+	&--up {
+		position: sticky;
+		top: 0;
+		text-align: center;
+	}
+	&--down {
+		position: sticky;
+		bottom: 0;
+		text-align: center;
+	}
 }
 .icon {
 	border: 1px solid #000;
@@ -53,21 +89,17 @@
 		border: none;
 		background: transparent;
 	}
-	&--up {
+
+	&--up--svg {
 		border: none;
 		background: transparent;
-		position: sticky;
-		top: 0;
-		left: 50%;
-		@include Animation;
+
+		// @include Animation;
 	}
-	&--down {
+	&--down--svg {
 		border: none;
 		background: transparent;
-		position: sticky;
-		bottom: 0;
-		left: 50%;
-		@include Animation;
+		// @include Animation;
 	}
 }
 .caret {
@@ -181,7 +213,7 @@
 		width: 100%;
 		&.scrolled {
 			position: fixed;
-			width: calc(100% - 281px);
+			width: calc(70%);
 		}
 	}
 }
