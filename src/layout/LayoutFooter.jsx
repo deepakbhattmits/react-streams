@@ -3,6 +3,6 @@
 import React from 'react';
 const LayoutFooter = props => {
 	console.log('test : ', props);
-	return <>Footer</>;
+	return <div className='footer'>Footer</div>;
 };
 export default LayoutFooter;
