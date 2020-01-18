@@ -3,13 +3,11 @@
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { ReactComponent as UpSVG } from '../../assets/images/icon-up-arrow.svg';
-import { ReactComponent as DownSVG } from '../../assets/images/icon-down-arrow.svg';
+import ScrollIndicator from '../../reusable/ScrollIndicator';
 import { fetchStreams } from '../../actions';
 
 const StreamList = props => {
-	// console.log('test : >', props);
-	const [scroll, setScroll] = useState(true);
+	const [scroll, setScroll] = useState(false);
 	const renderButton = list => {
 		if (list.userId === props.currentUserId) {
 			return (
@@ -62,51 +60,26 @@ const StreamList = props => {
 			setScroll(true);
 		}
 	};
-	const handleScroll = e => {
-		const { scrollTop, offsetHeight, scrollHeight } = e.target;
-		console.log(
-			'scrollTop :',
-			scrollTop,
-			'offsetHeight : ',
-			offsetHeight,
-			'scrollHeight : ',
-			scrollHeight
-		);
-		if (scrollTop === 0) {
-			setScroll(true);
-		} else if (
-			offsetHeight + scrollTop <= scrollHeight &&
-			offsetHeight + scrollTop !== scrollHeight
-		) {
-			setScroll(true);
-		} else if (
-			offsetHeight + scrollTop === scrollHeight &&
-			offsetHeight + scrollTop >= scrollHeight
-		) {
-			setScroll(false);
-		}
-	};
+
 	useEffect(() => {
 		if (!props.streams.length) {
 			props.fetchStreams();
 		}
-		document.addEventListener('scroll', trackScrolling);
+		document.addEventListener('scroll', trackScrolling, true);
 		return () => {
-			document.removeEventListener('scroll', trackScrolling);
+			document.removeEventListener('scroll', trackScrolling, true);
 		};
 	}, [props]);
 
 	return (
-		<div id='divScroll' className='listPage' onScroll={handleScroll}>
-			<div className={`heading  ${!scroll ? 'scrolled' : ''}`}>
+		<ScrollIndicator id='divScroll' className='listPage'>
+			<div className={`heading  ${scroll ? 'scrolled' : ''}`}>
 				<div className={`heading`}>
 					<label className='custom'>Streams</label>
 				</div>
 			</div>
-			{scroll ? null : <UpSVG className='icon icon--up' />}
 			<div className='ui celled list'>{renderList()}</div>
-			{scroll ? <DownSVG className='icon icon--down' /> : null}
-		</div>
+		</ScrollIndicator>
 	);
 };
 const mapDispatchToProps = dispatch => ({
