@@ -5,7 +5,7 @@ import Header from '../components/Header';
 const LayoutHeader = props => {
 	// console.log('TEST :',props)
 	return (
-		<>
+		<div className='header'>
 			<Header />
 			{/* <div>
 				<ul>
@@ -20,7 +20,7 @@ const LayoutHeader = props => {
 					)}
 				</ul>
 			</div> */}
-		</>
+		</div>
 	);
 };
 export default LayoutHeader;
