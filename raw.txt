@@ -101,3 +101,6 @@ const App = () => {
 	);
 };
 export default App;
+
+// "json-server": "json-server -w src/db/db.json -p 3001",
+		// "start": "concurrently \"react-scripts start\" \"npm run json-server\"",
