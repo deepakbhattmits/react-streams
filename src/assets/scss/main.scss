@@ -50,18 +50,18 @@
 		'main sidebar'
 		'footer footer';
 	height: inherit;
-	.header {
+	.app-header {
 		grid-area: header;
 	}
-	.main {
+	.app-main {
 		grid-area: main;
 	}
-	.sidebar {
+	.app-sidebar {
 		grid-area: sidebar;
 		overflow-y: auto;
 		height: 100%;
 	}
-	.footer {
+	.app-footer {
 		grid-area: footer;
 	}
 }
