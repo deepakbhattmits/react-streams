@@ -5,7 +5,7 @@ import Header from '../components/Header';
 const LayoutHeader = props => {
 	// console.log('TEST :',props)
 	return (
-		<div className='header'>
+		<div className='app-header'>
 			<Header />
 			{/* <div>
 				<ul>
