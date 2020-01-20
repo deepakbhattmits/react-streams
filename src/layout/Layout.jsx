@@ -10,7 +10,7 @@ const Layout = props => {
 		<>
 			<LayoutHeader />
 			<LayoutSideBar />
-			<main className='main'>{props.children}</main>
+			<main className='app-main'>{props.children}</main>
 			<LayoutFooter />
 		</>
 	);
