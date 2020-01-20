@@ -44,10 +44,10 @@ streamsRoutes.route('/streams/add').post(function(req, res) {
 	stream
 		.save()
 		.then(stream => {
-			res.status(200).json({ todo: 'todo added successfully' });
+			res.status(200).json({ todo: 'added successfully' });
 		})
 		.catch(err => {
-			res.status(400).send('adding new todo failed');
+			res.status(400).send('adding failed');
 		});
 });
 
