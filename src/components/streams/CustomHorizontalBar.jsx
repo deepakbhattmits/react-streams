@@ -159,7 +159,6 @@ const CustomHorizontalBar = () => {
 				<li>16</li>
 				<li>17</li>
 				<li>18</li>
-				<li>19</li>
 			</ul>
 			<HorizontalBar
 				ref={chart}
