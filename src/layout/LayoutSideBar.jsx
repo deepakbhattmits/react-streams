@@ -39,11 +39,11 @@ const LayoutSideBar = props => {
 			<p>SiderBar</p>
 			<p>SiderBar</p>
 
-			{/* <ul>
+			<ul>
 				{arr.map((el, i) => {
 					return <li key={i}>{el}</li>;
 				})}
-			</ul> */}
+			</ul>
 		</ScrollIndicator>
 	);
 };
