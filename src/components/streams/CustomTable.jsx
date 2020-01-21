@@ -135,7 +135,7 @@ const CustomTable = props => {
 			setClassList([...classList, name]);
 		}
 		let products = [];
-		console.log('SELECTED :', textContent);
+		// console.log('SELECTED :', textContent);
 		products =
 			textContent !== 'all'
 				? context.filteredProducts.filter(
