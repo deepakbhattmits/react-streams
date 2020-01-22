@@ -12,7 +12,7 @@ const CustomHorizontalBar = () => {
 				label: 'Lunch',
 				backgroundColor: ['rgba(255,153,0,1)'],
 				borderWidth: 10,
-				data: [3.3, 3.5, 0.4, 3.3, 3.3, 3.4, 3.2]
+				data: [3.2, 3.5, 0.4, 3.3, 3.3, 3.4, 3.2]
 			},
 			{
 				label: '09:30 am - 10:00 am',
