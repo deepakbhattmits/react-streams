@@ -3,27 +3,7 @@
 import React from 'react';
 import ScrollIndicator from '../reusable/ScrollIndicator';
 const LayoutSideBar = props => {
-	const arr = [
-		1,
-		2,
-		3,
-		4,
-		5,
-		6,
-		7,
-		8,
-		9,
-		10,
-		11,
-		12,
-		13,
-		14,
-		15,
-		16,
-		17,
-		18,
-		19
-	];
+	const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18];
 	return (
 		<ScrollIndicator id='sidebar' className='app-sidebar'>
 			<p>SiderBar</p>
