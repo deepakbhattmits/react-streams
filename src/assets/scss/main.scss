@@ -258,3 +258,29 @@
 		}
 	}
 }
+.custom-tab {
+	justify-content: flex-end;
+	.nav-item {
+		&:first-child {
+			.nav-link {
+				&:after {
+					content: '';
+					border-width: 0 0.125rem 0 0;
+					border-style: solid;
+					border-color: var(--color-scheme-black);
+					margin: 0 0.5rem;
+					font-size: 70%;
+				}
+			}
+		}
+		.nav-link {
+			outline: none;
+			color: var(--color-scheme-black);
+			padding: 0;
+			&:hover {
+				color: var(--color-scheme-blue);
+				text-decoration: underline;
+			}
+		}
+	}
+}
