@@ -34,7 +34,7 @@ const Header = props => {
 	};
 	const trackScrolling = e => {
 		let windowPageYOffset = window.pageYOffset;
-		console.log('FOR HEADER : ', windowPageYOffset);
+		// console.log('FOR HEADER : ', windowPageYOffset);
 		// const elem = document.getElementById('scroll');
 		// let coords = elem.getBoundingClientRect();
 		// let windowHeight = document.documentElement.clientHeight;
