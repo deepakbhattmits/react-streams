@@ -4,6 +4,7 @@ $color-black: #000;
 $color-white: #fff;
 $font-color: pink;
 $bg-color: cyan;
+$color-blue: #818cac;
 $heading-color: #818cac;
 $error-color: red;
 
@@ -12,6 +13,7 @@ $error-color: red;
 	--color-error: #{$error-color};
 	--color-scheme-background: #{$bg-color};
 	--color-scheme-text-color: #{$font-color};
+	--color-scheme-blue: #{$color-blue};
 	--color-scheme-black: #{$color-black};
 	--color-scheme-white: #{$color-white};
 }
@@ -30,6 +32,7 @@ $error-color: red;
 		--color-error: #{invert($error-color)};
 		--color-scheme-background: #{invert($bg-color)};
 		--color-scheme-text-color: #{invert($font-color)};
+		--color-scheme-blue: #{invert($color-blue)};
 		--color-scheme-black: #{invert($color-black)};
 		--color-scheme-white: #{invert($color-white)};
 	}
