@@ -53,7 +53,7 @@ const StreamList = props => {
 		// 	'scrolltop : ',
 		// 	elem
 		// );
-		console.log('test element visible : ', coords, topVisible);
+		// console.log('test element visible : ', coords, topVisible);
 		setScroll(false);
 		if (coords.top >= 54) {
 			setScroll(true);
