@@ -281,6 +281,35 @@
 				color: var(--color-scheme-blue);
 				text-decoration: underline;
 			}
+			&.active {
+				color: var(--color-scheme-blue);
+				text-decoration: underline;
+			}
+		}
+	}
+}
+.tab-content {
+	.grid-container {
+		display: grid;
+		grid-template-columns: 140px auto auto auto auto auto;
+		grid-template-rows: 30px 30px 30px;
+	}
+	.grid-item {
+		&.--role {
+			justify-content: flex-start;
+			width: 100%;
+		}
+		display: grid;
+		align-items: center;
+		justify-content: center;
+		border-radius: 0.5rem;
+		width: 30px;
+		margin: 0 auto;
+		&.active {
+			background-color: pink;
+		}
+		&.schedule {
+			background-color: green;
 		}
 	}
 }
