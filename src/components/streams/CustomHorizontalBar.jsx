@@ -19,7 +19,7 @@ const CustomHorizontalBar = () => {
 				backgroundColor: ['rgba(255,153,0,1)'],
 				borderWidth: 10,
 
-				data: [7, 7, 7, 7, 7, 7, 7]
+				data: [7, 7.5, 7, 7, 7, 7, 7]
 			},
 			{
 				label: '11:00 am - 11:30 am',
