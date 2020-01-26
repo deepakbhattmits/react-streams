@@ -6,7 +6,7 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const mongoose = require('mongoose');
 const streamsRoutes = express.Router();
-const PORT = 5000;
+const PORT = 4000;
 
 let Stream = require('./models/stream.model');
 
@@ -34,8 +34,8 @@ streamsRoutes.route('/').get(function(req, res) {
 
 streamsRoutes.route('/streams/:id').get(function(req, res) {
 	let id = req.params.id;
-	Stream.findById(id, function(err, todo) {
-		res.json(todo);
+	Stream.findById(id, function(err, stream) {
+		res.json(stream);
 	});
 });
 
@@ -44,7 +44,7 @@ streamsRoutes.route('/streams/add').post(function(req, res) {
 	stream
 		.save()
 		.then(stream => {
-			res.status(200).json({ todo: 'added successfully' });
+			res.status(200).json({ stream: 'added successfully' });
 		})
 		.catch(err => {
 			res.status(400).send('adding failed');
