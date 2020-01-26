@@ -6,7 +6,7 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const mongoose = require('mongoose');
 const streamsRoutes = express.Router();
-const PORT = 4000;
+const PORT = 5000;
 
 let Stream = require('./models/stream.model');
 
@@ -14,7 +14,8 @@ app.use(cors());
 app.use(bodyParser.json());
 
 mongoose.connect('mongodb://127.0.0.1:27017/streams', {
-	useNewUrlParser: true
+	useNewUrlParser: true,
+	useUnifiedTopology: true
 });
 const connection = mongoose.connection;
 
@@ -32,14 +33,14 @@ streamsRoutes.route('/').get(function(req, res) {
 	});
 });
 
-streamsRoutes.route('/streams/:id').get(function(req, res) {
+streamsRoutes.route('/:id').get(function(req, res) {
 	let id = req.params.id;
 	Stream.findById(id, function(err, stream) {
 		res.json(stream);
 	});
 });
 
-streamsRoutes.route('/streams/add').post(function(req, res) {
+streamsRoutes.route('/add').post(function(req, res) {
 	let stream = new Stream(req.body);
 	stream
 		.save()
@@ -51,7 +52,7 @@ streamsRoutes.route('/streams/add').post(function(req, res) {
 		});
 });
 
-streamsRoutes.route('/streams/update/:id').post(function(req, res) {
+streamsRoutes.route('/update/:id').patch(function(req, res) {
 	Stream.findById(req.params.id, function(err, stream) {
 		if (!stream) res.status(404).send('data is not found');
 		else stream.description = req.body.description;
@@ -59,14 +60,14 @@ streamsRoutes.route('/streams/update/:id').post(function(req, res) {
 		stream
 			.save()
 			.then(stream => {
-				res.json('Todo updated');
+				res.json('Stream updated');
 			})
 			.catch(err => {
 				res.status(400).send('Update not possible');
 			});
 	});
 });
-streamsRoutes.route('/streams/delete/:id').delete((req, res) => {
+streamsRoutes.route('/delete/:id').delete((req, res) => {
 	Stream.findByIdAndDelete(req.params.id)
 		.then(() => res.json('Stream deleted.'))
 		.catch(err => res.status(400).json('Error: ' + err));
