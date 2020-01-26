@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 import ScrollIndicator from '../../reusable/ScrollIndicator';
 import { fetchStreams } from '../../actions';
 const StreamList = props => {
+	console.log('LIST : ', props.streams);
 	const [scroll, setScroll] = useState(false);
 	const renderButton = list => {
 		if (list.userId === props.currentUserId) {
