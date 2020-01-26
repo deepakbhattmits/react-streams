@@ -6,9 +6,9 @@ import { Link } from 'react-router-dom';
 import ScrollIndicator from '../../reusable/ScrollIndicator';
 import { fetchStreams } from '../../actions';
 const StreamList = props => {
-	console.log('LIST : ', props.streams);
 	const [scroll, setScroll] = useState(false);
 	const renderButton = list => {
+		console.log('render button :', list, props);
 		if (list.userId === props.currentUserId) {
 			return (
 				<div className='right floated content'>
@@ -24,6 +24,7 @@ const StreamList = props => {
 	};
 
 	const renderList = () => {
+		console.log('renderList : ', props.streams);
 		return props.streams.map(list => {
 			return (
 				<div className='item' key={list.id}>
@@ -62,9 +63,9 @@ const StreamList = props => {
 	};
 
 	useEffect(() => {
-		if (!props.streams.length) {
-			props.fetchStreams();
-		}
+		// if (!props.streams.length) {
+		props.fetchStreams();
+		// }
 		document.addEventListener('scroll', trackScrolling, true);
 		return () => {
 			document.removeEventListener('scroll', trackScrolling, true);
