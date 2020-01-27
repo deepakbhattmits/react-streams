@@ -24,7 +24,7 @@ const StreamList = props => {
 	};
 
 	const renderList = () => {
-		console.log('renderList : ', props.streams);
+		// console.log('renderList : ', props.streams);
 		return props.streams.map(list => {
 			return (
 				<div className='item' key={list.id}>
