@@ -21,24 +21,41 @@ const BarChart = () => {
 				],
 				datasets: [
 					{
+						label: 'MIM',
+						// label: ['10:00AM', '10:30AM', '11:00AM', '11:30AM'],
+						borderRadius: 0,
+						backgroundColor: 'cyan',
+						data: [20, 20, 20, 20, 20, 20, 20, 20, 20]
+					},
+					{
+						label: 'ANALYST',
+						// label: ['10:00AM', '10:30AM', '11:00AM', '11:30AM'],
+						backgroundColor: 'blue',
+						data: [20, 20, 20, 20, 20, 20, 20, 20, 20]
+					},
+					{
 						label: 'Employee',
+						// label: ['10:00AM', '10:30AM', '11:00AM', '11:30AM'],
 						backgroundColor: '#caf270',
-						data: [12, 59, 5, 56, 58, 12, 59, 87, 45]
+						data: [47, 47, 47, 47, 47, 47, 47, 47, 47]
 					},
 					{
 						label: 'Engineer',
+
 						backgroundColor: '#45c490',
-						data: [12, 59, 5, 56, 58, 12, 59, 86, 23]
+						borderRadius: 1,
+						data: [86, 86, 86, 86, 86, 86, 86, 86, 86]
 					},
 					{
 						label: 'Government',
+
 						backgroundColor: '#008d93',
-						data: [12, 59, 5, 56, 58, 12, 59, 65, 51]
+						data: [65, 65, 65, 65, 65, 65, 65, 65, 65]
 					},
 					{
 						label: 'Political parties',
 						backgroundColor: '#2e5468',
-						data: [12, 59, 5, 56, 58, 12, 59, 12, 74]
+						data: [12, 12, 12, 12, 12, 12, 12, 12, 12]
 					}
 				]
 			},
@@ -52,6 +69,7 @@ const BarChart = () => {
 				scales: {
 					xAxes: [
 						{
+							barPercentage: 0.5,
 							stacked: true,
 							gridLines: {
 								display: false
@@ -61,6 +79,7 @@ const BarChart = () => {
 					yAxes: [
 						{
 							stacked: true,
+							maxBarThickness: 1,
 							ticks: {
 								beginAtZero: true
 							},
