@@ -81,6 +81,9 @@ const Header = props => {
 				<Link to='/streams/table' className='item'>
 					Table
 				</Link>
+				<Link to='/streams/stack' className='item'>
+					stack
+				</Link>
 				<GoogleAuth />
 				{renderCreateButton()}
 				<div className='dropdown'>
