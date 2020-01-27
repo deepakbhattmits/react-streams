@@ -132,7 +132,7 @@ const CustomTable = props => {
 		const { textContent } = e.target;
 		var name = e.target.getAttribute('name'); //'HOME'
 
-		// console.log('name : ', name);
+		console.log('name : ', name);
 		if (!!classList && classList.filter(el => el === name)) {
 			setClassList([...classList, name]);
 		}
