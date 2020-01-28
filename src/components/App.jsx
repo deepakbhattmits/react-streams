@@ -16,7 +16,7 @@ import BarChart from './streams/BarChart';
 import SliderComponent from './streams/SliderComponent';
 
 const App = () => {
-	console.log('test :');
+	// console.log('test :');
 	return (
 		<GlobalState>
 			{/* <div className='ui container'> */}
