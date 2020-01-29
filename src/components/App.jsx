@@ -12,6 +12,7 @@ import StreamEdit from './streams/StreamEdit';
 import StreamDelete from './streams/StreamDelete';
 import CustomTable from './streams/CustomTable';
 import CustomHorizontalBar from './streams/CustomHorizontalBar';
+import ChartComponent from './streams/ChartComponent';
 import BarChart from './streams/BarChart';
 import SliderComponent from './streams/SliderComponent';
 
@@ -27,6 +28,7 @@ const App = () => {
 						<Route path='/streams/slider' component={SliderComponent} exact />
 						<Route path='/streams/table' component={CustomTable} exact />
 						<Route path='/streams/bar' component={CustomHorizontalBar} exact />
+						<Route path='/streams/chart' component={ChartComponent} exact />
 						<Route path='/streams/stack' component={BarChart} exact />
 						<Route path='/streams/new' component={StreamCreate} exact />
 						<Route path='/streams/edit/:id' component={StreamEdit} exact />
