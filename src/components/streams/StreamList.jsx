@@ -9,13 +9,13 @@ const StreamList = props => {
 	const [scroll, setScroll] = useState(false);
 	const renderButton = list => {
 		console.log('render button :', list, props);
-		if (list.userId === props.currentUserId) {
+		if (list.id === props.currentUserId) {
 			return (
 				<div className='right floated content'>
-					<Link to={`/streams/edit/${list.id}`} className='btn btn-primary'>
+					<Link to={`/streams/edit/${list._id}`} className='btn btn-primary'>
 						Edit
 					</Link>
-					<Link to={`/streams/delete/${list.id}`} className='btn btn-danger'>
+					<Link to={`/streams/delete/${list._id}`} className='btn btn-danger'>
 						Delete
 					</Link>
 				</div>
@@ -27,13 +27,13 @@ const StreamList = props => {
 		// console.log('renderList : ', props.streams);
 		return props.streams.map(list => {
 			return (
-				<div className='item' key={list.id}>
+				<div className='item' key={list._id}>
 					{renderButton(list)}
 
 					<i className='large middle aligned icon camera' />
 
 					<div className='content'>
-						<Link to={`/streams/show/${list.id}`}>
+						<Link to={`/streams/show/${list._id}`}>
 							{list.title}
 							<div className='description'>{list.description}</div>
 						</Link>
@@ -63,9 +63,9 @@ const StreamList = props => {
 	};
 
 	useEffect(() => {
-		// if (!props.streams.length) {
-		props.fetchStreams();
-		// }
+		if (!props.streams.length) {
+			props.fetchStreams();
+		}
 		document.addEventListener('scroll', trackScrolling, true);
 		return () => {
 			document.removeEventListener('scroll', trackScrolling, true);
