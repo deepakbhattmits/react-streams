@@ -24,10 +24,12 @@ export const signOut = () => {
 };
 export const createStream = formValues => async (dispatch, getState) => {
 	const { userId } = getState().auth;
+	console.log('0 ACTION : ', userId);
 	const response = await streams.post('/streams/add', {
 		...formValues,
-		userId
+		['id']: userId
 	});
+	console.log('ACTION : ', response.data);
 	dispatch({ type: CREATE_STREAM, payload: response.data });
 	createBrowserHistory.push('/'); // programatic navigation
 };
