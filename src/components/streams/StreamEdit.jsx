@@ -9,7 +9,7 @@ const StreamEdit = props => {
 	const { id } = props.match.params;
 	const { fetchStream } = props;
 
-	// console.log('fetchStream:', fetchStream);
+	console.log('the fetchStream:', fetchStream);
 	useEffect(() => {
 		fetchStream(id);
 	}, [id, fetchStream]);
