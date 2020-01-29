@@ -56,6 +56,7 @@ streamsRoutes.route('/update/:id').patch(function(req, res) {
 	Stream.findById(req.params.id, function(err, stream) {
 		if (!stream) res.status(404).send('data is not found');
 		else stream.description = req.body.description;
+		stream.id = req.body.id;
 		stream.title = req.body.title;
 		stream
 			.save()

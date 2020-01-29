@@ -5,6 +5,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const streamSchema = new Schema({
+	id: { type: String },
 	title: { type: String },
 	description: { type: String }
 });
