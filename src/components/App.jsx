@@ -15,6 +15,7 @@ import CustomHorizontalBar from './streams/CustomHorizontalBar';
 import ChartComponent from './streams/ChartComponent';
 import BarChart from './streams/BarChart';
 import SliderComponent from './streams/SliderComponent';
+import MultiHeader from './streams/MultiHeader';
 
 const App = () => {
 	// console.log('test :');
@@ -28,6 +29,7 @@ const App = () => {
 						<Route path='/streams/slider' component={SliderComponent} exact />
 						<Route path='/streams/table' component={CustomTable} exact />
 						<Route path='/streams/bar' component={CustomHorizontalBar} exact />
+						<Route path='/streams/multiheader' component={MultiHeader} exact />
 						<Route path='/streams/chart' component={ChartComponent} exact />
 						<Route path='/streams/stack' component={BarChart} exact />
 						<Route path='/streams/new' component={StreamCreate} exact />
