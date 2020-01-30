@@ -60,7 +60,7 @@ const FilteredList = () => {
 
 const List = props => {
 	return (
-		<ul>
+		<ul className='list'>
 			{props.items.map(function(item, i) {
 				return <li key={i}>{item.text}</li>;
 			})}
