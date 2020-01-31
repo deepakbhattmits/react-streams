@@ -11,7 +11,7 @@ import TableModal from '../TableModal';
 const CustomTable = props => {
 	const context = useContext(appContext);
 	const [classList, setClassList] = useState([]);
-	console.log('TABLE :', context.filteredProducts);
+	// console.log('TABLE :', context.filteredProducts);
 	const [data, setData] = useState([]);
 	const [products, setProducts] = useState([]);
 	const [active, setActive] = useState(false);
