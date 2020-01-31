@@ -3,7 +3,7 @@
 import React, { useRef, useEffect } from 'react';
 import { Chart } from 'chart.js';
 const BarChart = () => {
-	console.log('test ');
+	// console.log('test ');
 	const chart = useRef();
 	const stacked = ctx => {
 		new Chart(ctx, {
