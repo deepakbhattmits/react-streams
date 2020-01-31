@@ -58,7 +58,7 @@ class MultiHeader extends React.Component {
 		this.setState({ data: [this.state.data, ...products] });
 	}
 	render() {
-		console.log('TEST :')
+		// console.log('TEST :')
 		return (
 			<Col md={8} mdOffset={1}>
 				<div className='Sections-for-react-bootstrap-table'>
