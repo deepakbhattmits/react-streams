@@ -8,7 +8,7 @@ import { fetchStreams } from '../../actions';
 const StreamList = props => {
 	const [scroll, setScroll] = useState(false);
 	const renderButton = list => {
-		console.log('render button :', list, props);
+		// console.log('render button :', list, props);
 		if (list.id === props.currentUserId) {
 			return (
 				<div className='right floated content'>
