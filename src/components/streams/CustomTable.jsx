@@ -2,13 +2,14 @@
 
 /** @format */
 
-import React, { useState, useContext, useEffect } from 'react';
+import React, { useState, useContext, useEffect, useRef } from 'react';
 import appContext from '../../context/app-context';
 import { ReactComponent as DownArrowSVG } from '../../assets/images/icon-down-arrow.svg';
 import { ReactComponent as UpArrowSVG } from '../../assets/images/icon-up-arrow.svg';
 import BootstrapTable from 'react-bootstrap-table-next';
 import TableModal from '../TableModal';
 const CustomTable = props => {
+	const table = useRef();
 	const context = useContext(appContext);
 	const [classList, setClassList] = useState([]);
 	// console.log('TABLE :', context.filteredProducts);
@@ -150,13 +151,38 @@ const CustomTable = props => {
 		const products = context.filteredProducts.map(item => {
 			return {
 				id: item.id,
-				name: getData(item.id, item.name),
+				name: item.name,
 				price: item.price,
 				group: item.group
 			};
 		});
 		setProducts(products);
 	}, [context.filteredProducts]);
+	const handleSort = id => {
+		console.log('SORT : ', id, table.current.props.data);
+		if (id === 'id') {
+			const sortById = context.filteredProducts.sort((a, b) => {
+				return b.id - a.id;
+			});
+			console.log('AFTER SORT : ', sortById, table.current.props.data);
+			setProducts(sortById);
+		}
+		if (id === 'name') {
+			const sortByName = context.filteredProducts.sort((a, b) => {
+				return a.name < b.name ? -1 : a.name > b.name ? 1 : 0;
+			});
+			console.log('AFTER SORT : ', sortByName, table.current.props.data);
+			setProducts(sortByName);
+		} else if (id === 'price') {
+			const sortByPrice = context.filteredProducts.sort((a, b) => {
+				return a.price - b.price;
+			});
+			console.log('AFTER SORT : ', sortByPrice, table.current.props.data);
+			setProducts(sortByPrice);
+		} else {
+			setProducts(context.filteredProducts);
+		}
+	};
 	return (
 		<>
 			<div className='list-inline'>
@@ -193,6 +219,29 @@ const CustomTable = props => {
 					manager
 				</li>
 			</div>
+			<div className='main-header'>
+				{columns.map((el, i) => {
+					return (
+						<div
+							key={i}
+							className='data-item'
+							onClick={() => {
+								handleSort(el.dataField);
+							}}>
+							{el.text}
+						</div>
+					);
+				})}
+			</div>
+			<BootstrapTable
+				ref={table}
+				bootstrap4
+				keyField='id'
+				data={products}
+				columns={columns}
+				sort={sortOption}
+				rowEvents={rowEvents}
+			/>
 			<BootstrapTable
 				bootstrap4
 				keyField='id'
