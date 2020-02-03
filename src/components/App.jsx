@@ -11,6 +11,7 @@ import StreamShow from './streams/StreamShow';
 import StreamEdit from './streams/StreamEdit';
 import StreamDelete from './streams/StreamDelete';
 import CustomTable from './streams/CustomTable';
+import Table from './streams/Table';
 import CustomHorizontalBar from './streams/CustomHorizontalBar';
 import ChartComponent from './streams/ChartComponent';
 import BarChart from './streams/BarChart';
@@ -18,7 +19,7 @@ import SliderComponent from './streams/SliderComponent';
 import MultiHeader from './streams/MultiHeader';
 
 const App = () => {
-	console.log('test :');
+	// console.log('test :');
 	return (
 		<GlobalState>
 			{/* <div className='ui container'> */}
@@ -28,6 +29,7 @@ const App = () => {
 						<Route path='/' component={StreamList} exact />
 						<Route path='/streams/slider' component={SliderComponent} exact />
 						<Route path='/streams/table' component={CustomTable} exact />
+						<Route path='/streams/datatable' component={Table} exact />
 						<Route path='/streams/bar' component={CustomHorizontalBar} exact />
 						<Route path='/streams/multiheader' component={MultiHeader} exact />
 						<Route path='/streams/chart' component={ChartComponent} exact />
