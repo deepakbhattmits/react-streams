@@ -78,6 +78,9 @@ const Header = props => {
 				<Link to='/streams/slider' className='item'>
 					Slider
 				</Link>
+				<Link to='/streams/datatable' className='item'>
+					DataTable
+				</Link>
 				<Link to='/streams/table' className='item'>
 					Table
 				</Link>
