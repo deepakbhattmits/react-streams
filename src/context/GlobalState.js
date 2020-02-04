@@ -27,7 +27,7 @@ const GlobalState = props => {
 		{ id: 2, name: 'amrita pandey', price: 102, group: 'developer' },
 		{ id: 3, name: 'deepak bhatt', price: 150, group: 'developer' },
 		{ id: 4, name: 'akhilesh singh', price: 150, group: 'developer' },
-		{ id: 5, name: 'bharat kg', price: 150, group: 'tester' },
+		{ id: 5, name: 'mr. bharat kg', price: 150, group: 'tester' },
 		{ id: 6, name: 'Mahadev birader', price: 150, group: 'tester' }
 		// { id: 7, name: 'dinesh kotni', price: 150, group: 'tester' },
 		// { id: 8, name: 'praveen vishnoi', price: 150, group: 'tester' },
