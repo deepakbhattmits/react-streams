@@ -147,7 +147,7 @@ const Table = props => {
 						<td>$103,600</td>
 					</tr>
 					<tr>
-						<td>Jena Gaines</td>
+						<td>JenaGaines</td>
 						<td>Office Manager</td>
 						<td>London</td>
 						<td>30</td>
