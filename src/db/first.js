@@ -6,7 +6,7 @@
       "id": 2
     },
     {
-      "price":1200,
+      "price":120,
       "description": "super cool animal",
       "id": 3
     },
