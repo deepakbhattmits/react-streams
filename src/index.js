@@ -1,3 +1,5 @@
+/** @format */
+
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
@@ -5,17 +7,17 @@ import reduxThunk from 'redux-thunk';
 import { createStore, applyMiddleware, compose } from 'redux';
 import App from './components/App';
 import reducers from './reducers';
-import "./assets/scss/main.scss";
+import './assets/scss/main.scss';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const store = createStore(
-    reducers,
-    composeEnhancers(applyMiddleware(reduxThunk))
+	reducers,
+	composeEnhancers(applyMiddleware(reduxThunk))
 );
-const rootElement = document.querySelector('#root');
+const rootElement = document.querySelector('#root'); // rootElement
 ReactDOM.render(
-    <Provider store={store}>
-        <App />
-    </Provider>,
-    rootElement
+	<Provider store={store}>
+		<App />
+	</Provider>,
+	rootElement
 );
