@@ -11,15 +11,15 @@ const ScrollIndicator = ({ id, className, children }) => {
 
 	const handleScroll = e => {
 		const { scrollTop, offsetHeight, scrollHeight } = e.target;
-		// console.log(
-		// 	'SCROLL',
-		// 	'scrollTop :',
-		// 	scrollTop,
-		// 	'offsetHeight : ',
-		// 	offsetHeight,
-		// 	'scrollHeight : ',
-		// 	scrollHeight
-		// );
+		console.log(
+			'SCROLL',
+			'scrollTop :',
+			scrollTop,
+			'offsetHeight : ',
+			offsetHeight,
+			'scrollHeight : ',
+			scrollHeight
+		);
 
 		if (scrollTop === 0) {
 			setScroll(true);
