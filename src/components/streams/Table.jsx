@@ -57,7 +57,7 @@ const Table = props => {
 				style={{ width: '100%' }}>
 				<thead>
 					<tr>
-						<th>Name.</th>
+						<th>Name</th>
 						<th>Position</th>
 						<th>Office</th>
 						<th>Age</th>
