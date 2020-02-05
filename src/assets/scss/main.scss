@@ -246,7 +246,7 @@
 		@for $i from 1 through 4 {
 			&:nth-child(#{$i}) {
 				// set the background-color to cornflowerblue and
-				// each time lighten the color slightly
+				// each time lighten the color
 				width: calc(100% / 4);
 			}
 		}
