@@ -37,7 +37,7 @@ const CustomTable = props => {
 			text: 'Product ID',
 			sort: true,
 			headerStyle: (colum, colIndex) => {
-				return { width: '1rem', textAlign: 'left' };
+				return { width: '1.1rem', textAlign: 'left' };
 			},
 			sortFunc: (a, b, order, dataField, rowA, rowB) => {
 				if (order === 'asc') return a - b;
