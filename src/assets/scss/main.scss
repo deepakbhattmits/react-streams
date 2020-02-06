@@ -30,6 +30,7 @@
 @import '../../../node_modules/react-datepicker/dist/react-datepicker.css';
 @import '../../../node_modules/pure-react-carousel/dist/react-carousel.es.css';
 @import '../../../node_modules/react-bootstrap-table-next/dist/react-bootstrap-table2.min.css';
+@import '../../../node_modules/react-table/react-table.css';
 // @mixin Animation {
 // 	@keyframes animate {
 // 		0% {
@@ -326,3 +327,52 @@
 		}
 	}
 }
+
+/*
+** react-table styles start
+*/
+.ReactTable {
+	.rt-thead {
+		.rt-tr {
+			.rt-resizable-header {
+				&:first-child {
+					display: none;
+				}
+				outline: none;
+				padding: 10px;
+			}
+		}
+	}
+	.rt-tbody {
+		> .rt-tr-group {
+			> .-odd {
+				background-color: #000;
+				color: #fff;
+			}
+			> .-even {
+				background-color: #000;
+				color: #fff;
+			}
+			.rt-tr-group {
+				.rt-td.deepak {
+					display: none;
+				}
+			}
+		}
+	}
+	.rt-thead .rt-th.-sort-asc,
+	.ReactTable .rt-thead .rt-td.-sort-asc {
+		div:first-child:after {
+			content: ' ▴';
+		}
+	}
+	.rt-thead .rt-th.-sort-desc,
+	.ReactTable .rt-thead .rt-td.-sort-desc {
+		div:first-child:after {
+			content: ' ▾';
+		}
+	}
+}
+/*
+** react-table styles start
+*/
