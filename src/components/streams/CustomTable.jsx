@@ -2,89 +2,59 @@
 
 /** @format */
 
-import React, { useState, useContext, useEffect, useRef } from 'react';
+import React, { useState, useContext, useRef } from 'react';
 import appContext from '../../context/app-context';
 import { ReactComponent as DownArrowSVG } from '../../assets/images/icon-down-arrow.svg';
 import { ReactComponent as UpArrowSVG } from '../../assets/images/icon-up-arrow.svg';
-import BootstrapTable from 'react-bootstrap-table-next';
+import WithoutHeader from './WithoutHeader';
 import TableModal from '../TableModal';
-const CustomTable = props => {
-	const table = useRef();
+const CustomTable = () => {
+	const tableF = useRef();
+	const tableS = useRef();
 	const context = useContext(appContext);
 	const [classList, setClassList] = useState([]);
 	console.log('TABLE :', context.filteredProducts);
 	const [data, setData] = useState([]);
-	const [products, setProducts] = useState([]);
+	const [products, setProducts] = useState(context.filteredProducts);
 	const [active, setActive] = useState(false);
-	const getData = (id, item) => {
-		return (
-			<div
-				key={item}
-				id={id}
-				style={{
-					display: 'flex',
-					alignItems: 'center',
-					justifyContent: 'space-between'
-				}}>
-				<span>DEMO</span>
-				<span>{item}</span>
-			</div>
-		);
+	const handleSort = id => {
+		console.log('SORT : ', id, tableF.current.props.data);
+		const state = tableF.current.props.data.sort((a, b) => {
+			if (id !== 'id' && id !== 'price') {
+				return a[id].toLowerCase().localeCompare(b[id].toLowerCase())
+					? -1
+					: b[id].toLowerCase().localeCompare(a[id].toLowerCase())
+					? 1
+					: 0;
+			} else {
+				if (id === 'id') {
+					console.log('ID : ', a[id], b[id]);
+					return a[id] > b[id] ? a[id] - b[id] : b[id] - a[id];
+				} else if (id === 'price') {
+					return b[id] > a[id] ? b[id] - a[id] : a[id] - b[id];
+				} else {
+				}
+			}
+		});
+		console.log('STATE : ', state);
+		setProducts(state);
 	};
 	const columns = [
 		{
 			dataField: 'id',
-			text: 'Product ID',
-			sort: true,
-			headerStyle: (colum, colIndex) => {
-				return { width: '1.1rem', textAlign: 'left' };
-			},
-			sortFunc: (a, b, order, dataField, rowA, rowB) => {
-				if (order === 'asc') return a - b;
-				else return b - a;
-			}
+			text: 'Product ID'
 		},
 		{
 			dataField: 'name',
-			text: 'Product Name',
-			headerStyle: (colum, colIndex) => {
-				return { width: '5rem', textAlign: 'center' };
-			},
-			sort: true,
-			sortFunc: (a, b, order, dataField, rowA, rowB) => {
-				console.log(rowA.name.props.children[1].props.children);
-				if (
-					order === 'asc' &&
-					rowA.name.props.children[1].props.children >
-						rowB.name.props.children[1].props.children
-				) {
-					return -1;
-				} else if (
-					order === 'desc' &&
-					rowA.name.props.children[1].props.children <
-						rowB.name.props.children[1].props.children
-				) {
-					return 1;
-				} else {
-					return 0;
-				}
-			}
+			text: 'Product Name'
 		},
 		{
 			dataField: 'price',
-			text: 'Product Price',
-			sort: true,
-			headerStyle: (colum, colIndex) => {
-				return { width: '2.3rem', textAlign: 'left' };
-			}
+			text: 'Product Price'
 		},
 		{
 			dataField: 'group',
-			text: 'Group',
-			sort: true,
-			headerStyle: (colum, colIndex) => {
-				return { width: '2.3rem', textAlign: 'left' };
-			}
+			text: 'Group'
 		}
 	];
 	const sortOption = {
@@ -147,42 +117,6 @@ const CustomTable = props => {
 				: context.filteredProducts;
 		setProducts(products);
 	};
-	useEffect(() => {
-		const products = context.filteredProducts.map(item => {
-			return {
-				id: item.id,
-				name: item.name,
-				price: item.price,
-				group: item.group
-			};
-		});
-		setProducts(products);
-	}, [context.filteredProducts]);
-	const handleSort = id => {
-		console.log('SORT : ', id, table.current.props.data);
-		if (id === 'id') {
-			const sortById = context.filteredProducts.sort((a, b) => {
-				return b.id - a.id;
-			});
-			console.log('AFTER SORT : ', sortById, table.current.props.data);
-			setProducts(sortById);
-		}
-		if (id === 'name') {
-			const sortByName = context.filteredProducts.sort((a, b) => {
-				return a.name < b.name ? -1 : a.name > b.name ? 1 : 0;
-			});
-			console.log('AFTER SORT : ', sortByName, table.current.props.data);
-			setProducts(sortByName);
-		} else if (id === 'price') {
-			const sortByPrice = context.filteredProducts.sort((a, b) => {
-				return a.price - b.price;
-			});
-			console.log('AFTER SORT : ', sortByPrice, table.current.props.data);
-			setProducts(sortByPrice);
-		} else {
-			setProducts(context.filteredProducts);
-		}
-	};
 	return (
 		<>
 			<div className='list-inline'>
@@ -233,20 +167,15 @@ const CustomTable = props => {
 					);
 				})}
 			</div>
-			<BootstrapTable
-				ref={table}
-				bootstrap4
-				keyField='id'
+			<WithoutHeader
+				propRef={tableF}
 				data={products}
-				columns={columns}
 				sort={sortOption}
 				rowEvents={rowEvents}
 			/>
-			<BootstrapTable
-				bootstrap4
-				keyField='id'
+			<WithoutHeader
+				propRef={tableS}
 				data={products}
-				columns={columns}
 				sort={sortOption}
 				rowEvents={rowEvents}
 			/>
@@ -261,97 +190,3 @@ const CustomTable = props => {
 };
 
 export default CustomTable;
-
-// import React from 'react';
-// import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table-next';
-
-// const products = [];
-
-// function addProducts(quantity) {
-// 	const startId = products.length;
-// 	for (let i = 0; i < quantity; i++) {
-// 		const id = startId + i;
-// 		if (i < 3) {
-// 			products.push({
-// 				id: id,
-// 				name: 'Item name ' + id,
-// 				price: 2100 + i,
-// 				expand: [
-// 					{
-// 						fieldA: 'test1',
-// 						fieldB: (i + 1) * 99,
-// 						fieldC: (i + 1) * Math.random() * 100,
-// 						fieldD: '123eedd' + i
-// 					},
-// 					{
-// 						fieldA: 'test2',
-// 						fieldB: i * 99,
-// 						fieldC: i * Math.random() * 100,
-// 						fieldD: '123eedd' + i
-// 					}
-// 				]
-// 			});
-// 		} else {
-// 			products.push({
-// 				id: id,
-// 				name: 'Item name ' + id,
-// 				price: 2100 + i
-// 			});
-// 		}
-// 	}
-// }
-// addProducts(5);
-
-// class BSTable extends React.Component {
-// 	render() {
-// 		if (this.props.data) {
-// 			return (
-// 				<BootstrapTable data={this.props.data}>
-// 					<TableHeaderColumn dataField='fieldA' isKey={true}>
-// 						Field A
-// 					</TableHeaderColumn>
-// 					<TableHeaderColumn dataField='fieldB'>Field B</TableHeaderColumn>
-// 					<TableHeaderColumn dataField='fieldC'>Field C</TableHeaderColumn>
-// 					<TableHeaderColumn dataField='fieldD'>Field D</TableHeaderColumn>
-// 				</BootstrapTable>
-// 			);
-// 		} else {
-// 			return <p>?</p>;
-// 		}
-// 	}
-// }
-
-// export default class CustomTable extends React.Component {
-// 	constructor(props) {
-// 		super(props);
-// 	}
-
-// 	isExpandableRow(row) {
-// 		if (row.id < 3) return true;
-// 		else return false;
-// 	}
-
-// 	expandComponent(row) {
-// 		return <BSTable data={row.expand} />;
-// 	}
-
-// 	render() {
-// 		const options = {
-// 			expandRowBgColor: 'rgb(242, 255, 163)'
-// 		};
-// 		return (
-// 			<BootstrapTable
-// 				data={products}
-// 				options={options}
-// 				expandableRow={this.isExpandableRow}
-// 				expandComponent={this.expandComponent}
-// 				search>
-// 				<TableHeaderColumn dataField='id' isKey={true}>
-// 					Product ID
-// 				</TableHeaderColumn>
-// 				<TableHeaderColumn dataField='name'>Product Name</TableHeaderColumn>
-// 				<TableHeaderColumn dataField='price'>Product Price</TableHeaderColumn>
-// 			</BootstrapTable>
-// 		);
-// 	}
-// }
