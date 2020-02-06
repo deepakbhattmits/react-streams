@@ -29,6 +29,7 @@ const makeDefaultState = () => ({
 });
 
 const Table = () => {
+	console.log('TEST');
 	const [state, setState] = useState(makeDefaultState());
 	// this.resetState = this.resetState.bind(this);
 	// resetState() {
