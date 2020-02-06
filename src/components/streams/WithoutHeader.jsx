@@ -6,7 +6,7 @@ import React from 'react';
 
 import BootstrapTable from 'react-bootstrap-table-next';
 const WithoutHeader = ({ propRef, data, rowEvents, sort }) => {
-	console.log('withOutHeader: ', propRef, data);
+	// console.log('withOutHeader: ', propRef, data);
 	const columns = [
 		{
 			dataField: 'id',
