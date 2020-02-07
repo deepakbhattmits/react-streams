@@ -23,7 +23,7 @@ const BarChart = () => {
 				datasets: [
 					{
 						label: 'MIM',
-						// label: ['11:11AM', '10:32AM', '11:00AM', '11:30AM'],
+						// label: ['10:11AM', '10:32AM', '11:00AM', '11:30AM'],
 						borderRadius: 0,
 						backgroundColor: 'cyan',
 						data: [20, 20, 20, 20, 20, 20, 20, 20, 20]
