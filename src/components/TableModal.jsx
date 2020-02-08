@@ -4,7 +4,7 @@ import React from 'react';
 import { createPortal } from 'react-dom';
 
 const TableModal = props => {
-	// console.log('test :> ', props);
+	console.log('test :> ', props);
 	return createPortal(
 		<div
 			onClick={props.onDismiss}
@@ -20,13 +20,23 @@ const TableModal = props => {
 				}`}>
 				<div className='header'>{props.title.toUpperCase()}</div>
 				<div className='content'>
-					{!!props.content && (
+					{/* {!!props.content && (
 						<ul>
 							<li>{props.content.id}</li>
 							<li>{props.content.name}</li>
 							<li>{props.content.price}</li>
 						</ul>
-					)}
+					)} */}
+					<ul>
+						{!!props.content &&
+							Object.values(props.content).map((el, i) => {
+								return (
+									<li key={i}>
+										{el.id}-{el.postId}-{el.name}
+									</li>
+								);
+							})}
+					</ul>
 				</div>
 				{/* <div className='actions'>{props.actions}</div> */}
 			</div>
