@@ -1,9 +1,14 @@
 /** @format */
 
 import React, { useState, useRef } from 'react';
-import { data } from '../../db/tab';
+import { data } from '../../db/raw';
 import { ReactComponent as DownArrowSVG } from '../../assets/images/icon-down-arrow.svg';
 import { ReactComponent as UpArrowSVG } from '../../assets/images/icon-up-arrow.svg';
+import { Button } from 'react-bootstrap';
+
+import appContext from '../../context/app-context';
+
+import TableModal from '../TableModal';
 
 // Import React Table
 import ReactTable from 'react-table';
@@ -11,8 +16,8 @@ import ReactTable from 'react-table';
 const makeDefaultState = () => ({
 	sorted: [],
 	page: 0,
-	pageSize: 10,
-	expanded: { 0: {}, 1: {}, 2: {}, 3: {}, 4: {}, 5: {}, 6: {} },
+	pageSize: 5,
+	expanded: { 0: {}, 1: {}, 2: {}, 3: {}, 4: {}, 5: {} },
 	resized: []
 	// filtered: []
 });
@@ -24,9 +29,20 @@ const Table = () => {
 	const [selectAll, setSelectAll] = useState(false);
 	const [selection, setSelection] = useState([]);
 	const [sortDesc, setSortDesc] = useState({});
+	const [selectedData, setSelectedData] = useState([]);
+
+	const [active, setActive] = useState(false);
+	const handleClick = () => {
+		const selected = data.map(el => {
+			return selection.includes(el.id) && el;
+		});
+		console.log('clicked button', selected);
+		setActive(true);
+		setSelectedData(selected);
+	};
 
 	const toggleSelection = (key, shift, row) => {
-		console.log('SINGLE ATTR', key, shift, row);
+		console.log('toggleSelection : ', key, shift, row);
 		/*
       Implementation of how to manage the selection state is up to the developer.
       This implementation uses an array stored in the component state.
@@ -99,6 +115,15 @@ const Table = () => {
 	};
 	return (
 		<div>
+			<Button variant='outline-secondary' onClick={handleClick}>
+				Open
+			</Button>
+			<TableModal
+				title='selected data'
+				content={selectedData}
+				active={active}
+				onDismiss={() => setActive(false)}
+			/>
 			<ReactTable
 				ref={table}
 				data={data}
@@ -114,6 +139,11 @@ const Table = () => {
 								</>
 							);
 						},
+						sortable: false,
+						width: 80,
+						style: {
+							textAlign: 'center'
+						},
 						Cell: cell => {
 							return (
 								<>
@@ -127,7 +157,11 @@ const Table = () => {
 										onClick={e => {
 											const { shiftKey } = e;
 											e.stopPropagation();
-											toggleSelection(e.target.id, shiftKey, cell);
+											toggleSelection(
+												!!cell.original && cell.original.id,
+												shiftKey,
+												cell
+											);
 										}}
 										onChange={() => {}}
 									/>
@@ -136,24 +170,25 @@ const Table = () => {
 						}
 					},
 					{
-						accessor: 'firstName',
+						accessor: 'name',
 						Aggregated: row => {
 							return <span>{row.value}</span>;
 						},
+						width: 150,
 						Header: rowInfo => {
 							console.log('SORT : ', rowInfo, sortDesc);
 							return (
 								<>
-									<span>First Name</span>
+									<span>Name</span>
 									<DownArrowSVG
 										className={`icon down --arrow ${
-											sortDesc['firstName'] ? 'active' : ''
+											sortDesc['name'] ? 'active' : ''
 										}`}
 									/>
 
 									<UpArrowSVG
 										className={`icon up --arrow ${
-											sortDesc['firstName'] ? '' : 'active'
+											sortDesc['name'] ? '' : 'active'
 										}`}
 									/>
 								</>
@@ -163,10 +198,10 @@ const Table = () => {
 
 					{
 						// Header: 'Role',
-						id: 'role',
+						id: 'postId',
 						sortable: false,
-						className: 'deepak',
-						accessor: d => d.role,
+						className: 'group',
+						accessor: d => d.postId,
 						width: 170,
 						Expander: ({ isExpanded, ...rest }) => {
 							return <div>{isExpanded ? <span /> : <span />}</div>;
@@ -176,7 +211,7 @@ const Table = () => {
 
 					{
 						// Header: 'Age',
-						accessor: 'age',
+						accessor: 'email',
 						Aggregated: row => {
 							return <span>{row.value}</span>;
 						},
@@ -184,17 +219,17 @@ const Table = () => {
 							console.log('SORT : ', rowInfo);
 							return (
 								<>
-									<span>Age</span>
+									<span>Email</span>
 
 									<DownArrowSVG
 										className={`icon down --arrow ${
-											sortDesc['age'] ? 'active' : ''
+											sortDesc['email'] ? 'active' : ''
 										}`}
 									/>
 
 									<UpArrowSVG
 										className={`icon up --arrow ${
-											sortDesc['age'] ? '' : 'active'
+											sortDesc['email'] ? '' : 'active'
 										}`}
 									/>
 								</>
@@ -203,7 +238,7 @@ const Table = () => {
 					}
 				]}
 				showPagination={false}
-				pivotBy={['role']}
+				pivotBy={['postId']}
 				// filterable
 				defaultPageSize={10}
 				className='react-table'
