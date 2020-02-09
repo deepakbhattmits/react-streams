@@ -1,6 +1,6 @@
 /** @format */
 
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { data } from '../../db/raw';
 import { ReactComponent as DownArrowSVG } from '../../assets/images/icon-down-arrow.svg';
 import { ReactComponent as UpArrowSVG } from '../../assets/images/icon-up-arrow.svg';
@@ -24,7 +24,7 @@ const makeDefaultState = () => ({
 
 const Table = () => {
 	const table = useRef();
-	console.log('TEST');
+	// console.log('TEST');
 	const [state, setState] = useState(makeDefaultState());
 	const [selectAll, setSelectAll] = useState(false);
 	const [selection, setSelection] = useState([]);
@@ -32,17 +32,33 @@ const Table = () => {
 	const [selectedData, setSelectedData] = useState([]);
 
 	const [active, setActive] = useState(false);
-	const handleClick = () => {
-		const selected = data.map(el => {
-			return selection.includes(el.id) && el;
-		});
-		console.log('clicked button', selected);
+	const handleModal = () => {
+		let selected = {};
+		// console.log('selected : ', selection);
+		if (selection.length > 0) {
+			selected = selection.map(el =>
+				data.filter(item => {
+					return item.id === el;
+				})
+			);
+			// const selected = data.map(el => {
+			// 	return selection.includes(el.id);
+			// });
+
+			// console.log('modal button TEST :', selected);
+			setSelectedData(selected);
+		} else {
+			return false;
+		}
+		console.log('clicked button', selectedData);
 		setActive(true);
-		setSelectedData(selected);
+	};
+	const handleResetModal = () => {
+		toggleAll();
 	};
 
 	const toggleSelection = (key, shift, row) => {
-		console.log('toggleSelection : ', key, shift, row);
+		// console.log('toggleSelection : ', key, shift, row);
 		/*
       Implementation of how to manage the selection state is up to the developer.
       This implementation uses an array stored in the component state.
@@ -99,6 +115,7 @@ const Table = () => {
 		}
 		setSelectAll(selectall);
 		setSelection(selection);
+		// disabledFunc();
 	};
 
 	const isSelected = key => {
@@ -110,40 +127,60 @@ const Table = () => {
 		return selection.includes(key);
 	};
 
-	const sortFuntion = e => {
+	const sortFunction = e => {
 		setSortDesc({ [e[0].id]: e[0].desc });
 	};
+	// const disabledFunc = () => {
+	// 	return selectedData.length === 0;
+	// };
+
+	useEffect(() => {
+		console.log('selection : ', selection);
+	}, [selection]);
 	return (
-		<div>
-			<Button variant='outline-secondary' onClick={handleClick}>
-				Open
-			</Button>
+		<div className='main-page'>
+			<div className='grid'>
+				<Button
+					variant='outline-secondary'
+					onClick={handleModal}
+					disabled={selection.length === 0}>
+					Open
+				</Button>
+				<Button
+					variant='outline-secondary'
+					onClick={handleResetModal}
+					disabled={selection.length === 0}>
+					Clear All
+				</Button>
+			</div>
 			<TableModal
 				title='selected data'
 				content={selectedData}
 				active={active}
 				onDismiss={() => setActive(false)}
 			/>
+			<span className='heading'>Incidents</span>
 			<ReactTable
 				ref={table}
 				data={data}
 				onSortedChange={e => {
-					sortFuntion(e);
+					sortFunction(e);
 				}}
 				columns={[
 					{
 						Header: rowInfo => {
 							return (
-								<>
-									<span onClick={toggleAll}>Select</span>
-								</>
+								<div onClick={toggleAll}>
+									<span>Select</span>
+								</div>
 							);
 						},
 						sortable: false,
-						width: 80,
+						width: 100,
 						style: {
 							textAlign: 'center'
 						},
+						className: '-cursor-pointer',
 						Cell: cell => {
 							return (
 								<>
@@ -176,7 +213,7 @@ const Table = () => {
 						},
 						width: 150,
 						Header: rowInfo => {
-							console.log('SORT : ', rowInfo, sortDesc);
+							// console.log('SORT : ', rowInfo, sortDesc);
 							return (
 								<>
 									<span>Name</span>
@@ -195,9 +232,7 @@ const Table = () => {
 							);
 						}
 					},
-
 					{
-						// Header: 'Role',
 						id: 'postId',
 						sortable: false,
 						className: 'group',
@@ -216,7 +251,6 @@ const Table = () => {
 							return <span>{row.value}</span>;
 						},
 						Header: rowInfo => {
-							console.log('SORT : ', rowInfo);
 							return (
 								<>
 									<span>Email</span>
@@ -243,6 +277,7 @@ const Table = () => {
 				defaultPageSize={10}
 				className='react-table'
 				// Controlled props
+				resizable={false}
 				sortable
 				// sorted={this.state.sorted}
 				page={state.page}
