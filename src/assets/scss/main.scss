@@ -366,7 +366,7 @@
 				> .rt-tr-group {
 					> .-odd,
 					> .-even {
-						background-color: blueviolet;
+						background-color: #ffb6c1;
 						color: #fff;
 						padding: 10px;
 					}
@@ -392,17 +392,6 @@
 			.ReactTable .rt-thead .rt-td.-sort-desc {
 				box-shadow: none;
 			}
-			// .rt-th.-sort-asc .rt-resizer:before {
-			// 	width: 40px;
-			// 	height: 40px;
-			// 	background-image: url(../images/icon-up-arrow.svg);
-			// }
-
-			// .rt-th.-sort-desc .rt-resizer:before {
-			// 	width: 40px;
-			// 	height: 40px;
-			// 	background-image: url(../images/icon-down-arrow.svg);
-			// }
 		}
 	}
 }
