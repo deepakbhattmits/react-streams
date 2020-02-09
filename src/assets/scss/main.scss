@@ -331,59 +331,80 @@
 /*
 ** react-table styles start
 */
-.ReactTable {
-	.active {
-		path {
-			fill: red;
-		}
+.main-page {
+	.heading {
+		padding-left: 40px;
+		font-weight: bolder;
+		font-size: 16px;
 	}
-	.rt-thead {
-		.rt-tr {
-			.rt-resizable-header {
-				&:first-child {
-					display: none;
-				}
-				outline: none;
-				padding: 10px;
-			}
-		}
-	}
-	.rt-tbody {
-		> .rt-tr-group {
-			> .-odd {
-				background-color: #000;
-				color: #fff;
-			}
-			> .-even {
-				background-color: #000;
-				color: #fff;
-			}
-			.rt-tr-group {
-				.rt-td.group {
-					display: none;
+	.ReactTable {
+		&.react-table {
+			margin-top: 20px;
+			border: none;
+			.active {
+				path {
+					fill: red;
 				}
 			}
-		}
-	}
-	.rt-thead .rt-th.-sort-asc,
-	.ReactTable .rt-thead .rt-td.-sort-asc {
-		box-shadow: none;
-	}
-	.rt-thead .rt-th.-sort-desc,
-	.ReactTable .rt-thead .rt-td.-sort-desc {
-		box-shadow: none;
-	}
-	// .rt-th.-sort-asc .rt-resizer:before {
-	// 	width: 40px;
-	// 	height: 40px;
-	// 	background-image: url(../images/icon-up-arrow.svg);
-	// }
+			.rt-thead {
+				.rt-tr {
+					.rt-th {
+						border-right: none;
+						text-align: left;
+						&:first-child {
+							display: none;
+						}
+						outline: none;
+						padding: 20px 10px;
+						&:nth-child(2) {
+							padding-left: 40px;
+						}
+					}
+				}
+			}
+			.rt-tbody {
+				> .rt-tr-group {
+					> .-odd,
+					> .-even {
+						background-color: blueviolet;
+						color: #fff;
+						padding: 10px;
+					}
+					.rt-tr-group {
+						.rt-td.group {
+							display: none;
+						}
+					}
+				}
+				.rt-td {
+					padding: 15px 10px;
+					border-right: none;
+					&.group {
+						padding: 10px 30px;
+					}
+				}
+			}
+			.rt-thead .rt-th.-sort-asc,
+			.ReactTable .rt-thead .rt-td.-sort-asc {
+				box-shadow: none;
+			}
+			.rt-thead .rt-th.-sort-desc,
+			.ReactTable .rt-thead .rt-td.-sort-desc {
+				box-shadow: none;
+			}
+			// .rt-th.-sort-asc .rt-resizer:before {
+			// 	width: 40px;
+			// 	height: 40px;
+			// 	background-image: url(../images/icon-up-arrow.svg);
+			// }
 
-	// .rt-th.-sort-desc .rt-resizer:before {
-	// 	width: 40px;
-	// 	height: 40px;
-	// 	background-image: url(../images/icon-down-arrow.svg);
-	// }
+			// .rt-th.-sort-desc .rt-resizer:before {
+			// 	width: 40px;
+			// 	height: 40px;
+			// 	background-image: url(../images/icon-down-arrow.svg);
+			// }
+		}
+	}
 }
 /*
 ** react-table styles start
