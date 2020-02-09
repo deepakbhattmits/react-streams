@@ -5,11 +5,7 @@ import { data } from '../../db/raw';
 import { ReactComponent as DownArrowSVG } from '../../assets/images/icon-down-arrow.svg';
 import { ReactComponent as UpArrowSVG } from '../../assets/images/icon-up-arrow.svg';
 import { Button } from 'react-bootstrap';
-
-import appContext from '../../context/app-context';
-
 import TableModal from '../TableModal';
-
 // Import React Table
 import ReactTable from 'react-table';
 
@@ -18,13 +14,15 @@ const makeDefaultState = () => ({
 	page: 0,
 	pageSize: 5,
 	expanded: { 0: {}, 1: {}, 2: {}, 3: {}, 4: {}, 5: {} },
-	resized: []
+	resized: [],
+	resizeable: false,
+	showPagination: false,
+	defaultPageSize: 10
 	// filtered: []
 });
 
 const Table = () => {
 	const table = useRef();
-	// console.log('TEST');
 	const [state, setState] = useState(makeDefaultState());
 	const [selectAll, setSelectAll] = useState(false);
 	const [selection, setSelection] = useState([]);
@@ -34,31 +32,27 @@ const Table = () => {
 	const [active, setActive] = useState(false);
 	const handleModal = () => {
 		let selected = {};
-		// console.log('selected : ', selection);
 		if (selection.length > 0) {
 			selected = selection.map(el =>
 				data.filter(item => {
 					return item.id === el;
 				})
 			);
-			// const selected = data.map(el => {
-			// 	return selection.includes(el.id);
-			// });
-
-			// console.log('modal button TEST :', selected);
 			setSelectedData(selected);
 		} else {
 			return false;
 		}
-		console.log('clicked button', selectedData);
 		setActive(true);
 	};
 	const handleResetModal = () => {
-		toggleAll();
+		if (selection.length === data.map(el => el.id).length) {
+			toggleAll();
+		} else {
+			setSelection([]);
+		}
 	};
 
 	const toggleSelection = (key, shift, row) => {
-		// console.log('toggleSelection : ', key, shift, row);
 		/*
       Implementation of how to manage the selection state is up to the developer.
       This implementation uses an array stored in the component state.
@@ -95,11 +89,6 @@ const Table = () => {
       
       So, to that end, access to the internals of ReactTable are required to get what is
       currently visible in the table (either on the current page or any other page).
-      
-      The HOC provides a method call 'getWrappedInstance' to get a ref to the wrapped
-      ReactTable and then get the internal state and the 'sortedData'. 
-      That can then be iterrated to get all the currently visible records and set
-      the selection state.
     */
 		const selectall = selectAll ? false : true;
 		const selection = [];
@@ -128,28 +117,35 @@ const Table = () => {
 	};
 
 	const sortFunction = e => {
-		setSortDesc({ [e[0].id]: e[0].desc });
+		/*
+			Get the clicked element 'id' and 'desc' for add class in icon
+		*/
+		let sortDesc = { [e[0].id]: e[0].desc };
+		setSortDesc(sortDesc);
 	};
-	// const disabledFunc = () => {
-	// 	return selectedData.length === 0;
-	// };
+	const disabledFunc = () => {
+		/*
+		check length of selection item 
+		*/
+		return selection.length === 0;
+	};
 
 	useEffect(() => {
-		console.log('selection : ', selection);
-	}, [selection]);
+		disabledFunc();
+	}, []);
 	return (
 		<div className='main-page'>
 			<div className='grid'>
 				<Button
 					variant='outline-secondary'
 					onClick={handleModal}
-					disabled={selection.length === 0}>
+					disabled={disabledFunc()}>
 					Open
 				</Button>
 				<Button
 					variant='outline-secondary'
 					onClick={handleResetModal}
-					disabled={selection.length === 0}>
+					disabled={disabledFunc()}>
 					Clear All
 				</Button>
 			</div>
@@ -211,9 +207,8 @@ const Table = () => {
 						Aggregated: row => {
 							return <span>{row.value}</span>;
 						},
-						width: 150,
+						width: 450,
 						Header: rowInfo => {
-							// console.log('SORT : ', rowInfo, sortDesc);
 							return (
 								<>
 									<span>Name</span>
@@ -237,6 +232,8 @@ const Table = () => {
 						sortable: false,
 						className: 'group',
 						accessor: d => d.postId,
+						style: { textTransform: 'capitalize' },
+
 						width: 170,
 						Expander: ({ isExpanded, ...rest }) => {
 							return <div>{isExpanded ? <span /> : <span />}</div>;
@@ -247,6 +244,7 @@ const Table = () => {
 					{
 						// Header: 'Age',
 						accessor: 'email',
+						width: 150,
 						Aggregated: row => {
 							return <span>{row.value}</span>;
 						},
@@ -271,13 +269,14 @@ const Table = () => {
 						}
 					}
 				]}
-				showPagination={false}
+				minWidth={100}
+				showPagination={state.showPagination}
 				pivotBy={['postId']}
 				// filterable
-				defaultPageSize={10}
+				defaultPageSize={state.defaultPageSize}
 				className='react-table'
 				// Controlled props
-				resizable={false}
+				resizeable={state.resizeable}
 				sortable
 				// sorted={this.state.sorted}
 				page={state.page}
