@@ -4,7 +4,8 @@ import React from 'react';
 import { createPortal } from 'react-dom';
 
 const TableModal = props => {
-	console.log('test :> ', props);
+	console.log('new modal :> ', props);
+
 	return createPortal(
 		<div
 			onClick={props.onDismiss}
@@ -29,13 +30,15 @@ const TableModal = props => {
 					)} */}
 					<ul>
 						{!!props.content &&
-							Object.values(props.content).map((el, i) => {
-								return (
-									<li key={i}>
-										{el.id}-{el.postId}-{el.name}
-									</li>
-								);
-							})}
+							props.content.map(item =>
+								Object.values(item).map((el, i) => {
+									return (
+										<li key={i}>
+											{el.id}-{el.postId}-{el.name}
+										</li>
+									);
+								})
+							)}
 					</ul>
 				</div>
 				{/* <div className='actions'>{props.actions}</div> */}
