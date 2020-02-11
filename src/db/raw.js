@@ -311,7 +311,7 @@ export const data = [
 		postId: 'market-shop',
 		id: 39,
 		name: 'necessitatibus ratione aut ut delectus quae ut',
-		email: 'Gaylord@russell.net',
+		email: 'Gaylord@russell.co',
 		body:
 			'atque consequatur dolorem sunt\nadipisci autem et\nvoluptatibus et quae necessitatibus rerum eaque aperiam nostrum nemo\neligendi sed et beatae et inventore'
 	},
