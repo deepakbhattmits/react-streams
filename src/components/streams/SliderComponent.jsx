@@ -77,18 +77,21 @@ const ButtonGroup = ({ next, previous, goToSlide, ...rest }) => {
 	const {
 		carouselState: { currentSlide }
 	} = rest;
+	console.log('slider :', rest);
 	return (
 		<div className='carousel-button-group' style={{ position: 'absolute' }}>
 			{/*remember to give it position:absolute*/}
 			<button
 				className={`slider-nav ${currentSlide === 0 ? 'disable' : ''}`}
+				title='prev'
 				onClick={() => previous()}>
-				prev <LeftSVG />
+				<LeftSVG />
 			</button>
 			<button
-				className={`slider-nav ${currentSlide !== 0 ? 'active' : ''}`}
+				className={`slider-nav ${currentSlide > 1 ? 'disable' : ''}`}
+				title='next'
 				onClick={() => next()}>
-				next <RightSVG />
+				<RightSVG />
 			</button>
 			{/* <button
 			

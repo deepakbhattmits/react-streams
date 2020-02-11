@@ -400,14 +400,38 @@
 */
 
 .carousel-button-group {
-	button.disable {
-		background: #ccc;
+	// position: 'absolute';
+	.slider-nav {
+		svg {
+			width: 20px;
+			height: 20px;
+		}
+		background: transparent;
+		outline: none;
 		border: none;
-		opacity: 0.5;
-	}
-	button.active {
-		background: #ccc;
-		border: none;
-		opacity: 1;
+		&.disable {
+			opacity: 0.5;
+			svg {
+				background: var(--color-scheme-white);
+				path {
+					&:first-child {
+						fill: var(--color-scheme-black);
+					}
+					fill: var(--color-scheme-black);
+				}
+			}
+		}
+		.active {
+			opacity: 1;
+			svg {
+				background: var(--color-scheme-white);
+				path {
+					&:first-child {
+						fill: var(--color-scheme-black);
+					}
+					fill: var(--color-scheme-black);
+				}
+			}
+		}
 	}
 }
