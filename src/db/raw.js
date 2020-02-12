@@ -318,7 +318,7 @@ export const data = [
 	{
 		postId: 'market-shop',
 		id: 40,
-		name: 'non minima omnis deleniti pariatur facere quibusdam at',
+		name: 'non minima omnis deleniti pariatur facere quibusdam',
 		email: 'Clare.Aufderhar@nicole.ca',
 		body:
 			'quod minus alias quos\nperferendis labore molestias quae ut ut corporis deserunt vitae\net quaerat ut et ullam unde asperiores\ncum voluptatem cumque'
