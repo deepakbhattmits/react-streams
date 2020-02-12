@@ -4,7 +4,7 @@ import { createContext } from 'react';
 export default createContext({
 	// products: [
 	// 	{ id: 1, name: 'apple demo', price: 100 },
-	// 	{ id: 2, name: 'iphone pro', price: 102 },
+	// 	{ id: 2, name: 'iphone X', price: 102 },
 	// 	{ id: 3, name: 'iphone pro', price: 150 },
 	// 	{ id: 4, name: 'iphone pro', price: 150 },
 	// 	{ id: 5, name: 'apple', price: 150 },
