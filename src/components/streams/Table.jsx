@@ -131,7 +131,7 @@ const Table = () => {
 	};
 
 	useEffect(() => {
-		console.log('TEST');
+		// console.log('TEST');
 		disabledFunc();
 	}, []);
 	return (
