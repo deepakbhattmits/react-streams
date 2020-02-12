@@ -9,7 +9,7 @@ import { streamReducer } from './reducers.js';
 const GlobalState = props => {
 	const products = [
 		{ id: 1, name: 'apple xr', price: 100 },
-		{ id: 2, name: 'iphone pro', price: 102 },
+		{ id: 2, name: 'iphone xi', price: 102 },
 		{ id: 3, name: 'iphone pro', price: 150 },
 		{ id: 4, name: 'iphone pro', price: 150 }
 		// { id: 5, name: 'apple', price: 150 },
