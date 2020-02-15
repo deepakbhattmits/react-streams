@@ -2,12 +2,11 @@
 
 import React, { useState, useRef, useEffect } from 'react';
 import { data } from '../../db/raw';
-import { ReactComponent as DownArrowSVG } from '../../assets/images/icon-down-arrow.svg';
-import { ReactComponent as UpArrowSVG } from '../../assets/images/icon-up-arrow.svg';
 import { Button } from 'react-bootstrap';
 import TableModal from '../TableModal';
-// Import React Table
-import ReactTable from 'react-table';
+import { ReactComponent as DownArrowSVG } from '../../assets/images/icon-down-arrow.svg';
+import { ReactComponent as UpArrowSVG } from '../../assets/images/icon-up-arrow.svg';
+import WithoutHeader from './WithoutHeader';
 
 const makeDefaultState = () => ({
 	sorted: [],
@@ -123,16 +122,16 @@ const Table = () => {
 		let sortDesc = { [e[0].id]: e[0].desc };
 		setSortDesc(sortDesc);
 	};
-	const disabledFunc = () => {
-		/*
-		check length of selection item 
-		*/
-		return selection.length === 0;
-	};
+	// const disabledFunc = () => {
+	// 	/*
+	// 	check length of selection item
+	// 	*/
+	// 	return selection.length === 0;
+	// };
 
 	useEffect(() => {
 		// console.log('TEST');
-		disabledFunc();
+		table.current.disabledFunc();
 	}, []);
 	return (
 		<div className='main-page'>
@@ -140,13 +139,13 @@ const Table = () => {
 				<Button
 					variant='outline-secondary'
 					onClick={handleModal}
-					disabled={disabledFunc()}>
+					disabled={table.current.disabledFunc}>
 					Open
 				</Button>
 				<Button
 					variant='outline-secondary'
 					onClick={handleResetModal}
-					disabled={disabledFunc()}>
+					disabled={table.current.disabledFunc}>
 					Clear All
 				</Button>
 			</div>
@@ -157,7 +156,7 @@ const Table = () => {
 				onDismiss={() => setActive(false)}
 			/>
 			<span className='heading'>Incidents</span>
-			<ReactTable
+			<WithoutHeader
 				ref={table}
 				data={data}
 				onSortedChange={e => {
@@ -283,6 +282,7 @@ const Table = () => {
 				page={state.page}
 				pageSize={state.pageSize}
 				expanded={state.expanded}
+				selection={selection}
 				// resized={this.state.resized}
 				// filtered={this.state.filtered}
 				// Callbacks
