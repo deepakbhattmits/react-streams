@@ -4,7 +4,7 @@ import React, { useRef, useEffect } from 'react';
 import { Chart } from 'chart.js';
 const BarChart = () => {
 	// console.log(
-	// 	'%c test',
+	// 	'%c test : ',
 	// 	'border-radius:5px, background-color: blue,color: white'
 	// );
 	const chart = useRef();
