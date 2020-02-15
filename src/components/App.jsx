@@ -19,25 +19,49 @@ import SliderComponent from './streams/SliderComponent';
 import MultiHeader from './streams/MultiHeader';
 
 const App = () => {
-	console.log('test :');
+	// console.log('test :');
 	return (
 		<GlobalState>
 			{/* <div className='ui container'> */}
 			<Router history={createBrowserHistory}>
 				<Layout>
 					<Switch>
-						<Route path='/' component={StreamList} exact />
-						<Route path='/streams/slider' component={SliderComponent} exact />
-						<Route path='/streams/table' component={CustomTable} exact />
-						<Route path='/streams/datatable' component={Table} exact />
-						<Route path='/streams/bar' component={CustomHorizontalBar} exact />
-						<Route path='/streams/multiheader' component={MultiHeader} exact />
-						<Route path='/streams/chart' component={ChartComponent} exact />
-						<Route path='/streams/stack' component={BarChart} exact />
-						<Route path='/streams/new' component={StreamCreate} exact />
-						<Route path='/streams/edit/:id' component={StreamEdit} exact />
-						<Route path='/streams/show/:id' component={StreamShow} exact />
-						<Route path='/streams/delete/:id' component={StreamDelete} exact />
+						<Route path='/' exact>
+							<StreamList />
+						</Route>
+						<Route path='/streams/slider' exact>
+							<SliderComponent />
+						</Route>
+						<Route path='/streams/table' exact>
+							<CustomTable />
+						</Route>
+						<Route path='/streams/datatable' exact>
+							<Table />
+						</Route>
+						<Route path='/streams/bar' exact>
+							<CustomHorizontalBar />
+						</Route>
+						<Route path='/streams/multiheader' exact>
+							<MultiHeader />
+						</Route>
+						<Route path='/streams/chart' exact>
+							<ChartComponent />
+						</Route>
+						<Route path='/streams/stack' exact>
+							<BarChart />
+						</Route>
+						<Route path='/streams/new' exact>
+							<StreamCreate />
+						</Route>
+						<Route path='/streams/edit/:id' exact>
+							<StreamEdit />
+						</Route>
+						<Route path='/streams/show/:id' exact>
+							<StreamShow />
+						</Route>
+						<Route path='/streams/delete/:id' exact>
+							<StreamDelete />
+						</Route>
 					</Switch>
 				</Layout>
 			</Router>
