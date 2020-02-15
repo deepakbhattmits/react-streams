@@ -1,60 +1,40 @@
 /** @format */
 
-/** @format */
+import React, { useImperativeHandle, forwardRef } from 'react';
+// Import React Table
+import ReactTable from 'react-table';
 
-import React from 'react';
-
-import BootstrapTable from 'react-bootstrap-table-next';
-const WithoutHeader = ({ propRef, data, rowEvents, sort }) => {
-	console.log('withOutHeader: ', propRef, data);
-	const columns = [
-		{
-			dataField: 'id',
-			text: 'Product ID',
-			sort: true,
-			headerStyle: (colum, colIndex) => {
-				return { width: '1.1rem', textAlign: 'left' };
-			}
-		},
-		{
-			dataField: 'name',
-			text: 'Product Name',
-			sort: true,
-			headerStyle: (colum, colIndex) => {
-				return { width: '5rem', textAlign: 'center' };
-			}
-		},
-		{
-			dataField: 'price',
-			text: 'Product Price',
-			sort: true,
-			headerStyle: (colum, colIndex) => {
-				return { width: '2.3rem', textAlign: 'left' };
-			}
-		},
-		{
-			dataField: 'group',
-			text: 'Group',
-			sort: true,
-			headerStyle: (colum, colIndex) => {
-				return { width: '2.3rem', textAlign: 'left' };
-			}
+const WithOutHeader = forwardRef((props, ref) => {
+	// The component instance will be extended
+	// with whatever you return from the callback passed
+	// as the second argument
+	useImperativeHandle(ref, () => ({
+		disabledFunc() {
+			/*
+		check length of selection item 
+		*/
+			return props.selection.length === 0;
 		}
-	];
-
+	}));
 	return (
 		<>
-			<BootstrapTable
-				ref={propRef}
-				bootstrap4
-				keyField='id'
-				data={data}
-				columns={columns}
-				sort={sort}
-				rowEvents={rowEvents}
+			<ReactTable
+				ref={ref}
+				data={props.data}
+				onSortedChange={props.onSortedChange}
+				columns={props.columns}
+				minWidth={props.minWidth}
+				showPagination={props.showPagination}
+				pivotBy={props.pivotBy}
+				defaultPageSize={props.defaultPageSize}
+				className={props.className}
+				resizeable={props.resizeable}
+				sortable
+				page={props.page}
+				pageSize={props.pageSize}
+				expanded={props.expanded}
 			/>
 		</>
 	);
-};
-
-export default WithoutHeader;
+});
+export default WithOutHeader;
