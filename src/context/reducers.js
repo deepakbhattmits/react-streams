@@ -17,7 +17,7 @@ const seacrhProduct = (search, state) => {
 export const streamReducer = (state, action) => {
 	switch (action.type) {
 		case streamConstants.SEARCH_QRY:
-			// console.log('new matched :>', action, state);
+			console.log('new matched :>', action, state);
 			return seacrhProduct(action.qry, state);
 		default:
 			return state;
