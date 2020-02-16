@@ -14,6 +14,9 @@ const WithOutHeader = forwardRef((props, ref) => {
 		check length of selection item 
 		*/
 			return props.selection.length === 0;
+		},
+		dataFunc() {
+			return props.data;
 		}
 	}));
 	return (
