@@ -435,3 +435,16 @@
 		}
 	}
 }
+.widget-header {
+	display: grid;
+	grid-template-columns: 50% 50%;
+	align-items: center;
+	.actions {
+		text-align: right;
+		.btn {
+			&:first-child {
+				margin-right: 10px;
+			}
+		}
+	}
+}
