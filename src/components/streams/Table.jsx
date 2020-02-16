@@ -7,6 +7,7 @@ import TableModal from '../TableModal';
 import { ReactComponent as DownArrowSVG } from '../../assets/images/icon-down-arrow.svg';
 import { ReactComponent as UpArrowSVG } from '../../assets/images/icon-up-arrow.svg';
 import WithoutHeader from './WithoutHeader';
+import WidgetHeaderWithButtons from '../reusable/WidgetHeaderWithButtons';
 
 const makeDefaultState = () => ({
 	sorted: [],
@@ -30,6 +31,7 @@ const Table = () => {
 
 	const [active, setActive] = useState(false);
 	const handleModal = () => {
+		console.log('T : ', selection);
 		let selected = {};
 		if (selection.length > 0) {
 			selected = selection.map(el =>
@@ -43,7 +45,7 @@ const Table = () => {
 		}
 		setActive(true);
 	};
-	const handleResetModal = () => {
+	const handleClearSelection = () => {
 		if (selection.length === data.map(el => el.id).length) {
 			toggleAll();
 		} else {
@@ -93,9 +95,11 @@ const Table = () => {
 		const selection = [];
 		if (selectall) {
 			// we need to get at the internals of ReactTable
-			const wrappedInstance = table.current;
+			const wrappedInstance = table.current.dataFunc();
+			console.log('hello : ', wrappedInstance);
 			// the 'data' property contains the currently accessible records based on the filter and sort
-			const currentRecords = wrappedInstance.props.data;
+			// const currentRecords = wrappedInstance.props.data;
+			const currentRecords = wrappedInstance;
 			// we just push all the IDs onto the selection array
 			currentRecords.forEach(item => {
 				selection.push(item.id);
@@ -122,40 +126,43 @@ const Table = () => {
 		let sortDesc = { [e[0].id]: e[0].desc };
 		setSortDesc(sortDesc);
 	};
-	// const disabledFunc = () => {
-	// 	/*
-	// 	check length of selection item
-	// 	*/
-	// 	return selection.length === 0;
-	// };
+	const disableFunc = () => {
+		/*
+		check length of selection item 
+		*/
+		return table.current && table.current.disabledFunc();
+	};
 
 	useEffect(() => {
-		// console.log('TEST');
-		table.current.disabledFunc();
+		disableFunc();
 	}, []);
 	return (
 		<div className='main-page'>
-			<div className='grid'>
-				<Button
-					variant='outline-secondary'
-					onClick={handleModal}
-					disabled={table.current.disabledFunc}>
-					Open
-				</Button>
-				<Button
-					variant='outline-secondary'
-					onClick={handleResetModal}
-					disabled={table.current.disabledFunc}>
-					Clear All
-				</Button>
-			</div>
+			<WidgetHeaderWithButtons title='Incidents'>
+				<div className='actions'>
+					<Button
+						variant='outline-secondary'
+						onClick={handleClearSelection}
+						disabled={selection.length === 0}>
+						Clear Selection
+					</Button>
+					<Button
+						variant='outline-secondary'
+						onClick={handleModal}
+						disabled={selection.length === 0}>
+						Open All
+					</Button>
+				</div>
+			</WidgetHeaderWithButtons>
+
 			<TableModal
 				title='selected data'
 				content={selectedData}
 				active={active}
-				onDismiss={() => setActive(false)}
+				onDismiss={() => {
+					setActive(false);
+				}}
 			/>
-			<span className='heading'>Incidents</span>
 			<WithoutHeader
 				ref={table}
 				data={data}
