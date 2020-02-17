@@ -5,6 +5,7 @@ import React, { useImperativeHandle, forwardRef } from 'react';
 import ReactTable from 'react-table';
 
 const WithOutHeader = forwardRef((props, ref) => {
+	console.log('test ');
 	// The component instance will be extended
 	// with whatever you return from the callback passed
 	// as the second argument
