@@ -19,7 +19,7 @@ import SliderComponent from './streams/SliderComponent';
 import MultiHeader from './streams/MultiHeader';
 
 const App = () => {
-	console.log('test :');
+	// console.log('test :');
 	return (
 		<GlobalState>
 			{/* <div className='ui container'> */}
