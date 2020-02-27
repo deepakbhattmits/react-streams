@@ -31,7 +31,7 @@ const MultiHeader = () => {
 
 	const [active, setActive] = useState(false);
 	const handleModal = () => {
-		// console.log('T : ', selection);
+		console.log('T : ', selection);
 		let selected = {};
 		if (selection.length > 0) {
 			selected = selection.map(el =>
