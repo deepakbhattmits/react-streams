@@ -71,7 +71,8 @@ const Table = () => {
 			];
 		} else {
 			// it does not exist so add it
-			selectionA.push(+key);
+			// selectionA.push(+key);
+			selectionA = [...selectionA, +key];
 		}
 		// update the state
 		setSelection(selectionA);
@@ -92,7 +93,7 @@ const Table = () => {
       currently visible in the table (either on the current page or any other page).
     */
 		const selectall = selectAll ? false : true;
-		const selection = [];
+		let selection = [];
 		if (selectall) {
 			// we need to get at the internals of ReactTable
 			const wrappedInstance = table.current.dataFunc();
@@ -102,7 +103,8 @@ const Table = () => {
 			const currentRecords = wrappedInstance;
 			// we just push all the IDs onto the selection array
 			currentRecords.forEach(item => {
-				selection.push(item.id);
+				// selection.push(item.id);
+				selection = [...selection, item.id];
 			});
 		}
 		setSelectAll(selectall);
