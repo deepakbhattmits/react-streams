@@ -71,7 +71,6 @@ const Table = () => {
 			];
 		} else {
 			// it does not exist so add it
-			// selectionA.push(+key);
 			selectionA = [...selectionA, +key];
 		}
 		// update the state
