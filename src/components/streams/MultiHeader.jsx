@@ -137,7 +137,7 @@ const MultiHeader = () => {
 		disableFunc();
 	}, []);
 	return (
-		<div className='main-page'>
+		<div className='main-page page'>
 			<WidgetHeaderWithButtons title='Incidents'>
 				<div className='actions'>
 					<Button
