@@ -9,7 +9,7 @@ import { ReactComponent as UpArrowSVG } from '../../assets/images/icon-up-arrow.
 import WithoutHeader from './WithoutHeader';
 import TableModal from '../TableModal';
 const CustomTable = () => {
-	console.log('TEST');
+	// console.log('TEST');
 	const tableF = useRef();
 	const tableS = useRef();
 	const context = useContext(appContext);
