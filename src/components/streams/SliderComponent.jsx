@@ -77,7 +77,7 @@ const ButtonGroup = ({ next, previous, goToSlide, ...rest }) => {
 	const {
 		carouselState: { currentSlide }
 	} = rest;
-	console.log('slider :', rest);
+	// console.log('slider :', rest);
 	return (
 		<div className='carousel-button-group' style={{ position: 'absolute' }}>
 			{/*remember to give it position:absolute*/}
