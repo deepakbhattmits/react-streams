@@ -15,7 +15,7 @@ export default createContext({
 	// 	{ id: 10, name: 'Mac Book', price: 150 },
 	// 	{ id: 11, name: 'Mac Book', price: 150 },
 	// 	{ id: 12, name: 'Mac Book', price: 150 },
-	// 	{ id: 13, name: 'Mac Book', price: 155 }
+	// 	{ id: 13, name: 'Mac Book', price: 152 }
 	// ],
 	// seacrhProduct: (value, product) => {}
 });
