@@ -2,7 +2,7 @@
 
 import React, { useImperativeHandle, forwardRef } from 'react';
 // Import React Table
-import ReactTable from 'react-table';
+import ReactTable from 'react-table-6';
 
 const WithOutHeader = forwardRef((props, ref) => {
 	// console.log('test ');
