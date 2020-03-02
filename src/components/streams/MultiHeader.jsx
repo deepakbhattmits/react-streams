@@ -23,7 +23,7 @@ const makeDefaultState = () => ({
 
 const MultiHeader = () => {
 	// console.log('TEST');
-	const table = useRef();
+	const table = useRef(null);
 	const [state, setState] = useState(makeDefaultState());
 	const [selectAll, setSelectAll] = useState(false);
 	const [selection, setSelection] = useState([]);
@@ -72,7 +72,8 @@ const MultiHeader = () => {
 			];
 		} else {
 			// it does not exist so add it
-			selectionA.push(+key);
+			// selectionA.push(+key);
+			selectionA = [...selectionA, +key];
 		}
 		// update the state
 		setSelection(selectionA);
@@ -97,7 +98,6 @@ const MultiHeader = () => {
 		if (selectall) {
 			// we need to get at the internals of ReactTable
 			const wrappedInstance = table.current.dataFunc();
-			console.log('hello : ', wrappedInstance);
 			// the 'data' property contains the currently accessible records based on the filter and sort
 			// const currentRecords = wrappedInstance.props.data;
 			const currentRecords = wrappedInstance;
@@ -133,6 +133,29 @@ const MultiHeader = () => {
 		*/
 		return table.current && table.current.disabledFunc();
 	};
+	const handlePivot = pivot => {
+		let pivotId = pivot.target.className;
+		// const selectall = selectAll ? false : true;
+		let selection = [];
+		console.log('handlePivot : ', pivotId);
+		// if (selectall) {
+		// we need to get at the internals of ReactTable
+		const wrappedInstance = table.current.dataFunc();
+		// the 'data' property contains the currently accessible records based on the filter and sort
+		// const currentRecords = wrappedInstance.props.data;
+		const currentRecords = wrappedInstance;
+		// we just push all the IDs onto the selection array
+		currentRecords.forEach(item => {
+			console.log('CHECK : ', pivotId === item.postId);
+			if (item.postId === pivotId) {
+				// selection.push(item.id);
+				selection = [...selection, item.id];
+			}
+		});
+		// }
+		// setSelectAll(selectall);
+		setSelection(selection);
+	};
 
 	useEffect(() => {
 		disableFunc();
@@ -140,30 +163,35 @@ const MultiHeader = () => {
 	return (
 		<div className='main-page page'>
 			<WidgetHeaderWithButtons title='Incidents'>
-				<div className='actions'>
-					<Button
-						variant='outline-secondary'
-						onClick={handleClearSelection}
-						disabled={selection.length === 0}>
-						Clear Selection
-					</Button>
-					<Button
-						variant='outline-secondary'
-						onClick={handleModal}
-						disabled={selection.length === 0}>
-						Open All
-					</Button>
+				<div className='actions' data-testid='actions'>
+					{disableFunc() && (
+						<>
+							<Button
+								variant='outline-secondary'
+								onClick={handleClearSelection}
+								disabled={selection.length === 0}>
+								Clear Selection
+							</Button>
+							<Button
+								variant='outline-secondary'
+								onClick={handleModal}
+								disabled={selection.length === 0}>
+								Open All
+							</Button>
+						</>
+					)}
 				</div>
 			</WidgetHeaderWithButtons>
-
-			<TableModal
-				title='selected data'
-				content={selectedData}
-				active={active}
-				onDismiss={() => {
-					setActive(false);
-				}}
-			/>
+			{/* {disableFunc() && (
+				<TableModal
+					title='selected data'
+					content={selectedData}
+					active={active}
+					onDismiss={() => {
+						setActive(false);
+					}}
+				/>
+			)} */}
 			<WithoutHeader
 				ref={table}
 				data={data}
@@ -174,7 +202,7 @@ const MultiHeader = () => {
 					{
 						Header: rowInfo => {
 							return (
-								<div onClick={toggleAll}>
+								<div data-testid='select' onClick={toggleAll}>
 									<span>Select</span>
 								</div>
 							);
@@ -246,7 +274,11 @@ const MultiHeader = () => {
 						Expander: ({ isExpanded, ...rest }) => {
 							return <div>{isExpanded ? <span /> : <span />}</div>;
 						},
-						PivotValue: row => <span className='test'>{row.value}</span>
+						PivotValue: row => (
+							<span className={`${row.value}`} onClick={handlePivot}>
+								{row.value}
+							</span>
+						)
 					},
 
 					{
