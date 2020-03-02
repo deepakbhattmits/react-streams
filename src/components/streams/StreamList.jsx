@@ -48,7 +48,7 @@ const StreamList = props => {
 		let windowHeight = document.documentElement.clientHeight;
 		let topVisible = coords.top > 0 && coords.top < windowHeight;
 		// console.log(
-		// 	'TEST ',
+		// 	'TEST :',
 		// 	topVisible,
 		// 	windowHeight,
 		// 	coords,
