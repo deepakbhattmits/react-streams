@@ -30,6 +30,25 @@ const Table = () => {
 	const [selectedData, setSelectedData] = useState([]);
 
 	const [active, setActive] = useState(false);
+	const handlePivot = pivot => {
+		console.log('PIVOT : ', pivot);
+		const selectall = selectAll ? false : true;
+		let selection = [];
+		if (selectall) {
+			// we need to get at the internals of ReactTable
+			const wrappedInstance = table.current.dataFunc();
+			// the 'data' property contains the currently accessible records based on the filter and sort
+			// const currentRecords = wrappedInstance.props.data;
+			const currentRecords = wrappedInstance;
+			// we just push all the IDs onto the selection array
+			currentRecords.forEach(item => {
+				// selection.push(item.id);
+				selection = [...selection, item.id];
+			});
+		}
+		setSelectAll(selectall);
+		setSelection(selection);
+	};
 	const handleModal = () => {
 		// console.log('T : ', selection);
 		let selected = {};
@@ -96,7 +115,6 @@ const Table = () => {
 		if (selectall) {
 			// we need to get at the internals of ReactTable
 			const wrappedInstance = table.current.dataFunc();
-			console.log('hello : ', wrappedInstance);
 			// the 'data' property contains the currently accessible records based on the filter and sort
 			// const currentRecords = wrappedInstance.props.data;
 			const currentRecords = wrappedInstance;
@@ -246,7 +264,11 @@ const Table = () => {
 						Expander: ({ isExpanded, ...rest }) => {
 							return <div>{isExpanded ? <span /> : <span />}</div>;
 						},
-						PivotValue: row => <span className='test'>{row.value}</span>
+						PivotValue: row => (
+							<span className='test' onClick={handlePivot}>
+								{row.value}
+							</span>
+						)
 					},
 
 					{
