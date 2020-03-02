@@ -32,6 +32,7 @@
 		"react-router-dom": "^5.1.2",
 		"react-scripts": "^3.3.0",
 		"react-table": "6.7.5",
+		"react-table-6": "^6.11.0",
 		"redux": "^4.0.4",
 		"redux-form": "^8.2.6",
 		"redux-thunk": "^2.3.0",
@@ -54,6 +55,8 @@
 		"not op_mini all"
 	],
 	"devDependencies": {
+		"@testing-library/jest-dom": "^5.1.1",
+		"@testing-library/react": "^9.4.1",
 		"@types/d3": "^5.7.2",
 		"concurrently": "^5.0.0",
 		"eslint": "^6.7.2",
@@ -61,6 +64,8 @@
 		"eslint-config-prettier": "^6.7.0",
 		"eslint-plugin-node": "^10.0.0",
 		"eslint-plugin-prettier": "^3.1.1",
-		"prettier": "^1.19.1"
+		"jest-dom": "^4.0.0",
+		"prettier": "^1.19.1",
+		"react-test-renderer": "^16.13.0"
 	}
 }
