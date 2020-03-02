@@ -103,9 +103,9 @@ const BarChart = () => {
 		stacked(ctx);
 	}, []);
 	return (
-		<>
+		<div data-testid='canvas-container'>
 			<canvas ref={chart}></canvas>
-		</>
+		</div>
 	);
 };
 export default BarChart;
