@@ -3,10 +3,10 @@
 import React, { useState } from 'react';
 
 const RegistrationForm = () => {
-	// console.log('test : ');
+	console.log('test : ');
 	// state = {
-	//   fields: {},
-	//   errorMessages: {}
+	// 	fields: {},
+	// 	errorMessages: {}
 	// };
 	const [fields, setFields] = useState({});
 	const [errorMessages, setErrorMessages] = useState({});
