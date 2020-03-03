@@ -18,12 +18,12 @@ it('1 renders', () => {
 });
 it('2 renders', async () => {
 	const { getByTestId } = render(<MultiHeader />);
-	// console.log(
-	// 	'TESTING : ',
-	// 	// getByTestId('select'),
-	// 	'before click : ',
-	// 	getByTestId('actions').hasChildNodes.length
-	// );
+	console.log(
+		'TESTING : ',
+		// getByTestId('select'),
+		'before click : ',
+		getByTestId('actions').hasChildNodes.length
+	);
 	fireEvent.click(getByTestId('select'));
 	const actions = await waitForElement(() => getByTestId('actions'));
 	console.log('after click TESTING : ', actions.hasChildNodes.length);
