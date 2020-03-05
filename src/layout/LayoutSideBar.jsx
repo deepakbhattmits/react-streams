@@ -2,7 +2,7 @@
 
 import React, { Fragment } from 'react';
 import ScrollIndicator from '../reusable/ScrollIndicator';
-
+import Analyst from '../components/Analyst';
 import { Tab, Nav } from 'react-bootstrap';
 const LayoutSideBar = props => {
 	const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18];
@@ -237,6 +237,8 @@ const LayoutSideBar = props => {
 				{/* </Col>
 				</Row> */}
 			</Tab.Container>
+
+			<Analyst />
 			<p>SiderBar</p>
 			<p>SiderBar</p>
 			<p>SiderBar</p>
