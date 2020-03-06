@@ -42,6 +42,10 @@
 // 	}
 // 	animation: animate 0.5s infinite alternate;
 // }
+body {
+	background-color: var(--color-scheme-white);
+	color: var(--color-scheme-white);
+}
 #root {
 	display: grid;
 	grid-template-columns: auto 30%;
@@ -259,11 +263,12 @@
 }
 .table {
 	thead {
-		background: #fff;
+		background: var(--color-scheme-white);
 		th {
 			position: sticky;
 			top: 0;
-			background: #fff;
+			background: var(--color-scheme-black);
+			color: var(--color-scheme-white);
 			outline: none;
 			span {
 				position: absolute;
@@ -366,8 +371,8 @@
 				> .rt-tr-group {
 					> .-odd,
 					> .-even {
-						background-color: #ffb6c1;
-						color: #fff;
+						background-color: var(--color-scheme-black);
+						color: var(--color-scheme-white);
 						padding: 10px;
 					}
 					.rt-tr-group {
