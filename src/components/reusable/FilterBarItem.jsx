@@ -5,6 +5,7 @@ import FilterBarDropdownItem from './FilterBarDropdownItem';
 import { ReactComponent as DownArrowSVG } from '../../assets/images/icon-down-chevron.svg';
 
 const FilterBarItem = ({ item, toggleFilter, filters }) => {
+	console.log('TEST : ');
 	const determineParentClass = () =>
 		!!item.children ? ' filter-bar__item--parent' : '';
 	const determineSelectedClass = () =>
