@@ -249,7 +249,6 @@ const LayoutSideBar = props => {
 			<p>SiderBar</p>
 			<p>SiderBar</p>
 			<p>SiderBar</p>
-			<p>SiderBar</p>
 
 			<ul>
 				{arr.map((el, i) => {
