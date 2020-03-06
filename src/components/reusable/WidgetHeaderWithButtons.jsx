@@ -2,7 +2,7 @@
 
 import React from 'react';
 const WidgetHeaderWithButtons = ({ title, children }) => {
-	console.log('test : ');
+	// console.log('test : ');
 	return (
 		<div className='widget-header'>
 			<h1>{title}</h1>
