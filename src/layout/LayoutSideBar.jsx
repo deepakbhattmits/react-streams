@@ -5,7 +5,13 @@ import ScrollIndicator from '../reusable/ScrollIndicator';
 import Analyst from '../components/Analyst';
 import { Tab, Nav } from 'react-bootstrap';
 const LayoutSideBar = props => {
-	const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18];
+	function* range(start, end) {
+		for (let i = start; i <= end; i++) {
+			yield i;
+		}
+	}
+	const arr = [...range(1, 20)];
+	// const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18];
 	const dataFirst = [
 		{
 			role: 'MIM',
