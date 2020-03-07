@@ -44,7 +44,7 @@
 // }
 body {
 	background-color: var(--color-scheme-white);
-	color: var(--color-scheme-white);
+	color: var(--color-scheme-black);
 }
 #root {
 	display: grid;
@@ -371,8 +371,8 @@ body {
 				> .rt-tr-group {
 					> .-odd,
 					> .-even {
-						background-color: var(--color-scheme-black);
-						color: var(--color-scheme-white);
+						background-color: var(--color-scheme-white);
+						color: var(--color-scheme-black);
 						padding: 10px;
 					}
 					.rt-tr-group {
@@ -493,7 +493,7 @@ body {
 	justify-content: space-around;
 	margin-bottom: 3rem;
 	background: grey;
-	color: white;
+	color: black;
 	list-style: none;
 }
 
