@@ -25,7 +25,7 @@ const FilterBar = ({
 
 	// handle whether to add/remove a filter
 	const toggleFilter = item => {
-		// console.log('FILTER ', item);
+		console.log('FILTER ', item);
 		// this FilterBar should allow multiple selections
 		if (multiple) {
 			if (!!filters.find(filter => filter.name === item.name)) {
