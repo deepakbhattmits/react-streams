@@ -174,8 +174,14 @@ const Analyst = () => {
 								{ name: 'cork', group: 'geo' },
 								{ name: 'sing', group: 'geo' }
 							]}
-							defaultFilter={{ name: 'elk', group: 'geo' }}
+							defaultFilter={[
+								{ name: 'elk', group: 'geo' },
+								{ name: 'mesa', group: 'geo' },
+								{ name: 'cork', group: 'geo' },
+								{ name: 'sing', group: 'geo' }
+							]}
 							returnFilters={returnFilters}
+							canDeselect={false}
 							disabled={disable}
 						/>
 					</div>
