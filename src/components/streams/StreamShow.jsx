@@ -24,7 +24,7 @@ const StreamShow = props => {
 		player.load();
 	}, [id, stream]);
 	const handleSubmit = () => {
-		// console.log(`Ref ${inputRef.current.value} !`);
+		console.log(`Ref ${inputRef.current.value} !`);
 	};
 	useEffect(() => {
 		props.fetchStream(id);
