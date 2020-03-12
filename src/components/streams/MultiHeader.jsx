@@ -146,7 +146,7 @@ const MultiHeader = () => {
 		const currentRecords = wrappedInstance;
 		// we just push all the IDs onto the selection array
 		currentRecords.forEach(item => {
-			// console.log('CHECK : ', pivotId === item.postId);
+			console.log('CHECK : ', pivotId === item.postId);
 			if (item.postId === pivotId) {
 				// selection.push(item.id);
 				selection = [...selection, item.id];
