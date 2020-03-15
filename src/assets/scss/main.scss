@@ -615,3 +615,19 @@ body {
 		}
 	}
 }
+.Board {
+	width: 30%;
+	height: 30%;
+	justify-content: center;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	.cell {
+		border: 1px solid #000;
+		width: 80px;
+		height: 80px;
+		justify-content: center;
+		display: flex;
+		align-items: center;
+	}
+}
