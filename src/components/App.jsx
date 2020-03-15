@@ -15,11 +15,12 @@ import Table from './streams/Table';
 import CustomHorizontalBar from './streams/CustomHorizontalBar';
 import ChartComponent from './streams/ChartComponent';
 import BarChart from './streams/BarChart';
+import Board from './Board';
 import SliderComponent from './streams/SliderComponent';
 import MultiHeader from './streams/MultiHeader';
 
 const App = () => {
-	// console.log('test :');
+	console.log('test :');
 	return (
 		<GlobalState>
 			{/* <div className='ui container'> */}
@@ -28,6 +29,9 @@ const App = () => {
 					<Switch>
 						<Route path='/' exact>
 							<StreamList />
+						</Route>
+						<Route path='/game' exact>
+							<Board />
 						</Route>
 						<Route path='/streams/slider' exact>
 							<SliderComponent />
