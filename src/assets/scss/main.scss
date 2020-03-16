@@ -617,17 +617,29 @@ body {
 }
 .Board {
 	width: 30%;
-	height: 30%;
 	justify-content: center;
-	display: flex;
-	flex-wrap: wrap;
+	display: grid;
 	align-items: center;
+	grid-gap: 2px;
+	grid-template-columns: 33% 33% 33%;
 	.cell {
 		border: 1px solid #000;
-		width: 80px;
 		height: 80px;
 		justify-content: center;
 		display: flex;
 		align-items: center;
+		font-size: 200%;
+		cursor: pointer;
+		background: cyan;
+		transition: 0.4s;
+		&.cross {
+			background: red;
+		}
+		&.zero {
+			background: yellow;
+		}
+		&:hover {
+			box-shadow: 0 0 10px #444;
+		}
 	}
 }
