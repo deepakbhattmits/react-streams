@@ -3,7 +3,7 @@
 import React from 'react';
 const Cell = ({ onClick, val, cellNum }) => (
 	<div
-		className='cell'
+		className='test cell'
 		onClick={() => {
 			onClick(cellNum);
 		}}>
