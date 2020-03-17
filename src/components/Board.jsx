@@ -53,7 +53,7 @@ const Board = ({ onClick, val, num }) => {
 		checkWinner(symbl === 'X' ? 'O' : 'X');
 	}, [symbl]);
 	return (
-		<div className='Game'>
+		<div className='Game test'>
 			<div className='Board'>{vCells}</div>
 			<p>Next Move {symbl}</p>
 			<button onClick={newGame}>New Game</button>
