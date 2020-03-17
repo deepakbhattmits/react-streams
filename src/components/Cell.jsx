@@ -5,7 +5,8 @@ const Cell = ({ onClick, val, cellNum }) => {
 	console.log('game TEST : ', val.length);
 	return (
 		<div
-			className={`${val.length !== 0 && (val === 'X' ? 'cross' : 'zero')} cell
+			className={`${val.length !== 0 &&
+				(val === 'X' ? 'cross disabled' : 'zero disabled')} cell
 			`}
 			onClick={() => {
 				onClick(cellNum);
