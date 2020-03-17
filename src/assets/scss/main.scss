@@ -632,6 +632,9 @@ body {
 		cursor: pointer;
 		background: cyan;
 		transition: 0.4s;
+		&.disabled {
+			cursor: no-drop;
+		}
 		&.cross {
 			background: red;
 		}
