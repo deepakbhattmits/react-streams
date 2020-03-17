@@ -632,14 +632,13 @@ body {
 		cursor: pointer;
 		background: cyan;
 		transition: 0.4s;
-		&.disabled {
-			cursor: no-drop;
-		}
 		&.cross {
 			background: red;
+			cursor: no-drop;
 		}
 		&.zero {
 			background: yellow;
+			cursor: no-drop;
 		}
 		&:hover {
 			box-shadow: 0 0 10px #444;
