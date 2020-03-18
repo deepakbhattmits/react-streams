@@ -18,9 +18,10 @@ import BarChart from './streams/BarChart';
 import Board from './Board';
 import SliderComponent from './streams/SliderComponent';
 import MultiHeader from './streams/MultiHeader';
+import GridLayoutComponent from './streams/GridLayoutComponent';
 
 const App = () => {
-	console.log('test :');
+	// console.log('test :');
 	return (
 		<GlobalState>
 			{/* <div className='ui container'> */}
@@ -29,6 +30,9 @@ const App = () => {
 					<Switch>
 						<Route path='/' exact>
 							<StreamList />
+						</Route>
+						<Route path='/grid' exact>
+							<GridLayoutComponent />
 						</Route>
 						<Route path='/game' exact>
 							<Board />
