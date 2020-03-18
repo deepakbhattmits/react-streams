@@ -3,8 +3,8 @@
 import React from 'react';
 import { createPortal } from 'react-dom';
 
-// const TableModal = props => {
-// 	// console.log('new modal :> ', props);
+const TableModal = props => {
+	// 	// console.log('new modal :> ', props);
 
 	return createPortal(
 		<div
