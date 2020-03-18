@@ -31,7 +31,7 @@ const Table = () => {
 
 	const [active, setActive] = useState(false);
 	const handlePivot = pivot => {
-		// console.log('PIVOT : ', pivot);
+		console.log('PIVOT : ', pivot);
 		const selectall = selectAll ? false : true;
 		let selection = [];
 		if (selectall) {
