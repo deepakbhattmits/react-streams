@@ -14,7 +14,7 @@ const CustomTable = () => {
 	const tableS = useRef();
 	const context = useContext(appContext);
 	const [classList, setClassList] = useState([]);
-	console.log('TABLE :', context.filteredProducts);
+	// console.log('TABLE :', context.filteredProducts);
 	const [data, setData] = useState([]);
 	const [products, setProducts] = useState(context.filteredProducts);
 	const [active, setActive] = useState(false);
