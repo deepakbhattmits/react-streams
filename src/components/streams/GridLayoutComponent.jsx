@@ -1,10 +1,16 @@
 /** @format */
 
-import React from 'react';
+import React, { useRef } from 'react';
 import GridLayout from 'react-grid-layout';
 
 const GridLayoutComponent = ({ layout }) => {
 	// console.log('test layout : ', layout);
+	const grid = useRef(null);
+	const handleResize = e => {
+		if (grid.current.title === 'a') {
+			console.log('TEST : ', grid.current.title);
+		}
+	};
 	return (
 		<>
 			<GridLayout
@@ -13,7 +19,9 @@ const GridLayoutComponent = ({ layout }) => {
 				cols={12}
 				rowHeight={35}
 				width={1200}>
-				<div key='a'>A</div>
+				<div key='a' className='A' title='a' ref={grid} onResize={handleResize}>
+					A
+				</div>
 				<div key='b'>B</div>
 				<div key='c'>Cc</div>
 			</GridLayout>
