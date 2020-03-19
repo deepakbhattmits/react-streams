@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import Cell from './Cell';
 const Board = ({ onClick, val, num }) => {
-	console.log('TEST');
+	// console.log('TEST');
 	const initData = {
 		cells: Array.apply(null, { length: 9 }).map(x => ''),
 		symbl: 'X'
