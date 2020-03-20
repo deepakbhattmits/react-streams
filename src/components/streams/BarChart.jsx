@@ -7,7 +7,22 @@ const BarChart = () => {
 	// 		'%c test : ',
 	// 		'border-radius:5px, background-color: blue,color: white'
 	// 	);
+	const DateArr = [
+		'12:00 am',
+		'01:00 am',
+		'02:00 am',
+		'03:00 am',
+		'04:00 am',
+		'05:00 am',
+		'06:00 am',
+		'07:00 am',
+		'08:00 am'
+	];
 	const chart = useRef();
+	const formatString = indx => {
+		return DateArr[indx].toUpperCase();
+		// return indx;
+	};
 	const stacked = ctx => {
 		new Chart(ctx, {
 			type: 'bar',
@@ -85,9 +100,14 @@ const BarChart = () => {
 							stacked: true,
 							maxBarThickness: 1,
 							ticks: {
-								beginAtZero: true
-							},
-							type: 'linear'
+								beginAtZero: true,
+								stepSize: 35,
+								callback: function(label, index, labels) {
+									console.log('TEST : ', index);
+									return formatString(index);
+									// return label;
+								}
+							}
 						}
 					]
 				},
@@ -104,7 +124,7 @@ const BarChart = () => {
 	}, []);
 	return (
 		<div data-testid='canvas-container'>
-			<canvas ref={chart}></canvas>
+			<canvas ref={chart} height={350}></canvas>
 		</div>
 	);
 };
