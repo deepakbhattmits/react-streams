@@ -82,7 +82,7 @@ const BarChart = () => {
 				tooltips: {
 					displayColors: true,
 					callbacks: {
-						mode: 'x'
+						mode: 'index'
 					}
 				},
 				scales: {
@@ -101,7 +101,7 @@ const BarChart = () => {
 							maxBarThickness: 1,
 							ticks: {
 								beginAtZero: true,
-								stepSize: 35,
+								stepSize: 31.3,
 								callback: function(label, index, labels) {
 									console.log('TEST : ', index);
 									return formatString(index);
