@@ -2,8 +2,9 @@
 
 import React, { useState, useEffect } from 'react';
 import Cell from './Cell';
+import CalComponent from './CalComponent';
 const Board = ({ onClick, val, num }) => {
-	// console.log('TEST');
+	console.log('TEST');
 	const initData = {
 		cells: Array.apply(null, { length: 9 }).map(x => ''),
 		symbl: 'X'
@@ -54,11 +55,14 @@ const Board = ({ onClick, val, num }) => {
 		checkWinner(symbl === 'X' ? 'O' : 'X');
 	}, [symbl]);
 	return (
-		<div className='Game'>
-			<div className='Board'>{vCells}</div>
-			<p>Next Move {symbl}</p>
-			<button onClick={newGame}>New Game</button>
-		</div>
+		<>
+			<div className='Game'>
+				<div className='Board'>{vCells}</div>
+				<p>Next Move {symbl}</p>
+				<button onClick={newGame}>New Game</button>
+			</div>
+			<CalComponent />
+		</>
 	);
 };
 export default Board;
