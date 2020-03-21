@@ -10,7 +10,7 @@ import DatePicker from 'react-datepicker';
 import { Dropdown, Button } from 'react-bootstrap';
 const Header = props => {
 	const context = useContext(appContext);
-	console.log('test SEARCH :> ', context);
+	// console.log('test SEARCH :> ', context);
 	const datePicker = useRef();
 	const [search, setSearch] = useState('');
 	const [selectedDate, setSelectedDate] = useState(new Date());
