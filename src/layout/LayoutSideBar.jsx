@@ -136,7 +136,7 @@ const LayoutSideBar = props => {
 		}
 	];
 	const renderHeader = () => {
-		console.log('INITIAL : ', dataFirst[0].counts);
+		// console.log('INITIAL : ', dataFirst[0].counts);
 		return Object.keys(dataFirst[0].counts).map((head, i) => {
 			console.log('item label : ', head);
 			return (
