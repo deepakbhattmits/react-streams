@@ -21,7 +21,6 @@ const BarChart = () => {
 	const chart = useRef();
 	const formatString = indx => {
 		return DateArr[indx].toUpperCase();
-		// return indx;
 	};
 	const stacked = ctx => {
 		new Chart(ctx, {
@@ -103,9 +102,7 @@ const BarChart = () => {
 								beginAtZero: true,
 								stepSize: 31.3,
 								callback: function(label, index, labels) {
-									console.log('TEST : ', index);
 									return formatString(index);
-									// return label;
 								}
 							}
 						}
