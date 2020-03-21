@@ -99,7 +99,12 @@ const BarChart = () => {
 							stacked: true,
 							maxBarThickness: 1,
 							ticks: {
+								fontFamily: "'Open Sans', sans-serif",
+								fontSize: 15,
+								fontStyle: 'bold',
+								fontColor: 'green',
 								beginAtZero: true,
+								padding: 10,
 								stepSize: 31.3,
 								callback: function(label, index, labels) {
 									return formatString(index);
