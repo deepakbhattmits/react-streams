@@ -3,7 +3,7 @@ import React, { useState, useCallback, useEffect } from 'react';
 import FilterBar from './reusable/FilterBar';
 
 const Analyst = () => {
-	console.log('TEST');
+	// console.log('TEST');
 	const [disable, setDisable] = useState(false);
 	const [filters, setFilters] = useState();
 	// determine whether to check filters or not
@@ -174,14 +174,14 @@ const Analyst = () => {
 								{ name: 'cork', group: 'geo' },
 								{ name: 'sing', group: 'geo' }
 							]}
-							defaultFilter={[
-								{ name: 'elk', group: 'geo' },
-								{ name: 'mesa', group: 'geo' },
-								{ name: 'cork', group: 'geo' },
-								{ name: 'sing', group: 'geo' }
-							]}
+							// defaultFilter={[
+							// 	{ name: 'elk', group: 'geo' },
+							// 	{ name: 'mesa', group: 'geo' },
+							// 	{ name: 'cork', group: 'geo' },
+							// 	{ name: 'sing', group: 'geo' }
+							// ]}
 							returnFilters={returnFilters}
-							canDeselect={false}
+							canDeselect={true}
 							disabled={disable}
 						/>
 					</div>
