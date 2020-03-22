@@ -46,7 +46,7 @@ const CalComponent = () => {
 		}
 
 		// let newVal = +`${val}${textContent}`;
-		console.log('TEST : ', newVal);
+		// console.log('TEST : ', newVal);
 		// setValue(val);
 	};
 	const renderData = () => {
