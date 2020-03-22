@@ -21,7 +21,7 @@ import MultiHeader from './streams/MultiHeader';
 import GridLayoutComponent from './streams/GridLayoutComponent';
 
 const App = () => {
-	// console.log('test :');
+	console.log('test :');
 	return (
 		<GlobalState>
 			{/* <div className='ui container'> */}
