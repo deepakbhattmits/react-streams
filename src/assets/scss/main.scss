@@ -354,6 +354,23 @@ body {
 			.rt-thead {
 				.rt-tr {
 					.rt-th {
+						display: flex;
+						justify-content: space-between;
+						align-items: center;
+						&.rt-resizable-header {
+							.rt-resizer {
+								opacity: 0;
+								transition: 0.4s;
+								position: relative;
+								width: 2px;
+								height: 100%;
+								right: 1px;
+								background: #000;
+								&:hover {
+									opacity: 1;
+								}
+							}
+						}
 						border-right: none;
 						text-align: left;
 						&:first-child {
@@ -363,6 +380,9 @@ body {
 						padding: 20px 10px;
 						&:nth-child(2) {
 							padding-left: 40px;
+							.rt-resizer {
+								display: none;
+							}
 						}
 					}
 				}

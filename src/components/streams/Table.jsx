@@ -15,7 +15,7 @@ const makeDefaultState = () => ({
 	pageSize: 5,
 	expanded: { 0: {}, 1: {}, 2: {}, 3: {}, 4: {}, 5: {} },
 	resized: [],
-	resizeable: false,
+	resizeable: true,
 	showPagination: false,
 	defaultPageSize: 10
 	// filtered: []
