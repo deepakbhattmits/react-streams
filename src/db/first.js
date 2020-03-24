@@ -2,7 +2,7 @@
   "first": [
     {
       "price":123,
-      "description": "this was very good movie.",
+      "description": "this was very good movie..",
       "id": 2
     },
     {
