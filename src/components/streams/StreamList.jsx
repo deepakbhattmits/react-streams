@@ -8,7 +8,7 @@ import { fetchStreams } from '../../actions';
 const StreamList = props => {
 	const [scroll, setScroll] = useState(false);
 	const renderButton = list => {
-		console.log('render button :', list, props);
+		// console.log('render button :', list._id, props.currentUserId);
 		if (list.id === props.currentUserId) {
 			return (
 				<div className='right floated content'>
@@ -74,11 +74,11 @@ const StreamList = props => {
 
 	return (
 		<ScrollIndicator id='divScroll' className='listPage'>
-			<div className={`heading  ${scroll ? 'scrolled' : ''}`}>
+			{/* <div className={`heading  ${scroll ? 'scrolled' : ''}`}>
 				<div className={`heading`}>
 					<label className='custom'>Streams</label>
 				</div>
-			</div>
+			</div> */}
 			<div className='ui celled list'>{renderList()}</div>
 		</ScrollIndicator>
 	);
