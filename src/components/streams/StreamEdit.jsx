@@ -7,21 +7,22 @@ import { connect, useSelector } from 'react-redux';
 import { fetchStream, editStream } from '../../actions';
 import StreamForm from './StreamForm';
 const StreamEdit = props => {
-	console.log(props);
 	const { id } = useParams();
 	const stream = useSelector(state => state.streams[id]);
+	console.log('want edit : ', stream, id);
 	// const { id } = props.match.params;
 	const { fetchStream } = props;
 
-	console.log('the fetchStream:', fetchStream);
+	// console.log('the fetchStream:', fetchStream);
 	useEffect(() => {
 		fetchStream(id);
 	}, [id, fetchStream]);
 	const onSubmit = formValues => {
+		console.log('EDIT FIELD', id, formValues);
 		props.editStream(id, formValues);
 	};
 	if (!stream) {
-		return <div>Loading ..</div>;
+		return <div>Loading...</div>;
 	}
 	return (
 		<div>
@@ -34,7 +35,7 @@ const StreamEdit = props => {
 	);
 };
 const mapDispatchToProps = disatch => ({
-	fetchStream: data => disatch(fetchStream(data)),
+	fetchStream: id => disatch(fetchStream(id)),
 	editStream: (data, id) => disatch(editStream(data, id))
 });
 // const mapStateToProps = (state, ownProps) => {
