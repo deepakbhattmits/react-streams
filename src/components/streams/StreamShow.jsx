@@ -12,7 +12,6 @@ const StreamShow = props => {
 	const stream = useSelector(state => state.streams[id]);
 	console.log('test');
 	const videoRef = useRef(null);
-	const inputRef = useRef(null);
 	// const { id } = props.match.params;
 	// const { stream } = props;
 	const buildPlayer = useCallback(() => {
@@ -26,9 +25,6 @@ const StreamShow = props => {
 		player.attachMediaElement(videoRef.current);
 		player.load();
 	}, [id, stream]);
-	const handleSubmit = () => {
-		// console.log(`Ref ${inputRef.current.value} !`);
-	};
 	useEffect(() => {
 		props.fetchStream(id);
 		buildPlayer();
@@ -44,15 +40,6 @@ const StreamShow = props => {
 			<h1>{title}</h1>
 
 			<h2>{description}</h2>
-
-			<input
-				className='ui input'
-				type='text'
-				style={{ padding: '10px', borderRadius: '3px' }}
-				ref={inputRef}
-			/>
-
-			<button onClick={handleSubmit}>Enter</button>
 		</div>
 	);
 };
