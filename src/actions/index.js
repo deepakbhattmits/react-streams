@@ -44,7 +44,7 @@ export const fetchStream = id => async dispatch => {
 };
 export const editStream = (id, formValues) => async dispatch => {
 	const response = await streams.patch(`/streams/update/${id}`, formValues);
-
+	console.log('editStream : ', id, formValues);
 	dispatch({ type: EDIT_STREAM, payload: response.data });
 	createBrowserHistory.push('/'); // programatic navigation
 };
