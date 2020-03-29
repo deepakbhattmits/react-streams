@@ -28,21 +28,23 @@ const StreamForm = props => {
 		props.onSubmit(formValues);
 	};
 	return (
-		<form onSubmit={props.handleSubmit(onSubmit)} className='ui form error '>
-			<div className='two fields'>
-				<div className='field'>
-					<Field name='title' component={renderInput} label='Enter Title ' />
+		<>
+			<form onSubmit={props.handleSubmit(onSubmit)} className='ui form error '>
+				<div className='two fields'>
+					<div className='field'>
+						<Field name='title' component={renderInput} label='Enter Title ' />
+					</div>
+					<div className='field'>
+						<Field
+							name='description'
+							component={renderInput}
+							label='Enter Description '
+						/>
+					</div>
 				</div>
-				<div className='field'>
-					<Field
-						name='description'
-						component={renderInput}
-						label='Enter Description '
-					/>
-				</div>
-			</div>
-			<button className='ui primary button'>Submit</button>
-		</form>
+				<button className='ui primary button'>Submit</button>
+			</form>
+		</>
 	);
 };
 const validate = formValues => {
