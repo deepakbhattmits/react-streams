@@ -48,7 +48,7 @@ body {
 }
 #root {
 	display: grid;
-	grid-template-columns: auto 30%;
+	grid-template-columns: 70% 30%;
 	grid-template-rows: 60px auto 60px;
 	grid-template-areas:
 		'header header'
@@ -69,6 +69,11 @@ body {
 	}
 	.app-footer {
 		grid-area: footer;
+		background: #eee;
+		z-index: 1;
+		display: flex;
+		justify-content: center;
+		align-items: center;
 	}
 }
 .div {
