@@ -3,19 +3,22 @@
 import _ from 'lodash';
 import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { connect, useSelector } from 'react-redux';
+import { connect, useSelector, useDispatch } from 'react-redux';
 import { fetchStream, editStream } from '../../actions';
 import StreamForm from './StreamForm';
 
 const StreamEdit = props => {
 	const { id } = useParams();
+	const dispatch = useDispatch();
 	const stream = useSelector(state => state.streams[id]);
+	console.log('EDIT : ', stream);
 	useEffect(() => {
-		props.fetchStream(id);
-	}, []);
+		dispatch(fetchStream(id));
+	}, [dispatch, fetchStream, id]);
 
 	const onSubmit = formValues => {
-		props.editStream(id, formValues);
+		console.log((id, formValues));
+		dispatch(editStream(id, formValues));
 	};
 	if (!stream) return <div>Loading...</div>;
 	return (
