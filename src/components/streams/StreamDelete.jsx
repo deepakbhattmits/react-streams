@@ -2,12 +2,13 @@
 
 import React, { useEffect } from 'react';
 import Modal from '../Modal';
-import { connect, useSelector } from 'react-redux';
+import { connect, useSelector, useDispatch } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
 import { fetchStream, deleteStream } from '../../actions';
 import createBrowserHistory from '../../history';
 const StreamDelete = props => {
 	const { id } = useParams();
+	const dispatch = useDispatch();
 	const stream = useSelector(state => state.streams[id]);
 	const { fetchStream } = props;
 	console.log('fetchStream : ', fetchStream);
@@ -22,7 +23,7 @@ const StreamDelete = props => {
 			<>
 				<button
 					onClick={() => {
-						props.deleteStream(id);
+						dispatch(deleteStream(id));
 					}}
 					className='ui button negative'>
 					Delete !
