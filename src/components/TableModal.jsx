@@ -4,7 +4,7 @@ import React from 'react';
 import { createPortal } from 'react-dom';
 
 const TableModal = props => {
-	// console.log('new modal :> ', props);
+	// console.log('TableModal :> ', props);
 
 	return createPortal(
 		<div
