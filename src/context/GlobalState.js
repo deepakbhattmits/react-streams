@@ -11,7 +11,7 @@ const GlobalState = props => {
 		{ id: 1, name: 'apple xr', price: 100 },
 		{ id: 2, name: 'iphone x', price: 102 },
 		{ id: 3, name: 'iphone 8', price: 150 },
-		{ id: 4, name: 'iphone pro', price: 150 },
+		{ id: 4, name: 'iphone pro-0', price: 150 },
 		{ id: 5, name: 'apple.', price: 150 }
 		// { id: 6, name: 'iphone pro', price: 150 },
 		// { id: 7, name: 'iphone XI', price: 150 },
