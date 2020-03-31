@@ -5,7 +5,7 @@ import LayoutHeader from './LayoutHeader';
 import LayoutFooter from './LayoutFooter';
 import LayoutSideBar from './LayoutSideBar';
 const Layout = props => {
-	console.log('TEST : ', props);
+	// console.log('Layout : ', props);
 	return (
 		<>
 			<LayoutHeader />
