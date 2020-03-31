@@ -22,7 +22,7 @@ const makeDefaultState = () => ({
 });
 
 const MultiHeader = () => {
-	console.log('TEST');
+	// console.log('MultiHeader');
 	const table = useRef(null);
 	const [state, setState] = useState(makeDefaultState());
 	const [selectAll, setSelectAll] = useState(false);
