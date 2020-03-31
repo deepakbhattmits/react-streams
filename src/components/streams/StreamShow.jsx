@@ -10,10 +10,7 @@ import { fetchStream } from '../../actions';
 const StreamShow = props => {
 	const { id } = useParams();
 	const stream = useSelector(state => state.streams[id]);
-	console.log('test');
 	const videoRef = useRef(null);
-	// const { id } = props.match.params;
-	// const { stream } = props;
 	const buildPlayer = useCallback(() => {
 		const player = flv.createPlayer({
 			type: 'flv',
@@ -26,20 +23,19 @@ const StreamShow = props => {
 		player.load();
 	}, [id, stream]);
 	useEffect(() => {
-		props.fetchStream(id);
+		if (!stream) {
+			props.fetchStream(id);
+		}
 		buildPlayer();
-	}, [props, id, buildPlayer]);
-	const { title, description } = stream;
+	}, [stream, props, id, buildPlayer]);
 	if (!stream) {
 		return <div>Loading...</div>;
 	}
 	return (
 		<div>
 			<video ref={videoRef} style={{ width: '100%' }} controls />
-
-			<h1>{title}</h1>
-
-			<h2>{description}</h2>
+			<h1>{stream.title}</h1>
+			<h2>{stream.description}</h2>
 		</div>
 	);
 };
