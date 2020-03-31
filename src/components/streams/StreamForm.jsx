@@ -4,7 +4,6 @@ import React from 'react';
 import { Field, reduxForm } from 'redux-form';
 
 const StreamForm = props => {
-	// console.log('test :>', props);
 	const renderError = ({ touched, error }) => {
 		if (touched && error) {
 			return (
@@ -14,16 +13,22 @@ const StreamForm = props => {
 			);
 		}
 	};
-
 	const renderInput = ({ input, label, meta }) => {
 		return (
 			<div className={`field ${meta.error && meta.touched ? 'error' : ''}`}>
 				<label>{label}</label>
-				<input {...input} autoComplete='off' />
+				<input
+					type='text'
+					{...input}
+					autoFocus={meta.active}
+					autoComplete='off'
+					placeholder={label}
+				/>
 				{renderError(meta)}
 			</div>
 		);
 	};
+
 	const onSubmit = formValues => {
 		props.onSubmit(formValues);
 	};
@@ -31,16 +36,12 @@ const StreamForm = props => {
 		<>
 			<form onSubmit={props.handleSubmit(onSubmit)} className='ui form error '>
 				<div className='two fields'>
-					<div className='field'>
-						<Field name='title' component={renderInput} label='Enter Title ' />
-					</div>
-					<div className='field'>
-						<Field
-							name='description'
-							component={renderInput}
-							label='Enter Description '
-						/>
-					</div>
+					<Field name='title' component={renderInput} label='Enter Title ' />
+					<Field
+						name='description'
+						component={renderInput}
+						label='Enter Description '
+					/>
 				</div>
 				<button className='ui primary button'>Submit</button>
 			</form>
@@ -52,7 +53,7 @@ const validate = formValues => {
 
 	if (!formValues.title) {
 		errors.title = 'Must Enter Title';
-		//execute if formavalues did not have value
+		//execute if formaValues did not have value
 	}
 	if (!formValues.description) {
 		errors.description = 'Must Enter Description';
