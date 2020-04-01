@@ -53,7 +53,7 @@ const validate = formValues => {
 
 	if (!formValues.title) {
 		errors.title = 'Must Enter Title';
-		//execute if formaValues did not have value
+		// execute if formaValues did not have value
 	}
 	if (!formValues.description) {
 		errors.description = 'Must Enter Description';
