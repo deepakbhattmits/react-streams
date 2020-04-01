@@ -67,7 +67,7 @@ const CustomHorizontalBar = () => {
 			chartInstance.getDatasetMeta(datasetIndex[0].datasetIndex).hidden === null
 				? true
 				: !chartInstance.getDatasetMeta(datasetIndex[0].datasetIndex).hidden;
-		chartInstance.update(); // re-draw chart to hide dataset
+		chartInstance.update(); // Redraw chart to hide dataset
 
 		legendItems = component.current.chartInstance.legend.legendItems;
 		setLegend(legendItems);
