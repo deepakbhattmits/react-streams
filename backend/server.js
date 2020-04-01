@@ -45,32 +45,32 @@ streamsRoutes.route('/add').post(function(req, res) {
 	stream
 		.save()
 		.then(stream => {
-			res.status(200).json({ stream: 'added successfully' });
+			res.json({ stream: 'added successfully' });
 		})
 		.catch(err => {
-			res.status(400).send('adding failed');
+			res.status(400).send({ stream: 'adding failed' });
 		});
 });
 
 streamsRoutes.route('/update/:id').patch(function(req, res) {
 	Stream.findById(req.params.id, function(err, stream) {
-		if (!stream) res.status(404).send('data is not found');
+		if (!stream) res.status(404).send({ stream: 'data is not found' });
 		else stream.description = req.body.description;
 		stream.id = req.body.id;
 		stream.title = req.body.title;
 		stream
 			.save()
 			.then(stream => {
-				res.json('Stream updated');
+				res.json({ stream: 'Stream updated' });
 			})
 			.catch(err => {
-				res.status(400).send('Update not possible');
+				res.status(400).send({ stream: 'Update not possible' });
 			});
 	});
 });
 streamsRoutes.route('/delete/:id').delete((req, res) => {
 	Stream.findByIdAndDelete(req.params.id)
-		.then(() => res.json('Stream deleted.'))
+		.then(() => res.json({ stream: 'Stream deleted.' }))
 		.catch(err => res.status(400).json('Error: ' + err));
 });
 
