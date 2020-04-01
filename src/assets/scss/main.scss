@@ -88,12 +88,12 @@ body {
 		text-align: center;
 	}
 }
-.icon {
-	border: 1px solid #000;
+.custom-icon {
+	// border: 1px solid #000;
 	border-left: none;
 	height: 30px;
 	width: 30px;
-	background: #ccc;
+	// background: #ccc;
 	&.--arrow {
 		height: 15px;
 		width: 15px;
@@ -579,7 +579,7 @@ body {
 	}
 }
 
-.filter-bar svg.icon.up.--arrow {
+.filter-bar svg.custom-icon.up.--arrow {
 	position: absolute;
 	bottom: 0;
 	right: 0;
@@ -694,5 +694,16 @@ body {
 		display: flex;
 		justify-content: center;
 		align-items: center;
+	}
+}
+.flex-div {
+	display: flex;
+	justify-content: space-between;
+	.left {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+	.right {
 	}
 }
