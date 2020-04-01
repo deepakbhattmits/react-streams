@@ -29,7 +29,7 @@ const StreamShow = props => {
 		buildPlayer();
 	}, [stream, props, id, buildPlayer]);
 	if (!stream) {
-		return <div>Loading...</div>;
+		return <div>Loading....</div>;
 	}
 	return (
 		<div>
