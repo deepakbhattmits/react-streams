@@ -18,7 +18,7 @@ const StreamList = () => {
 	const renderAdmin = stream => {
 		if (stream.userId === currentUserId) {
 			return (
-				<div className='right floated content'>
+				<>
 					<Link
 						className='ui button primary'
 						to={`/streams/edit/${stream._id}`}>
@@ -29,24 +29,29 @@ const StreamList = () => {
 						to={`/streams/delete/${stream._id}`}>
 						DELETE
 					</Link>
-				</div>
+				</>
 			);
 		}
 	};
 
 	const renderList = () => {
 		return streams.map(stream => {
-			console.log('renderList  : ', stream);
 			if (!stream.stream) {
 				return (
 					<div className='item' key={stream._id}>
-						{renderAdmin(stream)}
-						<i className='large middle aligned icon camera'></i>
-						<div className='content'>
-							<div className='header'>
-								<Link to={`/streams/show/${stream._id}`}>{stream.title}</Link>
+						<div className='flex-div'>
+							<div className='left'>
+								<i className='large middle aligned clipboard outline icon'></i>
+								<div className='content'>
+									<div className='header'>
+										<Link to={`/streams/show/${stream._id}`}>
+											{stream.title}
+										</Link>
+									</div>
+									<div className='description'>{stream.description}</div>
+								</div>
 							</div>
-							<div className='description'>{stream.description}</div>
+							<div className='right'>{renderAdmin(stream)}</div>
 						</div>
 					</div>
 				);
