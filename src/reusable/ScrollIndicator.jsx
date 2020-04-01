@@ -44,13 +44,13 @@ const ScrollIndicator = ({ id, className, children }) => {
 		<div id={id} className={className} onScroll={handleScroll}>
 			{scroll ? null : (
 				<div className='div--up'>
-					<UpSVG className='icon icon--up--svg' />
+					<UpSVG className='custom-icon icon--up--svg' />
 				</div>
 			)}
 			{children}
 			{scroll && hasVerticalScrollbar ? (
 				<div className='div--down'>
-					<DownSVG className='icon icon--down--svg' />
+					<DownSVG className='custom-icon icon--down--svg' />
 				</div>
 			) : null}
 		</div>
