@@ -26,5 +26,5 @@ it('2 renders', async () => {
 	// );
 	fireEvent.click(getByTestId('select'));
 	const actions = await waitForElement(() => getByTestId('actions'));
-	// console.log('after click TESTING : ', actions.hasChildNodes.length);
+	// console.log('after click TESTING :: ', actions.hasChildNodes.length);
 });
