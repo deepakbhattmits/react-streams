@@ -24,33 +24,28 @@ export const signOut = () => {
 };
 export const createStream = formValues => async (dispatch, getState) => {
 	const { userId } = getState().auth;
-	console.log('0 ACTION : ', userId);
 	const response = await streams.post('/streams/add', {
 		...formValues,
-		['id']: userId
+		['userId']: userId
 	});
-	console.log('ACTION : ', response.data);
 	dispatch({ type: CREATE_STREAM, payload: response.data });
 	createBrowserHistory.push('/'); // programatic navigation
 };
 export const fetchStreams = () => async dispatch => {
 	const response = await streams.get('/streams');
-	console.log('fetchStreams : ', response.data);
 	dispatch({ type: FETCH_STREAMS, payload: response.data });
 };
 export const fetchStream = id => async dispatch => {
-	console.log('here : fetchStream : ', id);
 	const response = await streams.get(`/streams/${id}`);
 	dispatch({ type: FETCH_STREAM, payload: response.data });
 };
 export const editStream = (id, formValues) => async dispatch => {
 	const response = await streams.patch(`/streams/update/${id}`, formValues);
-	console.log('editStream : ', id, formValues);
 	dispatch({ type: EDIT_STREAM, payload: response.data });
 	createBrowserHistory.push('/'); // programatic navigation
 };
 export const deleteStream = id => async dispatch => {
-	await streams.delete(`/streams/${id}`);
+	await streams.delete(`/streams/delete/${id}`);
 	dispatch({ type: DELETE_STREAM, payload: id });
 	createBrowserHistory.push('/'); // programatic navigation
 };
