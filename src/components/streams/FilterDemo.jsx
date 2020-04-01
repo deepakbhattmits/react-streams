@@ -21,7 +21,7 @@ const initialItems = [
 	{ text: 'Wine', group: 'bev' }
 ];
 const FilteredList = () => {
-	// console.log('FilteredList : ');
+	// console.log('FilteredList :: ');
 	const [list, setList] = useState(initialItems);
 	const [items, setItems] = useState([]);
 	const filterList = event => {
@@ -61,7 +61,7 @@ const FilteredList = () => {
 const List = props => {
 	return (
 		<ul className='list'>
-			{props.items.map(function(item, i) {
+			{props.items.map(function (item, i) {
 				return <li key={i}>{item.text}</li>;
 			})}
 		</ul>
