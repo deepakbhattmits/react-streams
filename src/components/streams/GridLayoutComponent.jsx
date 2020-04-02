@@ -4,7 +4,7 @@ import React, { useRef } from 'react';
 import GridLayout from 'react-grid-layout';
 
 const GridLayoutComponent = ({ layout }) => {
-	// console.log('GridLayoutComponent :: ', layout);
+	// console.log('GridLayoutComponent :', layout);
 	const grid = useRef(null);
 	const handleResize = e => {
 		if (grid.current.title === 'a') {
