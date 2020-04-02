@@ -8,7 +8,7 @@ import { fetchStreams } from '../../actions';
 const StreamList = () => {
 	const dispatch = useDispatch();
 	const currentUserId = useSelector(state => state.auth.userId);
-	// const isSignedIn = useSelector(state => state.auth.isSignedIn);
+	// const isSignedIn = useSelector(state => state.auth.isSignedIn);// auth token
 	const streams = useSelector(state => Object.values(state.streams));
 
 	useEffect(() => {
