@@ -19,7 +19,7 @@ it('1 renders', () => {
 it('2 renders', async () => {
 	const { getByTestId } = render(<MultiHeader />);
 	// console.log(
-	// 	'TESTING : ',
+	// 	'TESTING :: ',
 	// 	// getByTestId('select'),
 	// 	'before click : ',
 	// 	getByTestId('actions').hasChildNodes.length
