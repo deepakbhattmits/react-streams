@@ -3,10 +3,10 @@
 import React, { useRef, useEffect } from 'react';
 import { Chart } from 'chart.js';
 const BarChart = () => {
-	// console.log(
-	// 	'%c BarChart : ',
-	// 	'border-radius:5px, background-color: blue,color: white'
-	// );
+	console.log(
+		'%c BarChart : ',
+		'border-radius:5px, background-color: blue,color: white'
+	);
 	const DateArr = [
 		'12:00 am',
 		'01:00 am',
@@ -106,7 +106,7 @@ const BarChart = () => {
 								beginAtZero: true,
 								padding: 10,
 								stepSize: 31.3,
-								callback: function(label, index, labels) {
+								callback: function (label, index, labels) {
 									return formatString(index);
 								}
 							}
