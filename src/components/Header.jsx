@@ -10,7 +10,7 @@ import appContext from '../context/app-context';
 // import { Dropdown, Button } from 'react-bootstrap';
 const Header = props => {
 	const context = useContext(appContext);
-	// console.log('Header test SEARCH :> ', context);
+	// console.log('Header test SEARCH : ', context);
 	// const datePicker = useRef();
 	// const [search, setSearch] = useState('');
 	// const [selectedDate, setSelectedDate] = useState(new Date());
