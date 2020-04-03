@@ -73,7 +73,6 @@ const StreamList = () => {
 // 		streams: Object.values(state.streams)
 // 	};
 // };
-
 // export default connect(mapStateToProps, { fetchStreams })(StreamList);
 
 export default StreamList;
