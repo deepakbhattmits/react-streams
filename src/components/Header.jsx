@@ -8,7 +8,7 @@ import appContext from '../context/app-context';
 // import { ReactComponent as CalenderSVG } from '../assets/images/icon-calendar.svg';
 // import DatePicker from 'react-datepicker';
 // import { Dropdown, Button } from 'react-bootstrap';
-const Header = props => {
+const Header = (props) => {
 	const context = useContext(appContext);
 	// console.log('Header test SEARCH : ', context);
 	// const datePicker = useRef();
@@ -32,7 +32,7 @@ const Header = props => {
 	// 	const { innerText } = e.target;
 	// 	setValue(innerText);
 	// };
-	const trackScrolling = e => {
+	const trackScrolling = (e) => {
 		let windowPageYOffset = window.pageYOffset;
 		// console.log('FOR HEADER : ', windowPageYOffset);
 		// const elem = document.getElementById('scroll');
@@ -84,24 +84,20 @@ const Header = props => {
 				<Link to='/streams/datatable' className='item'>
 					DataTable
 				</Link>
-				<Link to='/streams/table' className='item'>
-					Table
-				</Link>
+
 				<Link to='/streams/stack' className='item'>
 					stack
 				</Link>
-				<Link to='/streams/multiheader' className='item'>
-					MultiHeader
-				</Link>
+
 				<GoogleAuth />
 				{renderCreateButton()}
 			</div>
 		</div>
 	);
 };
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
 	return {
-		isSignedIn: state.auth.isSignedIn
+		isSignedIn: state.auth.isSignedIn,
 	};
 };
 export default connect(mapStateToProps, null)(Header);
