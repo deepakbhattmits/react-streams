@@ -9,7 +9,7 @@ const FormComponent = () => {
 	const validation = () => {
 		let formValid = true;
 		let errors = {};
-		// console.log('validation :', data);
+		// console.log('validation ::', data);
 		if (!data['FirstName']) {
 			formValid = false;
 			errors['FirstName'] = 'Please Enter First Name';
@@ -37,12 +37,12 @@ const FormComponent = () => {
 		setErrors(errors);
 		return formValid;
 	};
-	const handleChange = e => {
+	const handleChange = (e) => {
 		const { name, value } = e.target;
 		setData({ ...data, [name]: value });
 		console.log(data, Object.keys(data).length);
 	};
-	const handleSubmit = e => {
+	const handleSubmit = (e) => {
 		e.preventDefault();
 		if (validation()) {
 			console.log('done : ', data, errors.FirstName);
