@@ -3,7 +3,7 @@ import React, { useState, useCallback, useEffect } from 'react';
 import FilterBar from './reusable/FilterBar';
 
 const Analyst = () => {
-	// console.log('Analyst ::');
+	// console.log('Analyst :');
 	const [disable, setDisable] = useState(false);
 	const [filters, setFilters] = useState();
 	// determine whether to check filters or not
@@ -19,7 +19,7 @@ const Analyst = () => {
 			'inc.': 12,
 			rest: 2,
 			'train.': 0,
-			others: 0
+			others: 0,
 		},
 		{
 			geo: 'mesa',
@@ -31,7 +31,7 @@ const Analyst = () => {
 			'inc.': 5,
 			rest: 5,
 			'train.': 5,
-			others: 2
+			others: 2,
 		},
 		{
 			geo: 'cork',
@@ -43,7 +43,7 @@ const Analyst = () => {
 			'inc.': 5,
 			rest: 5,
 			'train.': 5,
-			others: 2
+			others: 2,
 		},
 		{
 			geo: 'sing',
@@ -56,8 +56,8 @@ const Analyst = () => {
 			'inc.': 5,
 			rest: 5,
 			'train.': 5,
-			others: 2
-		}
+			others: 2,
+		},
 	];
 	let results = {
 		avail: 0,
@@ -66,7 +66,7 @@ const Analyst = () => {
 		inc: 0,
 		rest: 0,
 		train: 0,
-		others: 0
+		others: 0,
 	};
 
 	/**
@@ -75,15 +75,15 @@ const Analyst = () => {
 	 * @return {Boolean} true if the item matches the filters, false if not
 	 */
 	const applyFilters = useCallback(
-		item => {
-			const filterGeo = item =>
+		(item) => {
+			const filterGeo = (item) =>
 				filters.geo.length === 0 || filters.geo.includes(item.geo);
 			return filterGeo(item);
 		},
 		[filters]
 	);
 
-	const returnFilters = useCallback(values => {
+	const returnFilters = useCallback((values) => {
 		setWithFilters(!!values.length);
 
 		const groupedFilters = values.reduce(
@@ -111,8 +111,8 @@ const Analyst = () => {
 
 	const renderList = () => {
 		let newData = data
-			.filter(item => (withFilters ? applyFilters(item) : true))
-			.map(el => {
+			.filter((item) => (withFilters ? applyFilters(item) : true))
+			.map((el) => {
 				results = {
 					...results,
 					avail: results['avail'] + el.avail,
@@ -121,7 +121,7 @@ const Analyst = () => {
 					inc: results['inc'] + el['inc.'],
 					rest: results['rest'] + el.rest,
 					train: results['train'] + el['train.'],
-					others: results['others'] + el.others
+					others: results['others'] + el.others,
 				};
 				return results;
 			});
@@ -172,7 +172,7 @@ const Analyst = () => {
 								{ name: 'elk', group: 'geo' },
 								{ name: 'mesa', group: 'geo' },
 								{ name: 'cork', group: 'geo' },
-								{ name: 'sing', group: 'geo' }
+								{ name: 'sing', group: 'geo' },
 							]}
 							// defaultFilter={[
 							// 	{ name: 'elk', group: 'geo' },
