@@ -3,14 +3,14 @@
 import React, { useState } from 'react';
 
 const RegistrationForm = () => {
-	// console.log('RegistrationForm : ');
+	// console.log('RegistrationForm :: ');
 	// state = {
 	// 	fields: {},
 	// 	errorMessages: {}
 	// };
 	const [fields, setFields] = useState({});
 	const [errorMessages, setErrorMessages] = useState({});
-	const handleChange = e => {
+	const handleChange = (e) => {
 		const { name, value } = e.target;
 		let fields = {};
 		// console.log('change in ', name, value);
@@ -18,7 +18,7 @@ const RegistrationForm = () => {
 		// console.log('TEST : ', fields);
 		setFields(fields);
 	};
-	const submitForm = e => {
+	const submitForm = (e) => {
 		e.preventDefault();
 		if (validateForm()) {
 			console.log('submit', fields);
