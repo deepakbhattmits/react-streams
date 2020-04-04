@@ -7,15 +7,15 @@ import { connect, useSelector } from 'react-redux';
 import flv from 'flv.js';
 
 import { fetchStream } from '../../actions';
-const StreamShow = props => {
-	// console.log('StreamShow');
+const StreamShow = (props) => {
+	// console.log('StreamShow :');
 	const { id } = useParams();
-	const stream = useSelector(state => state.streams[id]);
+	const stream = useSelector((state) => state.streams[id]);
 	const videoRef = useRef(null);
 	const buildPlayer = useCallback(() => {
 		const player = flv.createPlayer({
 			type: 'flv',
-			url: `http://localhost:8000/live/${id}.flv`
+			url: `http://localhost:8000/live/${id}.flv`,
 		});
 		if (player || !stream) {
 			return;
@@ -40,8 +40,8 @@ const StreamShow = props => {
 		</div>
 	);
 };
-const mapDispatchToProps = dispatch => ({
-	fetchStream: data => dispatch(fetchStream(data))
+const mapDispatchToProps = (dispatch) => ({
+	fetchStream: (data) => dispatch(fetchStream(data)),
 });
 // const mapStateToProps = (state, ownProps) => {
 // 	return { stream: state.streams[ownProps.match.params.id] };
