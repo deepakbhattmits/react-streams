@@ -16,25 +16,25 @@ const FilterBar = ({
 	returnFilters,
 	multiple = true,
 	defaultFilter,
-	canDeselect = true // can have no filters applied
+	canDeselect = true, // can have no filters applied
 }) => {
 	// source of truth:
 	const [filters, setFilters] = useState(!!defaultFilter ? defaultFilter : []);
 
 	// handle whether to add/remove a filter
-	const toggleFilter = item => {
-		// console.log('FILTER :: ', item);
+	const toggleFilter = (item) => {
+		// console.log('FILTER : ', item);
 		// this FilterBar should allow multiple selections
 		if (
 			!canDeselect &&
 			filters.length === 1 &&
-			!!filters.find(filter => filter.name === item.name)
+			!!filters.find((filter) => filter.name === item.name)
 		) {
 			return false;
 		} else {
 			if (multiple) {
-				if (!!filters.find(filter => filter.name === item.name)) {
-					setFilters(filters.filter(filter => filter.name !== item.name));
+				if (!!filters.find((filter) => filter.name === item.name)) {
+					setFilters(filters.filter((filter) => filter.name !== item.name));
 				} else {
 					setFilters([...filters, item]);
 				}
@@ -42,7 +42,7 @@ const FilterBar = ({
 				setFilters([item]);
 			} else {
 				// this filter bar should handle only one selection at a time
-				if (filters.find(value => value.name === item.name)) {
+				if (filters.find((value) => value.name === item.name)) {
 					setFilters([]);
 				} else {
 					setFilters([item]);
@@ -61,7 +61,7 @@ const FilterBar = ({
 
 	return (
 		<ul className='filter-bar'>
-			{items.map(item => (
+			{items.map((item) => (
 				<FilterBarItem
 					key={item.name}
 					item={item}
