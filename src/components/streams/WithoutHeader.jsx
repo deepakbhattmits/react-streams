@@ -18,7 +18,7 @@ const WithOutHeader = forwardRef((props, ref) => {
 		},
 		dataFunc() {
 			return props.data;
-		}
+		},
 	}));
 	return (
 		<>
@@ -32,7 +32,7 @@ const WithOutHeader = forwardRef((props, ref) => {
 				pivotBy={props.pivotBy}
 				defaultPageSize={props.defaultPageSize}
 				className={props.className}
-				resizeable={props.resizeable}
+				resizable={props.resizable}
 				sortable
 				page={props.page}
 				pageSize={props.pageSize}
