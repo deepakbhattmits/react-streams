@@ -54,35 +54,35 @@ const responsive = {
 	superLargeDesktop: {
 		breakpoint: { max: 4000, min: 3000 },
 		items: 5,
-		partialVisibilityGutter: 50 // this is needed to tell the amount of px that should be visible.
+		partialVisibilityGutter: 50, // this is needed to tell the amount of px that should be visible.
 	},
 	desktop: {
 		breakpoint: { max: 3000, min: 1024 },
 		items: 3,
-		partialVisibilityGutter: 40 // this is needed to tell the amount of px that should be visible.
+		partialVisibilityGutter: 40, // this is needed to tell the amount of px that should be visible.
 	},
 	tablet: {
 		breakpoint: { max: 1024, min: 464 },
 		items: 2,
-		partialVisibilityGutter: 30 // this is needed to tell the amount of px that should be visible.
+		partialVisibilityGutter: 30, // this is needed to tell the amount of px that should be visible.
 	},
 	mobile: {
 		breakpoint: { max: 464, min: 0 },
 		items: 1,
-		partialVisibilityGutter: 30 // this is needed to tell the amount of px that should be visible
-	}
+		partialVisibilityGutter: 30, // this is needed to tell the amount of px that should be visible
+	},
 };
 
 const ButtonGroup = ({ next, previous, goToSlide, ...rest }) => {
 	const {
-		carouselState: { currentSlide }
+		carouselState: { currentSlide },
 	} = rest;
-	// console.log('ButtonGroup :', rest);
+	// console.log('ButtonGroup ::', rest);
 	return (
 		<div
 			className='carousel-button-group'
 			style={{
-				position: 'absolute'
+				position: 'absolute',
 			}}>
 			{/*remember to give it position:absolute*/}
 			<button
@@ -109,7 +109,7 @@ class SliderComponent extends Component {
 	state = {
 		loading: false,
 		data: [],
-		headline: []
+		headline: [],
 	};
 
 	componentDidMount() {
@@ -118,8 +118,8 @@ class SliderComponent extends Component {
 		fetch(
 			'https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=8ee8c21b20d24b37856fc3ab1e22a1e5'
 		)
-			.then(data => data.json())
-			.then(data =>
+			.then((data) => data.json())
+			.then((data) =>
 				this.setState({ data: data.articles, loading: false }, () =>
 					console.log(data.articles)
 				)
