@@ -18,17 +18,17 @@ const initialItems = [
 	{ text: 'Meat', group: 'nonveg' },
 	{ text: 'Egg', group: 'nonveg' },
 	{ text: 'Beer', group: 'bev' },
-	{ text: 'Wine', group: 'bev' }
+	{ text: 'Wine', group: 'bev' },
 ];
 const FilteredList = () => {
-	// console.log('FilteredList : ');
+	// console.log('FilteredList :: ');
 	const [list, setList] = useState(initialItems);
 	const [items, setItems] = useState([]);
-	const filterList = event => {
+	const filterList = (event) => {
 		var updatedList = list;
 		if (event.target.value.toLowerCase() !== 'all') {
 			updatedList = updatedList.filter(
-				item =>
+				(item) =>
 					item.group.toLowerCase().search(event.target.value.toLowerCase()) !==
 					-1
 			);
@@ -58,7 +58,7 @@ const FilteredList = () => {
 	);
 };
 
-const List = props => {
+const List = (props) => {
 	return (
 		<ul className='list'>
 			{props.items.map(function (item, i) {
