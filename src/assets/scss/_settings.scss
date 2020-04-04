@@ -16,6 +16,7 @@ $error-color: red;
 	--color-scheme-blue: #{$color-blue};
 	--color-scheme-black: #{$color-black};
 	--color-scheme-white: #{$color-white};
+	--color-scheme-light-blue: #{$heading-color};
 }
 
 /* Light mode browser*/
@@ -35,5 +36,7 @@ $error-color: red;
 		--color-scheme-blue: #{invert($color-blue)};
 		--color-scheme-black: #{invert($color-black)};
 		--color-scheme-white: #{invert($color-white)};
+
+		--color-scheme-light-blue: #{invert($heading-color)};
 	}
 }
