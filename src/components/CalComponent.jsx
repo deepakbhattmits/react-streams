@@ -20,9 +20,9 @@ const CalComponent = () => {
 		{ field: '/' },
 		{ field: '%' },
 		{ field: '*' },
-		{ field: '=' }
+		{ field: '=' },
 	];
-	const handleClick = e => {
+	const handleClick = (e) => {
 		const { textContent } = e.target;
 		let val = value;
 		let newVal = 0;
@@ -46,7 +46,7 @@ const CalComponent = () => {
 		}
 
 		// let newVal = +`${val}${textContent}`;
-		// console.log('CalComponent :: ', newVal);
+		// console.log('CalComponent : ', newVal);
 		// setValue(val);
 	};
 	const renderData = () => {
@@ -59,7 +59,7 @@ const CalComponent = () => {
 			);
 		});
 	};
-	const handleChange = e => {
+	const handleChange = (e) => {
 		setValue(e.target.value);
 	};
 	return (
