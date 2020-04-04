@@ -3,8 +3,8 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
 
-const StreamForm = props => {
-	// console.log('StreamForm');
+const StreamForm = (props) => {
+	// console.log('StreamForm :');
 	const renderError = ({ touched, error }) => {
 		if (touched && error) {
 			return (
@@ -30,7 +30,7 @@ const StreamForm = props => {
 		);
 	};
 
-	const onSubmit = formValues => {
+	const onSubmit = (formValues) => {
 		props.onSubmit(formValues);
 	};
 	return (
@@ -49,7 +49,7 @@ const StreamForm = props => {
 		</>
 	);
 };
-const validate = formValues => {
+const validate = (formValues) => {
 	const errors = {};
 
 	if (!formValues.title) {
@@ -63,5 +63,5 @@ const validate = formValues => {
 };
 export default reduxForm({
 	form: 'streamFrom',
-	validate
+	validate,
 })(StreamForm);
