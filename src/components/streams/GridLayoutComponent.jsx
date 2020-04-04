@@ -6,9 +6,9 @@ import GridLayout from 'react-grid-layout';
 const GridLayoutComponent = ({ layout }) => {
 	// console.log('GridLayoutComponent :', layout);
 	const grid = useRef(null);
-	const handleResize = e => {
+	const handleResize = (e) => {
 		if (grid.current.title === 'a') {
-			console.log('TEST : ', grid.current.title);
+			console.log('handleResize : ', grid.current.title);
 		}
 	};
 	return (
