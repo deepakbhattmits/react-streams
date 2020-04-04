@@ -6,12 +6,12 @@ import { connect, useSelector, useDispatch } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
 import { fetchStream, deleteStream } from '../../actions';
 import createBrowserHistory from '../../history';
-const StreamDelete = props => {
+const StreamDelete = (props) => {
 	const { id } = useParams();
 	const dispatch = useDispatch();
-	const stream = useSelector(state => state.streams[id]);
+	const stream = useSelector((state) => state.streams[id]);
 	const { fetchStream } = props;
-	// console.log('fetchStream : ', fetchStream);
+	// console.log('fetchStream :: ', fetchStream);
 	useEffect(() => {
 		if (!id.length) {
 			fetchStream(id);
