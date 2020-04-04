@@ -7,16 +7,16 @@ import { connect, useSelector, useDispatch } from 'react-redux';
 import { fetchStream, editStream } from '../../actions';
 import StreamForm from './StreamForm';
 
-const StreamEdit = props => {
+const StreamEdit = (props) => {
 	const { id } = useParams();
 	const dispatch = useDispatch();
-	const stream = useSelector(state => state.streams[id]);
-	// console.log('StreamEdit : ', stream);
+	const stream = useSelector((state) => state.streams[id]);
+	// console.log('StreamEdit :: ', stream);
 	useEffect(() => {
 		dispatch(fetchStream(id));
 	}, [dispatch, fetchStream, id]);
 
-	const onSubmit = formValues => {
+	const onSubmit = (formValues) => {
 		console.log((id, formValues));
 		dispatch(editStream(id, formValues));
 	};
