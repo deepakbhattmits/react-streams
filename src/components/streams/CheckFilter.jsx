@@ -7,46 +7,46 @@ class CheckFilter extends Component {
 		items: [
 			{
 				name: 'banana',
-				useful: true
+				useful: true,
 			},
 			{
 				name: 'chips',
-				useful: true
+				useful: true,
 			},
 			{
 				name: 'chicken',
-				useful: true
+				useful: true,
 			},
 			{
 				name: 'papaya',
-				useful: false
-			}
+				useful: false,
+			},
 		],
 		filters: {
 			banana: false,
 			chicken: false,
 			papaya: false,
 			chips: false,
-			all: false
+			all: false,
 		},
-		filteredItems: []
+		filteredItems: [],
 	};
 
 	// Using syntax: someFunc = (params) => { ... }
 	// To avoid having to bind(this) in constructor
-	onChange = evt => {
+	onChange = (evt) => {
 		// const is like var and let but doesn't change
 		// We need to capture anything dependent on
 		//  evt.target in synchronous code, and
 		//  and setState below is asynchronous
 		const { name, checked } = evt.target;
-		// console.log('CheckFilter : ', name, checked);
+		// console.log('CheckFilter :: ', name, checked);
 		if (name === 'all') {
 		}
 		// Passing function instead of object to setState
 		// This is the recommended way if
 		//    new state depends on existing state
-		this.setState(prevState => {
+		this.setState((prevState) => {
 			// We create a new object for filters
 			const filters = {
 				//  We add all existing filters
@@ -56,7 +56,7 @@ class CheckFilter extends Component {
 				//    filters[name] = checked
 				// which just overrides the value of
 				//    the prop that has the name of checkbox
-				[name]: checked
+				[name]: checked,
 			};
 
 			// Object.keys() will return ["name1", "name2"]
@@ -67,13 +67,13 @@ class CheckFilter extends Component {
 				//    have their value set to true
 				//    (meaning: checked)
 				// We set this in the `const filter =` part above
-				filterName => filters[filterName]
+				(filterName) => filters[filterName]
 			);
 
 			// We get the full list of items
 			// (Make sure it's set in initial state)
 			// Then we filter it to match only checked
-			const filteredItems = prevState.items.filter(item =>
+			const filteredItems = prevState.items.filter((item) =>
 				// For each item, we loop over
 				//     all checked filters
 				// some() means: return true if any of the
@@ -82,7 +82,7 @@ class CheckFilter extends Component {
 				activeFilterNames.some(
 					// The condition is simply the filter name is
 					//    the same as the item name
-					activeFilterName => activeFilterName === item.name
+					(activeFilterName) => activeFilterName === item.name
 				)
 			);
 
@@ -95,7 +95,7 @@ class CheckFilter extends Component {
 				// Just taking advantage of how const names
 				//    are the same as prop names
 				filters,
-				filteredItems
+				filteredItems,
 			};
 		});
 	};
@@ -125,7 +125,7 @@ class CheckFilter extends Component {
 			<div>
 				<div>{this.renderCheckboxes()}</div>
 				<ul>
-					{items.map(item => (
+					{items.map((item) => (
 						<li key={item.name}>{item.name}</li>
 					))}
 				</ul>
