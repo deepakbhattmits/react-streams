@@ -88,6 +88,10 @@ body {
 		text-align: center;
 	}
 }
+.icon {
+	height: 20px;
+	width: 20px;
+}
 .custom-icon {
 	// border: 1px solid #000;
 	border-left: none;
@@ -363,8 +367,16 @@ body {
 						justify-content: space-between;
 						align-items: center;
 						&.rt-resizable-header {
+							.rt-resizable-header-content {
+								overflow: visible;
+							}
+							&:hover {
+								.rt-resizer {
+									opacity: 1;
+								}
+							}
 							.rt-resizer {
-								opacity: 0;
+								opacity: 0.2;
 								transition: 0.4s;
 								position: relative;
 								width: 5px;
@@ -385,16 +397,19 @@ body {
 						padding: 20px 10px;
 						&:nth-child(2) {
 							padding-left: 40px;
-							.rt-resizer {
-								display: none;
-							}
+							// .rt-resizer {
+							// 	display: none;
+							// }
 						}
 					}
 				}
 			}
 			.rt-tbody {
 				> .rt-tr-group {
-					> .-odd,
+					> .-odd {
+						background-color: var(--color-scheme-light-blue);
+						color: var(--color-scheme-black);
+					}
 					> .-even {
 						background-color: var(--color-scheme-white);
 						color: var(--color-scheme-black);
