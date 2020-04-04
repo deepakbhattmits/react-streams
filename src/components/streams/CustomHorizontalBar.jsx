@@ -12,14 +12,14 @@ const CustomHorizontalBar = () => {
 				label: 'Lunch',
 				backgroundColor: ['rgba(255,153,0,1)'],
 				borderWidth: 10,
-				data: [3.2, 3.5, 2.4, 3.9, 3.3, 3.4, 3.2]
+				data: [3.2, 3.5, 2.4, 3.9, 3.3, 3.4, 3.2],
 			},
 			{
 				label: '09:30 am - 10:00 am',
 				backgroundColor: ['rgba(255,153,0,1)'],
 				borderWidth: 10,
 
-				data: [7.1, 7.5, 7.1, 7, 7, 7, 7]
+				data: [7.1, 7.5, 7.1, 7, 7, 7, 7],
 			},
 			{
 				label: '11:00 am - 11:30 am',
@@ -27,29 +27,29 @@ const CustomHorizontalBar = () => {
 				borderColor: 'yellow',
 				borderWidth: 10,
 
-				data: [2.5, 2.5, 2.5, 2.5, 2.5, 2.5, 2.4]
+				data: [2.5, 2.5, 2.5, 2.5, 2.5, 2.5, 2.4],
 			},
 			{
 				label: '10:00 am - 10:30 am',
 				backgroundColor: ['rgba(255,153,0,1)'],
 				borderWidth: 10,
 
-				data: [4, 4, 4, 4, 4, 4, 4]
+				data: [4, 4, 4, 4, 4, 4, 4],
 			},
 			{
 				label: '10:30 am - 11:00 am',
 				backgroundColor: ['rgba(255,153,0,1)'],
 				borderWidth: 10,
 
-				data: [5, 5, 5, 5, 5, 5, 5]
+				data: [5, 5, 5, 5, 5, 5, 5],
 			},
 			{
 				label: '11:30 am - 12:00 pm ',
 				backgroundColor: ['rgba(255,153,0,1)'],
 				borderWidth: 10,
-				data: [6.3, 6.3, 6.3, 6.3, 6.3, 6.3, 6.3]
-			}
-		]
+				data: [6.3, 6.3, 6.3, 6.3, 6.3, 6.3, 6.3],
+			},
+		],
 	};
 
 	useEffect(() => {
@@ -57,12 +57,12 @@ const CustomHorizontalBar = () => {
 		const legendItems = component.current.chartInstance.legend.legendItems;
 		setLegend(legendItems);
 	}, []);
-	const handleClick = e => {
+	const handleClick = (e) => {
 		const { id } = e.target;
 		const component = chart;
 		let legendItems = component.current.chartInstance.legend.legendItems;
 		const chartInstance = component.current.chartInstance;
-		const datasetIndex = legendItems.filter(el => el.text === id);
+		const datasetIndex = legendItems.filter((el) => el.text === id);
 		chartInstance.getDatasetMeta(datasetIndex[0].datasetIndex).hidden =
 			chartInstance.getDatasetMeta(datasetIndex[0].datasetIndex).hidden === null
 				? true
@@ -78,14 +78,14 @@ const CustomHorizontalBar = () => {
 		responsive: true,
 		title: {
 			display: false,
-			text: 'Skills I am proficient with'
+			text: 'Skills I am proficient with',
 		},
 		legend: {
 			display: false,
 			position: 'right',
 			labels: {
-				boxWidth: 10
-			}
+				boxWidth: 10,
+			},
 		},
 		tooltips: {
 			position: 'nearest',
@@ -107,13 +107,13 @@ const CustomHorizontalBar = () => {
 				// label: (tooltipItems, data) => {
 				//   return tooltipItems.yLabel;
 				// }
-			}
+			},
 		},
 		scales: {
 			xAxes: [
 				{
 					categoryPercentage: 10,
-					barPercentage: 5
+					barPercentage: 5,
 				},
 				{
 					id: 'y-axis-2',
@@ -124,32 +124,32 @@ const CustomHorizontalBar = () => {
 					position: 'left',
 					barThickness: 20,
 					ticks: {
-						display: false //this will remove only the label
+						display: false, //this will remove only the label
 					},
 					gridLines: {
 						drawOnChartArea: true,
-						display: false
+						display: false,
 					},
-					stacked: true
-				}
+					stacked: true,
+				},
 			],
 			yAxes: [
 				{
 					gridLines: {
 						drawOnChartArea: false,
-						display: false
+						display: false,
 					},
 					barPercentage: 1,
-					stacked: true
-				}
-			]
-		}
+					stacked: true,
+				},
+			],
+		},
 	};
 	return (
 		<>
 			<ul>
 				<li>DATE</li>
-				<li>8</li>
+				<li>9</li>
 				<li>10</li>
 				<li>11</li>
 				<li>12</li>
@@ -169,7 +169,7 @@ const CustomHorizontalBar = () => {
 			/>
 			<div className='custom-legends'>
 				{legend.length &&
-					legend.map(item => {
+					legend.map((item) => {
 						return (
 							<div
 								id={item.text}
@@ -183,7 +183,7 @@ const CustomHorizontalBar = () => {
 										// borderWidth: '0.25rem',
 										borderStyle: 'solid',
 										borderColor: item.strokeStyle,
-										backgroundColor: item.fillStyle
+										backgroundColor: item.fillStyle,
 									}}
 								/>
 								<span
