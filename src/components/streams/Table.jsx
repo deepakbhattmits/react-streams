@@ -15,9 +15,9 @@ const makeDefaultState = () => ({
 	pageSize: 5,
 	expanded: { 0: {}, 1: {}, 2: {}, 3: {}, 4: {}, 5: {} },
 	resized: [],
-	resizeable: true,
+	resizable: true,
 	showPagination: false,
-	defaultPageSize: 10
+	defaultPageSize: 10,
 	// filtered: []
 });
 
@@ -30,7 +30,7 @@ const Table = () => {
 	const [selectedData, setSelectedData] = useState([]);
 
 	const [active, setActive] = useState(false);
-	const handlePivot = pivot => {
+	const handlePivot = (pivot) => {
 		// console.log('Table PIVOT : ', pivot);
 		const selectall = selectAll ? false : true;
 		let selection = [];
@@ -41,7 +41,7 @@ const Table = () => {
 			// const currentRecords = wrappedInstance.props.data;
 			const currentRecords = wrappedInstance;
 			// we just push all the IDs onto the selection array
-			currentRecords.forEach(item => {
+			currentRecords.forEach((item) => {
 				// selection.push(item.id);
 				selection = [...selection, item.id];
 			});
@@ -53,8 +53,8 @@ const Table = () => {
 		// console.log('T : ', selection);
 		let selected = {};
 		if (selection.length > 0) {
-			selected = selection.map(el =>
-				data.filter(item => {
+			selected = selection.map((el) =>
+				data.filter((item) => {
 					return item.id === el;
 				})
 			);
@@ -65,7 +65,7 @@ const Table = () => {
 		setActive(true);
 	};
 	const handleClearSelection = () => {
-		if (selection.length === data.map(el => el.id).length) {
+		if (selection.length === data.map((el) => el.id).length) {
 			toggleAll();
 		} else {
 			setSelection([]);
@@ -86,7 +86,7 @@ const Table = () => {
 			// it does exist so we will remove it using destructing
 			selectionA = [
 				...selection.slice(0, keyIndex),
-				...selection.slice(keyIndex + 1)
+				...selection.slice(keyIndex + 1),
 			];
 		} else {
 			// it does not exist so add it
@@ -119,7 +119,7 @@ const Table = () => {
 			// const currentRecords = wrappedInstance.props.data;
 			const currentRecords = wrappedInstance;
 			// we just push all the IDs onto the selection array
-			currentRecords.forEach(item => {
+			currentRecords.forEach((item) => {
 				// selection.push(item.id);
 				selection = [...selection, item.id];
 			});
@@ -129,7 +129,7 @@ const Table = () => {
 		// disabledFunc();
 	};
 
-	const isSelected = key => {
+	const isSelected = (key) => {
 		/*
       Instead of passing our external selection state we provide an 'isSelected'
       callback and detect the selection state ourselves. This allows any implementation
@@ -138,7 +138,7 @@ const Table = () => {
 		return selection.includes(key);
 	};
 
-	const sortFunction = e => {
+	const sortFunction = (e) => {
 		/*
 			Get the clicked element 'id' and 'desc' for add class in icon
 		*/
@@ -159,18 +159,18 @@ const Table = () => {
 		<div className='main-page'>
 			<WidgetHeaderWithButtons title='Incidents'>
 				<div className='actions'>
-					<Button
-						variant='outline-secondary'
-						onClick={handleClearSelection}
-						disabled={selection.length === 0}>
-						Clear Selection
-					</Button>
-					<Button
-						variant='outline-secondary'
-						onClick={handleModal}
-						disabled={selection.length === 0}>
-						Open All
-					</Button>
+					{disableFunc() && (
+						<>
+							<Button
+								variant='outline-secondary'
+								onClick={handleClearSelection}>
+								Clear Selection
+							</Button>
+							<Button variant='outline-secondary' onClick={handleModal}>
+								Open All
+							</Button>
+						</>
+					)}
 				</div>
 			</WidgetHeaderWithButtons>
 
@@ -185,12 +185,12 @@ const Table = () => {
 			<WithoutHeader
 				ref={table}
 				data={data}
-				onSortedChange={e => {
+				onSortedChange={(e) => {
 					sortFunction(e);
 				}}
 				columns={[
 					{
-						Header: rowInfo => {
+						Header: (rowInfo) => {
 							return (
 								<div onClick={toggleAll}>
 									<span>Select</span>
@@ -198,12 +198,13 @@ const Table = () => {
 							);
 						},
 						sortable: false,
+						resizable: false,
 						width: 100,
 						style: {
-							textAlign: 'center'
+							textAlign: 'center',
 						},
 						className: '-cursor-pointer',
-						Cell: cell => {
+						Cell: (cell) => {
 							return (
 								<>
 									<input
@@ -213,7 +214,7 @@ const Table = () => {
 											isSelected(!!cell.original && cell.original.id) &&
 											selection.includes(!!cell.original && cell.original.id)
 										}
-										onClick={e => {
+										onClick={(e) => {
 											const { shiftKey } = e;
 											e.stopPropagation();
 											toggleSelection(
@@ -226,15 +227,15 @@ const Table = () => {
 									/>
 								</>
 							);
-						}
+						},
 					},
 					{
 						accessor: 'name',
-						Aggregated: row => {
+						Aggregated: (row) => {
 							return <span>{row.value}</span>;
 						},
 						width: 450,
-						Header: rowInfo => {
+						Header: (rowInfo) => {
 							return (
 								<>
 									<span>Name</span>
@@ -251,34 +252,34 @@ const Table = () => {
 									/>
 								</>
 							);
-						}
+						},
 					},
 					{
 						id: 'postId',
 						sortable: false,
 						className: 'group',
-						accessor: d => d.postId,
+						accessor: (d) => d.postId,
 						style: { textTransform: 'capitalize' },
 
 						width: 170,
 						Expander: ({ isExpanded, ...rest }) => {
 							return <div>{isExpanded ? <span /> : <span />}</div>;
 						},
-						PivotValue: row => (
+						PivotValue: (row) => (
 							<span className='test' onClick={handlePivot}>
 								{row.value}
 							</span>
-						)
+						),
 					},
 
 					{
 						// Header: 'Age',
 						accessor: 'email',
 						width: 150,
-						Aggregated: row => {
+						Aggregated: (row) => {
 							return <span>{row.value}</span>;
 						},
-						Header: rowInfo => {
+						Header: (rowInfo) => {
 							return (
 								<>
 									<span>Email</span>
@@ -296,8 +297,8 @@ const Table = () => {
 									/>
 								</>
 							);
-						}
-					}
+						},
+					},
 				]}
 				minWidth={100}
 				showPagination={state.showPagination}
@@ -306,7 +307,7 @@ const Table = () => {
 				defaultPageSize={state.defaultPageSize}
 				className='react-table'
 				// Controlled props
-				resizeable={state.resizeable}
+				resizable={state.resizable}
 				sortable
 				// sorted={this.state.sorted}
 				page={state.page}
