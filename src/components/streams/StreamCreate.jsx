@@ -4,9 +4,9 @@ import React from 'react';
 import { connect } from 'react-redux';
 import SteramForm from './StreamForm';
 import { createStream } from '../../actions';
-const StreamCreate = props => {
-	const onSubmit = formValues => {
-		// console.log('StreamCreate test formValues : ', formValues);
+const StreamCreate = (props) => {
+	const onSubmit = (formValues) => {
+		// console.log('StreamCreate test formValues :: ', formValues);
 		props.createStream(formValues);
 	};
 
@@ -17,7 +17,7 @@ const StreamCreate = props => {
 		</div>
 	);
 };
-const mapDispatchToProps = dispatch => ({
-	createStream: data => dispatch(createStream(data))
+const mapDispatchToProps = (dispatch) => ({
+	createStream: (data) => dispatch(createStream(data)),
 });
 export default connect(null, mapDispatchToProps)(StreamCreate);
