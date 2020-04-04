@@ -10,14 +10,12 @@ import StreamList from './streams/StreamList';
 import StreamShow from './streams/StreamShow';
 import StreamEdit from './streams/StreamEdit';
 import StreamDelete from './streams/StreamDelete';
-import CustomTable from './streams/CustomTable';
 import Table from './streams/Table';
 import CustomHorizontalBar from './streams/CustomHorizontalBar';
 import ChartComponent from './streams/ChartComponent';
 import BarChart from './streams/BarChart';
 import Board from './Board';
 import SliderComponent from './streams/SliderComponent';
-import MultiHeader from './streams/MultiHeader';
 import GridLayoutComponent from './streams/GridLayoutComponent';
 
 const App = () => {
@@ -40,18 +38,14 @@ const App = () => {
 						<Route path='/streams/slider' exact>
 							<SliderComponent />
 						</Route>
-						<Route path='/streams/table' exact>
-							<CustomTable />
-						</Route>
+
 						<Route path='/streams/datatable' exact>
 							<Table />
 						</Route>
 						<Route path='/streams/bar' exact>
 							<CustomHorizontalBar />
 						</Route>
-						<Route path='/streams/multiheader' exact>
-							<MultiHeader />
-						</Route>
+
 						<Route path='/streams/chart' exact>
 							<ChartComponent />
 						</Route>
