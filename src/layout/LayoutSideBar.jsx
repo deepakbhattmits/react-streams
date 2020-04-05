@@ -4,7 +4,7 @@ import React, { Fragment } from 'react';
 import ScrollIndicator from '../reusable/ScrollIndicator';
 import Analyst from '../components/Analyst';
 import { Tab, Nav } from 'react-bootstrap';
-const LayoutSideBar = props => {
+const LayoutSideBar = (props) => {
 	function* range(start, end) {
 		for (let i = start; i <= end; i++) {
 			yield i;
@@ -18,29 +18,29 @@ const LayoutSideBar = props => {
 				chat: {
 					count: 2,
 					active: false,
-					schedule: false
+					schedule: false,
 				},
 				call: {
 					count: 3,
 					active: false,
-					schedule: false
+					schedule: false,
 				},
 				ticket: {
 					count: 4,
 					active: true,
-					schedule: false
+					schedule: false,
 				},
 				rest: {
 					count: 5,
 					active: false,
-					schedule: false
+					schedule: false,
 				},
 				others: {
 					count: 6,
 					active: false,
-					schedule: false
-				}
-			}
+					schedule: false,
+				},
+			},
 		},
 		{
 			role: 'Admin',
@@ -48,30 +48,30 @@ const LayoutSideBar = props => {
 				chat: {
 					count: 2,
 					active: false,
-					schedule: false
+					schedule: false,
 				},
 				call: {
 					count: 3,
 					active: false,
-					schedule: false
+					schedule: false,
 				},
 				ticket: {
 					count: 4,
 					active: false,
-					schedule: true
+					schedule: true,
 				},
 				rest: {
 					count: 5,
 					active: false,
-					schedule: false
+					schedule: false,
 				},
 				other: {
 					count: 6,
 					active: false,
-					schedule: false
-				}
-			}
-		}
+					schedule: false,
+				},
+			},
+		},
 	];
 	const dataSecond = [
 		{
@@ -80,29 +80,29 @@ const LayoutSideBar = props => {
 				chat: {
 					count: 2,
 					active: true,
-					schedule: false
+					schedule: false,
 				},
 				call: {
 					count: 3,
 					active: false,
-					schedule: false
+					schedule: false,
 				},
 				ticket: {
 					count: 4,
 					active: false,
-					schedule: false
+					schedule: false,
 				},
 				rest: {
 					count: 5,
 					active: false,
-					schedule: false
+					schedule: false,
 				},
 				others: {
 					count: 6,
 					active: false,
-					schedule: false
-				}
-			}
+					schedule: false,
+				},
+			},
 		},
 		{
 			role: 'Admin',
@@ -110,33 +110,33 @@ const LayoutSideBar = props => {
 				chat: {
 					count: 2,
 					active: false,
-					schedule: true
+					schedule: true,
 				},
 				call: {
 					count: 3,
 					active: false,
-					schedule: true
+					schedule: true,
 				},
 				ticket: {
 					count: 4,
 					active: false,
-					schedule: true
+					schedule: true,
 				},
 				rest: {
 					count: 5,
 					active: false,
-					schedule: false
+					schedule: false,
 				},
 				other: {
 					count: 6,
 					active: false,
-					schedule: false
-				}
-			}
-		}
+					schedule: false,
+				},
+			},
+		},
 	];
 	const renderHeader = () => {
-		// console.log('LayoutSideBar :: ', dataFirst[0].counts);
+		// console.log('LayoutSideBar : ', dataFirst[0].counts);
 		return Object.keys(dataFirst[0].counts).map((head, i) => {
 			console.log('item label : ', head);
 			return (
