@@ -9,10 +9,10 @@ const ScrollIndicator = ({ id, className, children }) => {
 	const [scroll, setScroll] = useState(true);
 	const [hasVerticalScrollbar, setHasVerticalScrollbar] = useState(true);
 
-	const handleScroll = e => {
+	const handleScroll = (e) => {
 		const { scrollTop, offsetHeight, scrollHeight } = e.target;
 		// console.log(
-		// 	'ScrollIndicator SCROLL ::',
+		// 	'ScrollIndicator SCROLL :',
 		// 	'scrollTop :',
 		// 	scrollTop,
 		// 	'offsetHeight : ',
