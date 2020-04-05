@@ -6,13 +6,13 @@ import { streamConstants } from '../constants/type';
 import { streamReducer } from './reducers.js';
 // import { toast } from 'react-toastify';
 // import 'react-toastify/dist/ReactToastify.css';
-const GlobalState = props => {
+const GlobalState = (props) => {
 	const products = [
 		{ id: 1, name: 'apple xr', price: 100 },
 		{ id: 2, name: 'iphone x', price: 102 },
 		{ id: 3, name: 'iphone 8', price: 150 },
-		{ id: 4, name: 'iphone pro-1', price: 150 },
-		{ id: 5, name: 'apple.', price: 150 }
+		{ id: 4, name: 'iphone pro', price: 150 },
+		{ id: 5, name: 'apple.', price: 150 },
 		// { id: 6, name: 'iphone pro', price: 150 },
 		// { id: 7, name: 'iphone XI', price: 150 },
 		// { id: 8, name: 'iphone', price: 150 },
@@ -28,7 +28,7 @@ const GlobalState = props => {
 		{ id: 3, name: 'deepak bhatt', price: 150, group: 'developer' },
 		{ id: 4, name: 'akhilesh singh', price: 150, group: 'developer' },
 		{ id: 5, name: 'mr. bharat kg', price: 150, group: 'tester' },
-		{ id: 6, name: 'Mahadev birader', price: 150, group: 'tester' }
+		{ id: 6, name: 'Mahadev birader', price: 150, group: 'tester' },
 		// { id: 7, name: 'dinesh kotni', price: 150, group: 'tester' },
 		// { id: 8, name: 'praveen vishnoi', price: 150, group: 'tester' },
 		// { id: 9, name: 'vinod singh', price: 150, group: 'manager' },
@@ -40,7 +40,7 @@ const GlobalState = props => {
 
 	const [state, dispatch] = useReducer(streamReducer, {
 		products: products,
-		filteredProducts: filteredProducts
+		filteredProducts: filteredProducts,
 	});
 	const seacrhProduct = (qry, state) => {
 		// console.log('globalState SEARCH : ', qry, state);
@@ -53,7 +53,7 @@ const GlobalState = props => {
 		<AppContext.Provider
 			value={{
 				filteredProducts: state.filteredProducts,
-				seacrhProduct: seacrhProduct
+				seacrhProduct: seacrhProduct,
 			}}>
 			{props.children}
 		</AppContext.Provider>
