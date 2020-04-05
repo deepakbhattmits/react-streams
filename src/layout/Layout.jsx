@@ -4,8 +4,8 @@ import React from 'react';
 import LayoutHeader from './LayoutHeader';
 import LayoutFooter from './LayoutFooter';
 import LayoutSideBar from './LayoutSideBar';
-const Layout = props => {
-	// console.log('Layout : ', props);
+const Layout = (props) => {
+	// console.log('Layout > ', props);
 	return (
 		<>
 			<LayoutHeader />
