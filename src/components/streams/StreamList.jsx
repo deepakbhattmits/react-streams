@@ -6,16 +6,17 @@ import { Link } from 'react-router-dom';
 import { fetchStreams } from '../../actions';
 
 const StreamList = () => {
+	console.log('StreamList');
 	const dispatch = useDispatch();
-	const currentUserId = useSelector(state => state.auth.userId);
+	const currentUserId = useSelector((state) => state.auth.userId);
 	// const isSignedIn = useSelector(state => state.auth.isSignedIn);// auth token
-	const streams = useSelector(state => Object.values(state.streams));
+	const streams = useSelector((state) => Object.values(state.streams));
 
 	useEffect(() => {
 		dispatch(fetchStreams());
 	}, [dispatch]);
 
-	const renderAdmin = stream => {
+	const renderAdmin = (stream) => {
 		if (stream.userId === currentUserId) {
 			return (
 				<>
@@ -35,7 +36,7 @@ const StreamList = () => {
 	};
 
 	const renderList = () => {
-		return streams.map(stream => {
+		return streams.map((stream) => {
 			if (!stream.stream) {
 				return (
 					<div className='item' key={stream._id}>
