@@ -6,13 +6,13 @@ import { signIn, signOut } from '../actions';
 
 class GoogleAuth extends Component {
 	componentDidMount() {
-		// console.log('GoogleAuth :');
+		// console.log('GoogleAuth >');
 		window.gapi.load('client:auth2', () => {
 			window.gapi.client
 				.init({
 					clientId:
 						'1025575281278-q9him3ie1e89uj49dnlnicct7uvndgh5.apps.googleusercontent.com',
-					scope: 'email'
+					scope: 'email',
 				})
 				.then(() => {
 					this.auth = window.gapi.auth2.getAuthInstance();
@@ -21,7 +21,7 @@ class GoogleAuth extends Component {
 				});
 		});
 	}
-	onAuthChange = isSignedIn => {
+	onAuthChange = (isSignedIn) => {
 		if (isSignedIn) {
 			this.props.signIn(this.auth.currentUser.get().getId());
 		} else {
@@ -52,7 +52,7 @@ class GoogleAuth extends Component {
 		return <div>{this.renderAuthButton()}</div>;
 	}
 }
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
 	return { isSignedIn: state.auth.isSignedIn };
 };
 
