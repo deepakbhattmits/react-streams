@@ -15,7 +15,7 @@ export const data = [
 		name: 'quo vero reiciendis velit similique earum',
 		email: 'Jayne_Kuhic@sydney.com',
 		body:
-			'enim nihil est dolore omnis voluptatem numquam\net omnis occaecati quod ullam at\nvoluptatem error expedita pariatur\nnihil sint nostrum voluptatem reiciendis et',
+			'et omnis occaecati quod ullam at\nvoluptatem error expedita pariatur\nnihil sint nostrum voluptatem reiciendis et',
 	},
 	{
 		postId: 'student',
