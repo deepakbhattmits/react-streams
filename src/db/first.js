@@ -12,7 +12,7 @@
     },
     {
       "price":120,
-      "description": "this is good app",
+      "description": "this is app",
       "userId": "105578102737547165732",
       "id": 4
     },
