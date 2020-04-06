@@ -4,8 +4,8 @@ import React from 'react';
 
 const FilterBarDropdownItem = ({ item, filters, toggleFilter }) => (
 	<li
-		className={`dropdown FilterBarDropdownItem filter-bar__item${
-			!!filters.find(filter => filter.name === item.name)
+		className={`FilterBarDropdownItem filter-bar__item${
+			!!filters.find((filter) => filter.name === item.name)
 				? ` filter-bar__dropdown--selected`
 				: ''
 		}`}
