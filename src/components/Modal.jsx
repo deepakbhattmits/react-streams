@@ -3,8 +3,8 @@
 import React from 'react';
 import { createPortal } from 'react-dom';
 
-const Modal = props => {
-	// console.log('Modal :', props);
+const Modal = (props) => {
+	// console.log('Modal >', props);
 	return createPortal(
 		<div
 			onClick={props.onDismiss}
@@ -12,7 +12,7 @@ const Modal = props => {
 				!!props.title ? 'visible active' : 'hidden'
 			}`}>
 			<div
-				onClick={e => {
+				onClick={(e) => {
 					e.stopPropagation();
 				}}
 				className={`ui text modal transition scrolling  ${
