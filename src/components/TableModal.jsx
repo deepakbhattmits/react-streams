@@ -3,8 +3,8 @@
 import React from 'react';
 import { createPortal } from 'react-dom';
 
-const TableModal = props => {
-	// console.log('TableModal : ', props);
+const TableModal = (props) => {
+	// console.log('TableModal > ', props);
 
 	return createPortal(
 		<div
@@ -13,7 +13,7 @@ const TableModal = props => {
 				props.active ? 'visible active' : 'hidden'
 			}`}>
 			<div
-				onClick={e => {
+				onClick={(e) => {
 					e.stopPropagation();
 				}}
 				className={`ui standard test modal transition scrolling ${
@@ -30,7 +30,7 @@ const TableModal = props => {
 					)} */}
 					<ul>
 						{!!props.content &&
-							props.content.map(item =>
+							props.content.map((item) =>
 								Object.values(item).map((el, i) => {
 									return (
 										<li key={i}>
