@@ -148,7 +148,7 @@ const CustomHorizontalBar = () => {
 	return (
 		<>
 			<ul>
-				<li>DATE</li>
+				<li>DATE :</li>
 				<li>9</li>
 				<li>10</li>
 				<li>11</li>
