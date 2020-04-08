@@ -1,5 +1,5 @@
 /** @format */
-
+// import React
 import React from 'react';
 
 const FilterBarDropdownItem = ({ item, filters, toggleFilter }) => (
