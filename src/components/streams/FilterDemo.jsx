@@ -21,7 +21,7 @@ const initialItems = [
 	{ text: 'Wine', group: 'bev' },
 ];
 const FilteredList = () => {
-	// console.log('FilteredList > ');
+	// console.log('FilteredList >> ');
 	const [list, setList] = useState(initialItems);
 	const [items, setItems] = useState([]);
 	const filterList = (event) => {
