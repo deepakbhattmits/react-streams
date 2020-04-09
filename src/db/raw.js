@@ -12,7 +12,7 @@ export const data = [
 	{
 		postId: 'student',
 		id: 2,
-		name: 'quo vero reiciendis velit similique earum',
+		name: 'quo vero reiciendis velit similique',
 		email: 'Jayne_Kuhic@sydney.com',
 		body:
 			'et omnis occaecati quod ullam at\nvoluptatem error expedita pariatur\nnihil sint nostrum voluptatem reiciendis et',
