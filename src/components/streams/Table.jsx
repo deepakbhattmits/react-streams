@@ -1,6 +1,6 @@
 /** @format */
 
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect, useCallback } from 'react';
 import { data } from '../../db/raw';
 import { Button } from 'react-bootstrap';
 import TableModal from '../TableModal';
@@ -28,6 +28,7 @@ const Table = () => {
 	const [selection, setSelection] = useState([]);
 	const [sortDesc, setSortDesc] = useState({});
 	const [selectedData, setSelectedData] = useState([]);
+	const [scroll, setScroll] = useState(0);
 
 	const [active, setActive] = useState(false);
 	const handlePivot = (pivot) => {
@@ -145,15 +146,32 @@ const Table = () => {
 		let sortDesc = { [e[0].id]: e[0].desc };
 		setSortDesc(sortDesc);
 	};
-	const disableFunc = () => {
+	const disableFunc = useCallback(() => {
 		/*
 		check length of selection item 
 		*/
-		return table.current && table.current.disabledFunc();
-	};
+		return !!selection.length;
+	}, [selection]);
 
 	useEffect(() => {
 		disableFunc();
+	}, []);
+	useEffect(() => {
+		const handleScroll = (e) => {
+			let scrollLeft = e.target.scrollLeft;
+
+			setScroll(scrollLeft);
+		};
+		const elem = document.querySelector('.rt-table');
+
+		if (elem) {
+			elem.addEventListener('scroll', handleScroll, false);
+		}
+		return {
+			if(elem) {
+				elem.removeEventListener('scroll', handleScroll, false);
+			},
+		};
 	}, []);
 	return (
 		<div className='main-page'>
@@ -266,7 +284,10 @@ const Table = () => {
 							return <div>{isExpanded ? <span /> : <span />}</div>;
 						},
 						PivotValue: (row) => (
-							<span className='test' onClick={handlePivot}>
+							<span
+								className='test'
+								onClick={handlePivot}
+								style={{ left: scroll, position: 'relative' }}>
 								{row.value}
 							</span>
 						),
