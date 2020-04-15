@@ -1,17 +1,17 @@
 /** @format */
 
 const mongoose = require('mongoose');
-let Stream = require('../models/stream.model');
+const Stream = require('../models/stream.model');
 
 mongoose.connect('mongodb://127.0.0.1:27017/streams', {
 	useNewUrlParser: true,
 	useUnifiedTopology: true,
 });
-const connection = mongoose.connection;
+// const connection = mongoose.connection;
 
-connection.once('open', function () {
-	console.log('MongoDB database connection established successfully');
-});
+// connection.once('open', function () {
+// 	console.log('MongoDB database connection established successfully');
+// });
 const getStreams = (req, res, next) => {
 	Stream.find((err, streams) => {
 		if (err) {
@@ -21,7 +21,7 @@ const getStreams = (req, res, next) => {
 		}
 	});
 };
-const getstreamsById = (req, res, next) => {
+const getStreamById = (req, res, next) => {
 	const id = req.params.id;
 	Stream.findById(id, function (err, stream) {
 		res.json(stream);
@@ -54,13 +54,13 @@ const updateStream = (req, res, next) => {
 			});
 	});
 };
-const deconsteStream = (req, res, next) => {
-	Stream.findByIdAndDeconste(req.params.id)
-		.then(() => res.json({ stream: 'Stream deconsted.' }))
+const deleteStream = (req, res, next) => {
+	Stream.findByIdAndDelete(req.params.id)
+		.then(() => res.json({ stream: 'Stream deleted.' }))
 		.catch((err) => res.status(400).json('Error: ' + err));
 };
 exports.getStreams = getStreams;
-exports.getstreamsById = getstreamsById;
+exports.getStreamById = getStreamById;
 exports.addStream = addStream;
 exports.updateStream = updateStream;
-exports.deconsteStream = deconsteStream;
+exports.deleteStream = deleteStream;
