@@ -39,7 +39,7 @@ const Header = (props) => {
 		// let coords = elem.getBoundingClientRect();
 		// let windowHeight = document.documentElement.clientHeight;
 		// let topVisible = coords.top > 0 && coords.top < windowHeight;
-		// console.log('TEST :');
+		// console.log('TEST >');
 		// console.log('TEST :',topVisible, windowHeight, coords)
 		if (windowPageYOffset > 2) {
 			setDisplay(true);
