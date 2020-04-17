@@ -1,19 +1,62 @@
 /** @format */
+const { validationResult } = require('express-validator');
 const Stream = require('../models/stream.model');
+const HttpError = require('../models/http-error');
 const getStreams = async (req, res, next) => {
-	let streams = await Stream.find().exec();
+	let streams;
+	try {
+		streams = await Stream.find().exec();
+	} catch (err) {
+		const error = new HttpError('Something went wrong', 400);
+		return next(error);
+	}
 	res.json(streams);
 };
 const getStreamById = async (req, res, next) => {
-	const id = req.params.id;
-	let stream = await Stream.findById(id);
+	const streamId = req.params.id;
+	let stream;
+	try {
+		stream = await Stream.findById(streamId);
+	} catch (err) {
+		const error = new HttpError(
+			'Something went wrong , could not find stream',
+			500
+		);
+		return next(error);
+	}
+
+	if (!stream) {
+		const error = new HttpError(
+			'could not find a stream for provided id !',
+			404
+		);
+		return next(error);
+	}
 	res.json(stream);
 };
 const addStream = async (req, res, next) => {
-	const stream = new Stream(req.body);
-	let result = await stream.save();
-
-	res.json(result);
+	const error = validationResult(req);
+	if (!error.isEmpty()) {
+		return next(
+			new HttpError('Invalid input passed, please check your data', 422)
+		);
+	}
+	const { title, description, userId } = req.body;
+	const createdStream = new Stream({
+		title,
+		description,
+		userId,
+	});
+	try {
+		await createdStream.save();
+	} catch (err) {
+		const error = new HttpError(
+			'Creating stream failed, please try again.',
+			500
+		);
+		return next(error);
+	}
+	res.status(201).json({ stream: createdStream.toObject({ getters: true }) });
 };
 const updateStream = (req, res, next) => {
 	Stream.findById(req.params.id, function (err, stream) {
