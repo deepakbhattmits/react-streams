@@ -3,7 +3,6 @@
 import React, { useImperativeHandle, forwardRef } from 'react';
 // Import React Table
 import ReactTable from 'react-table-6';
-
 const WithOutHeader = forwardRef((props, ref) => {
 	// console.log('WithOutHeader :');
 	// The component instance will be extended
@@ -37,6 +36,15 @@ const WithOutHeader = forwardRef((props, ref) => {
 				page={props.page}
 				pageSize={props.pageSize}
 				expanded={props.expanded}
+				// Key Constants
+				pivotValKey='_pivotVal'
+				pivotIDKey='_pivotID'
+				subRowsKey='NEW'
+				aggregatedKey='_aggregated'
+				nestingLevelKey='_nestingLevel'
+				originalKey='_original'
+				indexKey='_index'
+				groupedByPivotKey='_groupedByPivot'
 			/>
 		</>
 	);
