@@ -23,7 +23,7 @@ const makeDefaultState = () => ({
 
 const Table = () => {
 	const table = useRef();
-	const [state, setState] = useState(makeDefaultState());
+	const [state] = useState(makeDefaultState());
 	const [selectAll, setSelectAll] = useState(false);
 	const [selection, setSelection] = useState([]);
 	const [sortDesc, setSortDesc] = useState({});
@@ -275,10 +275,9 @@ const Table = () => {
 					{
 						id: 'postId',
 						sortable: false,
-						className: 'group',
+						className: `group`,
 						accessor: (d) => d.postId,
 						style: { textTransform: 'capitalize' },
-
 						width: 170,
 						Expander: ({ isExpanded, ...rest }) => {
 							return <div>{isExpanded ? <span /> : <span />}</div>;
@@ -291,6 +290,9 @@ const Table = () => {
 								{row.value}
 							</span>
 						),
+						Aggregated: (row) => {
+							return <span className='thisis'>{row.value}</span>;
+						},
 					},
 
 					{
