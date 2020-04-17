@@ -6,9 +6,9 @@ const Schema = mongoose.Schema;
 
 const streamSchema = new Schema({
 	id: { type: String },
-	title: { type: String },
-	description: { type: String },
-	userId: { type: String }
+	title: { type: String, required: true },
+	description: { type: String, require: true },
+	userId: { type: String, required: true },
 });
 
 const Stream = mongoose.model('Stream', streamSchema);
