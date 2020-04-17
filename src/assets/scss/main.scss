@@ -421,11 +421,14 @@ body {
 						}
 					}
 				}
-				.rt-td {
-					padding: 15px 10px;
-					border-right: none;
-					&.group {
-						padding: 10px 30px;
+				.rt-tr {
+					.rt-td {
+						padding: 15px 10px;
+						border-right: none;
+
+						&.group {
+							padding: 10px 30px;
+						}
 					}
 				}
 			}
