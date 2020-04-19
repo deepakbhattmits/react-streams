@@ -31,7 +31,6 @@ streamsRoutes.route('/:id').get(function (req, res, next) {
 		res.json(stream);
 	});
 });
-// streamsRoutes.get('/:id', streamController.getStreamsById);
 
 streamsRoutes.route('/add').post(function (req, res, next) {
 	let stream = new Stream(req.body);
@@ -61,7 +60,6 @@ streamsRoutes.route('/update/:id').patch(function (req, res, next) {
 			});
 	});
 });
-// streamsRoutes.patch('/update/:id', streamController.updateStream);
 streamsRoutes.route('/delete/:id').delete((req, res, next) => {
 	Stream.findByIdAndDelete(req.params.id)
 		.then(() => res.json({ stream: 'Stream deleted.' }))
