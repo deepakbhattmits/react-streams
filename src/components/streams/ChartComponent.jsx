@@ -3,7 +3,7 @@
 import React, { useRef, useEffect, useState } from 'react';
 import { Line } from 'react-chartjs-2';
 const ChartComponent = () => {
-	// console.log('ChartComponent >');
+	// console.log('ChartComponent :');
 	const chart = useRef();
 	const [legend, setLegend] = useState([]);
 	const chartData = {
