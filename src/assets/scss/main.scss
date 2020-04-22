@@ -49,7 +49,7 @@ body {
 #root {
 	display: grid;
 	grid-template-columns: 70% 30%;
-	grid-template-rows: 60px auto 59px;
+	grid-template-rows: 60px auto 60px;
 	grid-template-areas:
 		'header header'
 		'main sidebar'
