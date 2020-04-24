@@ -8,7 +8,7 @@ import flv from 'flv.js';
 
 import { fetchStream } from '../../actions';
 const StreamShow = (props) => {
-	// console.log('StreamShow :');
+	// console.log('StreamShow >:');
 	const { id } = useParams();
 	const stream = useSelector((state) => state.streams[id]);
 	const videoRef = useRef(null);
