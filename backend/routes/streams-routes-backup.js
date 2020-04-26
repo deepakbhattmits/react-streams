@@ -4,7 +4,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const streamsRoutes = express.Router();
 let Stream = require('../models/stream.model');
-// added 
+
 mongoose.connect('mongodb://127.0.0.1:27017/streams', {
 	useNewUrlParser: true,
 	useUnifiedTopology: true,
