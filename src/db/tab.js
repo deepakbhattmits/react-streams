@@ -10,7 +10,7 @@ export const data = [
 	},
 	{
 		id: 2,
-		firstName: 'om prakash',
+		firstName: 'omprakash',
 		lastName: 'bhatt',
 		age: 25,
 		role: 'business',
