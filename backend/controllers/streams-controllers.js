@@ -7,7 +7,7 @@ const getStreams = async (req, res, next) => {
 	try {
 		streams = await Stream.find().exec();
 	} catch (err) {
-		const error = new HttpError('Something went wrong', 400);
+		const error = new HttpError('Something went wrong.', 400);
 		return next(error);
 	}
 	res.json(streams);
