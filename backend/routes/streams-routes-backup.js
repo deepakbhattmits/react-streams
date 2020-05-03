@@ -12,7 +12,7 @@ mongoose.connect('mongodb://127.0.0.1:27017/streams', {
 const connection = mongoose.connection;
 
 connection.once('open', function () {
-	console.log('MongoDB database connection established successfully');
+	console.log('MongoDB database connection established successfully.');
 });
 
 streamsRoutes.route('/').get(function (req, res, next) {
