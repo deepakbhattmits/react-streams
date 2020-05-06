@@ -32,7 +32,7 @@ export const createStream = (formValues) => async (dispatch, getState) => {
 	createBrowserHistory.push('/'); // programatic navigation
 };
 export const fetchStreams = () => async (dispatch) => {
-	// console.log('action fetchStreams >:');
+	// console.log('action fetchStreams >');
 	const response = await streams.get('/streams');
 	dispatch({ type: FETCH_STREAMS, payload: response.data });
 };
