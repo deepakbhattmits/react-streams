@@ -6,7 +6,7 @@ export const data = [
 		firstName: 'deepak',
 		lastName: 'bhatt',
 		age: 30,
-		role: 'developer.',
+		role: 'developer',
 	},
 	{
 		id: 2,
