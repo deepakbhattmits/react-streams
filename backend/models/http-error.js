@@ -1,5 +1,5 @@
 /** @format */
-// error model class
+// error model
 class HttpError extends Error {
 	constructor(message, errorCode) {
 		super(message);
