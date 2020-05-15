@@ -51,7 +51,7 @@ const addStream = async (req, res, next) => {
 		await createdStream.save();
 	} catch (err) {
 		const error = new HttpError(
-			'Creating stream failed, please try again.',
+			'Creating stream failed, please try again..',
 			500
 		);
 		return next(error);
