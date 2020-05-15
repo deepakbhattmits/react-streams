@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 import Cell from './Cell';
 import CalComponent from './CalComponent';
 const Board = ({ onClick, val, num }) => {
-	// console.log('Board :>');
+	// console.log('Board :>>>>>');
 	const initData = {
 		cells: Array.apply(null, { length: 9 }).map((x) => ''),
 		symbl: 'X',
