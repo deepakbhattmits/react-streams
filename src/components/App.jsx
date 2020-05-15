@@ -19,7 +19,7 @@ import SliderComponent from './streams/SliderComponent';
 import GridLayoutComponent from './streams/GridLayoutComponent';
 
 const App = () => {
-	// console.log('App :>');
+	// console.log('App :>>>>');
 	return (
 		<GlobalState>
 			{/* <div className='ui container'> */}
