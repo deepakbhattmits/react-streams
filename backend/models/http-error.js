@@ -1,5 +1,5 @@
 /** @format */
-//  error HttpError
+//error HttpError
 class HttpError extends Error {
 	constructor(message, errorCode) {
 		super(message);
