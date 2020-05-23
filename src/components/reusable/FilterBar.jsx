@@ -18,7 +18,7 @@ const FilterBar = ({
 	defaultFilter,
 	canDeselect = true, // can have no filters applied
 }) => {
-	// source of truth:
+	// source of truth :
 	const [filters, setFilters] = useState(!!defaultFilter ? defaultFilter : []);
 
 	// handle whether to add/remove a filter
