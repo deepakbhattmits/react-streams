@@ -46,7 +46,7 @@ const CalComponent = () => {
 		}
 
 		// let newVal = +`${val}${textContent}`;
-		// console.log('CalComponent :>>>>>', newVal);
+		// console.log('CalComponent >:>>>>>', newVal);
 		// setValue(val);
 	};
 	const renderData = () => {
