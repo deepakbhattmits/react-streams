@@ -24,7 +24,7 @@ streamsRoutes.route('/').get(function (req, res, next) {
 		}
 	});
 });
-//  get streamById---old
+// get streamById---old
 streamsRoutes.route('/:id').get(function (req, res, next) {
 	let id = req.params.id;
 	Stream.findById(id, function (err, stream) {
