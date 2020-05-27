@@ -12,7 +12,7 @@ const ScrollIndicator = ({ id, className, children }) => {
 	const handleScroll = (e) => {
 		const { scrollTop, offsetHeight, scrollHeight } = e.target;
 		// console.log(
-		// 	'ScrollIndicator SCROLL >',
+		// 	'ScrollIndicator SCROLL >>',
 		// 	'scrollTop :',
 		// 	scrollTop,
 		// 	'offsetHeight : ',
