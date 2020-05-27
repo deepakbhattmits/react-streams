@@ -11,7 +11,7 @@ const StreamDelete = (props) => {
 	const dispatch = useDispatch();
 	const stream = useSelector((state) => state.streams[id]);
 	const { fetchStream } = props;
-	// console.log('fetchStream <<<<?<<<<<<<<', fetchStream);
+	// console.log('fetchStream <<<<?<<<<<<<<<<', fetchStream);
 	useEffect(() => {
 		if (!id.length) {
 			fetchStream(id);
