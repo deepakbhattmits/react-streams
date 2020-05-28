@@ -3,7 +3,7 @@ import React, { useState, useCallback, useEffect } from 'react';
 import FilterBar from './reusable/FilterBar';
 
 const Analyst = () => {
-	// console.log('Analyst >:>>>>>>>>');
+	// console.log('Analyst >>>>>:>>>>>>>>');
 	const [disable, setDisable] = useState(false);
 	const [filters, setFilters] = useState();
 	// determine whether to check filters or not
