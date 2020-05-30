@@ -2,6 +2,7 @@
 const { validationResult } = require('express-validator');
 const Stream = require('../models/stream.model');
 const HttpError = require('../models/http-error');
+//getStreams
 const getStreams = async (req, res, next) => {
 	let streams;
 	try {
