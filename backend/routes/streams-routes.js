@@ -2,7 +2,7 @@
 // express
 const express = require('express');
 const streamsRoutes = express.Router();
-const streamController = require('../controllers/streams-controllers'); //  controller for streams
+const streamController = require('../controllers/streams-controllers'); // controller for streams
 streamsRoutes.get('/', streamController.getStreams);
 
 streamsRoutes.get('/:id', streamController.getStreamById);
