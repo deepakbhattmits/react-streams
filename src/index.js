@@ -14,7 +14,7 @@ const store = createStore(
 	reducers,
 	composeEnhancers(applyMiddleware(reduxThunk))
 );
-const rootElement = document.querySelector('#root'); // main entry point.
+const rootElement = document.querySelector('#root'); //  main entry point.
 ReactDOM.render(
 	<Provider store={store}>
 		<App />
