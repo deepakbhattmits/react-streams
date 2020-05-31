@@ -10,7 +10,7 @@ const GlobalState = (props) => {
 	const products = [
 		{ id: 1, name: 'apple xr', price: 100 },
 		{ id: 2, name: 'iphone x', price: 102 },
-		{ id: 3, name: 'iphone 6', price: 150 },
+		{ id: 3, name: 'iphone 7', price: 150 },
 		{ id: 4, name: 'iphone pro.', price: 150 },
 		{ id: 5, name: 'apple', price: 150 },
 		// { id: 6, name: 'iphone 7', price: 150 },
