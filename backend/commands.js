@@ -1,5 +1,5 @@
 /** @format */
-// mongodb commands
+// -mongodb commands
 db.createCollection('posts', {
 	validator: {
 		$jsonSchema: {
