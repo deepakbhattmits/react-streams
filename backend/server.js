@@ -8,7 +8,7 @@ const cors = require('cors');
 const PORT = 5000;
 const streamsRoutes = require('./routes/streams-routes');
 
-app.use(cors()); //  added for cors.
+app.use(cors()); //added for cors.
 app.use(bodyParser.json());
 app.use('/streams', streamsRoutes);
 mongoose
