@@ -20,7 +20,7 @@ export const data = [
 	{
 		postId: 'student',
 		id: 3,
-		name: 'odio adipisci rerum aut anim',
+		name: 'odio adipisci rerum aut ani',
 		email: 'Nikita@garfield.biz',
 		body:
 			'quia molestiae reprehenderit quasi aspernatur\naut expedita occaecati aliquam eveniet laudantium\nomnis quibusdam delectus saepe quia accusamus maiores nam est\ncum et ducimus et vero voluptates excepturi deleniti ratione',
