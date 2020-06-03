@@ -4,7 +4,7 @@ import React from 'react';
 import { createPortal } from 'react-dom';
 
 const Modal = (props) => {
-	// console.log('Modal >>', props);
+	// console.log('Modal >:>', props);
 	return createPortal(
 		<div
 			onClick={props.onDismiss}
