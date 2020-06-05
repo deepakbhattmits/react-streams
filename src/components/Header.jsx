@@ -22,7 +22,7 @@ const Header = (props) => {
 	// const handleChange = e => {
 	// 	const { value } = e.target;
 	// 	setSearch(value);
-	// 	console.log('SEARCH HANDLECHANGE >::> ', value, context.products);
+	// 	console.log('SEARCH HANDLECHANGE >:> ', value, context.products);
 	// 	context.seacrhProduct(value, context.products);
 	// };
 	// const onChangeSVG = () => {
