@@ -11,7 +11,7 @@ const StreamEdit = (props) => {
 	const { id } = useParams();
 	const dispatch = useDispatch();
 	const stream = useSelector((state) => state.streams[id]);
-	// console.log('StreamEdit >>:>>>>>>>:>', stream);
+	// console.log('StreamEdit >:>', stream);
 	useEffect(() => {
 		dispatch(fetchStream(id));
 	}, [dispatch, fetchStream, id]);
