@@ -70,11 +70,16 @@ body {
 	.app-footer {
 		grid-area: footer;
 		background: #eee;
-		z-index: 2;
+		z-index: 3;
 		display: flex;
 		justify-content: center;
 		align-items: center;
 	}
+}
+
+.radio-wrapper {
+	display: grid;
+	grid-template-columns: repeat(5, 60px);
 }
 .div {
 	&--up {
