@@ -22,7 +22,7 @@ const Header = (props) => {
 	// const handleChange = e => {
 	// 	const { value } = e.target;
 	// 	setSearch(value);
-	// 	console.log('SEARCH HANDLECHANGE >:> ', value, context.products);
+	// 	console.log('SEARCH HANDLECHANGE >: ', value, context.products);
 	// 	context.seacrhProduct(value, context.products);
 	// };
 	// const onChangeSVG = () => {
@@ -77,6 +77,9 @@ const Header = (props) => {
 				</Link>
 				<Link to='/streams/slider' className='item'>
 					Slider
+				</Link>
+				<Link to='/streams/ratings' className='item'>
+					Ratings
 				</Link>
 				<Link to='/game' className='item'>
 					Game
