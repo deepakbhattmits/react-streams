@@ -50,7 +50,7 @@ const CalComponent = () => {
 		// setValue(val);
 	};
 	const renderData = () => {
-		// console.log('INPPUT >: ',inputs);
+		// console.log('INPPUT >>>>: ',inputs);
 		return inputs.map((el, i) => {
 			return (
 				<div key={i} className='field' onClick={handleClick}>
