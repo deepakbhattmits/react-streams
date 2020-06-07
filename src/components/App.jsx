@@ -17,9 +17,10 @@ import BarChart from './streams/BarChart';
 import Board from './Board';
 import SliderComponent from './streams/SliderComponent';
 import GridLayoutComponent from './streams/GridLayoutComponent';
+import Ratings from './streams/Ratings';
 
 const App = () => {
-	// console.log('App >');
+	// console.log('App ::>');
 	return (
 		<GlobalState>
 			{/* <div className='ui container'> */}
@@ -41,6 +42,9 @@ const App = () => {
 
 						<Route path='/streams/datatable' exact>
 							<Table />
+						</Route>
+						<Route path='/streams/ratings' exact>
+							<Ratings />
 						</Route>
 						<Route path='/streams/bar' exact>
 							<CustomHorizontalBar />
