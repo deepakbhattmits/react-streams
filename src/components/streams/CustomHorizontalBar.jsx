@@ -4,7 +4,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { HorizontalBar } from 'react-chartjs-2';
 const CustomHorizontalBar = () => {
 	const chart = useRef();
-	// console.log('CustomHorizontalBar >>>:>:>>>>>');
+	// console.log('CustomHorizontalBar >>');
 	const [legend, setLegend] = useState([]);
 	var data = {
 		labels: ['MON', 'TUE', 'WED', 'THR', 'FRI', 'SAT', 'SUN'],
