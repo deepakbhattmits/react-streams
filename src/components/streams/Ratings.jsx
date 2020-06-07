@@ -7,7 +7,7 @@ const Ratings = () => {
 		let arrRadios = [0, 0.25, 0.5, 0.75, 1];
 		const handleChange = (e) => {
 			const { name, value } = e.target;
-			console.log('TEST : ', name, value);
+			console.log('TicketCoductor : ', name, value);
 		};
 		return arrRadios.map((item, index) => {
 			return (
@@ -17,7 +17,8 @@ const Ratings = () => {
 					type='radio'
 					name='ticketConductor'
 					value={item}
-					htmlFor={item}
+					htmlFor={item === 0 ? 'off' : item}
+					id={item === 0 ? 'off' : item}
 					label={item === 0 ? 'off' : `${item * 100}%`}
 				/>
 			);
