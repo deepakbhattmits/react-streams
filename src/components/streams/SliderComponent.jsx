@@ -77,7 +77,7 @@ const ButtonGroup = ({ next, previous, goToSlide, ...rest }) => {
 	const {
 		carouselState: { currentSlide },
 	} = rest;
-	// console.log('ButtonGroup ', rest);
+	// console.log('ButtonGroup :', rest);
 	return (
 		<div
 			className='carousel-button-group'
