@@ -13,7 +13,7 @@ export const data = [
 		firstName: 'om prakash',
 		lastName: 'bhatt',
 		age: 25,
-		role: 'business developer',
+		role: 'business developer ',
 	},
 	{
 		id: 3,
