@@ -1,5 +1,5 @@
 /** @format */
-import React, { useState, useCallback, useEffect } from 'react';
+import React, { useState } from 'react';
 
 const CalComponent = () => {
 	const [value, setValue] = useState(0);
