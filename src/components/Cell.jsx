@@ -2,7 +2,7 @@
 
 import React from 'react';
 const Cell = ({ onClick, val, cellNum }) => {
-	// console.log('Cell :  >  : > >', val.length);
+	// console.log('Cell : >  : > >', val.length);
 	return (
 		<div
 			className={`${
