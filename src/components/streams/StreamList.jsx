@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import { fetchStreams } from '../../actions';
 
 const StreamList = () => {
-	// console.log('StreamList :  >');
+	// console.log('StreamLis:  >');
 	const dispatch = useDispatch();
 	const currentUserId = useSelector((state) => state.auth.userId);
 	// const isSignedIn = useSelector(state => state.auth.isSignedIn); // auth token
