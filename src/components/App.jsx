@@ -20,7 +20,7 @@ import GridLayoutComponent from './streams/GridLayoutComponent';
 import Ratings from './streams/Ratings';
 
 const App = () => {
-	// console.log('App >  : >');
+	// console.log('App >');
 	return (
 		<GlobalState>
 			{/* <div className='ui container'> */}
