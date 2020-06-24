@@ -4,23 +4,20 @@ import React, { lazy, Suspense } from 'react';
 import { Router, Route, Switch } from 'react-router-dom';
 import createBrowserHistory from '../history';
 import GlobalState from '../context/GlobalState';
+import LoadingSpinner from './reusable/LoadingSpinner';
 const Layout = lazy(() => import('../layout/Layout'));
-const StreamCreate = lazy(() => import('../streams/StreamCreate'));
-const StreamList = lazy(() => import('../streams/StreamList'));
-const StreamShow = lazy(() => import('../streams/StreamShow'));
-const StreamEdit = lazy(() => import('../streams/StreamEdit'));
-const StreamDelete = lazy(() => import('../streams/StreamDelete'));
-const Table = lazy(() => import('../streams/Table'));
-const CustomHorizontalBar = lazy(() =>
-	import('../streams/CustomHorizontalBar')
-);
-const ChartComponent = lazy(() => import('../streams/ChartComponent'));
-const BarChart = lazy(() => import('../streams/BarChart'));
-const SliderComponent = lazy(() => import('../streams/SliderComponent'));
-const GridLayoutComponent = lazy(() =>
-	import('../streams/GridLayoutComponent')
-);
-const Ratings = lazy(() => import('../streams/Ratings'));
+const StreamCreate = lazy(() => import('./streams/StreamCreate'));
+const StreamList = lazy(() => import('./streams/StreamList'));
+const StreamShow = lazy(() => import('./streams/StreamShow'));
+const StreamEdit = lazy(() => import('./streams/StreamEdit'));
+const StreamDelete = lazy(() => import('./streams/StreamDelete'));
+const Table = lazy(() => import('./streams/Table'));
+const CustomHorizontalBar = lazy(() => import('./streams/CustomHorizontalBar'));
+const ChartComponent = lazy(() => import('./streams/ChartComponent'));
+const BarChart = lazy(() => import('./streams/BarChart'));
+const SliderComponent = lazy(() => import('./streams/SliderComponent'));
+const GridLayoutComponent = lazy(() => import('./streams/GridLayoutComponent'));
+const Ratings = lazy(() => import('./streams/Ratings'));
 const Board = lazy(() => import('./Board'));
 // import Layout from '../layout/Layout';
 // import StreamCreate from './streams/StreamCreate';
@@ -41,8 +38,7 @@ const App = () => {
 	// console.log('App  >');
 	return (
 		<GlobalState>
-			{/* <div className='ui container'> */}
-			<Suspense fallback={<div>Loading...</div>}>
+			<Suspense fallback={<LoadingSpinner />}>
 				<Router history={createBrowserHistory}>
 					<Layout>
 						<Switch>
@@ -91,7 +87,6 @@ const App = () => {
 					</Layout>
 				</Router>
 			</Suspense>
-			{/* </div> */}
 		</GlobalState>
 	);
 };
