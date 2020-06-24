@@ -17,7 +17,7 @@ const StreamEdit = (props) => {
 	}, [dispatch, fetchStream, id]);
 
 	const onSubmit = (formValues) => {
-		// console.log((id, formValues));
+		// console.log( (id, formValues));
 		dispatch(editStream(id, formValues));
 	};
 	if (!stream) return <div>Loading...</div>;
