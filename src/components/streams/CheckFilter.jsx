@@ -40,7 +40,7 @@ class CheckFilter extends Component {
 		//  evt.target in synchronous code, and
 		//  and setState below is asynchronous
 		const { name, checked } = evt.target;
-		// console.log('CheckFilte > ', name, checked);
+		// console.log('CheckFilte  > ', name, checked);
 		if (name === 'all') {
 		}
 		// Passing function instead of object to setState
