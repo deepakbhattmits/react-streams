@@ -10,9 +10,7 @@ const WithOutHeader = forwardRef((props, ref) => {
 	// as the second argument
 	useImperativeHandle(ref, () => ({
 		disabledFunc() {
-			/*
-		check length of selection item 
-		*/
+			/*check length of selection item */
 			return props.selection.length === 0;
 		},
 		dataFunc() {
