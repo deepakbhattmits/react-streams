@@ -29,7 +29,7 @@ export const createStream = (formValues) => async (dispatch, getState) => {
 		['userId']: userId,
 	});
 	dispatch({ type: CREATE_STREAM, payload: response.data });
-	createBrowserHistory.push('/'); // programatic navigation
+	createBrowserHistory.push('/'); //  programatic navigation
 };
 export const fetchStreams = () => async (dispatch) => {
 	// console.log('action fetchStreams > :');
