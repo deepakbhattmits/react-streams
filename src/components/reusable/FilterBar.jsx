@@ -21,7 +21,7 @@ const FilterBar = ({
 	//  source of truth :
 	const [filters, setFilters] = useState(!!defaultFilter ? defaultFilter : []);
 
-	// handle whether to add/remove a filter
+	// handle whether to add / remove a filter
 	const toggleFilter = (item) => {
 		// console.log('FILTER  : > ', item);
 		// this FilterBar should allow multiple selections
