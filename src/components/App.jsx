@@ -35,7 +35,7 @@ const Board = lazy(() => import('./Board'));
 // import Ratings from './streams/Ratings';
 
 const App = () => {
-	// console.log('App : >');
+	// console.log('App  : >');
 	return (
 		<GlobalState>
 			<Suspense fallback={<LoadingSpinner />}>
