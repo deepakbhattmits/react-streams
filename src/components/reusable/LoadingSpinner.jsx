@@ -3,7 +3,7 @@
 import React from 'react';
 
 const LoadingSpinner = () => {
-	console.log('LoadingSpinner');
+	// console.log('LoadingSpinner');
 	return (
 		<div className='ui segment'>
 			<div className='ui active dimmer'>
