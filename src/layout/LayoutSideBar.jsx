@@ -1,7 +1,7 @@
 /** @format */
 
 import React, { Fragment } from 'react';
-import ScrollIndicator from '../reusable/ScrollIndicator';
+import ScrollIndicator from './ScrollIndicator';
 import Analyst from '../components/Analyst';
 import { Tab, Nav } from 'react-bootstrap';
 const LayoutSideBar = (props) => {
@@ -13,7 +13,7 @@ const LayoutSideBar = (props) => {
 	const arr = [...range(1, 20)];
 	const dataFirst = [
 		{
-			role: 'MIM',
+			role: 'BANANA',
 			counts: {
 				chat: {
 					count: 2,
@@ -75,7 +75,7 @@ const LayoutSideBar = (props) => {
 	];
 	const dataSecond = [
 		{
-			role: 'MIM',
+			role: 'BANANA',
 			counts: {
 				chat: {
 					count: 2,
@@ -204,9 +204,7 @@ const LayoutSideBar = (props) => {
 	};
 	return (
 		<ScrollIndicator id='sidebar' className='app-sidebar'>
-			<Tab.Container id='left-tabs-example' defaultActiveKey='first'>
-				{/* <Row>
-					<Col sm={12}> */}
+			{/* <Tab.Container id='left-tabs-example' defaultActiveKey='first'>
 				<Nav variant='default' className='flex-row custom-tab'>
 					<Nav.Item>
 						<Nav.Link eventKey='first'>Tab 1</Nav.Link>
@@ -215,10 +213,7 @@ const LayoutSideBar = (props) => {
 						<Nav.Link eventKey='second'>Tab 2</Nav.Link>
 					</Nav.Item>
 				</Nav>
-				{/* </Col>
-				</Row>
-				<Row> */}
-				{/* <Col sm={12}> */}
+
 				<Tab.Content>
 					<Tab.Pane eventKey='first'>
 						<div className='grid-container'>
@@ -239,10 +234,7 @@ const LayoutSideBar = (props) => {
 						</div>
 					</Tab.Pane>
 				</Tab.Content>
-				{/* </Col>
-				</Row> */}
-			</Tab.Container>
-
+			</Tab.Container> */}
 			<Analyst />
 			<p>SiderBar</p>
 			<p>SiderBar</p>
@@ -254,7 +246,6 @@ const LayoutSideBar = (props) => {
 			<p>SiderBar</p>
 			<p>SiderBar</p>
 			<p>SiderBar</p>
-
 			<ul>
 				{arr.map((el, i) => {
 					return <li key={i}>{el}</li>;
