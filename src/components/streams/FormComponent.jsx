@@ -9,7 +9,7 @@ const FormComponent = () => {
 	const validation = () => {
 		let formValid = true;
 		let errors = {};
-		// console.log('validation :: > ', data);
+		// console.log('validation : : > ', data);
 		if (!data['FirstName']) {
 			formValid = false;
 			errors['FirstName'] = 'Please Enter First Name';
