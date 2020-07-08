@@ -3,10 +3,9 @@
 import React, { useRef, useEffect } from 'react';
 import { Chart } from 'chart.js';
 const BarChart = () => {
-	console.log(
-		'%c BarChart  :>  ',
-		'border-radius:5px, background-color: blue,color: white'
-	);
+	var style = window.getComputedStyle(document.body);
+	var color = style.getPropertyValue('--color-scheme-white');
+	console.log('%c BarChart  :>  ', window, color);
 	const DateArr = [
 		'12:00 am',
 		'01:00 am',
