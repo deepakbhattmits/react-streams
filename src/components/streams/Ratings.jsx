@@ -7,7 +7,7 @@ const Ratings = () => {
 		let arrRadios = [0, 0.25, 0.5, 0.75, 1];
 		const handleChange = (e) => {
 			const { name, value } = e.target;
-			// console.log(' Ratings :  > ', name, value);
+			// console.log(' Ratings :   > ', name, value);
 		};
 		return arrRadios.map((item, index) => {
 			return (
