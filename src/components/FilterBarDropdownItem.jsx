@@ -1,7 +1,7 @@
 /** @format */
 
 import React from 'react';
-//component FilterBarDropdownItem
+// component FilterBarDropdownItem
 
 const FilterBarDropdownItem = ({ item, filters, toggleFilter }) => (
 	<li
