@@ -20,7 +20,7 @@ export const data = [
 		firstName: 'puja',
 		lastName: 'upadhyay',
 		age: 24,
-		role: 'hr lead',
+		role: 'hr',
 	},
 	{
 		id: 5,
