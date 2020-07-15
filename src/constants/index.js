@@ -1,3 +1,3 @@
 /** @format */
-//  export from
+// export from
 export * from './type';
