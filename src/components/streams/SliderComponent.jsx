@@ -12,7 +12,7 @@
 // import { ReactComponent as RightSVG } from '../../assets/images/icon-right-chevron.svg';
 
 // const SliderComponent = props => {
-// 	console.log('test :  >', props);
+// 	console.log('test : >', props);
 // 	return (
 // 		<>
 // 			<CarouselProvider
