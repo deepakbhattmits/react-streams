@@ -2,7 +2,6 @@
 
 import React, { Fragment } from 'react';
 import ScrollIndicator from './ScrollIndicator';
-import Analyst from '../components/Analyst';
 import { Tab, Nav } from 'react-bootstrap';
 const LayoutSideBar = (props) => {
 	function* range(start, end) {
@@ -178,7 +177,7 @@ const LayoutSideBar = (props) => {
 		return (
 			!!dataSecond &&
 			dataSecond.map((el, i) => {
-				console.log('RENDER LIST : ', el, el.counts);
+				// console.log('RENDER LIST : ', el, el.counts);
 				return (
 					<Fragment key={i}>
 						<div key={i} className='grid-item --role'>
@@ -204,38 +203,7 @@ const LayoutSideBar = (props) => {
 	};
 	return (
 		<ScrollIndicator id='sidebar' className='app-sidebar'>
-			{/* <Tab.Container id='left-tabs-example' defaultActiveKey='first'>
-				<Nav variant='default' className='flex-row custom-tab'>
-					<Nav.Item>
-						<Nav.Link eventKey='first'>Tab 1</Nav.Link>
-					</Nav.Item>
-					<Nav.Item>
-						<Nav.Link eventKey='second'>Tab 2</Nav.Link>
-					</Nav.Item>
-				</Nav>
-
-				<Tab.Content>
-					<Tab.Pane eventKey='first'>
-						<div className='grid-container'>
-							<div className='grid-item'>
-								<span className='blank'></span>
-							</div>
-							{renderHeader()}
-							{renderListFirst()}
-						</div>
-					</Tab.Pane>
-					<Tab.Pane eventKey='second'>
-						<div className='grid-container'>
-							<div className='grid-item'>
-								<span className='blank'></span>
-							</div>
-							{renderHeader()}
-							{renderListSecond()}
-						</div>
-					</Tab.Pane>
-				</Tab.Content>
-			</Tab.Container> */}
-			<Analyst />
+			{renderListSecond()}
 			<p>SiderBar</p>
 			<p>SiderBar</p>
 			<p>SiderBar</p>

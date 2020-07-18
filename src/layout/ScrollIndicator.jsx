@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 
 import { ReactComponent as UpSVG } from '../assets/images/icon-up-arrow.svg';
 import { ReactComponent as DownSVG } from '../assets/images/icon-down-arrow.svg';
+import ErrorBoundary from '../reusable/ErrorBoundary';
 
 const ScrollIndicator = ({ id, className, children }) => {
 	const [scroll, setScroll] = useState(true);
@@ -41,19 +42,21 @@ const ScrollIndicator = ({ id, className, children }) => {
 		setHasVerticalScrollbar(isScroll);
 	}, [id]);
 	return (
-		<aside id={id} className={className} onScroll={handleScroll}>
-			{scroll ? null : (
-				<div className='div--up'>
-					<UpSVG className='custom-icon icon--up--svg' />
-				</div>
-			)}
-			{children}
-			{scroll && hasVerticalScrollbar ? (
-				<div className='div--down'>
-					<DownSVG className='custom-icon icon--down--svg' />
-				</div>
-			) : null}
-		</aside>
+		<ErrorBoundary>
+			<aside id={id} className={className} onScroll={handleScroll}>
+				{scroll ? null : (
+					<div className='div--up'>
+						<UpSVG className='custom-icon icon--up--svg' />
+					</div>
+				)}
+				{children}
+				{scroll && hasVerticalScrollbar ? (
+					<div className='div--down'>
+						<DownSVG className='custom-icon icon--down--svg' />
+					</div>
+				) : null}
+			</aside>
+		</ErrorBoundary>
 	);
 };
 
