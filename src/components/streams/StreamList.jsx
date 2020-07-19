@@ -5,8 +5,6 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { fetchStreams } from '../../actions';
 
-import ErrorBoundary from '../../reusable/ErrorBoundary';
-
 const StreamList = () => {
 	// console.log('StreamLis : >');
 	const dispatch = useDispatch();
@@ -63,12 +61,10 @@ const StreamList = () => {
 	};
 	// throw new Error('HERE IN LIST');
 	return (
-		<ErrorBoundary>
-			<div>
-				<h2>Streams</h2>
-				<div className='ui celled list'>{renderList()}</div>
-			</div>
-		</ErrorBoundary>
+		<div>
+			<h2>Streams</h2>
+			<div className='ui celled list'>{renderList()}</div>
+		</div>
 	);
 };
 
