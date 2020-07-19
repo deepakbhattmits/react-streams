@@ -1,13 +1,11 @@
 /** @format */
 
 import React from 'react';
-import ErrorBoundary from '../reusable/ErrorBoundary';
-const LayoutFooter = (props) => {
-	// console.log(' LayoutFooter :  > ', props);
-	return (
-		<ErrorBoundary>
-			<div className='app-footer'>Footer</div>
-		</ErrorBoundary>
-	);
+const LayoutFooter = ({ error }) => {
+	// console.log(' LayoutFooter :  > ', error);
+	// if (error) {
+	// 	throw new Error('Footer');
+	// }
+	return <div className='app-footer'>Footer</div>;
 };
 export default LayoutFooter;
