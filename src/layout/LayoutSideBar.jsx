@@ -3,6 +3,7 @@
 import React, { Fragment } from 'react';
 import ScrollIndicator from './ScrollIndicator';
 import { Tab, Nav } from 'react-bootstrap';
+
 const LayoutSideBar = (props) => {
 	function* range(start, end) {
 		for (let i = start; i <= end; i++) {
