@@ -5,6 +5,7 @@ import { Router, Route, Switch } from 'react-router-dom';
 import createBrowserHistory from '../history';
 import GlobalState from '../context/GlobalState';
 import LoadingSpinner from './reusable/LoadingSpinner';
+import ErrorBoundary from '../reusable/ErrorBoundary';
 const Layout = lazy(() => import('../layout/Layout'));
 const StreamCreate = lazy(() => import('./streams/StreamCreate'));
 const StreamList = lazy(() => import('./streams/StreamList'));
@@ -35,7 +36,7 @@ const Board = lazy(() => import('./Board'));
 // import Ratings from './streams/Ratings';
 
 const App = () => {
-	// console.log('App:  >');
+	// console.log('App :  >');
 	return (
 		<GlobalState>
 			<Suspense fallback={<LoadingSpinner />}>
@@ -43,7 +44,9 @@ const App = () => {
 					<Layout>
 						<Switch>
 							<Route path='/' exact>
-								<StreamList />
+								<ErrorBoundary>
+									<StreamList />
+								</ErrorBoundary>
 							</Route>
 							<Route path='/grid' exact>
 								<GridLayoutComponent />
