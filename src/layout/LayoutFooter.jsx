@@ -6,6 +6,6 @@ const LayoutFooter = ({ error }) => {
 	// if (error) {
 	// 	throw new Error('Footer');
 	// }
-	return <div className='app-footer'>Footer</div>;
+	return <div className='app-footer '>Footer</div>;
 };
 export default LayoutFooter;
