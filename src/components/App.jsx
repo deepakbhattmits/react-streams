@@ -20,23 +20,9 @@ const SliderComponent = lazy(() => import('./streams/SliderComponent'));
 const GridLayoutComponent = lazy(() => import('./streams/GridLayoutComponent'));
 const Ratings = lazy(() => import('./streams/Ratings'));
 const Board = lazy(() => import('./Board'));
-// import Layout from '../layout/Layout';
-// import StreamCreate from './streams/StreamCreate';
-// import StreamList from './streams/StreamList';
-// import StreamShow from './streams/StreamShow';
-// import StreamEdit from './streams/StreamEdit';
-// import StreamDelete from './streams/StreamDelete';
-// import Table from './streams/Table';
-// import CustomHorizontalBar from './streams/CustomHorizontalBar';
-// import ChartComponent from './streams/ChartComponent';
-// import BarChart from './streams/BarChart';
-// import Board from './Board';
-// import SliderComponent from './streams/SliderComponent';
-// import GridLayoutComponent from './streams/GridLayoutComponent';
-// import Ratings from './streams/Ratings';
 
 const App = () => {
-	// console.log('App :  >');
+	// console.log('App  :  >');
 	return (
 		<GlobalState>
 			<Suspense fallback={<LoadingSpinner />}>
