@@ -138,7 +138,7 @@ const LayoutSideBar = (props) => {
 	const renderHeader = () => {
 		// console.log(' LayoutSideBar  :  >', dataFirst[0].counts);
 		return Object.keys(dataFirst[0].counts).map((head, i) => {
-			// console.log('item label : ', head);
+			// console.log('item label :', head);
 			return (
 				<div key={i} className='grid-item'>
 					<span className='head'>{head} </span>
