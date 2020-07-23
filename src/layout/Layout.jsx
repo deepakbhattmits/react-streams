@@ -16,7 +16,7 @@ const Layout = (props) => {
 				<LayoutSideBar />
 			</ErrorBoundary>
 			<ErrorBoundary>
-				<main className='app-main '>{props.children}</main>
+				<main className='app-main'>{props.children}</main>
 			</ErrorBoundary>
 			<ErrorBoundary>
 				<LayoutFooter error={true} />
