@@ -3,7 +3,7 @@
 import React from 'react';
 import Header from '../components/Header';
 const LayoutHeader = (props) => {
-	// console.log(' LayoutHeader  :   > ', props);
+	// console.log(' LayoutHeade :   > ', props);
 	return (
 		<div className='app-header'>
 			<Header />
