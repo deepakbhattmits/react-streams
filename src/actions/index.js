@@ -1,5 +1,6 @@
 /** @format */
 
+//types
 import {
 	SIGN_IN,
 	SIGN_OUT,
