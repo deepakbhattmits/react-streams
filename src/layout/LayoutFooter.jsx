@@ -2,7 +2,7 @@
 
 import React from 'react';
 const LayoutFooter = ({ error }) => {
-	// console.log(' LayoutFooter :  > ', error);
+	// console.log(' LayoutFooter : > ', error);
 	// if (error) {
 	// 	throw new Error('Footer');
 	// }
