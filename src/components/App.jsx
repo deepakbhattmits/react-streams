@@ -6,6 +6,7 @@ import createBrowserHistory from '../history';
 import GlobalState from '../context/GlobalState';
 import LoadingSpinner from './reusable/LoadingSpinner';
 import ErrorBoundary from '../reusable/ErrorBoundary';
+// const CalendarGrid = lazy(() => import('./streams/CalendarGrid'));
 const Layout = lazy(() => import('../layout/Layout'));
 const StreamCreate = lazy(() => import('./streams/StreamCreate'));
 const StreamList = lazy(() => import('./streams/StreamList'));
@@ -72,6 +73,9 @@ const App = () => {
 							<Route path='/streams/delete/:id' exact>
 								<StreamDelete />
 							</Route>
+							{/* <Route path='/streams/calendar' exact>
+								<CalendarGrid />
+							</Route> */}
 						</Switch>
 					</Layout>
 				</Router>
