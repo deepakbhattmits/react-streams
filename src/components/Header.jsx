@@ -91,6 +91,9 @@ const Header = (props) => {
 				<Link to='/streams/stack' className='item'>
 					stack
 				</Link>
+				{/* <Link to='/streams/calendar' className='item'>
+					Calendar
+				</Link> */}
 
 				<GoogleAuth />
 				{renderCreateButton()}
