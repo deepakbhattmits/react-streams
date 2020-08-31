@@ -84,7 +84,7 @@ const ButtonGroup = ({ next, previous, goToSlide, ...rest }) => {
 			style={{
 				position: 'absolute',
 			}}>
-			{/*remember to give it position :absolute*/}
+			{/*remember to give it position :absolute */}
 			<button
 				className={`slider-nav ${currentSlide === 0 ? 'disable' : ''}`}
 				title='prev'
