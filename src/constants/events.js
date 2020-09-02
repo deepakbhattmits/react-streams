@@ -1,7 +1,7 @@
 /** @format */
 
 const now = new Date();
-// eventsConstants
+//  eventsConstants
 export const eventsConstants = [
 	{
 		id: 0,
