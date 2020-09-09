@@ -1,5 +1,5 @@
 /** @format */
-// data
+//  data
 export const data = [
 	{
 		postId: 'student',
