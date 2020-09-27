@@ -41,7 +41,7 @@
 // 		</>
 // 	);
 // };
-// export default SliderComponent;
+//  export default SliderComponent;
 
 import React, { Component } from 'react';
 import Carousel from 'react-multi-carousel';
