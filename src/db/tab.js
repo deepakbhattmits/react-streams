@@ -55,7 +55,7 @@ export const data = [
 		firstName: 'manjesh',
 		lastName: 'tyagi',
 		age: 30,
-		role: 'business. ',
+		role: 'business.',
 	},
 	{
 		id: 10,
