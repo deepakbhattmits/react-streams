@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 // import { Slide } from '@material-ui/core';
-// TODO: Group By week
+//  TODO: Group By week
 const PlannerComponent = () => {
 	const [isActive, setIsActive] = useState([]);
 
