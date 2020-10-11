@@ -5,7 +5,7 @@ import { Chart } from 'chart.js';
 const BarChart = () => {
 	// var style = window.getComputedStyle(document.body);
 	// var color = style.getPropertyValue('--color-scheme-white');
-	// console.log('%c  BarChart:>  ', window, color);
+	// console.log('%c  BarChart : >  ', window, color);
 	const DateArr = [
 		'12:00 am',
 		'01:00 am',
