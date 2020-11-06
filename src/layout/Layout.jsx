@@ -6,7 +6,7 @@ import LayoutFooter from './LayoutFooter';
 import LayoutSideBar from './LayoutSideBar';
 import ErrorBoundary from '../reusable/ErrorBoundary';
 const Layout = (props) => {
-	// console.log('Layout  : > ', props);
+	// console.log('Layout  :> ', props);
 	return (
 		<>
 			<ErrorBoundary>
