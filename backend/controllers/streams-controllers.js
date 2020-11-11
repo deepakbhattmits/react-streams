@@ -2,7 +2,7 @@
 const { validationResult } = require('express-validator');
 const Stream = require('../models/stream.model');
 const HttpError = require('../models/http-error');
-// getStreams
+//  getStreams
 const getStreams = async (req, res, next) => {
 	let streams;
 	try {
@@ -80,7 +80,7 @@ const deleteStream = (req, res, next) => {
 		.then(() => res.json({ stream: 'Stream deleted.' }))
 		.catch((err) => res.status(400).json('Error: ' + err));
 };
-//exports.getStreams = getStreams;
+exports.getStreams = getStreams;
 exports.getStreams = getStreams;
 exports.getStreamById = getStreamById;
 exports.addStream = addStream;
