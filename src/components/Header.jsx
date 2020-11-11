@@ -6,7 +6,7 @@ import GoogleAuth from './GoogleAuth';
 import { connect } from 'react-redux';
 import appContext from '../context/app-context';
 // import { ReactComponent as CalenderSVG } from '../assets/images/icon-calendar.svg';
-//import DatePicker from 'react-datepicker';
+// import DatePicker from 'react-datepicker';
 // import { Dropdown, Button } from 'react-bootstrap';
 const Header = (props) => {
 	const context = useContext(appContext);
