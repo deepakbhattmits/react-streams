@@ -18,7 +18,7 @@ mongoose
 	})
 	.then(() => {
 		app.listen(PORT, function () {
-			console.log('Server is running on Port: ' + PORT);
+			console.log('Server is running on Port : ' + PORT);
 		});
 	})
 	.catch((error) => {
