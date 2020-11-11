@@ -1,7 +1,7 @@
 /** @format */
 
 import React, { useState } from 'react';
-//TODO: Group By week
+// TODO: Group By week
 const PlannerComponent = () => {
 	const [isActive, setIsActive] = useState([]);
 
