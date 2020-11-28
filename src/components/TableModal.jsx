@@ -16,7 +16,7 @@ const TableModal = (props) => {
 				onClick={(e) => {
 					e.stopPropagation();
 				}}
-				className={`ui standard test modal transition scrolling ${
+				className={`ui tiny test modal transition scrolling ${
 					props.active ? 'visible active' : 'hidden'
 				}`}>
 				<div className='header'>{props.title.toUpperCase()}</div>
@@ -29,19 +29,18 @@ const TableModal = (props) => {
 						</ul>
 					)} */}
 					<ul>
-						{!!props.content &&
-							props.content.map((item) =>
-								Object.values(item).map((el, i) => {
-									return (
-										<li key={i}>
-											{el.id}-{el.postId}-{el.name}
-										</li>
-									);
-								})
-							)}
+						{props?.content.map((item) =>
+							Object.values(item).map((el, i) => {
+								return (
+									<li key={i}>
+										{el.id}-{el.postId}-{el.name}
+									</li>
+								);
+							})
+						)}
 					</ul>
 				</div>
-				{/* <div className='actions'>{props.actions}</div> */}
+				<div className='actions'>{props.actions}</div>
 			</div>
 		</div>,
 		document.querySelector('#modal')
