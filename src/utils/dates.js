@@ -1,5 +1,5 @@
 /** @format */
-//date-arithmetic
+// date-arithmetic
 import * as dates from 'date-arithmetic';
 
 export {
