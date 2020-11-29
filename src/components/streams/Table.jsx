@@ -152,6 +152,26 @@ const Table = () => {
 		*/
 		return !!selection.length;
 	}, [selection]);
+	const actions = () => (
+		<div className='ui buttons'>
+			<button
+				className='ui button'
+				onClick={() => {
+					setActive(false);
+				}}>
+				Cancel
+			</button>
+			<div className='or'></div>
+			<button
+				className='ui positive button active'
+				onClick={() => {
+					// something else want to do
+					setActive(false);
+				}}>
+				Okay
+			</button>
+		</div>
+	);
 
 	useEffect(() => {
 		disableFunc();
@@ -173,6 +193,18 @@ const Table = () => {
 			},
 		};
 	}, []);
+	useEffect(() => {
+		// const body = document.querySelector('body');
+		document.body.classList.toggle('modal-page', active);
+		document.body.classList.toggle('pushable', active);
+		document.body.classList.toggle('dimmable', active);
+		document.body.classList.toggle('dimmed', active);
+		// if (active) {
+		// 	body.classList.add('modal-page pushable dimmable dimmed');
+		// } else {
+		// 	body.classList.remove('modal-page pushable dimmable dimmed');
+		// }
+	}, [active]);
 	return (
 		<div className='main-page'>
 			<WidgetHeaderWithButtons title='Incidents'>
@@ -192,14 +224,6 @@ const Table = () => {
 				</div>
 			</WidgetHeaderWithButtons>
 
-			<TableModal
-				title='selected data'
-				content={selectedData}
-				active={active}
-				onDismiss={() => {
-					setActive(false);
-				}}
-			/>
 			<WithoutHeader
 				ref={table}
 				data={data}
@@ -356,6 +380,15 @@ const Table = () => {
 				//         .indexOf(filter.value.toLowerCase()) !== -1
 				//     : true;
 				// }}
+			/>
+			<TableModal
+				title='selected data'
+				content={selectedData}
+				active={active}
+				actions={actions()}
+				onDismiss={() => {
+					setActive(false);
+				}}
 			/>
 		</div>
 	);
