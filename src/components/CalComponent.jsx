@@ -1,6 +1,6 @@
 /** @format */
 import React, { useState } from 'react';
-//  CalComponent
+//   CalComponent
 const CalComponent = () => {
 	const [value, setValue] = useState(0);
 	const inputs = [
