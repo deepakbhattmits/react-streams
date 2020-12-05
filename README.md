@@ -2,7 +2,7 @@
 
 ## Installing Guide
 
-step 1
+step 1.0
 
 npm Install / yarn install
 
