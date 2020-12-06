@@ -16,7 +16,7 @@ const TableModal = (props) => {
 				onClick={(e) => {
 					e.stopPropagation();
 				}}
-				className={`ui tiny  test modal transition scrolling ${
+				className={`ui tiny   test modal transition scrolling ${
 					props.active ? 'visible active' : 'hidden'
 				}`}>
 				<div className='header'>{props.title.toUpperCase()}</div>
