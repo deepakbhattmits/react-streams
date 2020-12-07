@@ -6,7 +6,7 @@ const PlannerComponent = () => {
 	const [isActive, setIsActive] = useState([]);
 
 	const [isDateSelected, setIsDateSelected] = useState();
-	//  const [  selectedWeek, setSelectedWeek] = useState();
+	//  const [ selectedWeek, setSelectedWeek] = useState();
 	const [selectedMonth, setSelectedMonth] = useState();
 	const [daysCollecion, setDaysCollecion] = useState();
 	const monthNames = [
