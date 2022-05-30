@@ -1,0 +1,12 @@
+.ui.dimmer.custom-dimmer.visible.transition {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+
+  .modal {
+    position: relative;
+    height: min-content;
+    transition: all 0.2s;
+  }
+}
